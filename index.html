@@ -7,7 +7,7 @@
 <meta name="description" content="Bin Youn - Korean multimedia artist, educator, and poet based in Vietnam."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Gowun+Batang:wght@400;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700&family=Nanum+Myeongjo:wght@400;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 :root{
@@ -20,10 +20,9 @@
   --t25:rgba(255,255,255,.25);--t20:rgba(255,255,255,.2);--t15:rgba(255,255,255,.15);
   --t10:rgba(255,255,255,.1);--t05:rgba(255,255,255,.05);
   --brd:rgba(255,255,255,.06);--brdh:rgba(255,255,255,.12);
-  /* Applied New Fonts Here */
-  --ed:'Cormorant Garamond',Georgia,serif;
-  --kr:'Gowun Batang',serif;
-  --ui:'Jost',-apple-system,sans-serif;
+  --ed:'Playfair Display',Georgia,serif;
+  --kr:'Nanum Myeongjo',serif;
+  --ui:'DM Sans',-apple-system,sans-serif;
 }
 html{scroll-behavior:smooth;scroll-padding-top:72px;}
 body{background:var(--bg);color:var(--t70);font-family:var(--ui);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
@@ -33,270 +32,219 @@ body{background:var(--bg);color:var(--t70);font-family:var(--ui);font-weight:300
 @media(min-width:768px){.ctn{padding:0 40px;}}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;transition:all .4s;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:56px;transition:all .4s;}
 nav.sc{background:rgba(8,8,7,.92);backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);border-bottom:1px solid rgba(212,0,90,.06);}
-.ni{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.ni{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px;}
 @media(min-width:768px){.ni{padding:0 40px;}}
-.nlogo{font-family:var(--ed);font-size:18px;font-weight:600;color:var(--t50);background:none;border:none;cursor:pointer;transition:color .3s;letter-spacing:.02em;}
+.nlogo{font-family:var(--ed);font-size:15px;font-weight:700;color:var(--t50);background:none;border:none;cursor:pointer;transition:color .3s;letter-spacing:.02em;}
 .nlogo:hover{color:var(--mag);}
-.nlogo .kr{font-family:var(--kr);font-size:15px;font-weight:400;color:var(--t30);margin-left:8px;}
-.nlinks{display:none;align-items:center;gap:12px;}
+.nlogo .kr{font-family:var(--kr);font-size:13px;font-weight:400;color:var(--t25);margin-left:6px;}
+.nlinks{display:none;align-items:center;gap:0;}
 @media(min-width:768px){.nlinks{display:flex;}}
-.nl{padding:8px 14px;font-family:var(--ui);font-size:13px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--t30);background:none;border:none;cursor:pointer;transition:color .3s;position:relative;}
-.nl:hover{color:var(--t70);}
+.nl{padding:8px 14px;font-family:var(--ui);font-size:11px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:var(--t25);background:none;border:none;cursor:pointer;transition:color .3s;position:relative;}
+.nl:hover{color:var(--t60);}
 .nl.ac{color:var(--mag);}
 .nl.ac::after{content:'';position:absolute;bottom:3px;left:14px;right:14px;height:1px;background:var(--mag);opacity:.4;}
-.nex{font-size:12px;color:var(--t30);text-decoration:none;letter-spacing:.08em;margin-left:12px;padding-left:12px;border-left:1px solid var(--brd);transition:color .3s;}
+.nex{font-size:11px;color:var(--t25);text-decoration:none;letter-spacing:.08em;margin-left:12px;padding-left:12px;border-left:1px solid var(--brd);transition:color .3s;}
 .nex:hover{color:var(--mag);}
 .hb{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;}
 @media(min-width:768px){.hb{display:none;}}
-.hb span{display:block;width:22px;height:1px;background:var(--t40);transition:all .3s;}
-.hb.op span:first-child{transform:rotate(45deg) translate(3px,3px);}
-.hb.op span:last-child{transform:rotate(-45deg) translate(3px,-3px);}
-.mm{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(8,8,7,.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--brd);padding:0 24px 24px;z-index:99;box-shadow:0 20px 40px rgba(0,0,0,0.5);}
+.hb span{display:block;width:18px;height:1px;background:var(--t40);transition:all .3s;}
+.hb.op span:first-child{transform:rotate(45deg) translate(2px,2px);}
+.hb.op span:last-child{transform:rotate(-45deg) translate(2px,-2px);}
+.mm{display:none;position:fixed;top:56px;left:0;right:0;background:rgba(8,8,7,.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--brd);padding:0 24px 24px;z-index:99;}
 .mm.op{display:block;}
-.ml{display:block;width:100%;text-align:left;padding:18px 0;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--t40);border:none;border-bottom:1px solid var(--t05);cursor:pointer;background:none;transition:color .3s;}
+.ml{display:block;width:100%;text-align:left;padding:14px 0;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--t35);border:none;border-bottom:1px solid var(--t05);cursor:pointer;background:none;transition:color .3s;}
 .ml:hover{color:var(--mag);}
 
 /* HERO */
 .hero{position:relative;min-height:100vh;overflow:hidden;}
 .hero canvas{position:absolute;inset:0;width:100%;height:100%;}
-.hcontent{position:relative;z-index:10;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 24px 60px;}
+.hcontent{position:relative;z-index:10;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px 60px;}
 
-/* NAME */
-.nm-kr{font-family:var(--kr);font-size:clamp(20px,3vw,32px);font-weight:400;color:var(--t20);letter-spacing:.25em;margin-bottom:12px;}
-.nm-en{font-family:var(--ed);font-size:clamp(64px,15vw,180px);font-weight:700;line-height:.9;color:var(--t95);letter-spacing:-.01em;text-shadow:0 0 80px rgba(212,0,90,.15);}
-.nm-sub{font-size:13px;font-weight:300;letter-spacing:.35em;text-transform:uppercase;color:var(--t30);margin:24px 0 20px;}
-.nm-sub span{color:var(--mag);opacity:.5;margin:0 6px;}
+/* NAME - Editorial Bold */
+.nm-kr{font-family:var(--kr);font-size:clamp(18px,3vw,28px);font-weight:400;color:var(--t15);letter-spacing:.2em;margin-bottom:8px;}
+.nm-en{font-family:var(--ed);font-size:clamp(60px,14vw,160px);font-weight:900;line-height:.88;color:var(--t95);letter-spacing:-.03em;text-shadow:0 0 80px rgba(212,0,90,.15);}
+.nm-sub{font-size:12px;font-weight:400;letter-spacing:.35em;text-transform:uppercase;color:var(--t20);margin:20px 0 48px;}
+.nm-sub span{color:var(--mag);opacity:.5;}
 
-/* THE FLUID HYBRID ENTITY (Replaces standard cards) */
-.trinity {
-  position: relative;
-  width: 280px;
-  height: 280px;
-  margin: 40px auto;
-}
-@media(min-width: 600px){ .trinity { width: 360px; height: 360px; margin: 60px auto; } }
-.t-core {
-  position: absolute;
-  top: 50%; left: 50%;
-  width: 130px; height: 130px;
-  transform: translate(-50%, -50%);
-  background: conic-gradient(from 0deg, var(--mag), var(--amb), var(--sage), var(--mag));
-  filter: blur(40px);
-  opacity: 0.35;
-  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-  animation: morphBlob 12s ease-in-out infinite alternate;
-  pointer-events: none;
-}
-@keyframes morphBlob {
-  0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; transform: translate(-50%, -50%) rotate(0deg); }
-  100% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; transform: translate(-50%, -50%) rotate(360deg); }
-}
-.t-node {
-  position: absolute;
-  width: 90px; height: 90px;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer; text-decoration: none; z-index: 10;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid rgba(255,255,255,0.08);
-  background: rgba(15, 15, 14, 0.5);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-@media(min-width: 600px){ .t-node { width: 100px; height: 100px; } }
-.t-node span { 
-  font-family: var(--ed); 
-  font-size: 18px; 
-  font-weight: 600; 
-  color: var(--t70); 
-  z-index: 2; 
-  transition: color 0.3s;
-  letter-spacing: 0.05em;
-}
-.t-node:hover { border-color: rgba(255,255,255,0.4); box-shadow: 0 10px 40px rgba(0,0,0,0.6); }
-.t-node:hover span { color: #fff; }
-
-.t-bg {
-  position: absolute; inset: -15px; border-radius: 50%;
-  opacity: 0; transition: opacity 0.5s, transform 0.5s; z-index: 1; filter: blur(20px);
-}
-.t-bg-a { background: var(--mag); }
-.t-bg-e { background: var(--amb); }
-.t-bg-r { background: var(--sage); }
-.t-node:hover .t-bg { opacity: 0.6; transform: scale(1.1); }
-
-/* Triangle Coordinate Positioning */
-.t-artist { top: 0; left: 50%; transform: translateX(-50%); animation: floatA 6s ease-in-out infinite; }
-.t-artist:hover { transform: translateX(-50%) scale(1.15); animation-play-state: paused; }
-
-.t-educator { bottom: 5%; left: 0; animation: floatE 7s ease-in-out infinite; }
-.t-educator:hover { transform: scale(1.15); animation-play-state: paused; }
-
-.t-researcher { bottom: 5%; right: 0; animation: floatR 8s ease-in-out infinite; }
-.t-researcher:hover { transform: scale(1.15); animation-play-state: paused; }
-
-@keyframes floatA { 0%, 100% { top: 0; } 50% { top: -12px; } }
-@keyframes floatE { 0%, 100% { bottom: 5%; } 50% { bottom: calc(5% - 12px); } }
-@keyframes floatR { 0%, 100% { bottom: 5%; } 50% { bottom: calc(5% + 12px); } }
+/* THREE RIVERS NAV CARDS */
+.rivers{display:grid;grid-template-columns:1fr;gap:12px;width:100%;max-width:720px;}
+@media(min-width:600px){.rivers{grid-template-columns:repeat(3,1fr);}}
+.rcard{position:relative;padding:28px 20px;border:1px solid var(--brd);background:rgba(255,255,255,.01);text-decoration:none;text-align:center;transition:all .4s;overflow:hidden;cursor:pointer;}
+.rcard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;opacity:.4;transition:opacity .4s;}
+.rcard:hover{border-color:var(--brdh);transform:translateY(-3px);background:rgba(255,255,255,.02);}
+.rcard:hover::before{opacity:1;}
+.rcard-a::before{background:var(--mag);}
+.rcard-e::before{background:var(--amb);}
+.rcard-r::before{background:var(--sage);}
+.rcard h3{font-family:var(--ed);font-size:18px;font-weight:700;color:var(--t70);margin-bottom:6px;transition:color .3s;}
+.rcard:hover h3{color:var(--t95);}
+.rcard p{font-size:12px;color:var(--t25);line-height:1.5;}
+.rcard .rdot{width:6px;height:6px;border-radius:50%;margin:0 auto 12px;opacity:.6;}
+.rcard-a .rdot{background:var(--mag);}
+.rcard-e .rdot{background:var(--amb);}
+.rcard-r .rdot{background:var(--sage);}
 
 /* CONFLUENCE */
 .conf{padding:80px 0 120px;position:relative;}
 .conf::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:1px;height:60px;background:linear-gradient(180deg,rgba(212,0,90,.15),transparent);}
 .conf-h{text-align:center;margin-bottom:64px;padding-top:60px;}
-.conf-l{font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--mag);opacity:.5;margin-bottom:16px;}
-.conf-t{font-family:var(--ed);font-size:clamp(30px,4vw,50px);font-weight:600;color:var(--t90);}
-.conf-s{font-family:var(--ed);font-style:italic;font-size:18px;color:var(--t40);margin-top:16px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.7;}
-.pgrid{display:grid;grid-template-columns:1fr;gap:20px;}
+.conf-l{font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:var(--mag);opacity:.4;margin-bottom:14px;}
+.conf-t{font-family:var(--ed);font-size:clamp(26px,4vw,44px);font-weight:700;color:var(--t80);}
+.conf-s{font-family:var(--ed);font-style:italic;font-size:14px;color:var(--t25);margin-top:14px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7;}
+.pgrid{display:grid;grid-template-columns:1fr;gap:16px;}
 @media(min-width:768px){.pgrid{grid-template-columns:repeat(3,1fr);}}
-.pc{position:relative;background:var(--card);border:1px solid var(--brd);overflow:hidden;transition:all .4s;border-radius:4px;}
-.pc:hover{border-color:var(--brdh);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.4);}
-.pc-acc{position:absolute;top:0;left:0;right:0;height:2px;opacity:.3;transition:opacity .4s;}
+.pc{position:relative;background:var(--card);border:1px solid var(--brd);overflow:hidden;transition:all .4s;}
+.pc:hover{border-color:var(--brdh);transform:translateY(-3px);box-shadow:0 20px 60px rgba(0,0,0,.4);}
+.pc-acc{position:absolute;top:0;left:0;right:0;height:2px;opacity:.4;transition:opacity .4s;}
 .pc:hover .pc-acc{opacity:1;}
 .pc .iph{aspect-ratio:16/10;background:linear-gradient(135deg,#0e0e0d,#090908);display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--brd);}
-.phl{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--t15);text-align:center;padding:20px;max-width:160px;line-height:1.5;}
-.phi{width:28px;height:28px;margin:0 auto 10px;border:1px solid var(--t10);border-radius:50%;display:flex;align-items:center;justify-content:center;}
-.phi svg{width:12px;height:12px;stroke:rgba(255,255,255,.15);fill:none;stroke-width:1.5;}
-.pc-b{padding:24px;}
-.ptags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;}
-.ptag{font-size:9px;letter-spacing:.12em;text-transform:uppercase;padding:3px 8px;border:1px solid;opacity:.6;border-radius:2px;}
-.pta{color:var(--mag);border-color:rgba(212,0,90,.3);}
-.pte{color:var(--amb);border-color:rgba(200,150,64,.3);}
-.ptr{color:var(--sage);border-color:rgba(90,138,106,.3);}
-.pc h3{font-family:var(--ed); font-size:22px;font-weight:600;color:var(--t70);margin-bottom:8px;transition:color .3s;line-height:1.3;}
-.pc:hover h3{color:var(--t95);}
-.pc p{font-size:14px;line-height:1.65;color:var(--t35);margin-bottom:16px;}
-.pls{display:flex;flex-wrap:wrap;gap:12px;}
+.phl{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--t10);text-align:center;padding:20px;max-width:160px;line-height:1.5;}
+.phi{width:24px;height:24px;margin:0 auto 8px;border:1px solid var(--t10);border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.phi svg{width:10px;height:10px;stroke:rgba(255,255,255,.08);fill:none;stroke-width:1.5;}
+.pc-b{padding:18px;}
+.ptags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:8px;}
+.ptag{font-size:8px;letter-spacing:.12em;text-transform:uppercase;padding:2px 7px;border:1px solid;opacity:.55;}
+.pta{color:var(--mag);border-color:rgba(212,0,90,.2);}
+.pte{color:var(--amb);border-color:rgba(200,150,64,.2);}
+.ptr{color:var(--sage);border-color:rgba(90,138,106,.2);}
+.pc h3{font-size:14px;font-weight:500;color:var(--t60);margin-bottom:6px;transition:color .3s;}
+.pc:hover h3{color:var(--t90);}
+.pc p{font-family:var(--ed);font-style:italic;font-size:12px;line-height:1.65;color:var(--t25);margin-bottom:12px;}
+.pls{display:flex;flex-wrap:wrap;gap:10px;}
 
 /* BUTTONS & LINKS */
-.bp{display:inline-flex;align-items:center;gap:6px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:12px 24px;background:var(--mag-d);border:1px solid rgba(212,0,90,.3);color:var(--mag);text-decoration:none;transition:all .3s;border-radius:2px;}
-.bp:hover{border-color:rgba(212,0,90,.6);background:rgba(212,0,90,.2);color:white;}
-.bo{display:inline-flex;align-items:center;gap:6px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:10px 18px;border:1px solid var(--t15);background:transparent;color:var(--t50);text-decoration:none;transition:all .3s;border-radius:2px;}
-.bo:hover{border-color:var(--t35);color:var(--t90);background:rgba(255,255,255,.03);}
-.el{display:inline-flex;align-items:center;gap:5px;font-size:13px;color:var(--t40);text-decoration:none;border-bottom:1px solid var(--brd);padding-bottom:2px;transition:all .3s;}
-.el:hover{color:var(--mag);border-color:rgba(212,0,90,.35);}
-.el .ar{opacity:0;transform:translateX(-3px);transition:all .3s;font-size:10px;}
+.bp{display:inline-flex;align-items:center;gap:6px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:11px 22px;background:var(--mag-d);border:1px solid rgba(212,0,90,.2);color:var(--mag);text-decoration:none;transition:all .3s;}
+.bp:hover{border-color:rgba(212,0,90,.5);background:rgba(212,0,90,.15);color:white;}
+.bo{display:inline-flex;align-items:center;gap:6px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:10px 18px;border:1px solid var(--t10);background:transparent;color:var(--t40);text-decoration:none;transition:all .3s;}
+.bo:hover{border-color:var(--t25);color:var(--t80);background:rgba(255,255,255,.02);}
+.el{display:inline-flex;align-items:center;gap:5px;font-size:12px;color:var(--t30);text-decoration:none;border-bottom:1px solid var(--brd);padding-bottom:2px;transition:all .3s;}
+.el:hover{color:var(--mag);border-color:rgba(212,0,90,.25);}
+.el .ar{opacity:0;transform:translateX(-3px);transition:all .3s;font-size:9px;}
 .el:hover .ar{opacity:1;transform:translateX(0);}
 
 /* IMAGE PLACEHOLDER */
-.ig{position:relative;overflow:hidden;border:1px solid var(--brd);background:linear-gradient(135deg,#0e0e0d,#090908);display:flex;align-items:center;justify-content:center;border-radius:4px;}
+.ig{position:relative;overflow:hidden;border:1px solid var(--brd);background:linear-gradient(135deg,#0e0e0d,#090908);display:flex;align-items:center;justify-content:center;}
 
 /* DIVIDER */
-.dv{display:flex;align-items:center;gap:16px;max-width:1200px;margin:0 auto;padding:16px 24px;}
-@media(min-width:768px){.dv{padding:16px 40px;}}
+.dv{display:flex;align-items:center;gap:16px;max-width:1200px;margin:0 auto;padding:8px 24px;}
+@media(min-width:768px){.dv{padding:8px 40px;}}
 .dvl{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--brd),transparent);}
-.dvd{width:4px;height:4px;border-radius:50%;background:rgba(212,0,90,.2);}
+.dvd{width:3px;height:3px;border-radius:50%;background:rgba(212,0,90,.12);}
 
 /* SECTIONS */
-.sec{padding:120px 0;}
-.sl{font-size:12px;letter-spacing:.25em;text-transform:uppercase;margin-bottom:12px;}
-.st{font-family:var(--ed);font-size:clamp(32px,4vw,48px);font-weight:600;color:rgba(255,255,255,.9);}
-.sh{margin-bottom:72px;}
-.sln{width:32px;height:2px;margin-bottom:20px;}
-.sub{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--t30);margin-bottom:32px;display:flex;align-items:center;gap:10px;}
-.sub-l{width:16px;height:1px;background:var(--t20);}
+.sec{padding:100px 0;}
+.sl{font-size:10px;letter-spacing:.25em;text-transform:uppercase;margin-bottom:10px;}
+.st{font-family:var(--ed);font-size:clamp(26px,4vw,44px);font-weight:700;color:rgba(255,255,255,.85);}
+.sh{margin-bottom:64px;}
+.sln{width:28px;height:2px;margin-bottom:18px;}
+.sub{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--t20);margin-bottom:28px;display:flex;align-items:center;gap:8px;}
+.sub-l{width:12px;height:1px;background:var(--t15);}
 
 /* GRIDS */
-.g2{display:grid;grid-template-columns:1fr;gap:32px;}
+.g2{display:grid;grid-template-columns:1fr;gap:24px;}
 @media(min-width:768px){.g2{grid-template-columns:repeat(2,1fr);}}
-.g3{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+.g3{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
 @media(min-width:768px){.g3{grid-template-columns:repeat(3,1fr);}}
 @media(min-width:1024px){.g3{grid-template-columns:repeat(4,1fr);}}
-.g3s{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+.g3s{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
 @media(min-width:600px){.g3s{grid-template-columns:repeat(3,1fr);}}
 @media(min-width:900px){.g3s{grid-template-columns:repeat(4,1fr);}}
 
 /* WORK CARDS */
-.wc{transition:transform .3s;}.wc:hover{transform:translateY(-3px);}
-.wt{font-family:var(--ed);font-size:20px;font-weight:600;color:var(--t70);transition:color .3s;margin-bottom:4px;line-height:1.3;}
-.wc:hover .wt{color:var(--t95);}
-.wy{font-size:11px;letter-spacing:.1em;color:var(--t25);margin-bottom:10px;}
-.wd{font-size:14px;line-height:1.65;color:var(--t35);margin-bottom:14px;}
-.wm{font-size:12px;color:var(--t25);line-height:1.5;margin-bottom:10px;font-style:italic;}
+.wc{transition:transform .3s;}.wc:hover{transform:translateY(-2px);}
+.wt{font-size:14px;font-weight:500;color:var(--t60);transition:color .3s;margin-bottom:3px;}
+.wc:hover .wt{color:var(--t90);}
+.wy{font-size:10px;letter-spacing:.1em;color:var(--t20);margin-bottom:8px;}
+.wd{font-family:var(--ed);font-style:italic;font-size:12px;line-height:1.65;color:var(--t25);margin-bottom:12px;}
+.wm{font-size:11px;color:var(--t20);line-height:1.5;margin-bottom:10px;font-style:italic;}
 
 /* SMALL CARDS */
-.sc{transition:transform .3s;}.sc:hover{transform:translateY(-3px);}
-.sc-t{font-family:var(--ed);font-size:16px;font-weight:600;color:var(--t50);transition:color .3s;line-height:1.4;}
-.sc:hover .sc-t{color:var(--t90);}
-.sc-y{font-size:11px;color:var(--t20);margin-bottom:10px;}
+.sc{transition:transform .3s;}.sc:hover{transform:translateY(-2px);}
+.sc-t{font-size:12px;color:var(--t40);transition:color .3s;}
+.sc:hover .sc-t{color:var(--t80);}
+.sc-y{font-size:10px;color:var(--t15);margin-bottom:8px;}
 
 /* ACCORDION */
-.acc{border:1px solid var(--brd);margin-bottom:4px;border-radius:2px;}
-.acc-h{width:100%;display:flex;align-items:center;justify-content:space-between;padding:20px 24px;font-family:var(--ed);font-size:18px;font-weight:600;color:var(--t60);background:rgba(255,255,255,0.01);border:none;cursor:pointer;transition:all .3s;}
-.acc-h:hover{color:var(--t90);background:rgba(255,255,255,0.03);}
-.acc-h .arr{font-size:14px;transition:transform .3s;color:var(--t30);}
+.acc{border:1px solid var(--brd);margin-bottom:2px;}
+.acc-h{width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--ed);font-size:15px;font-weight:700;color:var(--t50);background:none;border:none;cursor:pointer;transition:color .3s;}
+.acc-h:hover{color:var(--t80);}
+.acc-h .arr{font-size:12px;transition:transform .3s;color:var(--t20);}
 .acc-h.open .arr{transform:rotate(180deg);}
-.acc-body{display:none;padding:0 24px 24px;}
+.acc-body{display:none;padding:0 20px 20px;}
 .acc-body.open{display:block;}
-.acc-item{padding:10px 0;border-bottom:1px solid var(--t05);}
+.acc-item{padding:6px 0;border-bottom:1px solid var(--t05);}
 .acc-item:last-child{border:none;}
-.acc-title{font-size:14px;color:var(--t60);font-weight:400;}
-.acc-meta{font-size:12px;color:var(--t20);margin-top:4px;}
+.acc-title{font-size:13px;color:var(--t50);font-weight:500;}
+.acc-meta{font-size:11px;color:var(--t15);margin-top:2px;}
+.acc-link{color:var(--mag);text-decoration:none;font-size:12px;opacity:.6;transition:opacity .3s;}
+.acc-link:hover{opacity:1;}
 
 /* POEM */
-.poem{font-family:var(--ed);font-style:italic;font-size:18px;line-height:2.2;color:var(--t40);max-width:640px;padding:32px 0 32px 32px;border-left:2px solid rgba(212,0,90,.2);}
-.poem br+br{content:'';display:block;margin-top:12px;}
+.poem{font-family:var(--ed);font-style:italic;font-size:14px;line-height:2;color:var(--t35);max-width:560px;padding:32px 0 32px 24px;border-left:2px solid rgba(212,0,90,.15);}
+.poem br+br{content:'';display:block;margin-top:8px;}
 
 /* EDUCATOR */
-.egrid{display:grid;grid-template-columns:1fr;gap:56px;}
+.egrid{display:grid;grid-template-columns:1fr;gap:48px;}
 @media(min-width:1024px){.egrid{grid-template-columns:2fr 3fr;}}
-@media(min-width:1024px){.esb{position:sticky;top:100px;}}
-.eblk{margin-bottom:40px;}
-.eblk-t{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--t25);margin-bottom:16px;}
-.eblk+.eblk{padding-top:28px;border-top:1px solid var(--brd);}
-.philo{font-family:var(--ed);font-style:italic;font-size:18px;line-height:1.85;color:var(--t40);}
-.philo em{color:var(--mag);opacity:.7;font-style:normal;}
-.rt{font-family:var(--ed);font-size:18px;font-weight:600;color:var(--t70);margin-bottom:4px;}.ro{font-size:14px;color:var(--t35);}
-.rd{font-size:12px;color:var(--t20);margin-top:6px;}
-.spk p{font-size:14px;color:var(--t40);margin-bottom:8px;}
-.wsc{border:1px solid var(--brd);padding:24px;transition:border-color .3s;margin-bottom:16px;border-radius:4px;background:rgba(255,255,255,0.01);}
-.wsc:hover{border-color:rgba(200,150,64,.2);background:rgba(255,255,255,0.02);}
-.wsc h3{font-family:var(--ed);font-size:20px;font-weight:600;color:var(--t70);margin-bottom:6px;}
-.wsc .wsm{font-size:11px;color:var(--t20);margin-bottom:12px;}
-.wsc p{font-size:14px;line-height:1.7;color:var(--t40);margin-bottom:16px;}
-.wsl{display:flex;flex-wrap:wrap;gap:10px;}
+@media(min-width:1024px){.esb{position:sticky;top:80px;}}
+.eblk{margin-bottom:32px;}
+.eblk-t{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--t20);margin-bottom:12px;}
+.eblk+.eblk{padding-top:24px;border-top:1px solid var(--brd);}
+.philo{font-family:var(--ed);font-style:italic;font-size:14px;line-height:1.85;color:var(--t35);}
+.philo em{color:var(--mag);opacity:.6;}
+.rt{font-size:13px;color:var(--t50);margin-bottom:3px;}.ro{font-size:12px;color:var(--t25);}
+.rd{font-size:11px;color:var(--t15);margin-top:3px;}
+.spk p{font-size:12px;color:var(--t30);margin-bottom:5px;}
+.wsc{border:1px solid var(--brd);padding:20px;transition:border-color .3s;margin-bottom:12px;}
+.wsc:hover{border-color:rgba(200,150,64,.12);}
+.wsc h3{font-size:13px;font-weight:500;color:var(--t60);margin-bottom:5px;}
+.wsc .wsm{font-size:10px;color:var(--t15);margin-bottom:8px;}
+.wsc p{font-family:var(--ed);font-style:italic;font-size:12px;line-height:1.65;color:var(--t30);margin-bottom:12px;}
+.wsl{display:flex;flex-wrap:wrap;gap:8px;}
 
 /* RESEARCHER */
-.comc{border:1px solid var(--brd);padding:24px;border-radius:4px;}
-.comc .ct{font-family:var(--ed);font-size:20px;font-weight:600;color:var(--t70);margin-bottom:4px;}
-.comc .cd{font-size:14px;color:var(--t35);}
-.comc .cl{font-size:12px;color:var(--t20);margin-top:6px;}
-.pn{font-size:12px;color:var(--t25);font-style:italic;margin-bottom:20px;}
-.pi{border-left:2px solid var(--brd);padding:8px 0 8px 20px;margin-bottom:24px;transition:border-color .3s;}
-.pi:hover{border-color:rgba(90,138,106,.3);}
-.pi h4{font-family:var(--ed);font-size:18px;font-weight:600;color:var(--t60);line-height:1.5;margin-bottom:8px;}
-.pi .pv{font-size:12px;color:var(--t20);}
-.tc{border:1px solid var(--brd);padding:24px;transition:border-color .3s;margin-bottom:16px;border-radius:4px;background:rgba(255,255,255,0.01);}
-.tc:hover{border-color:rgba(90,138,106,.2);background:rgba(255,255,255,0.02);}
-.tc .tv{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--t25);margin-bottom:8px;}
-.tc h4{font-family:var(--ed);font-size:20px;font-weight:600;color:var(--t70);line-height:1.5;margin-bottom:12px;transition:color .3s;}
-.tc:hover h4{color:var(--t95);}
+.comc{border:1px solid var(--brd);padding:20px;}
+.comc .ct{font-size:13px;color:var(--t50);margin-bottom:3px;}
+.comc .cd{font-size:12px;color:var(--t25);}
+.comc .cl{font-size:11px;color:var(--t15);margin-top:3px;}
+.pn{font-size:10px;color:var(--t15);font-style:italic;margin-bottom:16px;}
+.pi{border-left:2px solid var(--brd);padding:5px 0 5px 18px;margin-bottom:16px;transition:border-color .3s;}
+.pi:hover{border-color:rgba(90,138,106,.2);}
+.pi h4{font-family:var(--ed);font-style:italic;font-size:13px;color:var(--t50);line-height:1.5;margin-bottom:5px;}
+.pi .pv{font-size:10px;color:var(--t15);}
+.tc{border:1px solid var(--brd);padding:20px;transition:border-color .3s;margin-bottom:12px;}
+.tc:hover{border-color:rgba(90,138,106,.1);}
+.tc .tv{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--t15);margin-bottom:5px;}
+.tc h4{font-family:var(--ed);font-style:italic;font-size:13px;color:var(--t50);line-height:1.5;margin-bottom:8px;transition:color .3s;}
+.tc:hover h4{color:var(--t80);}
 
 /* BIO */
-.bio-sec{padding:100px 0;border-top:1px solid var(--brd);}
-.bio-grid{display:grid;grid-template-columns:1fr;gap:48px;}
+.bio-sec{padding:80px 0;border-top:1px solid var(--brd);}
+.bio-grid{display:grid;grid-template-columns:1fr;gap:40px;}
 @media(min-width:768px){.bio-grid{grid-template-columns:1fr 1fr;}}
-.bio-text{font-size:15px;line-height:1.9;color:var(--t40);}
-.bio-text p+p{margin-top:20px;}
-.bio-side-t{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--t20);margin-bottom:16px;}
-.bio-item{padding:10px 0;border-bottom:1px solid var(--t05);}
-.bio-item-t{font-size:14px;color:var(--t50);}
-.bio-item-d{font-size:12px;color:var(--t20);margin-top:4px;}
+.bio-text{font-family:var(--ed);font-style:italic;font-size:14px;line-height:1.9;color:var(--t30);}
+.bio-text p+p{margin-top:16px;}
+.bio-side{}
+.bio-side-t{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--t15);margin-bottom:12px;}
+.bio-item{padding:8px 0;border-bottom:1px solid var(--t05);}
+.bio-item-t{font-size:12px;color:var(--t40);}
+.bio-item-d{font-size:11px;color:var(--t15);}
 
 /* FOOTER */
 .ft{border-top:1px solid var(--brd);margin-top:40px;}
-.ft-in{max-width:1200px;margin:0 auto;padding:64px 24px;}
-@media(min-width:768px){.ft-in{padding:64px 40px;}}
-.ft-g{display:grid;grid-template-columns:1fr;gap:40px;}
+.ft-in{max-width:1200px;margin:0 auto;padding:48px 24px;}
+@media(min-width:768px){.ft-in{padding:48px 40px;}}
+.ft-g{display:grid;grid-template-columns:1fr;gap:32px;}
 @media(min-width:768px){.ft-g{grid-template-columns:1fr 1fr 1fr;}}
-.ft-n{font-family:var(--ed);font-size:22px;font-weight:600;color:var(--t60);}
-.ft-nk{font-family:var(--kr);font-size:16px;color:var(--t30);margin-top:4px;margin-bottom:10px;}
-.ft-i{font-size:13px;color:var(--t25);line-height:1.7;}
-.ft-ct{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--t25);margin-bottom:16px;}
-.ft-ls{display:flex;flex-direction:column;gap:10px;}
-.ft-b{margin-top:48px;padding-top:20px;border-top:1px solid var(--brd);}
-.ft-c{font-size:11px;color:var(--t15);}
+.ft-n{font-family:var(--ed);font-size:16px;font-weight:700;color:var(--t50);}
+.ft-nk{font-family:var(--kr);font-size:12px;color:var(--t20);margin-top:2px;margin-bottom:6px;}
+.ft-i{font-size:11px;color:var(--t15);line-height:1.7;}
+.ft-ct{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--t15);margin-bottom:12px;}
+.ft-ls{display:flex;flex-direction:column;gap:7px;}
+.ft-b{margin-top:36px;padding-top:16px;border-top:1px solid var(--brd);}
+.ft-c{font-size:10px;color:var(--t10);}
 
 /* ANIM */
 .fi{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease;}
@@ -306,6 +254,7 @@ nav.sc{background:rgba(8,8,7,.92);backdrop-filter:blur(28px);-webkit-backdrop-fi
 </head>
 <body>
 
+<!-- NAV -->
 <nav id="nav"><div class="ni">
 <button class="nlogo" onclick="go('home')">Bin Youn<span class="kr">윤빈</span></button>
 <div class="nlinks">
@@ -322,9 +271,10 @@ nav.sc{background:rgba(8,8,7,.92);backdrop-filter:blur(28px);-webkit-backdrop-fi
 <button class="ml" onclick="go('artist')">Artist</button>
 <button class="ml" onclick="go('educator')">Educator</button>
 <button class="ml" onclick="go('researcher')">Researcher</button>
-<div style="padding-top:16px;"><a href="https://linktr.ee/binyoun" target="_blank" rel="noopener" class="el">Linktree <span class="ar">&nearr;</span></a></div>
+<div style="padding-top:12px;"><a href="https://linktr.ee/binyoun" target="_blank" rel="noopener" class="el">Linktree <span class="ar">&nearr;</span></a></div>
 </div>
 
+<!-- ===== HOME ===== -->
 <section id="home">
 <div class="hero">
 <canvas id="cv"></canvas>
@@ -332,42 +282,35 @@ nav.sc{background:rgba(8,8,7,.92);backdrop-filter:blur(28px);-webkit-backdrop-fi
 <div class="fi"><p class="nm-kr">윤빈</p><h1 class="nm-en">Bin Youn</h1></div>
 <p class="nm-sub fi">Multimedia Artist <span>/</span> Educator <span>/</span> Poet</p>
 
-<div class="trinity fi">
-  <div class="t-core"></div>
-  <div class="t-node t-artist" onclick="go('artist')">
-    <div class="t-bg t-bg-a"></div>
-    <span>Artist</span>
-  </div>
-  <div class="t-node t-educator" onclick="go('educator')">
-    <div class="t-bg t-bg-e"></div>
-    <span>Educator</span>
-  </div>
-  <div class="t-node t-researcher" onclick="go('researcher')">
-    <div class="t-bg t-bg-r"></div>
-    <span>Researcher</span>
-  </div>
+<!-- THREE RIVERS NAV -->
+<div class="rivers fi">
+<div class="rcard rcard-a" onclick="go('artist')"><div class="rdot"></div><h3>Artist</h3><p>Installations, lens-based media, sculpture, and poetic spatial encounters</p></div>
+<div class="rcard rcard-e" onclick="go('educator')"><div class="rdot"></div><h3>Educator</h3><p>Photography pedagogy, the r&#x1EC5;-root framework, and collaborative workshops</p></div>
+<div class="rcard rcard-r" onclick="go('researcher')"><div class="rdot"></div><h3>Researcher</h3><p>Academic publications, conference presentations, and committee roles</p></div>
 </div>
-
 </div>
 </div>
 
+<!-- CONFLUENCE -->
 <div class="conf">
 <div class="ctn">
 <div class="conf-h fi"><p class="conf-l">Featured Projects</p><h2 class="conf-t">The Confluence</h2><p class="conf-s">Where artistic practice, pedagogical innovation, and academic inquiry flow together.</p></div>
 <div class="pgrid">
 <div class="pc fi"><div class="pc-acc" style="background:linear-gradient(90deg,var(--mag),var(--amb));"></div><div class="iph"><div><div class="phi"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><p class="phl">M-NODE Hackathon</p></div></div><div class="pc-b"><div class="ptags"><span class="ptag pta">Artist</span><span class="ptag pte">Educator</span></div><h3>M-NODE Cross-Cultural Hackathon</h3><p>Five-day cross-cultural hackathon between Dong-Ah Institute of Media and Arts (Korea) and RMIT Vietnam Digital Media.</p><div class="pls"><a href="https://binyoun.github.io/mnode/" target="_blank" rel="noopener" class="el">Archive <span class="ar">&nearr;</span></a></div></div></div>
-<div class="pc fi"><div class="pc-acc" style="background:linear-gradient(90deg,var(--mag),var(--amb),var(--sage));"></div><div class="iph"><div><div class="phi"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><p class="phl">Beyond 1&amp;0</p></div></div><div class="pc-b"><div class="ptags"><span class="ptag pta">Artist</span><span class="ptag pte">Educator</span><span class="ptag ptr">Researcher</span></div><h3>Beyond 1&amp;0 Exhibition</h3><p>RMIT Vietnam's first external showcase, 73 artists, 34 artworks, 14 mediums, 4 performances.</p><div class="pls"><a href="https://binyoun.github.io/beyond-1-and-0-poem/" target="_blank" rel="noopener" class="el">Poem <span class="ar">&nearr;</span></a><a href="https://youtu.be/URONCeVigPo?si=bPCXDsHJLx6a8VwI" target="_blank" rel="noopener" class="el">Song <span class="ar">&nearr;</span></a></div></div></div>
+<div class="pc fi"><div class="pc-acc" style="background:linear-gradient(90deg,var(--mag),var(--amb),var(--sage));"></div><div class="iph"><div><div class="phi"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><p class="phl">Beyond 1&amp;0</p></div></div><div class="pc-b"><div class="ptags"><span class="ptag pta">Artist</span><span class="ptag pte">Educator</span><span class="ptag ptr">Researcher</span></div><h3>Beyond 1&amp;0 Exhibition</h3><p>RMIT Vietnam's first external showcase - 73 artists, 34 artworks, 14 mediums, 4 performances.</p><div class="pls"><a href="https://binyoun.github.io/beyond-1-and-0-poem/" target="_blank" rel="noopener" class="el">Poem <span class="ar">&nearr;</span></a><a href="https://youtu.be/URONCeVigPo?si=bPCXDsHJLx6a8VwI" target="_blank" rel="noopener" class="el">Song <span class="ar">&nearr;</span></a></div></div></div>
 <div class="pc fi"><div class="pc-acc" style="background:linear-gradient(90deg,var(--sage),var(--mag));"></div><div class="iph"><div><div class="phi"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><p class="phl">SIGGRAPH</p></div></div><div class="pc-b"><div class="ptags"><span class="ptag ptr">Researcher</span><span class="ptag pta">Artist</span></div><h3>ACM SIGGRAPH DAC SPARKS</h3><p>Co-moderated "Beyond the Global North" alongside Patrick Hartono.</p><div class="pls"><a href="https://dac.siggraph.org/sparks/2026-01-23_beyond-the-global-north/" target="_blank" rel="noopener" class="el">Session <span class="ar">&nearr;</span></a></div></div></div>
 </div></div></div>
 </section>
 
 <div class="dv"><div class="dvl"></div><div class="dvd"></div><div class="dvl"></div></div>
 
+<!-- ===== ARTIST ===== -->
 <section id="artist" class="sec">
 <div class="ctn">
 <div class="sh fi"><div class="sln" style="background:var(--mag);opacity:.5;"></div><p class="sl" style="color:var(--mag);opacity:.5;">II</p><h2 class="st">Artistic Practice</h2></div>
 
-<div style="margin-bottom:72px;"><div class="sub fi"><span class="sub-l"></span>Current Works (2025 to 2026)</div>
+<!-- Current Works -->
+<div style="margin-bottom:72px;"><div class="sub fi"><span class="sub-l"></span>Current Works (2025 - 2026)</div>
 <div class="g2">
 <div class="wc fi"><div class="ig" style="aspect-ratio:4/3;"><div><div class="phi"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><p class="phl">Sacred Tree at Hozo City</p></div></div><div style="margin-top:16px;"><h3 class="wt">Sacred Tree (&#xC2E0;&#xBAA9;, &#x795E;&#x6728;)</h3><p class="wy">2025</p><p class="wd">Interactive installation featured at Hozo City Tet Fest, exhibiting at the CTRL+M multimedia exhibition.</p></div></div>
 <div class="wc fi"><div class="ig" style="aspect-ratio:4/3;"><div><div class="phi"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><p class="phl">Evolving Matter at MMU</p></div></div><div style="margin-top:16px;"><h3 class="wt">Evolving Matter</h3><p class="wy">2025</p><p class="wd">Exhibited at the E-Gallery, Multimedia University (MMU), Malaysia.</p></div></div>
@@ -375,23 +318,27 @@ nav.sc{background:rgba(8,8,7,.92);backdrop-filter:blur(28px);-webkit-backdrop-fi
 <div class="wc fi"><div class="ig" style="aspect-ratio:4/3;"><div><div class="phi"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><p class="phl">&#x3141;otherisland</p></div></div><div style="margin-top:16px;"><h3 class="wt">&#x3141;otherisland at iNVENTX</h3><p class="wy">2025</p><p class="wd">Interactive AR installation exploring migration, cultural displacement, and embodied alienation.</p><a href="https://doi.org/10.6084/m9.figshare.30509915" target="_blank" rel="noopener" class="el">View <span class="ar">&nearr;</span></a></div></div>
 </div></div>
 
+<!-- Installation Archives -->
 <div style="margin-bottom:72px;" id="installations"><div class="sub fi"><span class="sub-l"></span>Installation Archives</div>
 <div class="g2" id="instGrid"></div></div>
 
+<!-- Sculpture Archives -->
 <div style="margin-bottom:72px;"><div class="sub fi"><span class="sub-l"></span>Sculpture Archives</div>
 <div class="g3s" id="sculpGrid"></div></div>
 
+<!-- Lens-based & Video -->
 <div style="margin-bottom:72px;"><div class="sub fi"><span class="sub-l"></span>Lens-based &amp; Video Archives</div>
 <div class="g2" id="lensGrid"></div></div>
 
+<!-- Poetry -->
 <div style="margin-bottom:72px;"><div class="sub fi"><span class="sub-l"></span>Poetry</div>
-<div class="fi"><p class="wy" style="margin-bottom:4px;">Featured in <em>Exchanges: dialogues between poetry and art</em></p><p style="font-size:12px;color:var(--t20);margin-bottom:24px;">The Ruth Foster Gallery, University of Wisconsin, Eau Claire, 2023</p>
+<div class="fi"><p class="wy" style="margin-bottom:4px;">Featured in <em>Exchanges: dialogues between poetry and art</em></p><p style="font-size:11px;color:var(--t15);margin-bottom:20px;">The Ruth Foster Gallery, University of Wisconsin - Eau Claire, 2023</p>
 <div class="poem">
 I was found and lightened so as not to be rotten.<br/>
 I need to be exposed to light from nowhere to fold and unfold.<br/>
 The colors and lines from the shiny source surround my eyeballs<br/>
 penetrate my skin like a gas.<br/><br/>
-After cutting up my roots from whoever, whatever,<br/>
+After cutting up my roots from whoever-whatever,<br/>
 I got stuck by all the burden.<br/>
 Throwing myself away to be fallen and settle down somewhere<br/>
 with nobody is alienating my every part.<br/><br/>
@@ -402,7 +349,7 @@ It is desperate to be exposed and developed.<br/><br/>
 Living out of my motherland, losing my mother tongue<br/>
 having a bite of fatal pomegranate like Proserpine did.<br/>
 It signifies for her captivity and marriage,<br/>
-and the incense burner, the attribute of goddess.<br/><br/>
+and the incense-burner, the attribute of goddess.<br/><br/>
 It is a process to detach m from mother to be another.<br/><br/>
 Aging,<br/>
 I am limited,<br/>
@@ -415,6 +362,7 @@ resuscitate and embrace lost empty time.<br/>
 a trajectory to navigate spacetime with ambient colors
 </div></div></div>
 
+<!-- Exhibition Archive Accordion -->
 <div><div class="sub fi"><span class="sub-l"></span>Complete Exhibition Archive</div>
 <div id="exhAcc" class="fi"></div></div>
 </div>
@@ -422,26 +370,28 @@ a trajectory to navigate spacetime with ambient colors
 
 <div class="dv"><div class="dvl"></div><div class="dvd"></div><div class="dvl"></div></div>
 
+<!-- ===== EDUCATOR ===== -->
 <section id="educator" class="sec">
 <div class="ctn">
 <div class="sh fi"><div class="sln" style="background:var(--amb);opacity:.5;"></div><p class="sl" style="color:var(--amb);opacity:.5;">III</p><h2 class="st">Educational Leadership</h2></div>
 <div class="egrid">
 <div><div class="esb">
-<div class="eblk fi"><p class="eblk-t">Philosophy</p><p class="philo">Creator of the <em>r&#x1EC5;, root</em> pedagogical framework, an exhibition centered approach replacing traditional portfolio assessments with physical exhibitions, fostering collective creative practice.</p></div>
-<div class="eblk fi"><p class="eblk-t">Current Role</p><p class="rt">Course Coordinator &amp; Associate Lecturer</p><p class="ro">RMIT University Vietnam</p><p class="rd">School of Communication and Design</p><p class="rd">July 2025 to Present</p></div>
+<div class="eblk fi"><p class="eblk-t">Philosophy</p><p class="philo">Creator of the <em>r&#x1EC5;-root</em> pedagogical framework - an exhibition-centered approach replacing traditional portfolio assessments with physical exhibitions, fostering collective creative practice.</p></div>
+<div class="eblk fi"><p class="eblk-t">Current Role</p><p class="rt">Course Coordinator &amp; Associate Lecturer</p><p class="ro">RMIT University Vietnam</p><p class="rd">School of Communication and Design</p><p class="rd">July 2025 - Present</p></div>
 <div class="eblk fi"><p class="eblk-t">Guest Speakers</p><div class="spk"><p>Duy-Phuong Le Nguyen</p><p>Tuna Lee</p><p>Stephen Ilam Jang</p></div></div>
 </div></div>
 <div>
 <div class="sub fi"><span class="sub-l"></span>Workshops &amp; Initiatives</div>
-<div class="wsc fi"><h3>Creative Photography Workshop</h3><p class="wsm">Semester 3, 2025</p><p>Intensive student workshops fostering creative exploration through lens-based media.</p><div class="wsl"><a href="https://www.instagram.com/p/DSQ-hOyEmrw/" target="_blank" rel="noopener" class="el">I <span class="ar">&nearr;</span></a><a href="https://www.instagram.com/p/DSZ9xXmEmhr/" target="_blank" rel="noopener" class="el">II <span class="ar">&nearr;</span></a><a href="https://www.instagram.com/p/DS_g_w3kjmW/" target="_blank" rel="noopener" class="el">III <span class="ar">&nearr;</span></a></div></div>
+<div class="wsc fi"><h3>Creative Photography Workshop</h3><p class="wsm">Semester 3 - 2025</p><p>Intensive student workshops fostering creative exploration through lens-based media.</p><div class="wsl"><a href="https://www.instagram.com/p/DSQ-hOyEmrw/" target="_blank" rel="noopener" class="el">I <span class="ar">&nearr;</span></a><a href="https://www.instagram.com/p/DSZ9xXmEmhr/" target="_blank" rel="noopener" class="el">II <span class="ar">&nearr;</span></a><a href="https://www.instagram.com/p/DS_g_w3kjmW/" target="_blank" rel="noopener" class="el">III <span class="ar">&nearr;</span></a></div></div>
 <div class="wsc fi"><h3>VVIP Photo Gift Project</h3><p>Project lead. Curated student professional photography for distinguished guests.</p><div class="wsl"><a href="https://www.instagram.com/p/DTO9nigEgN-/" target="_blank" rel="noopener" class="el">View <span class="ar">&nearr;</span></a></div></div>
-<div class="wsc fi"><h3>Experience Day 2026</h3><p>"Pocket Studio: Portraits with your phone", Satisfaction score 9.9/10.</p></div>
-<div class="wsc fi"><h3>Photo 101, SONY Partnership</h3><p>"Camera, Lighting, and AI: Pushing the Boundaries of Creativity" with SONY.</p></div>
+<div class="wsc fi"><h3>Experience Day 2026</h3><p>"Pocket Studio: Portraits with your phone" - Satisfaction score 9.9/10.</p></div>
+<div class="wsc fi"><h3>Photo 101 - SONY Partnership</h3><p>"Camera, Lighting, and AI: Pushing the Boundaries of Creativity" with SONY.</p></div>
 </div></div></div>
 </section>
 
 <div class="dv"><div class="dvl"></div><div class="dvd"></div><div class="dvl"></div></div>
 
+<!-- ===== RESEARCHER ===== -->
 <section id="researcher" class="sec">
 <div class="ctn">
 <div class="sh fi"><div class="sln" style="background:var(--sage);opacity:.5;"></div><p class="sl" style="color:var(--sage);opacity:.5;">IV</p><h2 class="st">Academic Research</h2></div>
@@ -452,11 +402,12 @@ a trajectory to navigate spacetime with ambient colors
 <div class="tc fi"><p class="tv">Beyond 1&amp;0 Symposium</p><h4>Empathetic Gestures, Entangled Futures: Mobile Cameras as Regenerative Practice</h4><a href="https://doi.org/10.6084/m9.figshare.30507803" target="_blank" rel="noopener" class="el">Read <span class="ar">&nearr;</span></a></div>
 <div class="tc fi"><p class="tv">SCD Research Exchange</p><h4>&#x3141;otherisland and Gelora: Portals of Embodied Alienation</h4><a href="https://doi.org/10.6084/m9.figshare.30507611" target="_blank" rel="noopener" class="el">Read <span class="ar">&nearr;</span></a></div>
 </div>
-<div class="fi"><div class="sub"><span class="sub-l"></span>Decks</div><div style="display:flex;flex-wrap:wrap;gap:12px;"><a href="https://www.canva.com/design/DAG-81OqB6s/vUe0xwUkUI7gqUxmJOsOdA/edit" target="_blank" rel="noopener" class="bo">Deck I</a><a href="https://www.canva.com/design/DAG-jQi_-DE/PeL_cWtPnm_M-iLCWOhLjQ/edit" target="_blank" rel="noopener" class="bo">Deck II</a></div></div>
+<div class="fi"><div class="sub"><span class="sub-l"></span>Decks</div><div style="display:flex;flex-wrap:wrap;gap:10px;"><a href="https://www.canva.com/design/DAG-81OqB6s/vUe0xwUkUI7gqUxmJOsOdA/edit" target="_blank" rel="noopener" class="bo">Deck I</a><a href="https://www.canva.com/design/DAG-jQi_-DE/PeL_cWtPnm_M-iLCWOhLjQ/edit" target="_blank" rel="noopener" class="bo">Deck II</a></div></div>
 </div></section>
 
 <div class="dv"><div class="dvl"></div><div class="dvd"></div><div class="dvl"></div></div>
 
+<!-- ===== BIO ===== -->
 <section class="bio-sec" id="bio">
 <div class="ctn">
 <div class="sh fi"><div class="sln" style="background:var(--t15);"></div><p class="sl" style="color:var(--t25);">About</p><h2 class="st">Biography</h2></div>
@@ -467,24 +418,25 @@ a trajectory to navigate spacetime with ambient colors
 <p>Working primarily with photography, spatial video installation, light, and sculptural forms, Youn creates sensory-based moving image installations that invite viewers to navigate spacetime. She is dedicated to weaving cultural and material narratives into transformative spatial encounters, where the boundaries between self, space, and time are continually reimagined.</p>
 </div></div>
 <div class="fi">
-<div style="margin-bottom:32px;"><p class="bio-side-t">Education</p>
+<div style="margin-bottom:28px;"><p class="bio-side-t">Education</p>
 <div class="bio-item"><p class="bio-item-t">MFA, California State University Long Beach</p><p class="bio-item-d">2023</p></div>
 <div class="bio-item"><p class="bio-item-t">B.A. Consumer Family Sciences &amp; B.B.A. Business Administration</p><p class="bio-item-d">Sungkyunkwan University, Seoul, 2013</p></div>
-<div class="bio-item"><p class="bio-item-t">Study Abroad, Paris Graduate School of Management</p><p class="bio-item-d">2011</p></div>
+<div class="bio-item"><p class="bio-item-t">Study Abroad - Paris Graduate School of Management</p><p class="bio-item-d">2011</p></div>
 </div>
-<div style="margin-bottom:32px;"><p class="bio-side-t">News &amp; Press</p>
-<div class="bio-item"><a href="https://boldjourney.com/meet-bin-youn/" target="_blank" rel="noopener" class="el">Bold Journey: Meet Bin Youn <span class="ar">&nearr;</span></a><p class="bio-item-d">July 2024</p></div>
+<div style="margin-bottom:28px;"><p class="bio-side-t">News &amp; Press</p>
+<div class="bio-item"><a href="https://boldjourney.com/meet-bin-youn/" target="_blank" rel="noopener" class="el">Bold Journey - Meet Bin Youn <span class="ar">&nearr;</span></a><p class="bio-item-d">July 2024</p></div>
 <div class="bio-item"><a href="https://shoutoutla.com/meet-bin-youn-artist-poet/" target="_blank" rel="noopener" class="el">Shoutout LA <span class="ar">&nearr;</span></a><p class="bio-item-d">April 2024</p></div>
 <div class="bio-item"><a href="https://voyagela.com/interview/meet-bin-youn-of-long-beach-la-county/" target="_blank" rel="noopener" class="el">VoyageLA <span class="ar">&nearr;</span></a><p class="bio-item-d">July 2023</p></div>
 </div>
 <div><p class="bio-side-t">Contact</p>
-<p style="font-size:13px;color:var(--t30);">CV available upon request</p>
-<a href="mailto:sierra.biny@icloud.com" class="el" style="margin-top:8px;display:inline-flex;">sierra.biny@icloud.com <span class="ar">&nearr;</span></a>
-<div style="margin-top:16px;"><a href="https://linktr.ee/binyoun" target="_blank" rel="noopener" class="bp">Linktree</a></div>
+<p style="font-size:12px;color:var(--t25);">CV available upon request</p>
+<a href="mailto:sierra.biny@icloud.com" class="el" style="margin-top:6px;display:inline-flex;">sierra.biny@icloud.com <span class="ar">&nearr;</span></a>
+<div style="margin-top:12px;"><a href="https://linktr.ee/binyoun" target="_blank" rel="noopener" class="bp">Linktree</a></div>
 </div>
 </div></div></div>
 </section>
 
+<!-- FOOTER -->
 <footer class="ft"><div class="ft-in"><div class="ft-g">
 <div><p class="ft-n">Bin Youn</p><p class="ft-nk">윤빈</p><p class="ft-i">Multimedia Artist, Educator &amp; Poet<br/>RMIT University Vietnam<br/>School of Communication and Design</p></div>
 <div><p class="ft-ct">Links</p><div class="ft-ls"><a href="https://www.rmit.edu.vn/profiles/y/bin-youn" target="_blank" rel="noopener" class="el">RMIT Profile <span class="ar">&nearr;</span></a><a href="https://binyoun.github.io/info/" target="_blank" rel="noopener" class="el">Recent Works <span class="ar">&nearr;</span></a><a href="https://linktr.ee/binyoun" target="_blank" rel="noopener" class="el">Linktree <span class="ar">&nearr;</span></a><a href="https://binyoun.github.io/mnode/" target="_blank" rel="noopener" class="el">M-NODE <span class="ar">&nearr;</span></a></div></div>
@@ -492,14 +444,16 @@ a trajectory to navigate spacetime with ambient colors
 </div><div class="ft-b"><p class="ft-c">&copy; 2026 Bin Youn 윤빈</p></div></div></footer>
 
 <script>
-/* ===== INSPIRED CANVAS LOGIC ===== */
+/* ===== 彬-INSPIRED CANVAS: 彡 (flowing strokes) + 林 (forest light) ===== */
 const cv=document.getElementById('cv'),c=cv.getContext('2d');
 let W,H,t=0;
 function rs(){W=cv.width=innerWidth;H=cv.height=innerHeight;}
 rs();addEventListener('resize',rs);
 
+// Organic noise
 function n(x,y,z){return(Math.sin(x*1.2+z*.7)+Math.sin(y*.8+z*.5)+Math.sin((x+y)*.6+z*.9)+Math.sin(Math.sqrt(x*x+y*y)*.4+z*1.1))*.25;}
 
+// Flowing strokes (彡) - calligraphic flowing lines
 class Stroke{
   constructor(col){
     this.col=col;this.seed=Math.random()*100;
@@ -525,6 +479,7 @@ class Stroke{
   }
 }
 
+// Forest light motes (林)
 class Mote{
   constructor(){this.reset();this.age=Math.random()*300;}
   reset(){
@@ -534,10 +489,10 @@ class Mote{
     this.life=300+Math.random()*500;this.age=0;
     this.drift=Math.random()*Math.PI*2;
     const roll=Math.random();
-    if(roll<.45){this.cr=212;this.cg=30;this.cb=90;}
-    else if(roll<.7){this.cr=200;this.cg=150;this.cb=64;}
-    else if(roll<.88){this.cr=90;this.cg=138;this.cb=106;}
-    else{this.cr=180;this.cg=160;this.cb=140;}
+    if(roll<.45){this.cr=212;this.cg=30;this.cb=90;} // magenta-warm
+    else if(roll<.7){this.cr=200;this.cg=150;this.cb=64;} // amber
+    else if(roll<.88){this.cr=90;this.cg=138;this.cb=106;} // sage
+    else{this.cr=180;this.cg=160;this.cb=140;} // warm white
   }
   update(t){
     const nn=n(this.x*3,this.y*3,t*.25);
@@ -548,6 +503,7 @@ class Mote{
   }
 }
 
+// Soft ambient light blobs
 class Glow{
   constructor(col){
     this.col=col;this.x=.1+Math.random()*.8;this.y=.1+Math.random()*.8;
@@ -563,9 +519,13 @@ class Glow{
   }
 }
 
+// Create entities
 const strokes=[];
+// Magenta strokes
 for(let i=0;i<8;i++)strokes.push(new Stroke([212,30,90]));
+// Amber strokes
 for(let i=0;i<6;i++)strokes.push(new Stroke([200,150,64]));
+// Sage strokes
 for(let i=0;i<5;i++)strokes.push(new Stroke([90,138,106]));
 
 const motes=[];for(let i=0;i<120;i++)motes.push(new Mote());
@@ -580,6 +540,7 @@ function animate(){
   c.globalCompositeOperation='source-over';
   c.fillStyle='rgba(8,8,7,.1)';c.fillRect(0,0,W,H);
 
+  // Ambient glows
   c.globalCompositeOperation='lighter';
   glows.forEach(g=>{
     g.update(t);
@@ -592,9 +553,11 @@ function animate(){
     c.fillStyle=gr;c.fillRect(px-rad,py-rad,rad*2,rad*2);
   });
 
+  // Flowing strokes (彡)
   c.globalCompositeOperation='lighter';
   strokes.forEach(s=>s.draw(t));
 
+  // Forest motes (林)
   c.globalCompositeOperation='lighter';
   motes.forEach(m=>{
     m.update(t);
@@ -616,18 +579,20 @@ c.fillStyle='#080807';c.fillRect(0,0,W,H);animate();
 /* ===== DYNAMIC CONTENT ===== */
 const svg='<div class="phi"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>';
 
+// INSTALLATION ARCHIVES
 const inst=[
   {t:"Breathscape",y:"2023",d:"Two human-sized spherical light sculptures with dichroic film, revolving at 1 RPM. Shadows and reflections reconstruct geometric forms across the gallery space.",u:"https://docs.google.com/document/d/1hz12tS2Fyn4knKOzwA945Nmuj4vQI-dqyE6J0NLkKiY/edit?usp=sharing",l:"Breathscape Spheres"},
-  {t:"Projective Verse of \u3147",y:"2023",d:"\u3147 is a sound of water. It lives where fluids flow. Korean consonant \u3147 is mute at the beginning of words, it has marginal, empty space to breathe.",u:"https://docs.google.com/document/d/1xpkNZ9d3Jwo-MWpeJJtDrFwpLgRHlewVexs7UBISsLE/edit?usp=sharing",l:"Projective Verse of \u3147"},
+  {t:"Projective Verse of \u3147",y:"2023",d:"\u3147 is a sound of water. It lives where fluids flow. Korean consonant \u3147 is mute at the beginning of words - it has marginal, empty space to breathe.",u:"https://docs.google.com/document/d/1xpkNZ9d3Jwo-MWpeJJtDrFwpLgRHlewVexs7UBISsLE/edit?usp=sharing",l:"Projective Verse of \u3147"},
   {t:"Butterflying",y:"2023",d:"Six-channel video installation with projectors, inflatable couches, laser cut acrylic, dichroic film. Collaboration with Josh Zubkoff.",u:"https://docs.google.com/document/d/1BFxZk-7mj3DN3fd9vKTqepVKuhLYsMwFgVZuyvpgcKs/edit?usp=sharing",l:"Butterflying Installation"},
-  {t:"\u3141otherisland",y:"2022",d:"5-channel video installation. Beholders navigate landscapes stepping on shiny foreign ground. \u3141 replaces m to project the stopping moment: mother, other, island, land...",u:"https://docs.google.com/document/d/1yLXMDvRolVjWO4n_JFbITSM-4gbH5l5Jurt8NBSfLug/edit?usp=sharing",l:"\u3141otherisland"},
+  {t:"\u3141otherisland",y:"2022",d:"5-channel video installation. Beholders navigate landscapes stepping on shiny foreign ground. \u3141 replaces m to project the stopping moment - mother, other, island, land...",u:"https://docs.google.com/document/d/1yLXMDvRolVjWO4n_JFbITSM-4gbH5l5Jurt8NBSfLug/edit?usp=sharing",l:"\u3141otherisland"},
   {t:"Open your Window",y:"2022",d:"4-channel video installation with aircraft wires, vinyl blinds. Gelora images projected through suspended blinds, visitors navigate paths creating shadows.",u:"https://docs.google.com/document/d/1wcEKxeTcEpZqaj0-uUFFoFMxlp9mh2SjWSqkVl7niqE/edit?usp=sharing",l:"Open your Window"},
   {t:"Abyss",y:"2022",d:"Kaleidoscope large enough for a person to be surrounded by mirrors. Gelora scanned photographs projected from below. Collaboration with Josh Zubkoff.",u:"https://docs.google.com/document/d/1C37LX2IvJ_gX8KwF70SFkTGH8-lKmvPBNhlevn9mkHs/edit?usp=sharing",l:"Abyss Kaleidoscope"},
   {t:"Somatic Blinds",y:"2022",d:"Grow light, vinyl blind, plywood, aircraft wire, box fan, mylar thermal blanket, bird reflective scare tape.",u:"https://docs.google.com/document/d/1IJ1eI86WlP20XIQLvDhUEIs7ID3Pw0WMFCBqs90xRho/edit?usp=sharing",l:"Somatic Blinds"},
 ];
 const ig=document.getElementById('instGrid');
-inst.forEach(w=>{const d=document.createElement('div');d.className='wc fi';d.innerHTML=`<div class="ig" style="aspect-ratio:4/3;"><div>${svg}<p class="phl">${w.l}</p></div></div><div style="margin-top:16px;"><h3 class="wt">${w.t}</h3><p class="wy">${w.y}</p><p class="wd">${w.d}</p><a href="${w.u}" target="_blank" rel="noopener" class="el">Full Statement <span class="ar">&nearr;</span></a></div>`;ig.appendChild(d);});
+inst.forEach(w=>{const d=document.createElement('div');d.className='wc fi';d.innerHTML=`<div class="ig" style="aspect-ratio:4/3;"><div>${svg}<p class="phl">${w.l}</p></div></div><div style="margin-top:14px;"><h3 class="wt">${w.t}</h3><p class="wy">${w.y}</p><p class="wd">${w.d}</p><a href="${w.u}" target="_blank" rel="noopener" class="el">Full Statement <span class="ar">&nearr;</span></a></div>`;ig.appendChild(d);});
 
+// SCULPTURE ARCHIVES
 const sculp=[
   {t:"Stars are brushed by wind again I",y:"2023",m:"Cyanotype on seashell, branch, Sambe"},
   {t:"Composition of Mother with sky, soil, water and human",y:"2023",m:"Wood, light, mixed media"},
@@ -638,17 +603,19 @@ const sculp=[
   {t:"The Lamp",y:"2019",m:"Negatives, red strings, lamp"},
 ];
 const sg=document.getElementById('sculpGrid');
-sculp.forEach(w=>{const d=document.createElement('div');d.className='sc fi';d.innerHTML=`<div class="ig" style="aspect-ratio:1/1;"><div>${svg}<p class="phl">Sculpture</p></div></div><div style="margin-top:12px;"><p class="sc-t">${w.t}</p><p class="sc-y">${w.y}</p><p class="wm">${w.m}</p></div>`;sg.appendChild(d);});
+sculp.forEach(w=>{const d=document.createElement('div');d.className='sc fi';d.innerHTML=`<div class="ig" style="aspect-ratio:1/1;"><div>${svg}<p class="phl">Sculpture</p></div></div><div style="margin-top:10px;"><p class="sc-t">${w.t}</p><p class="sc-y">${w.y}</p><p class="wm">${w.m}</p></div>`;sg.appendChild(d);});
 
+// LENS-BASED & VIDEO
 const lens=[
   {t:"I am missing their warmth from 5,968 miles away",y:"2023",d:"Featured artist on Visions of Motherhood curated by The Luupe.",l:"https://theluupe.com/blog/visions-of-motherhood-2023"},
-  {t:"I am telling what a I* see is what you see. You are reading what AI** hear is what you hear",y:"2022",d:"Video work inviting viewers to float in the alienated ocean of an island, with AI generated captions and Korean narration.",l:"https://www.youtube.com/watch?v=fF2XpP3Gc7w"},
+  {t:"I am telling what a I* see is what you see. You are reading what AI** hear is what you hear",y:"2022",d:"Video work inviting viewers to float in the alienated ocean of an island, with AI-generated captions and Korean narration.",l:"https://www.youtube.com/watch?v=fF2XpP3Gc7w"},
   {t:"Memories of Seoul",y:"2017",d:"Co-produced artwork with travelers creating new images by collecting and connecting memories of places in Seoul."},
-  {t:"Be@IT",y:"2017",d:"Starting from a personal relationship with a specific food, the traditional Korean rice cake."},
+  {t:"Be@IT",y:"2017",d:"Starting from a personal relationship with a specific food - the traditional Korean rice cake."},
 ];
 const lg=document.getElementById('lensGrid');
-lens.forEach(w=>{const d=document.createElement('div');d.className='wc fi';d.innerHTML=`<div class="ig" style="aspect-ratio:16/10;"><div>${svg}<p class="phl">${w.y==='2022'?'Video Art':'Photography'}</p></div></div><div style="margin-top:16px;"><h3 class="wt">${w.t}</h3><p class="wy">${w.y}</p><p class="wd">${w.d}</p>${w.l?`<a href="${w.l}" target="_blank" rel="noopener" class="el">View <span class="ar">&nearr;</span></a>`:''}</div>`;lg.appendChild(d);});
+lens.forEach(w=>{const d=document.createElement('div');d.className='wc fi';d.innerHTML=`<div class="ig" style="aspect-ratio:16/10;"><div>${svg}<p class="phl">${w.y==='2022'?'Video Art':'Photography'}</p></div></div><div style="margin-top:14px;"><h3 class="wt">${w.t}</h3><p class="wy">${w.y}</p><p class="wd">${w.d}</p>${w.l?`<a href="${w.l}" target="_blank" rel="noopener" class="el">View <span class="ar">&nearr;</span></a>`:''}</div>`;lg.appendChild(d);});
 
+// EXHIBITION ARCHIVE ACCORDION
 const soloExh=[
   ["Through Islands","Shakarian Gallery, California","2023"],
   ["Breathscape","Shakarian Gallery, California","2023"],
@@ -667,7 +634,7 @@ const groupExh=[
   ["Our Common Ground","The Little Gallery, California","2024"],
   ["Let it Linger","Max L. Gatov Gallery, California","2024"],
   ["Exchanges: dialogues between poetry and art","Ruth Foster Gallery, Wisconsin","2023"],
-  ["CSULB President House Selection","Miller House, California","2023 to 24"],
+  ["CSULB President House Selection","Miller House, California","2023-24"],
   ["Now Trending: 7th Annual AIpay Exhibition","Palos Verdes Art Center, California","2023"],
   ["Visions of Motherhood","The Luupe, Online","2023"],
   ["Flourish & Flow, AAPI Exhibition","Atrium Gallery, Ventura County, California","2023"],
@@ -690,14 +657,14 @@ const groupExh=[
 function buildAcc(title,items){
   return`<div class="acc"><button class="acc-h" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open');">${title}<span class="arr">&#x25BE;</span></button><div class="acc-body">${items.map(i=>`<div class="acc-item"><p class="acc-title">${i[0]}</p><p class="acc-meta">${i[1]}, ${i[2]}</p></div>`).join('')}</div></div>`;
 }
-document.getElementById('exhAcc').innerHTML=buildAcc('Solo Exhibitions (2017 to 2023)',soloExh)+buildAcc('Group Exhibitions (2012 to 2024)',groupExh);
+document.getElementById('exhAcc').innerHTML=buildAcc('Solo Exhibitions (2017 - 2023)',soloExh)+buildAcc('Group Exhibitions (2012 - 2024)',groupExh);
 
 /* ===== NAV ===== */
 function go(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'});document.getElementById('mm').classList.remove('op');document.getElementById('hb').classList.remove('op');}
 function tm(){document.getElementById('mm').classList.toggle('op');document.getElementById('hb').classList.toggle('op');}
 const ss=['home','artist','educator','researcher','bio'];
 const nls=document.querySelectorAll('.nl');
-addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('sc',scrollY>40);let cur='home';ss.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<=100)cur=id;});nls.forEach(l=>l.classList.toggle('ac',l.dataset.s===cur));},{passive:true});
+addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('sc',scrollY>40);let cur='home';ss.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<=90)cur=id;});nls.forEach(l=>l.classList.toggle('ac',l.dataset.s===cur));},{passive:true});
 
 /* FADE */
 const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('v');obs.unobserve(e.target);}});},{threshold:.06,rootMargin:'0px 0px -20px 0px'});
