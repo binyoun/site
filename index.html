@@ -1,687 +1,707 @@
-import { useState, useEffect, useRef } from "react";
-
-const NAV_ITEMS = [
-  { id: "home", label: "The Blended River" },
-  { id: "artist", label: "Artist" },
-  { id: "educator", label: "Educator" },
-  { id: "researcher", label: "Researcher" },
-];
-
-// Subtle grain overlay
-const GrainOverlay = () => (
-  <div
-    className="pointer-events-none fixed inset-0 z-50 opacity-[0.03]"
-    style={{
-      backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E")`,
-    }}
-  />
-);
-
-// Image placeholder component
-const ImagePlaceholder = ({ label, aspect = "4/3", className = "" }) => (
-  <div
-    className={`relative overflow-hidden rounded-sm border border-white/[0.06] bg-gradient-to-br from-neutral-900 to-neutral-950 ${className}`}
-    style={{ aspectRatio: aspect }}
-  >
-    <div className="absolute inset-0 flex items-center justify-center p-6">
-      <div className="text-center">
-        <div className="mx-auto mb-3 h-8 w-8 rounded-full border border-white/10 flex items-center justify-center">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-white/20">
-            <rect x="3" y="3" width="18" height="18" rx="2" />
-            <circle cx="8.5" cy="8.5" r="1.5" />
-            <path d="M21 15l-5-5L5 21" />
-          </svg>
-        </div>
-        <p className="text-[11px] tracking-widest uppercase text-white/20 leading-relaxed max-w-[200px]">
-          {label}
-        </p>
-      </div>
-    </div>
-    <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.04] to-transparent" />
-  </div>
-);
-
-// External link button
-const ExtLink = ({ href, children, variant = "default" }) => {
-  const base = "inline-flex items-center gap-2 transition-all duration-300 group";
-  const styles = {
-    default:
-      "text-[13px] tracking-wide text-white/40 hover:text-white/80 border-b border-white/[0.06] hover:border-white/30 pb-0.5",
-    button:
-      "text-[12px] tracking-[0.15em] uppercase px-5 py-2.5 border border-white/10 hover:border-white/30 text-white/50 hover:text-white/90 rounded-sm hover:bg-white/[0.03]",
-    primary:
-      "text-[12px] tracking-[0.15em] uppercase px-6 py-3 bg-white/[0.04] border border-white/10 hover:border-white/25 text-white/60 hover:text-white rounded-sm hover:bg-white/[0.07]",
-  };
-  return (
-    <a href={href} target="_blank" rel="noopener noreferrer" className={`${base} ${styles[variant]}`}>
-      {children}
-      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
-        <path d="M7 17L17 7M17 7H7M17 7v10" />
-      </svg>
-    </a>
-  );
-};
-
-// Section divider
-const Divider = () => (
-  <div className="w-full flex items-center gap-4 py-2">
-    <div className="flex-1 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
-    <div className="w-1 h-1 rounded-full bg-white/[0.08]" />
-    <div className="flex-1 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
-  </div>
-);
-
-export default function BinYounPortfolio() {
-  const [activeSection, setActiveSection] = useState("home");
-  const [scrolled, setScrolled] = useState(false);
-  const [navOpen, setNavOpen] = useState(false);
-  const sectionRefs = useRef({});
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 60);
-      const offsets = NAV_ITEMS.map(({ id }) => {
-        const el = sectionRefs.current[id];
-        if (!el) return { id, top: Infinity };
-        return { id, top: Math.abs(el.getBoundingClientRect().top - 100) };
-      });
-      const closest = offsets.reduce((a, b) => (a.top < b.top ? a : b));
-      setActiveSection(closest.id);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const scrollTo = (id) => {
-    sectionRefs.current[id]?.scrollIntoView({ behavior: "smooth", block: "start" });
-    setNavOpen(false);
-  };
-
-  const setRef = (id) => (el) => {
-    sectionRefs.current[id] = el;
-  };
-
-  // --- LEGACY WORKS DATA ---
-  const legacyWorks = [
-    { title: "Breathscape", year: "2023", placeholder: "Breathscape Spherical Light Sculptures", link: "https://docs.google.com/document/d/1hz12tS2Fyn4knKOzwA945Nmuj4vQI-dqyE6J0NLkKiY/edit?usp=sharing" },
-    { title: "Projective Verse of \u3147", year: "2023", placeholder: "Projective Verse of \u3147 Visuals", link: "https://docs.google.com/document/d/1xpkNZ9d3Jwo-MWpeJJtDrFwpLgRHlewVexs7UBISsLE/edit?usp=sharing" },
-    { title: "Butterflying", year: "2023", placeholder: "Butterflying Installation", link: "https://docs.google.com/document/d/1BFxZk-7mj3DN3fd9vKTqepVKuhLYsMwFgVZuyvpgcKs/edit?usp=sharing" },
-    { title: "\u3141otherisland", year: "2022", placeholder: "\u3141otherisland 2022 Video Installation", link: "https://docs.google.com/document/d/1yLXMDvRolVjWO4n_JFbITSM-4gbH5l5Jurt8NBSfLug/edit?usp=sharing" },
-    { title: "Open your Window", year: "2022", placeholder: "Open your Window Installation", link: "https://docs.google.com/document/d/1wcEKxeTcEpZqaj0-uUFFoFMxlp9mh2SjWSqkVl7niqE/edit?usp=sharing" },
-    { title: "Abyss", year: "2022", placeholder: "Abyss Kaleidoscope Structure", link: "https://docs.google.com/document/d/1C37LX2IvJ_gX8KwF70SFkTGH8-lKmvPBNhlevn9mkHs/edit?usp=sharing" },
-    { title: "Somatic Blinds", year: "2022", placeholder: "Somatic Blinds Artwork", link: "https://docs.google.com/document/d/1IJ1eI86WlP20XIQLvDhUEIs7ID3Pw0WMFCBqs90xRho/edit?usp=sharing" },
-  ];
-
-  return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white/80 selection:bg-white/10">
-      <GrainOverlay />
-
-      {/* ====== NAVIGATION ====== */}
-      <nav
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
-          scrolled
-            ? "bg-[#0a0a0a]/90 backdrop-blur-xl border-b border-white/[0.04]"
-            : "bg-transparent"
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between h-16">
-          <button onClick={() => scrollTo("home")} className="group flex items-center gap-3">
-            <span className="text-[13px] tracking-[0.3em] uppercase text-white/50 group-hover:text-white/90 transition-colors duration-300">
-              Bin Youn
-            </span>
-          </button>
-
-          {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-1">
-            {NAV_ITEMS.map(({ id, label }) => (
-              <button
-                key={id}
-                onClick={() => scrollTo(id)}
-                className={`relative px-4 py-2 text-[11px] tracking-[0.2em] uppercase transition-all duration-300 rounded-sm ${
-                  activeSection === id
-                    ? "text-white/90"
-                    : "text-white/30 hover:text-white/60"
-                }`}
-              >
-                {label}
-                {activeSection === id && (
-                  <span className="absolute bottom-0.5 left-4 right-4 h-px bg-white/30" />
-                )}
-              </button>
-            ))}
-            <div className="w-px h-4 bg-white/[0.08] mx-2" />
-            <ExtLink href="https://www.rmit.edu.vn/profiles/y/bin-youn" variant="default">
-              RMIT Profile
-            </ExtLink>
-          </div>
-
-          {/* Mobile hamburger */}
-          <button
-            onClick={() => setNavOpen(!navOpen)}
-            className="md:hidden w-8 h-8 flex flex-col items-center justify-center gap-1.5"
-          >
-            <span className={`block w-5 h-px bg-white/50 transition-all duration-300 ${navOpen ? "rotate-45 translate-y-[3.5px]" : ""}`} />
-            <span className={`block w-5 h-px bg-white/50 transition-all duration-300 ${navOpen ? "-rotate-45 -translate-y-[3.5px]" : ""}`} />
-          </button>
-        </div>
-
-        {/* Mobile menu */}
-        {navOpen && (
-          <div className="md:hidden bg-[#0a0a0a]/95 backdrop-blur-xl border-b border-white/[0.04] px-6 pb-6">
-            {NAV_ITEMS.map(({ id, label }) => (
-              <button
-                key={id}
-                onClick={() => scrollTo(id)}
-                className="block w-full text-left py-3 text-[12px] tracking-[0.2em] uppercase text-white/40 hover:text-white/80 transition-colors border-b border-white/[0.03]"
-              >
-                {label}
-              </button>
-            ))}
-            <div className="pt-4">
-              <ExtLink href="https://www.rmit.edu.vn/profiles/y/bin-youn" variant="default">
-                RMIT Profile
-              </ExtLink>
-            </div>
-          </div>
-        )}
-      </nav>
-
-      {/* ====== SECTION 1: HOME / THE BLENDED RIVER ====== */}
-      <section ref={setRef("home")} id="home" className="relative">
-        {/* Hero */}
-        <div className="relative min-h-screen flex items-center">
-          {/* Background video placeholder */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0d0d0d] to-[#0a0a0a]">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-full h-full max-w-none border-0 bg-neutral-950 flex items-center justify-center relative overflow-hidden">
-                {/* Subtle animated gradient for visual depth */}
-                <div
-                  className="absolute inset-0 opacity-30"
-                  style={{
-                    background: "radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.02) 0%, transparent 60%), radial-gradient(ellipse at 70% 60%, rgba(255,255,255,0.015) 0%, transparent 50%)",
-                  }}
-                />
-                <p className="text-[10px] tracking-[0.3em] uppercase text-white/10">
-                  Looping Video - Sacred Tree / Gelora Series
-                </p>
-              </div>
-            </div>
-            <div className="absolute inset-0 bg-[#0a0a0a]/60" />
-          </div>
-
-          <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10 pt-32 pb-24">
-            <div className="max-w-3xl">
-              <div className="mb-6">
-                <div className="w-8 h-px bg-white/20 mb-8" />
-                <h1
-                  className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-white/95 leading-[0.95]"
-                  style={{ fontFamily: "'Cormorant Garamond', 'Playfair Display', Georgia, serif" }}
-                >
-                  Bin Youn
-                </h1>
-              </div>
-              <p className="text-[13px] tracking-[0.25em] uppercase text-white/30 mb-10">
-                Multimedia Artist, Educator & Poet
-              </p>
-              <p className="text-[15px] md:text-[16px] leading-[1.8] text-white/45 max-w-2xl" style={{ fontFamily: "'Source Serif 4', 'Crimson Text', Georgia, serif" }}>
-                Bin Youn is a Korean multimedia artist and educator based in Vietnam whose practice bridges lens-based media, poetic installations, and participatory environments. Currently Course Coordinator and Associate Lecturer at RMIT University Vietnam's School of Communication and Design, she explores displacement, alienation, and technological intimacy through ephemeral encounters.
-              </p>
-              <div className="flex flex-wrap gap-4 mt-10">
-                <ExtLink href="https://binyoun.github.io/info/" variant="primary">
-                  Recent Works
-                </ExtLink>
-                <ExtLink href="https://www.rmit.edu.vn/profiles/y/bin-youn" variant="button">
-                  RMIT Profile
-                </ExtLink>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Cross-Pollination - Featured Projects */}
-        <div className="max-w-7xl mx-auto px-6 md:px-10 pb-32">
-          <div className="mb-16">
-            <p className="text-[11px] tracking-[0.3em] uppercase text-white/20 mb-3">Featured Projects</p>
-            <h2 className="text-2xl md:text-3xl font-light text-white/80 tracking-tight" style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
-              Cross-Pollination
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* M-NODE */}
-            <div className="group">
-              <ImagePlaceholder label="M-NODE Hackathon Event" aspect="16/10" />
-              <div className="mt-4">
-                <h3 className="text-[14px] tracking-wide text-white/70 group-hover:text-white/90 transition-colors mb-2">
-                  M-NODE Cross-Cultural Hackathon
-                </h3>
-                <p className="text-[13px] leading-[1.7] text-white/35 mb-4" style={{ fontFamily: "'Source Serif 4', Georgia, serif" }}>
-                  Organized and moderated a five-day intensive cross-cultural hackathon between Dong-Ah Institute of Media and Arts (Korea) and RMIT University Vietnam Digital Media program.
-                </p>
-                <ExtLink href="https://binyoun.github.io/mnode/">View Archive</ExtLink>
-              </div>
-            </div>
-
-            {/* Beyond 1&0 */}
-            <div className="group">
-              <ImagePlaceholder label="Beyond 1&0 Exhibition Showcase" aspect="16/10" />
-              <div className="mt-4">
-                <h3 className="text-[14px] tracking-wide text-white/70 group-hover:text-white/90 transition-colors mb-2">
-                  Beyond 1&0 Exhibition
-                </h3>
-                <p className="text-[13px] leading-[1.7] text-white/35 mb-4" style={{ fontFamily: "'Source Serif 4', Georgia, serif" }}>
-                  Directed RMIT Vietnam's first external showcase celebrating 10 years of Digital Media, featuring 73 artists across 34 artworks, 14 mediums, and 4 performances in Ho Chi Minh City and Melbourne. Included a collaborative digital poem-making performance produced into an original song.
-                </p>
-                <div className="flex flex-wrap gap-3">
-                  <ExtLink href="https://binyoun.github.io/beyond-1-and-0-poem/">Collaborative Poem</ExtLink>
-                  <ExtLink href="https://youtu.be/URONCeVigPo?si=bPCXDsHJLx6a8VwI">Original Song</ExtLink>
-                </div>
-              </div>
-            </div>
-
-            {/* SIGGRAPH */}
-            <div className="group">
-              <ImagePlaceholder label="SIGGRAPH Panel" aspect="16/10" />
-              <div className="mt-4">
-                <h3 className="text-[14px] tracking-wide text-white/70 group-hover:text-white/90 transition-colors mb-2">
-                  ACM SIGGRAPH DAC SPARKS
-                </h3>
-                <p className="text-[13px] leading-[1.7] text-white/35 mb-4" style={{ fontFamily: "'Source Serif 4', Georgia, serif" }}>
-                  Co-moderated "Beyond the Global North: Southeast Asia's New Wave of Generative and Interactive Innovation" alongside Patrick Hartono.
-                </p>
-                <ExtLink href="https://dac.siggraph.org/sparks/2026-01-23_beyond-the-global-north/">SIGGRAPH Session</ExtLink>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <Divider />
-
-      {/* ====== SECTION 2: ARTIST ====== */}
-      <section ref={setRef("artist")} id="artist" className="scroll-mt-20">
-        <div className="max-w-7xl mx-auto px-6 md:px-10 py-28">
-          <div className="mb-20">
-            <div className="w-8 h-px bg-white/15 mb-6" />
-            <p className="text-[11px] tracking-[0.3em] uppercase text-white/20 mb-3">Section II</p>
-            <h2
-              className="text-3xl md:text-5xl font-light text-white/85 tracking-tight"
-              style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
-            >
-              Artistic Practice
-            </h2>
-          </div>
-
-          {/* Current Works */}
-          <div className="mb-24">
-            <p className="text-[11px] tracking-[0.3em] uppercase text-white/25 mb-10 flex items-center gap-3">
-              <span className="w-4 h-px bg-white/15" />
-              Current Works (2025 - 2026)
-            </p>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Sacred Tree */}
-              <div className="group">
-                <ImagePlaceholder label="Sacred Tree Installation at Hozo City Tet Fest" aspect="4/3" />
-                <div className="mt-5">
-                  <h3 className="text-[15px] text-white/70 group-hover:text-white/90 transition-colors mb-1">
-                    Sacred Tree (\uc2e0\ubaa9, \u795e\u6728)
-                  </h3>
-                  <p className="text-[11px] tracking-[0.15em] uppercase text-white/25 mb-3">2025</p>
-                  <p className="text-[13px] leading-[1.7] text-white/35" style={{ fontFamily: "'Source Serif 4', Georgia, serif" }}>
-                    Interactive installation featured at Hozo City Tet Fest, exhibiting at the CTRL+M multimedia exhibition.
-                  </p>
-                </div>
-              </div>
-
-              {/* Evolving Matter */}
-              <div className="group">
-                <ImagePlaceholder label="Evolving Matter Exhibition at MMU" aspect="4/3" />
-                <div className="mt-5">
-                  <h3 className="text-[15px] text-white/70 group-hover:text-white/90 transition-colors mb-1">
-                    Evolving Matter: Artistic Process as Experimental Inquiry
-                  </h3>
-                  <p className="text-[11px] tracking-[0.15em] uppercase text-white/25 mb-3">2025</p>
-                  <p className="text-[13px] leading-[1.7] text-white/35" style={{ fontFamily: "'Source Serif 4', Georgia, serif" }}>
-                    Exhibited at the E-Gallery, Multimedia University (MMU), Malaysia.
-                  </p>
-                </div>
-              </div>
-
-              {/* Gelora: Embodied Alienation */}
-              <div className="group">
-                <ImagePlaceholder label="Gelora Artwork" aspect="4/3" />
-                <div className="mt-5">
-                  <h3 className="text-[15px] text-white/70 group-hover:text-white/90 transition-colors mb-1">
-                    Gelora: Embodied Alienation
-                  </h3>
-                  <p className="text-[11px] tracking-[0.15em] uppercase text-white/25 mb-3">2025</p>
-                  <p className="text-[13px] leading-[1.7] text-white/35 mb-4" style={{ fontFamily: "'Source Serif 4', Georgia, serif" }}>
-                    Awarded Silver and Bronze at iNVENTX Creative Exhibition 2025.
-                  </p>
-                  <ExtLink href="https://doi.org/10.6084/m9.figshare.30509957">View Work</ExtLink>
-                </div>
-              </div>
-
-              {/* ㅁotherisland */}
-              <div className="group">
-                <ImagePlaceholder label="\u3141otherisland Installation" aspect="4/3" />
-                <div className="mt-5">
-                  <h3 className="text-[15px] text-white/70 group-hover:text-white/90 transition-colors mb-1">
-                    {"\u3141"}otherisland at iNVENTX
-                  </h3>
-                  <p className="text-[11px] tracking-[0.15em] uppercase text-white/25 mb-3">2025</p>
-                  <p className="text-[13px] leading-[1.7] text-white/35 mb-4" style={{ fontFamily: "'Source Serif 4', Georgia, serif" }}>
-                    Interactive AR installation exploring migration, cultural displacement, and embodied alienation.
-                  </p>
-                  <ExtLink href="https://doi.org/10.6084/m9.figshare.30509915">View Work</ExtLink>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Legacy Works */}
-          <div>
-            <p className="text-[11px] tracking-[0.3em] uppercase text-white/25 mb-10 flex items-center gap-3">
-              <span className="w-4 h-px bg-white/15" />
-              Legacy and Archival Works
-            </p>
-
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-              {legacyWorks.map((work) => (
-                <div key={work.title} className="group">
-                  <ImagePlaceholder label={work.placeholder} aspect="1/1" />
-                  <div className="mt-3">
-                    <h4 className="text-[13px] text-white/55 group-hover:text-white/80 transition-colors">
-                      {work.title}
-                    </h4>
-                    <p className="text-[11px] text-white/20 mb-3">{work.year}</p>
-                    <ExtLink href={work.link}>Read Full Statement</ExtLink>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <Divider />
-
-      {/* ====== SECTION 3: EDUCATOR ====== */}
-      <section ref={setRef("educator")} id="educator" className="scroll-mt-20">
-        <div className="max-w-7xl mx-auto px-6 md:px-10 py-28">
-          <div className="mb-20">
-            <div className="w-8 h-px bg-white/15 mb-6" />
-            <p className="text-[11px] tracking-[0.3em] uppercase text-white/20 mb-3">Section III</p>
-            <h2
-              className="text-3xl md:text-5xl font-light text-white/85 tracking-tight"
-              style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
-            >
-              Educational Leadership
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-16">
-            {/* Left column - Philosophy & Role */}
-            <div className="lg:col-span-2">
-              <div className="sticky top-24">
-                <div className="mb-10">
-                  <p className="text-[11px] tracking-[0.3em] uppercase text-white/25 mb-4">Teaching Philosophy</p>
-                  <p className="text-[15px] leading-[1.8] text-white/50" style={{ fontFamily: "'Source Serif 4', Georgia, serif" }}>
-                    Creator of the <span className="text-white/75 italic">r\u1ec5-root</span> pedagogical framework - an exhibition-centered approach that replaces traditional portfolio assessments with physical exhibitions, fostering deeper student engagement through collective creative practice.
-                  </p>
-                </div>
-
-                <div className="border-t border-white/[0.06] pt-8">
-                  <p className="text-[11px] tracking-[0.3em] uppercase text-white/25 mb-4">Current Role</p>
-                  <p className="text-[14px] text-white/60 mb-1">Course Coordinator & Associate Lecturer</p>
-                  <p className="text-[13px] text-white/35">RMIT University Vietnam</p>
-                  <p className="text-[12px] text-white/20 mt-1">School of Communication and Design</p>
-                  <p className="text-[11px] text-white/15 mt-1">July 2025 - Present</p>
-                </div>
-
-                <div className="border-t border-white/[0.06] pt-8 mt-8">
-                  <p className="text-[11px] tracking-[0.3em] uppercase text-white/25 mb-4">Guest Speakers Hosted</p>
-                  <div className="space-y-2 text-[13px] text-white/40">
-                    <p>Duy-Phuong Le Nguyen</p>
-                    <p>Tuna Lee</p>
-                    <p>Stephen Ilam Jang</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right column - Workshops & Initiatives */}
-            <div className="lg:col-span-3 space-y-8">
-              <p className="text-[11px] tracking-[0.3em] uppercase text-white/25 mb-2 flex items-center gap-3">
-                <span className="w-4 h-px bg-white/15" />
-                Workshops & Initiatives
-              </p>
-
-              {/* Creative Photography Workshop */}
-              <div className="border border-white/[0.05] rounded-sm p-6 hover:border-white/[0.1] transition-colors">
-                <h3 className="text-[14px] text-white/70 mb-2">Creative Photography Workshop</h3>
-                <p className="text-[12px] text-white/25 mb-3">Semester 3 - 2025</p>
-                <p className="text-[13px] leading-[1.7] text-white/40 mb-4" style={{ fontFamily: "'Source Serif 4', Georgia, serif" }}>
-                  Organized intensive student workshops fostering creative exploration through lens-based media.
-                </p>
-                <div className="flex flex-wrap gap-3">
-                  <ExtLink href="https://www.instagram.com/p/DSQ-hOyEmrw/">Workshop I</ExtLink>
-                  <ExtLink href="https://www.instagram.com/p/DSZ9xXmEmhr/">Workshop II</ExtLink>
-                  <ExtLink href="https://www.instagram.com/p/DS_g_w3kjmW/">Workshop III</ExtLink>
-                </div>
-              </div>
-
-              {/* VVIP Photo Gift */}
-              <div className="border border-white/[0.05] rounded-sm p-6 hover:border-white/[0.1] transition-colors">
-                <h3 className="text-[14px] text-white/70 mb-2">VVIP Photo Gift Project</h3>
-                <p className="text-[13px] leading-[1.7] text-white/40 mb-4" style={{ fontFamily: "'Source Serif 4', Georgia, serif" }}>
-                  Project lead. Curated and guided students in delivering high-level professional photography for distinguished guests.
-                </p>
-                <ExtLink href="https://www.instagram.com/p/DTO9nigEgN-/">View Project</ExtLink>
-              </div>
-
-              {/* Experience Day */}
-              <div className="border border-white/[0.05] rounded-sm p-6 hover:border-white/[0.1] transition-colors">
-                <h3 className="text-[14px] text-white/70 mb-2">Experience Day 2026</h3>
-                <p className="text-[13px] leading-[1.7] text-white/40" style={{ fontFamily: "'Source Serif 4', Georgia, serif" }}>
-                  Led the "Pocket Studio: Portraits with your phone" workshop, achieving a near-perfect General Satisfaction score of 9.9/10.
-                </p>
-              </div>
-
-              {/* Sony Partnership */}
-              <div className="border border-white/[0.05] rounded-sm p-6 hover:border-white/[0.1] transition-colors">
-                <h3 className="text-[14px] text-white/70 mb-2">Creative Photography (Photo 101) - SONY Partnership</h3>
-                <p className="text-[13px] leading-[1.7] text-white/40" style={{ fontFamily: "'Source Serif 4', Georgia, serif" }}>
-                  Directed the "Camera, Lighting, and AI: Pushing the Boundaries of Creativity" workshop in partnership with SONY.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <Divider />
-
-      {/* ====== SECTION 4: RESEARCHER ====== */}
-      <section ref={setRef("researcher")} id="researcher" className="scroll-mt-20">
-        <div className="max-w-7xl mx-auto px-6 md:px-10 py-28">
-          <div className="mb-20">
-            <div className="w-8 h-px bg-white/15 mb-6" />
-            <p className="text-[11px] tracking-[0.3em] uppercase text-white/20 mb-3">Section IV</p>
-            <h2
-              className="text-3xl md:text-5xl font-light text-white/85 tracking-tight"
-              style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
-            >
-              Academic Research
-            </h2>
-          </div>
-
-          {/* Committee Roles */}
-          <div className="mb-16">
-            <p className="text-[11px] tracking-[0.3em] uppercase text-white/25 mb-6 flex items-center gap-3">
-              <span className="w-4 h-px bg-white/15" />
-              Committee Roles
-            </p>
-            <div className="border border-white/[0.05] rounded-sm p-6">
-              <p className="text-[14px] text-white/60 mb-1">Technical Program Committee Member</p>
-              <p className="text-[13px] text-white/35">
-                2026 International Conference on AI for Health and Education (ICAIHE 2026)
-              </p>
-              <p className="text-[12px] text-white/20 mt-1">Waseda University, Tokyo</p>
-            </div>
-          </div>
-
-          {/* Publications */}
-          <div className="mb-16">
-            <p className="text-[11px] tracking-[0.3em] uppercase text-white/25 mb-6 flex items-center gap-3">
-              <span className="w-4 h-px bg-white/15" />
-              Publications
-            </p>
-            <p className="text-[11px] tracking-wide text-white/20 mb-6 italic">Co-authored with Suren</p>
-
-            <div className="space-y-6">
-              <div className="border-l-2 border-white/[0.06] pl-6 py-2 hover:border-white/[0.15] transition-colors">
-                <h4 className="text-[14px] text-white/60 leading-relaxed mb-2" style={{ fontFamily: "'Source Serif 4', Georgia, serif" }}>
-                  A Dialogue-Centered Framework for Reducing Transactional Distance in Online Photography Education
-                </h4>
-                <p className="text-[12px] text-white/25">
-                  Accepted at the 24th International Conference on Web-Based Learning, Hong Kong
-                </p>
-              </div>
-
-              <div className="border-l-2 border-white/[0.06] pl-6 py-2 hover:border-white/[0.15] transition-colors">
-                <h4 className="text-[14px] text-white/60 leading-relaxed mb-2" style={{ fontFamily: "'Source Serif 4', Georgia, serif" }}>
-                  Learning to ASCEND: Immersive Pedagogy for Educational and Societal Transformation
-                </h4>
-                <p className="text-[12px] text-white/25">
-                  Accepted at ETLTC 2026, Fukushima (Q1 Journal, citation score 8.5)
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Talks & Presentations */}
-          <div className="mb-16">
-            <p className="text-[11px] tracking-[0.3em] uppercase text-white/25 mb-6 flex items-center gap-3">
-              <span className="w-4 h-px bg-white/15" />
-              Talks & Presentations
-            </p>
-
-            <div className="space-y-6">
-              <div className="group border border-white/[0.05] rounded-sm p-6 hover:border-white/[0.1] transition-colors">
-                <p className="text-[11px] tracking-[0.15em] uppercase text-white/20 mb-2">APARN 2025</p>
-                <h4 className="text-[14px] text-white/60 group-hover:text-white/80 transition-colors mb-3" style={{ fontFamily: "'Source Serif 4', Georgia, serif" }}>
-                  Reimagining Communities: Poetic Spaces of Light, Movement, and Language in Collective Experience
-                </h4>
-                <ExtLink href="https://doi.org/10.62789/APARN2025-paper43">Read Paper</ExtLink>
-              </div>
-
-              <div className="group border border-white/[0.05] rounded-sm p-6 hover:border-white/[0.1] transition-colors">
-                <p className="text-[11px] tracking-[0.15em] uppercase text-white/20 mb-2">Beyond 1&0 Symposium</p>
-                <h4 className="text-[14px] text-white/60 group-hover:text-white/80 transition-colors mb-3" style={{ fontFamily: "'Source Serif 4', Georgia, serif" }}>
-                  Empathetic Gestures, Entangled Futures: Mobile Cameras as Regenerative Practice
-                </h4>
-                <ExtLink href="https://doi.org/10.6084/m9.figshare.30507803">Read Paper</ExtLink>
-              </div>
-
-              <div className="group border border-white/[0.05] rounded-sm p-6 hover:border-white/[0.1] transition-colors">
-                <p className="text-[11px] tracking-[0.15em] uppercase text-white/20 mb-2">SCD Research Exchange</p>
-                <h4 className="text-[14px] text-white/60 group-hover:text-white/80 transition-colors mb-3" style={{ fontFamily: "'Source Serif 4', Georgia, serif" }}>
-                  {"\u3141"}otherisland and Gelora: Portals of Embodied Alienation
-                </h4>
-                <ExtLink href="https://doi.org/10.6084/m9.figshare.30507611">Read Paper</ExtLink>
-              </div>
-            </div>
-          </div>
-
-          {/* Presentation Decks */}
-          <div>
-            <p className="text-[11px] tracking-[0.3em] uppercase text-white/25 mb-6 flex items-center gap-3">
-              <span className="w-4 h-px bg-white/15" />
-              Presentation Decks
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <ExtLink
-                href="https://www.canva.com/design/DAG-81OqB6s/vUe0xwUkUI7gqUxmJOsOdA/edit"
-                variant="button"
-              >
-                Presentation I
-              </ExtLink>
-              <ExtLink
-                href="https://www.canva.com/design/DAG-jQi_-DE/PeL_cWtPnm_M-iLCWOhLjQ/edit"
-                variant="button"
-              >
-                Presentation II
-              </ExtLink>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ====== FOOTER ====== */}
-      <footer className="border-t border-white/[0.04]">
-        <div className="max-w-7xl mx-auto px-6 md:px-10 py-16">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <div>
-              <p
-                className="text-lg text-white/60 mb-2"
-                style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
-              >
-                Bin Youn
-              </p>
-              <p className="text-[12px] text-white/25 leading-relaxed">
-                Multimedia Artist, Educator & Poet
-                <br />
-                RMIT University Vietnam
-                <br />
-                School of Communication and Design
-              </p>
-            </div>
-            <div>
-              <p className="text-[11px] tracking-[0.2em] uppercase text-white/25 mb-4">Links</p>
-              <div className="space-y-2">
-                <div><ExtLink href="https://www.rmit.edu.vn/profiles/y/bin-youn">RMIT Profile</ExtLink></div>
-                <div><ExtLink href="https://binyoun.github.io/info/">Recent Works</ExtLink></div>
-                <div><ExtLink href="https://binyoun.github.io/mnode/">M-NODE Archive</ExtLink></div>
-                <div><ExtLink href="https://dac.siggraph.org/sparks/2026-01-23_beyond-the-global-north/">SIGGRAPH DAC</ExtLink></div>
-              </div>
-            </div>
-            <div>
-              <p className="text-[11px] tracking-[0.2em] uppercase text-white/25 mb-4">Projects</p>
-              <div className="space-y-2">
-                <div><ExtLink href="https://binyoun.github.io/beyond-1-and-0-poem/">Collaborative Poem</ExtLink></div>
-                <div><ExtLink href="https://youtu.be/URONCeVigPo?si=bPCXDsHJLx6a8VwI">Beyond 1&0 Song</ExtLink></div>
-              </div>
-            </div>
-          </div>
-          <div className="mt-12 pt-6 border-t border-white/[0.04]">
-            <p className="text-[11px] text-white/15 tracking-wide">
-              &copy; 2026 Bin Youn. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
-
-      {/* Google Fonts */}
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
-
-        html {
-          scroll-behavior: smooth;
-          scroll-padding-top: 80px;
-        }
-        
-        * {
-          scrollbar-width: thin;
-          scrollbar-color: rgba(255,255,255,0.08) transparent;
-        }
-        
-        ::selection {
-          background: rgba(255,255,255,0.12);
-          color: rgba(255,255,255,0.9);
-        }
-      `}</style>
-    </div>
-  );
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Bin Youn 윤빈</title>
+<meta name="description" content="Bin Youn - Korean multimedia artist, educator, and poet based in Vietnam."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Gowun+Batang:wght@400;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#080807;--bg2:#0d0d0c;--card:#111110;
+  --mag:#d4005a;--amb:#c89640;--sage:#5a8a6a;
+  --mag-d:rgba(212,0,90,0.12);--amb-d:rgba(200,150,64,0.12);--sage-d:rgba(90,138,106,0.12);
+  --t95:rgba(255,255,255,.95);--t90:rgba(255,255,255,.9);--t80:rgba(255,255,255,.8);
+  --t70:rgba(255,255,255,.7);--t60:rgba(255,255,255,.6);--t50:rgba(255,255,255,.5);
+  --t40:rgba(255,255,255,.4);--t35:rgba(255,255,255,.35);--t30:rgba(255,255,255,.3);
+  --t25:rgba(255,255,255,.25);--t20:rgba(255,255,255,.2);--t15:rgba(255,255,255,.15);
+  --t10:rgba(255,255,255,.1);--t05:rgba(255,255,255,.05);
+  --brd:rgba(255,255,255,.06);--brdh:rgba(255,255,255,.12);
+  /* Applied New Fonts Here */
+  --ed:'Cormorant Garamond',Georgia,serif;
+  --kr:'Gowun Batang',serif;
+  --ui:'Jost',-apple-system,sans-serif;
 }
+html{scroll-behavior:smooth;scroll-padding-top:72px;}
+body{background:var(--bg);color:var(--t70);font-family:var(--ui);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+::selection{background:rgba(212,0,90,.2);color:white;}
+::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:transparent;}::-webkit-scrollbar-thumb{background:rgba(212,0,90,.12);border-radius:2px;}
+.ctn{max-width:1200px;margin:0 auto;padding:0 24px;}
+@media(min-width:768px){.ctn{padding:0 40px;}}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;transition:all .4s;}
+nav.sc{background:rgba(8,8,7,.92);backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);border-bottom:1px solid rgba(212,0,90,.06);}
+.ni{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px;}
+@media(min-width:768px){.ni{padding:0 40px;}}
+.nlogo{font-family:var(--ed);font-size:18px;font-weight:600;color:var(--t50);background:none;border:none;cursor:pointer;transition:color .3s;letter-spacing:.02em;}
+.nlogo:hover{color:var(--mag);}
+.nlogo .kr{font-family:var(--kr);font-size:15px;font-weight:400;color:var(--t30);margin-left:8px;}
+.nlinks{display:none;align-items:center;gap:12px;}
+@media(min-width:768px){.nlinks{display:flex;}}
+.nl{padding:8px 14px;font-family:var(--ui);font-size:13px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--t30);background:none;border:none;cursor:pointer;transition:color .3s;position:relative;}
+.nl:hover{color:var(--t70);}
+.nl.ac{color:var(--mag);}
+.nl.ac::after{content:'';position:absolute;bottom:3px;left:14px;right:14px;height:1px;background:var(--mag);opacity:.4;}
+.nex{font-size:12px;color:var(--t30);text-decoration:none;letter-spacing:.08em;margin-left:12px;padding-left:12px;border-left:1px solid var(--brd);transition:color .3s;}
+.nex:hover{color:var(--mag);}
+.hb{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;}
+@media(min-width:768px){.hb{display:none;}}
+.hb span{display:block;width:22px;height:1px;background:var(--t40);transition:all .3s;}
+.hb.op span:first-child{transform:rotate(45deg) translate(3px,3px);}
+.hb.op span:last-child{transform:rotate(-45deg) translate(3px,-3px);}
+.mm{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(8,8,7,.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--brd);padding:0 24px 24px;z-index:99;box-shadow:0 20px 40px rgba(0,0,0,0.5);}
+.mm.op{display:block;}
+.ml{display:block;width:100%;text-align:left;padding:18px 0;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--t40);border:none;border-bottom:1px solid var(--t05);cursor:pointer;background:none;transition:color .3s;}
+.ml:hover{color:var(--mag);}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;overflow:hidden;}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;}
+.hcontent{position:relative;z-index:10;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 24px 60px;}
+
+/* NAME */
+.nm-kr{font-family:var(--kr);font-size:clamp(20px,3vw,32px);font-weight:400;color:var(--t20);letter-spacing:.25em;margin-bottom:12px;}
+.nm-en{font-family:var(--ed);font-size:clamp(64px,15vw,180px);font-weight:700;line-height:.9;color:var(--t95);letter-spacing:-.01em;text-shadow:0 0 80px rgba(212,0,90,.15);}
+.nm-sub{font-size:13px;font-weight:300;letter-spacing:.35em;text-transform:uppercase;color:var(--t30);margin:24px 0 20px;}
+.nm-sub span{color:var(--mag);opacity:.5;margin:0 6px;}
+
+/* THE FLUID HYBRID ENTITY (Replaces standard cards) */
+.trinity {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  margin: 40px auto;
+}
+@media(min-width: 600px){ .trinity { width: 360px; height: 360px; margin: 60px auto; } }
+.t-core {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 130px; height: 130px;
+  transform: translate(-50%, -50%);
+  background: conic-gradient(from 0deg, var(--mag), var(--amb), var(--sage), var(--mag));
+  filter: blur(40px);
+  opacity: 0.35;
+  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  animation: morphBlob 12s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+@keyframes morphBlob {
+  0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; transform: translate(-50%, -50%) rotate(0deg); }
+  100% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; transform: translate(-50%, -50%) rotate(360deg); }
+}
+.t-node {
+  position: absolute;
+  width: 90px; height: 90px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; text-decoration: none; z-index: 10;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(15, 15, 14, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+@media(min-width: 600px){ .t-node { width: 100px; height: 100px; } }
+.t-node span { 
+  font-family: var(--ed); 
+  font-size: 18px; 
+  font-weight: 600; 
+  color: var(--t70); 
+  z-index: 2; 
+  transition: color 0.3s;
+  letter-spacing: 0.05em;
+}
+.t-node:hover { border-color: rgba(255,255,255,0.4); box-shadow: 0 10px 40px rgba(0,0,0,0.6); }
+.t-node:hover span { color: #fff; }
+
+.t-bg {
+  position: absolute; inset: -15px; border-radius: 50%;
+  opacity: 0; transition: opacity 0.5s, transform 0.5s; z-index: 1; filter: blur(20px);
+}
+.t-bg-a { background: var(--mag); }
+.t-bg-e { background: var(--amb); }
+.t-bg-r { background: var(--sage); }
+.t-node:hover .t-bg { opacity: 0.6; transform: scale(1.1); }
+
+/* Triangle Coordinate Positioning */
+.t-artist { top: 0; left: 50%; transform: translateX(-50%); animation: floatA 6s ease-in-out infinite; }
+.t-artist:hover { transform: translateX(-50%) scale(1.15); animation-play-state: paused; }
+
+.t-educator { bottom: 5%; left: 0; animation: floatE 7s ease-in-out infinite; }
+.t-educator:hover { transform: scale(1.15); animation-play-state: paused; }
+
+.t-researcher { bottom: 5%; right: 0; animation: floatR 8s ease-in-out infinite; }
+.t-researcher:hover { transform: scale(1.15); animation-play-state: paused; }
+
+@keyframes floatA { 0%, 100% { top: 0; } 50% { top: -12px; } }
+@keyframes floatE { 0%, 100% { bottom: 5%; } 50% { bottom: calc(5% - 12px); } }
+@keyframes floatR { 0%, 100% { bottom: 5%; } 50% { bottom: calc(5% + 12px); } }
+
+/* CONFLUENCE */
+.conf{padding:80px 0 120px;position:relative;}
+.conf::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:1px;height:60px;background:linear-gradient(180deg,rgba(212,0,90,.15),transparent);}
+.conf-h{text-align:center;margin-bottom:64px;padding-top:60px;}
+.conf-l{font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--mag);opacity:.5;margin-bottom:16px;}
+.conf-t{font-family:var(--ed);font-size:clamp(30px,4vw,50px);font-weight:600;color:var(--t90);}
+.conf-s{font-family:var(--ed);font-style:italic;font-size:18px;color:var(--t40);margin-top:16px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.7;}
+.pgrid{display:grid;grid-template-columns:1fr;gap:20px;}
+@media(min-width:768px){.pgrid{grid-template-columns:repeat(3,1fr);}}
+.pc{position:relative;background:var(--card);border:1px solid var(--brd);overflow:hidden;transition:all .4s;border-radius:4px;}
+.pc:hover{border-color:var(--brdh);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.4);}
+.pc-acc{position:absolute;top:0;left:0;right:0;height:2px;opacity:.3;transition:opacity .4s;}
+.pc:hover .pc-acc{opacity:1;}
+.pc .iph{aspect-ratio:16/10;background:linear-gradient(135deg,#0e0e0d,#090908);display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--brd);}
+.phl{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--t15);text-align:center;padding:20px;max-width:160px;line-height:1.5;}
+.phi{width:28px;height:28px;margin:0 auto 10px;border:1px solid var(--t10);border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.phi svg{width:12px;height:12px;stroke:rgba(255,255,255,.15);fill:none;stroke-width:1.5;}
+.pc-b{padding:24px;}
+.ptags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;}
+.ptag{font-size:9px;letter-spacing:.12em;text-transform:uppercase;padding:3px 8px;border:1px solid;opacity:.6;border-radius:2px;}
+.pta{color:var(--mag);border-color:rgba(212,0,90,.3);}
+.pte{color:var(--amb);border-color:rgba(200,150,64,.3);}
+.ptr{color:var(--sage);border-color:rgba(90,138,106,.3);}
+.pc h3{font-family:var(--ed); font-size:22px;font-weight:600;color:var(--t70);margin-bottom:8px;transition:color .3s;line-height:1.3;}
+.pc:hover h3{color:var(--t95);}
+.pc p{font-size:14px;line-height:1.65;color:var(--t35);margin-bottom:16px;}
+.pls{display:flex;flex-wrap:wrap;gap:12px;}
+
+/* BUTTONS & LINKS */
+.bp{display:inline-flex;align-items:center;gap:6px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:12px 24px;background:var(--mag-d);border:1px solid rgba(212,0,90,.3);color:var(--mag);text-decoration:none;transition:all .3s;border-radius:2px;}
+.bp:hover{border-color:rgba(212,0,90,.6);background:rgba(212,0,90,.2);color:white;}
+.bo{display:inline-flex;align-items:center;gap:6px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:10px 18px;border:1px solid var(--t15);background:transparent;color:var(--t50);text-decoration:none;transition:all .3s;border-radius:2px;}
+.bo:hover{border-color:var(--t35);color:var(--t90);background:rgba(255,255,255,.03);}
+.el{display:inline-flex;align-items:center;gap:5px;font-size:13px;color:var(--t40);text-decoration:none;border-bottom:1px solid var(--brd);padding-bottom:2px;transition:all .3s;}
+.el:hover{color:var(--mag);border-color:rgba(212,0,90,.35);}
+.el .ar{opacity:0;transform:translateX(-3px);transition:all .3s;font-size:10px;}
+.el:hover .ar{opacity:1;transform:translateX(0);}
+
+/* IMAGE PLACEHOLDER */
+.ig{position:relative;overflow:hidden;border:1px solid var(--brd);background:linear-gradient(135deg,#0e0e0d,#090908);display:flex;align-items:center;justify-content:center;border-radius:4px;}
+
+/* DIVIDER */
+.dv{display:flex;align-items:center;gap:16px;max-width:1200px;margin:0 auto;padding:16px 24px;}
+@media(min-width:768px){.dv{padding:16px 40px;}}
+.dvl{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--brd),transparent);}
+.dvd{width:4px;height:4px;border-radius:50%;background:rgba(212,0,90,.2);}
+
+/* SECTIONS */
+.sec{padding:120px 0;}
+.sl{font-size:12px;letter-spacing:.25em;text-transform:uppercase;margin-bottom:12px;}
+.st{font-family:var(--ed);font-size:clamp(32px,4vw,48px);font-weight:600;color:rgba(255,255,255,.9);}
+.sh{margin-bottom:72px;}
+.sln{width:32px;height:2px;margin-bottom:20px;}
+.sub{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--t30);margin-bottom:32px;display:flex;align-items:center;gap:10px;}
+.sub-l{width:16px;height:1px;background:var(--t20);}
+
+/* GRIDS */
+.g2{display:grid;grid-template-columns:1fr;gap:32px;}
+@media(min-width:768px){.g2{grid-template-columns:repeat(2,1fr);}}
+.g3{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+@media(min-width:768px){.g3{grid-template-columns:repeat(3,1fr);}}
+@media(min-width:1024px){.g3{grid-template-columns:repeat(4,1fr);}}
+.g3s{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+@media(min-width:600px){.g3s{grid-template-columns:repeat(3,1fr);}}
+@media(min-width:900px){.g3s{grid-template-columns:repeat(4,1fr);}}
+
+/* WORK CARDS */
+.wc{transition:transform .3s;}.wc:hover{transform:translateY(-3px);}
+.wt{font-family:var(--ed);font-size:20px;font-weight:600;color:var(--t70);transition:color .3s;margin-bottom:4px;line-height:1.3;}
+.wc:hover .wt{color:var(--t95);}
+.wy{font-size:11px;letter-spacing:.1em;color:var(--t25);margin-bottom:10px;}
+.wd{font-size:14px;line-height:1.65;color:var(--t35);margin-bottom:14px;}
+.wm{font-size:12px;color:var(--t25);line-height:1.5;margin-bottom:10px;font-style:italic;}
+
+/* SMALL CARDS */
+.sc{transition:transform .3s;}.sc:hover{transform:translateY(-3px);}
+.sc-t{font-family:var(--ed);font-size:16px;font-weight:600;color:var(--t50);transition:color .3s;line-height:1.4;}
+.sc:hover .sc-t{color:var(--t90);}
+.sc-y{font-size:11px;color:var(--t20);margin-bottom:10px;}
+
+/* ACCORDION */
+.acc{border:1px solid var(--brd);margin-bottom:4px;border-radius:2px;}
+.acc-h{width:100%;display:flex;align-items:center;justify-content:space-between;padding:20px 24px;font-family:var(--ed);font-size:18px;font-weight:600;color:var(--t60);background:rgba(255,255,255,0.01);border:none;cursor:pointer;transition:all .3s;}
+.acc-h:hover{color:var(--t90);background:rgba(255,255,255,0.03);}
+.acc-h .arr{font-size:14px;transition:transform .3s;color:var(--t30);}
+.acc-h.open .arr{transform:rotate(180deg);}
+.acc-body{display:none;padding:0 24px 24px;}
+.acc-body.open{display:block;}
+.acc-item{padding:10px 0;border-bottom:1px solid var(--t05);}
+.acc-item:last-child{border:none;}
+.acc-title{font-size:14px;color:var(--t60);font-weight:400;}
+.acc-meta{font-size:12px;color:var(--t20);margin-top:4px;}
+
+/* POEM */
+.poem{font-family:var(--ed);font-style:italic;font-size:18px;line-height:2.2;color:var(--t40);max-width:640px;padding:32px 0 32px 32px;border-left:2px solid rgba(212,0,90,.2);}
+.poem br+br{content:'';display:block;margin-top:12px;}
+
+/* EDUCATOR */
+.egrid{display:grid;grid-template-columns:1fr;gap:56px;}
+@media(min-width:1024px){.egrid{grid-template-columns:2fr 3fr;}}
+@media(min-width:1024px){.esb{position:sticky;top:100px;}}
+.eblk{margin-bottom:40px;}
+.eblk-t{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--t25);margin-bottom:16px;}
+.eblk+.eblk{padding-top:28px;border-top:1px solid var(--brd);}
+.philo{font-family:var(--ed);font-style:italic;font-size:18px;line-height:1.85;color:var(--t40);}
+.philo em{color:var(--mag);opacity:.7;font-style:normal;}
+.rt{font-family:var(--ed);font-size:18px;font-weight:600;color:var(--t70);margin-bottom:4px;}.ro{font-size:14px;color:var(--t35);}
+.rd{font-size:12px;color:var(--t20);margin-top:6px;}
+.spk p{font-size:14px;color:var(--t40);margin-bottom:8px;}
+.wsc{border:1px solid var(--brd);padding:24px;transition:border-color .3s;margin-bottom:16px;border-radius:4px;background:rgba(255,255,255,0.01);}
+.wsc:hover{border-color:rgba(200,150,64,.2);background:rgba(255,255,255,0.02);}
+.wsc h3{font-family:var(--ed);font-size:20px;font-weight:600;color:var(--t70);margin-bottom:6px;}
+.wsc .wsm{font-size:11px;color:var(--t20);margin-bottom:12px;}
+.wsc p{font-size:14px;line-height:1.7;color:var(--t40);margin-bottom:16px;}
+.wsl{display:flex;flex-wrap:wrap;gap:10px;}
+
+/* RESEARCHER */
+.comc{border:1px solid var(--brd);padding:24px;border-radius:4px;}
+.comc .ct{font-family:var(--ed);font-size:20px;font-weight:600;color:var(--t70);margin-bottom:4px;}
+.comc .cd{font-size:14px;color:var(--t35);}
+.comc .cl{font-size:12px;color:var(--t20);margin-top:6px;}
+.pn{font-size:12px;color:var(--t25);font-style:italic;margin-bottom:20px;}
+.pi{border-left:2px solid var(--brd);padding:8px 0 8px 20px;margin-bottom:24px;transition:border-color .3s;}
+.pi:hover{border-color:rgba(90,138,106,.3);}
+.pi h4{font-family:var(--ed);font-size:18px;font-weight:600;color:var(--t60);line-height:1.5;margin-bottom:8px;}
+.pi .pv{font-size:12px;color:var(--t20);}
+.tc{border:1px solid var(--brd);padding:24px;transition:border-color .3s;margin-bottom:16px;border-radius:4px;background:rgba(255,255,255,0.01);}
+.tc:hover{border-color:rgba(90,138,106,.2);background:rgba(255,255,255,0.02);}
+.tc .tv{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--t25);margin-bottom:8px;}
+.tc h4{font-family:var(--ed);font-size:20px;font-weight:600;color:var(--t70);line-height:1.5;margin-bottom:12px;transition:color .3s;}
+.tc:hover h4{color:var(--t95);}
+
+/* BIO */
+.bio-sec{padding:100px 0;border-top:1px solid var(--brd);}
+.bio-grid{display:grid;grid-template-columns:1fr;gap:48px;}
+@media(min-width:768px){.bio-grid{grid-template-columns:1fr 1fr;}}
+.bio-text{font-size:15px;line-height:1.9;color:var(--t40);}
+.bio-text p+p{margin-top:20px;}
+.bio-side-t{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--t20);margin-bottom:16px;}
+.bio-item{padding:10px 0;border-bottom:1px solid var(--t05);}
+.bio-item-t{font-size:14px;color:var(--t50);}
+.bio-item-d{font-size:12px;color:var(--t20);margin-top:4px;}
+
+/* FOOTER */
+.ft{border-top:1px solid var(--brd);margin-top:40px;}
+.ft-in{max-width:1200px;margin:0 auto;padding:64px 24px;}
+@media(min-width:768px){.ft-in{padding:64px 40px;}}
+.ft-g{display:grid;grid-template-columns:1fr;gap:40px;}
+@media(min-width:768px){.ft-g{grid-template-columns:1fr 1fr 1fr;}}
+.ft-n{font-family:var(--ed);font-size:22px;font-weight:600;color:var(--t60);}
+.ft-nk{font-family:var(--kr);font-size:16px;color:var(--t30);margin-top:4px;margin-bottom:10px;}
+.ft-i{font-size:13px;color:var(--t25);line-height:1.7;}
+.ft-ct{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--t25);margin-bottom:16px;}
+.ft-ls{display:flex;flex-direction:column;gap:10px;}
+.ft-b{margin-top:48px;padding-top:20px;border-top:1px solid var(--brd);}
+.ft-c{font-size:11px;color:var(--t15);}
+
+/* ANIM */
+.fi{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease;}
+.fi.v{opacity:1;transform:translateY(0);}
+@media(prefers-reduced-motion:reduce){.fi{opacity:1;transform:none;transition:none;}html{scroll-behavior:auto;}}
+</style>
+</head>
+<body>
+
+<nav id="nav"><div class="ni">
+<button class="nlogo" onclick="go('home')">Bin Youn<span class="kr">윤빈</span></button>
+<div class="nlinks">
+<button class="nl ac" data-s="home" onclick="go('home')">Home</button>
+<button class="nl" data-s="artist" onclick="go('artist')">Artist</button>
+<button class="nl" data-s="educator" onclick="go('educator')">Educator</button>
+<button class="nl" data-s="researcher" onclick="go('researcher')">Researcher</button>
+<a href="https://linktr.ee/binyoun" target="_blank" rel="noopener" class="nex">Links &nearr;</a>
+</div>
+<button class="hb" id="hb" onclick="tm()"><span></span><span></span></button>
+</div></nav>
+<div class="mm" id="mm">
+<button class="ml" onclick="go('home')">Home</button>
+<button class="ml" onclick="go('artist')">Artist</button>
+<button class="ml" onclick="go('educator')">Educator</button>
+<button class="ml" onclick="go('researcher')">Researcher</button>
+<div style="padding-top:16px;"><a href="https://linktr.ee/binyoun" target="_blank" rel="noopener" class="el">Linktree <span class="ar">&nearr;</span></a></div>
+</div>
+
+<section id="home">
+<div class="hero">
+<canvas id="cv"></canvas>
+<div class="hcontent">
+<div class="fi"><p class="nm-kr">윤빈</p><h1 class="nm-en">Bin Youn</h1></div>
+<p class="nm-sub fi">Multimedia Artist <span>/</span> Educator <span>/</span> Poet</p>
+
+<div class="trinity fi">
+  <div class="t-core"></div>
+  <div class="t-node t-artist" onclick="go('artist')">
+    <div class="t-bg t-bg-a"></div>
+    <span>Artist</span>
+  </div>
+  <div class="t-node t-educator" onclick="go('educator')">
+    <div class="t-bg t-bg-e"></div>
+    <span>Educator</span>
+  </div>
+  <div class="t-node t-researcher" onclick="go('researcher')">
+    <div class="t-bg t-bg-r"></div>
+    <span>Researcher</span>
+  </div>
+</div>
+
+</div>
+</div>
+
+<div class="conf">
+<div class="ctn">
+<div class="conf-h fi"><p class="conf-l">Featured Projects</p><h2 class="conf-t">The Confluence</h2><p class="conf-s">Where artistic practice, pedagogical innovation, and academic inquiry flow together.</p></div>
+<div class="pgrid">
+<div class="pc fi"><div class="pc-acc" style="background:linear-gradient(90deg,var(--mag),var(--amb));"></div><div class="iph"><div><div class="phi"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><p class="phl">M-NODE Hackathon</p></div></div><div class="pc-b"><div class="ptags"><span class="ptag pta">Artist</span><span class="ptag pte">Educator</span></div><h3>M-NODE Cross-Cultural Hackathon</h3><p>Five-day cross-cultural hackathon between Dong-Ah Institute of Media and Arts (Korea) and RMIT Vietnam Digital Media.</p><div class="pls"><a href="https://binyoun.github.io/mnode/" target="_blank" rel="noopener" class="el">Archive <span class="ar">&nearr;</span></a></div></div></div>
+<div class="pc fi"><div class="pc-acc" style="background:linear-gradient(90deg,var(--mag),var(--amb),var(--sage));"></div><div class="iph"><div><div class="phi"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><p class="phl">Beyond 1&amp;0</p></div></div><div class="pc-b"><div class="ptags"><span class="ptag pta">Artist</span><span class="ptag pte">Educator</span><span class="ptag ptr">Researcher</span></div><h3>Beyond 1&amp;0 Exhibition</h3><p>RMIT Vietnam's first external showcase, 73 artists, 34 artworks, 14 mediums, 4 performances.</p><div class="pls"><a href="https://binyoun.github.io/beyond-1-and-0-poem/" target="_blank" rel="noopener" class="el">Poem <span class="ar">&nearr;</span></a><a href="https://youtu.be/URONCeVigPo?si=bPCXDsHJLx6a8VwI" target="_blank" rel="noopener" class="el">Song <span class="ar">&nearr;</span></a></div></div></div>
+<div class="pc fi"><div class="pc-acc" style="background:linear-gradient(90deg,var(--sage),var(--mag));"></div><div class="iph"><div><div class="phi"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><p class="phl">SIGGRAPH</p></div></div><div class="pc-b"><div class="ptags"><span class="ptag ptr">Researcher</span><span class="ptag pta">Artist</span></div><h3>ACM SIGGRAPH DAC SPARKS</h3><p>Co-moderated "Beyond the Global North" alongside Patrick Hartono.</p><div class="pls"><a href="https://dac.siggraph.org/sparks/2026-01-23_beyond-the-global-north/" target="_blank" rel="noopener" class="el">Session <span class="ar">&nearr;</span></a></div></div></div>
+</div></div></div>
+</section>
+
+<div class="dv"><div class="dvl"></div><div class="dvd"></div><div class="dvl"></div></div>
+
+<section id="artist" class="sec">
+<div class="ctn">
+<div class="sh fi"><div class="sln" style="background:var(--mag);opacity:.5;"></div><p class="sl" style="color:var(--mag);opacity:.5;">II</p><h2 class="st">Artistic Practice</h2></div>
+
+<div style="margin-bottom:72px;"><div class="sub fi"><span class="sub-l"></span>Current Works (2025 to 2026)</div>
+<div class="g2">
+<div class="wc fi"><div class="ig" style="aspect-ratio:4/3;"><div><div class="phi"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><p class="phl">Sacred Tree at Hozo City</p></div></div><div style="margin-top:16px;"><h3 class="wt">Sacred Tree (&#xC2E0;&#xBAA9;, &#x795E;&#x6728;)</h3><p class="wy">2025</p><p class="wd">Interactive installation featured at Hozo City Tet Fest, exhibiting at the CTRL+M multimedia exhibition.</p></div></div>
+<div class="wc fi"><div class="ig" style="aspect-ratio:4/3;"><div><div class="phi"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><p class="phl">Evolving Matter at MMU</p></div></div><div style="margin-top:16px;"><h3 class="wt">Evolving Matter</h3><p class="wy">2025</p><p class="wd">Exhibited at the E-Gallery, Multimedia University (MMU), Malaysia.</p></div></div>
+<div class="wc fi"><div class="ig" style="aspect-ratio:4/3;"><div><div class="phi"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><p class="phl">Gelora</p></div></div><div style="margin-top:16px;"><h3 class="wt">Gelora: Embodied Alienation</h3><p class="wy">2025</p><p class="wd">Awarded Silver and Bronze at iNVENTX Creative Exhibition 2025.</p><a href="https://doi.org/10.6084/m9.figshare.30509957" target="_blank" rel="noopener" class="el">View <span class="ar">&nearr;</span></a></div></div>
+<div class="wc fi"><div class="ig" style="aspect-ratio:4/3;"><div><div class="phi"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><p class="phl">&#x3141;otherisland</p></div></div><div style="margin-top:16px;"><h3 class="wt">&#x3141;otherisland at iNVENTX</h3><p class="wy">2025</p><p class="wd">Interactive AR installation exploring migration, cultural displacement, and embodied alienation.</p><a href="https://doi.org/10.6084/m9.figshare.30509915" target="_blank" rel="noopener" class="el">View <span class="ar">&nearr;</span></a></div></div>
+</div></div>
+
+<div style="margin-bottom:72px;" id="installations"><div class="sub fi"><span class="sub-l"></span>Installation Archives</div>
+<div class="g2" id="instGrid"></div></div>
+
+<div style="margin-bottom:72px;"><div class="sub fi"><span class="sub-l"></span>Sculpture Archives</div>
+<div class="g3s" id="sculpGrid"></div></div>
+
+<div style="margin-bottom:72px;"><div class="sub fi"><span class="sub-l"></span>Lens-based &amp; Video Archives</div>
+<div class="g2" id="lensGrid"></div></div>
+
+<div style="margin-bottom:72px;"><div class="sub fi"><span class="sub-l"></span>Poetry</div>
+<div class="fi"><p class="wy" style="margin-bottom:4px;">Featured in <em>Exchanges: dialogues between poetry and art</em></p><p style="font-size:12px;color:var(--t20);margin-bottom:24px;">The Ruth Foster Gallery, University of Wisconsin, Eau Claire, 2023</p>
+<div class="poem">
+I was found and lightened so as not to be rotten.<br/>
+I need to be exposed to light from nowhere to fold and unfold.<br/>
+The colors and lines from the shiny source surround my eyeballs<br/>
+penetrate my skin like a gas.<br/><br/>
+After cutting up my roots from whoever, whatever,<br/>
+I got stuck by all the burden.<br/>
+Throwing myself away to be fallen and settle down somewhere<br/>
+with nobody is alienating my every part.<br/><br/>
+It needs to be closed to open and open to close.<br/>
+The windowless blinds are for your inside and outside.<br/>
+Intervals between colors and lines overlap with your wrinkles.<br/>
+It is desperate to be exposed and developed.<br/><br/>
+Living out of my motherland, losing my mother tongue<br/>
+having a bite of fatal pomegranate like Proserpine did.<br/>
+It signifies for her captivity and marriage,<br/>
+and the incense burner, the attribute of goddess.<br/><br/>
+It is a process to detach m from mother to be another.<br/><br/>
+Aging,<br/>
+I am limited,<br/>
+getting closer to the pointy edges reluctantly<br/>
+within a cycle<br/>
+moving<br/><br/>
+My gesture<br/>
+to scan and project<br/>
+resuscitate and embrace lost empty time.<br/>
+a trajectory to navigate spacetime with ambient colors
+</div></div></div>
+
+<div><div class="sub fi"><span class="sub-l"></span>Complete Exhibition Archive</div>
+<div id="exhAcc" class="fi"></div></div>
+</div>
+</section>
+
+<div class="dv"><div class="dvl"></div><div class="dvd"></div><div class="dvl"></div></div>
+
+<section id="educator" class="sec">
+<div class="ctn">
+<div class="sh fi"><div class="sln" style="background:var(--amb);opacity:.5;"></div><p class="sl" style="color:var(--amb);opacity:.5;">III</p><h2 class="st">Educational Leadership</h2></div>
+<div class="egrid">
+<div><div class="esb">
+<div class="eblk fi"><p class="eblk-t">Philosophy</p><p class="philo">Creator of the <em>r&#x1EC5;, root</em> pedagogical framework, an exhibition centered approach replacing traditional portfolio assessments with physical exhibitions, fostering collective creative practice.</p></div>
+<div class="eblk fi"><p class="eblk-t">Current Role</p><p class="rt">Course Coordinator &amp; Associate Lecturer</p><p class="ro">RMIT University Vietnam</p><p class="rd">School of Communication and Design</p><p class="rd">July 2025 to Present</p></div>
+<div class="eblk fi"><p class="eblk-t">Guest Speakers</p><div class="spk"><p>Duy-Phuong Le Nguyen</p><p>Tuna Lee</p><p>Stephen Ilam Jang</p></div></div>
+</div></div>
+<div>
+<div class="sub fi"><span class="sub-l"></span>Workshops &amp; Initiatives</div>
+<div class="wsc fi"><h3>Creative Photography Workshop</h3><p class="wsm">Semester 3, 2025</p><p>Intensive student workshops fostering creative exploration through lens-based media.</p><div class="wsl"><a href="https://www.instagram.com/p/DSQ-hOyEmrw/" target="_blank" rel="noopener" class="el">I <span class="ar">&nearr;</span></a><a href="https://www.instagram.com/p/DSZ9xXmEmhr/" target="_blank" rel="noopener" class="el">II <span class="ar">&nearr;</span></a><a href="https://www.instagram.com/p/DS_g_w3kjmW/" target="_blank" rel="noopener" class="el">III <span class="ar">&nearr;</span></a></div></div>
+<div class="wsc fi"><h3>VVIP Photo Gift Project</h3><p>Project lead. Curated student professional photography for distinguished guests.</p><div class="wsl"><a href="https://www.instagram.com/p/DTO9nigEgN-/" target="_blank" rel="noopener" class="el">View <span class="ar">&nearr;</span></a></div></div>
+<div class="wsc fi"><h3>Experience Day 2026</h3><p>"Pocket Studio: Portraits with your phone", Satisfaction score 9.9/10.</p></div>
+<div class="wsc fi"><h3>Photo 101, SONY Partnership</h3><p>"Camera, Lighting, and AI: Pushing the Boundaries of Creativity" with SONY.</p></div>
+</div></div></div>
+</section>
+
+<div class="dv"><div class="dvl"></div><div class="dvd"></div><div class="dvl"></div></div>
+
+<section id="researcher" class="sec">
+<div class="ctn">
+<div class="sh fi"><div class="sln" style="background:var(--sage);opacity:.5;"></div><p class="sl" style="color:var(--sage);opacity:.5;">IV</p><h2 class="st">Academic Research</h2></div>
+<div style="margin-bottom:48px;" class="fi"><div class="sub"><span class="sub-l"></span>Committee</div><div class="comc"><p class="ct">Technical Program Committee Member</p><p class="cd">ICAIHE 2026</p><p class="cl">Waseda University, Tokyo</p></div></div>
+<div style="margin-bottom:48px;" class="fi"><div class="sub"><span class="sub-l"></span>Publications</div><p class="pn">Co-authored with Suren</p><div class="pi"><h4>A Dialogue-Centered Framework for Reducing Transactional Distance in Online Photography Education</h4><p class="pv">24th Intl Conference on Web-Based Learning, Hong Kong</p></div><div class="pi"><h4>Learning to ASCEND: Immersive Pedagogy for Educational and Societal Transformation</h4><p class="pv">ETLTC 2026, Fukushima (Q1, citation score 8.5)</p></div></div>
+<div style="margin-bottom:48px;"><div class="sub fi"><span class="sub-l"></span>Talks</div>
+<div class="tc fi"><p class="tv">APARN 2025</p><h4>Reimagining Communities: Poetic Spaces of Light, Movement, and Language</h4><a href="https://doi.org/10.62789/APARN2025-paper43" target="_blank" rel="noopener" class="el">Read <span class="ar">&nearr;</span></a></div>
+<div class="tc fi"><p class="tv">Beyond 1&amp;0 Symposium</p><h4>Empathetic Gestures, Entangled Futures: Mobile Cameras as Regenerative Practice</h4><a href="https://doi.org/10.6084/m9.figshare.30507803" target="_blank" rel="noopener" class="el">Read <span class="ar">&nearr;</span></a></div>
+<div class="tc fi"><p class="tv">SCD Research Exchange</p><h4>&#x3141;otherisland and Gelora: Portals of Embodied Alienation</h4><a href="https://doi.org/10.6084/m9.figshare.30507611" target="_blank" rel="noopener" class="el">Read <span class="ar">&nearr;</span></a></div>
+</div>
+<div class="fi"><div class="sub"><span class="sub-l"></span>Decks</div><div style="display:flex;flex-wrap:wrap;gap:12px;"><a href="https://www.canva.com/design/DAG-81OqB6s/vUe0xwUkUI7gqUxmJOsOdA/edit" target="_blank" rel="noopener" class="bo">Deck I</a><a href="https://www.canva.com/design/DAG-jQi_-DE/PeL_cWtPnm_M-iLCWOhLjQ/edit" target="_blank" rel="noopener" class="bo">Deck II</a></div></div>
+</div></section>
+
+<div class="dv"><div class="dvl"></div><div class="dvd"></div><div class="dvl"></div></div>
+
+<section class="bio-sec" id="bio">
+<div class="ctn">
+<div class="sh fi"><div class="sln" style="background:var(--t15);"></div><p class="sl" style="color:var(--t25);">About</p><h2 class="st">Biography</h2></div>
+<div class="bio-grid">
+<div class="fi"><div class="bio-text">
+<p>Bin Youn is a Korean multimedia artist and educator based in Vietnam, whose practice bridges lens-based media, poetic spatial installation, and participatory environments. Currently serving as Course Coordinator and Associate Lecturer in Digital Media, School of Communication and Design at RMIT University Vietnam, Youn explores diasporic identity, otherness, and language through her work.</p>
+<p>Her practice examines displacement, alienation, and technological intimacy through ephemeral encounters, investigating how alienation itself can become a generative force that creates new forms of connection across species, technological, and cultural boundaries.</p>
+<p>Working primarily with photography, spatial video installation, light, and sculptural forms, Youn creates sensory-based moving image installations that invite viewers to navigate spacetime. She is dedicated to weaving cultural and material narratives into transformative spatial encounters, where the boundaries between self, space, and time are continually reimagined.</p>
+</div></div>
+<div class="fi">
+<div style="margin-bottom:32px;"><p class="bio-side-t">Education</p>
+<div class="bio-item"><p class="bio-item-t">MFA, California State University Long Beach</p><p class="bio-item-d">2023</p></div>
+<div class="bio-item"><p class="bio-item-t">B.A. Consumer Family Sciences &amp; B.B.A. Business Administration</p><p class="bio-item-d">Sungkyunkwan University, Seoul, 2013</p></div>
+<div class="bio-item"><p class="bio-item-t">Study Abroad, Paris Graduate School of Management</p><p class="bio-item-d">2011</p></div>
+</div>
+<div style="margin-bottom:32px;"><p class="bio-side-t">News &amp; Press</p>
+<div class="bio-item"><a href="https://boldjourney.com/meet-bin-youn/" target="_blank" rel="noopener" class="el">Bold Journey: Meet Bin Youn <span class="ar">&nearr;</span></a><p class="bio-item-d">July 2024</p></div>
+<div class="bio-item"><a href="https://shoutoutla.com/meet-bin-youn-artist-poet/" target="_blank" rel="noopener" class="el">Shoutout LA <span class="ar">&nearr;</span></a><p class="bio-item-d">April 2024</p></div>
+<div class="bio-item"><a href="https://voyagela.com/interview/meet-bin-youn-of-long-beach-la-county/" target="_blank" rel="noopener" class="el">VoyageLA <span class="ar">&nearr;</span></a><p class="bio-item-d">July 2023</p></div>
+</div>
+<div><p class="bio-side-t">Contact</p>
+<p style="font-size:13px;color:var(--t30);">CV available upon request</p>
+<a href="mailto:sierra.biny@icloud.com" class="el" style="margin-top:8px;display:inline-flex;">sierra.biny@icloud.com <span class="ar">&nearr;</span></a>
+<div style="margin-top:16px;"><a href="https://linktr.ee/binyoun" target="_blank" rel="noopener" class="bp">Linktree</a></div>
+</div>
+</div></div></div>
+</section>
+
+<footer class="ft"><div class="ft-in"><div class="ft-g">
+<div><p class="ft-n">Bin Youn</p><p class="ft-nk">윤빈</p><p class="ft-i">Multimedia Artist, Educator &amp; Poet<br/>RMIT University Vietnam<br/>School of Communication and Design</p></div>
+<div><p class="ft-ct">Links</p><div class="ft-ls"><a href="https://www.rmit.edu.vn/profiles/y/bin-youn" target="_blank" rel="noopener" class="el">RMIT Profile <span class="ar">&nearr;</span></a><a href="https://binyoun.github.io/info/" target="_blank" rel="noopener" class="el">Recent Works <span class="ar">&nearr;</span></a><a href="https://linktr.ee/binyoun" target="_blank" rel="noopener" class="el">Linktree <span class="ar">&nearr;</span></a><a href="https://binyoun.github.io/mnode/" target="_blank" rel="noopener" class="el">M-NODE <span class="ar">&nearr;</span></a></div></div>
+<div><p class="ft-ct">Projects</p><div class="ft-ls"><a href="https://binyoun.github.io/beyond-1-and-0-poem/" target="_blank" rel="noopener" class="el">Collaborative Poem <span class="ar">&nearr;</span></a><a href="https://youtu.be/URONCeVigPo?si=bPCXDsHJLx6a8VwI" target="_blank" rel="noopener" class="el">Beyond 1&amp;0 Song <span class="ar">&nearr;</span></a><a href="https://dac.siggraph.org/sparks/2026-01-23_beyond-the-global-north/" target="_blank" rel="noopener" class="el">SIGGRAPH <span class="ar">&nearr;</span></a></div></div>
+</div><div class="ft-b"><p class="ft-c">&copy; 2026 Bin Youn 윤빈</p></div></div></footer>
+
+<script>
+/* ===== INSPIRED CANVAS LOGIC ===== */
+const cv=document.getElementById('cv'),c=cv.getContext('2d');
+let W,H,t=0;
+function rs(){W=cv.width=innerWidth;H=cv.height=innerHeight;}
+rs();addEventListener('resize',rs);
+
+function n(x,y,z){return(Math.sin(x*1.2+z*.7)+Math.sin(y*.8+z*.5)+Math.sin((x+y)*.6+z*.9)+Math.sin(Math.sqrt(x*x+y*y)*.4+z*1.1))*.25;}
+
+class Stroke{
+  constructor(col){
+    this.col=col;this.seed=Math.random()*100;
+    this.y=Math.random();this.amp=.02+Math.random()*.04;
+    this.freq=.8+Math.random()*1.5;this.speed=.1+Math.random()*.15;
+    this.alpha=.03+Math.random()*.04;this.width=.5+Math.random()*1.5;
+  }
+  draw(t){
+    c.beginPath();
+    const steps=60;
+    for(let i=0;i<=steps;i++){
+      const p=i/steps;
+      const x=p*W;
+      const baseY=this.y*H;
+      const wave=Math.sin(p*Math.PI*this.freq+t*this.speed+this.seed)*this.amp*H;
+      const drift=n(p*2,this.seed,t*.2)*this.amp*H*.5;
+      const y=baseY+wave+drift;
+      if(i===0)c.moveTo(x,y);else c.lineTo(x,y);
+    }
+    const[r,g,b]=this.col;
+    c.strokeStyle=`rgba(${r},${g},${b},${this.alpha})`;
+    c.lineWidth=this.width;c.stroke();
+  }
+}
+
+class Mote{
+  constructor(){this.reset();this.age=Math.random()*300;}
+  reset(){
+    this.x=Math.random();this.y=Math.random();
+    this.size=1+Math.random()*2.5;
+    this.alpha=.08+Math.random()*.2;
+    this.life=300+Math.random()*500;this.age=0;
+    this.drift=Math.random()*Math.PI*2;
+    const roll=Math.random();
+    if(roll<.45){this.cr=212;this.cg=30;this.cb=90;}
+    else if(roll<.7){this.cr=200;this.cg=150;this.cb=64;}
+    else if(roll<.88){this.cr=90;this.cg=138;this.cb=106;}
+    else{this.cr=180;this.cg=160;this.cb=140;}
+  }
+  update(t){
+    const nn=n(this.x*3,this.y*3,t*.25);
+    this.x+=Math.cos(nn*Math.PI*2+this.drift)*.0005;
+    this.y+=Math.sin(nn*Math.PI*2+this.drift)*.0004-.0001;
+    this.age++;
+    if(this.age>this.life||this.x<-.05||this.x>1.05||this.y<-.05||this.y>1.05)this.reset();
+  }
+}
+
+class Glow{
+  constructor(col){
+    this.col=col;this.x=.1+Math.random()*.8;this.y=.1+Math.random()*.8;
+    this.r=.12+Math.random()*.18;
+    this.vx=(Math.random()-.5)*.0002;this.vy=(Math.random()-.5)*.0002;
+    this.ph=Math.random()*Math.PI*2;this.fr=.1+Math.random()*.1;
+  }
+  update(t){
+    this.x+=this.vx+Math.sin(t*this.fr+this.ph)*.0006;
+    this.y+=this.vy+Math.cos(t*this.fr*.7+this.ph)*.0004;
+    if(this.x<-.2)this.x=1.2;if(this.x>1.2)this.x=-.2;
+    if(this.y<-.2)this.y=1.2;if(this.y>1.2)this.y=-.2;
+  }
+}
+
+const strokes=[];
+for(let i=0;i<8;i++)strokes.push(new Stroke([212,30,90]));
+for(let i=0;i<6;i++)strokes.push(new Stroke([200,150,64]));
+for(let i=0;i<5;i++)strokes.push(new Stroke([90,138,106]));
+
+const motes=[];for(let i=0;i<120;i++)motes.push(new Mote());
+
+const glows=[];
+for(let i=0;i<3;i++)glows.push(new Glow([212,30,90]));
+for(let i=0;i<2;i++)glows.push(new Glow([200,150,64]));
+for(let i=0;i<2;i++)glows.push(new Glow([90,138,106]));
+
+function animate(){
+  t+=.005;
+  c.globalCompositeOperation='source-over';
+  c.fillStyle='rgba(8,8,7,.1)';c.fillRect(0,0,W,H);
+
+  c.globalCompositeOperation='lighter';
+  glows.forEach(g=>{
+    g.update(t);
+    const px=g.x*W,py=g.y*H,rad=g.r*Math.max(W,H);
+    const gr=c.createRadialGradient(px,py,0,px,py,rad);
+    const[r,gg,b]=g.col;
+    gr.addColorStop(0,`rgba(${r},${gg},${b},.035)`);
+    gr.addColorStop(.4,`rgba(${r},${gg},${b},.015)`);
+    gr.addColorStop(1,'rgba(0,0,0,0)');
+    c.fillStyle=gr;c.fillRect(px-rad,py-rad,rad*2,rad*2);
+  });
+
+  c.globalCompositeOperation='lighter';
+  strokes.forEach(s=>s.draw(t));
+
+  c.globalCompositeOperation='lighter';
+  motes.forEach(m=>{
+    m.update(t);
+    const px=m.x*W,py=m.y*H;
+    const lf=1-Math.abs(2*m.age/m.life-1);
+    const a=m.alpha*lf;if(a<.005)return;
+    const g=c.createRadialGradient(px,py,0,px,py,m.size*3);
+    g.addColorStop(0,`rgba(${m.cr},${m.cg},${m.cb},${a*.35})`);
+    g.addColorStop(1,'rgba(0,0,0,0)');
+    c.fillStyle=g;c.fillRect(px-m.size*3,py-m.size*3,m.size*6,m.size*6);
+    c.beginPath();c.arc(px,py,m.size*.4,0,Math.PI*2);
+    c.fillStyle=`rgba(${m.cr},${m.cg},${m.cb},${a*.6})`;c.fill();
+  });
+
+  requestAnimationFrame(animate);
+}
+c.fillStyle='#080807';c.fillRect(0,0,W,H);animate();
+
+/* ===== DYNAMIC CONTENT ===== */
+const svg='<div class="phi"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>';
+
+const inst=[
+  {t:"Breathscape",y:"2023",d:"Two human-sized spherical light sculptures with dichroic film, revolving at 1 RPM. Shadows and reflections reconstruct geometric forms across the gallery space.",u:"https://docs.google.com/document/d/1hz12tS2Fyn4knKOzwA945Nmuj4vQI-dqyE6J0NLkKiY/edit?usp=sharing",l:"Breathscape Spheres"},
+  {t:"Projective Verse of \u3147",y:"2023",d:"\u3147 is a sound of water. It lives where fluids flow. Korean consonant \u3147 is mute at the beginning of words, it has marginal, empty space to breathe.",u:"https://docs.google.com/document/d/1xpkNZ9d3Jwo-MWpeJJtDrFwpLgRHlewVexs7UBISsLE/edit?usp=sharing",l:"Projective Verse of \u3147"},
+  {t:"Butterflying",y:"2023",d:"Six-channel video installation with projectors, inflatable couches, laser cut acrylic, dichroic film. Collaboration with Josh Zubkoff.",u:"https://docs.google.com/document/d/1BFxZk-7mj3DN3fd9vKTqepVKuhLYsMwFgVZuyvpgcKs/edit?usp=sharing",l:"Butterflying Installation"},
+  {t:"\u3141otherisland",y:"2022",d:"5-channel video installation. Beholders navigate landscapes stepping on shiny foreign ground. \u3141 replaces m to project the stopping moment: mother, other, island, land...",u:"https://docs.google.com/document/d/1yLXMDvRolVjWO4n_JFbITSM-4gbH5l5Jurt8NBSfLug/edit?usp=sharing",l:"\u3141otherisland"},
+  {t:"Open your Window",y:"2022",d:"4-channel video installation with aircraft wires, vinyl blinds. Gelora images projected through suspended blinds, visitors navigate paths creating shadows.",u:"https://docs.google.com/document/d/1wcEKxeTcEpZqaj0-uUFFoFMxlp9mh2SjWSqkVl7niqE/edit?usp=sharing",l:"Open your Window"},
+  {t:"Abyss",y:"2022",d:"Kaleidoscope large enough for a person to be surrounded by mirrors. Gelora scanned photographs projected from below. Collaboration with Josh Zubkoff.",u:"https://docs.google.com/document/d/1C37LX2IvJ_gX8KwF70SFkTGH8-lKmvPBNhlevn9mkHs/edit?usp=sharing",l:"Abyss Kaleidoscope"},
+  {t:"Somatic Blinds",y:"2022",d:"Grow light, vinyl blind, plywood, aircraft wire, box fan, mylar thermal blanket, bird reflective scare tape.",u:"https://docs.google.com/document/d/1IJ1eI86WlP20XIQLvDhUEIs7ID3Pw0WMFCBqs90xRho/edit?usp=sharing",l:"Somatic Blinds"},
+];
+const ig=document.getElementById('instGrid');
+inst.forEach(w=>{const d=document.createElement('div');d.className='wc fi';d.innerHTML=`<div class="ig" style="aspect-ratio:4/3;"><div>${svg}<p class="phl">${w.l}</p></div></div><div style="margin-top:16px;"><h3 class="wt">${w.t}</h3><p class="wy">${w.y}</p><p class="wd">${w.d}</p><a href="${w.u}" target="_blank" rel="noopener" class="el">Full Statement <span class="ar">&nearr;</span></a></div>`;ig.appendChild(d);});
+
+const sculp=[
+  {t:"Stars are brushed by wind again I",y:"2023",m:"Cyanotype on seashell, branch, Sambe"},
+  {t:"Composition of Mother with sky, soil, water and human",y:"2023",m:"Wood, light, mixed media"},
+  {t:"Mother, I call a name for each star",y:"2023",m:"Cyanotype on wood, branch, stone"},
+  {t:"I shall love all things that are dying",y:"2023",m:"Cyanotype on Sambe, broken branches"},
+  {t:"Grown Light",y:"2023",m:"Grow Light, Cuts"},
+  {t:"Warmest Night",y:"2022",m:"Printed Gelora on velvet, dried branch, wood frame with glass"},
+  {t:"The Lamp",y:"2019",m:"Negatives, red strings, lamp"},
+];
+const sg=document.getElementById('sculpGrid');
+sculp.forEach(w=>{const d=document.createElement('div');d.className='sc fi';d.innerHTML=`<div class="ig" style="aspect-ratio:1/1;"><div>${svg}<p class="phl">Sculpture</p></div></div><div style="margin-top:12px;"><p class="sc-t">${w.t}</p><p class="sc-y">${w.y}</p><p class="wm">${w.m}</p></div>`;sg.appendChild(d);});
+
+const lens=[
+  {t:"I am missing their warmth from 5,968 miles away",y:"2023",d:"Featured artist on Visions of Motherhood curated by The Luupe.",l:"https://theluupe.com/blog/visions-of-motherhood-2023"},
+  {t:"I am telling what a I* see is what you see. You are reading what AI** hear is what you hear",y:"2022",d:"Video work inviting viewers to float in the alienated ocean of an island, with AI generated captions and Korean narration.",l:"https://www.youtube.com/watch?v=fF2XpP3Gc7w"},
+  {t:"Memories of Seoul",y:"2017",d:"Co-produced artwork with travelers creating new images by collecting and connecting memories of places in Seoul."},
+  {t:"Be@IT",y:"2017",d:"Starting from a personal relationship with a specific food, the traditional Korean rice cake."},
+];
+const lg=document.getElementById('lensGrid');
+lens.forEach(w=>{const d=document.createElement('div');d.className='wc fi';d.innerHTML=`<div class="ig" style="aspect-ratio:16/10;"><div>${svg}<p class="phl">${w.y==='2022'?'Video Art':'Photography'}</p></div></div><div style="margin-top:16px;"><h3 class="wt">${w.t}</h3><p class="wy">${w.y}</p><p class="wd">${w.d}</p>${w.l?`<a href="${w.l}" target="_blank" rel="noopener" class="el">View <span class="ar">&nearr;</span></a>`:''}</div>`;lg.appendChild(d);});
+
+const soloExh=[
+  ["Through Islands","Shakarian Gallery, California","2023"],
+  ["Breathscape","Shakarian Gallery, California","2023"],
+  ["Projective Verse of \u3147","Max L. Getov Galleries, California","2023"],
+  ["Your Leaves Touch My Planes","Shakarian Gallery, California","2022"],
+  ["\u3141otherisland","Max L. Getov East Gallery, California","2022"],
+  ["Somatic Blinds","Werby Gallery, California","2022"],
+  ["W(AV)E","Shakarian Gallery, California","2021"],
+  ["LiSTeN","Shakarian Gallery, California","2021"],
+  ["Super-F-icial S","Shakarian Gallery, California","2021"],
+  ["Natura Naturata","Max L. Getov West Gallery, California","2021"],
+  ["BE@IT","Vision Photography Academy, Seoul","2017"],
+  ["Moments in Paris","Hanchae Gallery, Seoul","2017"],
+];
+const groupExh=[
+  ["Our Common Ground","The Little Gallery, California","2024"],
+  ["Let it Linger","Max L. Gatov Gallery, California","2024"],
+  ["Exchanges: dialogues between poetry and art","Ruth Foster Gallery, Wisconsin","2023"],
+  ["CSULB President House Selection","Miller House, California","2023 to 24"],
+  ["Now Trending: 7th Annual AIpay Exhibition","Palos Verdes Art Center, California","2023"],
+  ["Visions of Motherhood","The Luupe, Online","2023"],
+  ["Flourish & Flow, AAPI Exhibition","Atrium Gallery, Ventura County, California","2023"],
+  ["Insights 2023","Max L. Getov East Gallery, California","2023"],
+  ["Butterflying","Dr. Maxine Merlino Gallery, California","2023"],
+  ["Under the Same Sun, AAPI","Max L. Getov East Gallery, California","2023"],
+  ["Here, There, Nowhere","Online, Montana/Montana State University","2022"],
+  ["Graduate Week of Critique","Max L. Getov Gallery, California","2022"],
+  ["Abyss","Max L. Getov East Gallery, California","2022"],
+  ["Double Exposure","Werby Gallery, California","2022"],
+  ["INSIGHTS 2022","Werby Gallery, California","2022"],
+  ["Weeks of Arts: Fiber show","Dutzi Gallery, California","2022"],
+  ["Recovery","Ryugaheon, Seoul","2022"],
+  ["Advancement Show","Max L. Getov West Gallery, California","2022"],
+  ["MFA Graduate Week","Max L. Getov Gallery, California","2021"],
+  ["MFA Graduate Critique Week","Dutzi Gallery, California","2018"],
+  ["WHO ARE WE? II","Ryugaheon, Seoul","2018"],
+  ["Student Final Photo Exhibition","Sungkyunkwan University Library","2012"],
+];
+function buildAcc(title,items){
+  return`<div class="acc"><button class="acc-h" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open');">${title}<span class="arr">&#x25BE;</span></button><div class="acc-body">${items.map(i=>`<div class="acc-item"><p class="acc-title">${i[0]}</p><p class="acc-meta">${i[1]}, ${i[2]}</p></div>`).join('')}</div></div>`;
+}
+document.getElementById('exhAcc').innerHTML=buildAcc('Solo Exhibitions (2017 to 2023)',soloExh)+buildAcc('Group Exhibitions (2012 to 2024)',groupExh);
+
+/* ===== NAV ===== */
+function go(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'});document.getElementById('mm').classList.remove('op');document.getElementById('hb').classList.remove('op');}
+function tm(){document.getElementById('mm').classList.toggle('op');document.getElementById('hb').classList.toggle('op');}
+const ss=['home','artist','educator','researcher','bio'];
+const nls=document.querySelectorAll('.nl');
+addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('sc',scrollY>40);let cur='home';ss.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<=100)cur=id;});nls.forEach(l=>l.classList.toggle('ac',l.dataset.s===cur));},{passive:true});
+
+/* FADE */
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('v');obs.unobserve(e.target);}});},{threshold:.06,rootMargin:'0px 0px -20px 0px'});
+document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
