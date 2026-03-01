@@ -3,767 +3,421 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Bin Youn 윤빈</title>
-<meta name="description" content="Bin Youn - Korean multimedia artist, educator, and poet based in Vietnam."/>
+<title>Bin Youn — Multimedia Artist, Educator, Researcher</title>
+<meta name="description" content="Bin Youn - Korean multimedia artist, educator, and researcher."/>
+
+  <!-- Open Graph -->
+<meta property="og:title" content="Bin Youn — Multimedia Artist, Educator, Researcher"/>
+<meta property="og:description" content="Korean multimedia artist whose practice bridges lens-based media, poetic spatial installation, and participatory environments."/>
+<meta property="og:image" content="https://binyoun.com/image/og-image.jpg"/>
+<meta property="og:url" content="https://binyoun.com/"/>
+<meta property="og:type" content="website"/>
+
+<!-- Twitter/X Card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Bin Youn — Multimedia Artist, Educator, Researcher"/>
+<meta name="twitter:description" content="Installations, lens-based media, sculpture, and poetic spatial encounters."/>
+<meta name="twitter:image" content="https://binyoun.com/image/og-image.jpg"/>
+  
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700&family=Nanum+Myeongjo:wght@400;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 :root{
-  --bg:#080807;--bg2:#0d0d0c;--card:#111110;
-  --mag:#d4005a;--amb:#c89640;--sage:#5a8a6a;
-  --mag-d:rgba(212,0,90,0.12);--amb-d:rgba(200,150,64,0.12);--sage-d:rgba(90,138,106,0.12);
-  --t95:rgba(255,255,255,.95);--t90:rgba(255,255,255,.9);--t80:rgba(255,255,255,.8);
-  --t70:rgba(255,255,255,.7);--t60:rgba(255,255,255,.6);--t50:rgba(255,255,255,.5);
-  --t40:rgba(255,255,255,.4);--t35:rgba(255,255,255,.35);--t30:rgba(255,255,255,.3);
-  --t25:rgba(255,255,255,.25);--t20:rgba(255,255,255,.2);--t15:rgba(255,255,255,.15);
-  --t10:rgba(255,255,255,.1);--t05:rgba(255,255,255,.05);
-  --brd:rgba(255,255,255,.06);--brdh:rgba(255,255,255,.12);
-  --ed:'Playfair Display',Georgia,serif;
-  --kr:'Nanum Myeongjo',serif;
-  --ui:'DM Sans',-apple-system,sans-serif;
+  --ocean:#090d12;--deep:#060a0f;
+  --sand:#f4f0e8;--sand2:#ece7dd;
+  --ink:#1a1a18;--ink80:rgba(26,26,24,.8);--ink60:rgba(26,26,24,.6);
+  --ink45:rgba(26,26,24,.45);--ink30:rgba(26,26,24,.3);--ink20:rgba(26,26,24,.2);
+  --ink12:rgba(26,26,24,.12);--ink08:rgba(26,26,24,.08);--ink05:rgba(26,26,24,.05);
+  --snow:rgba(255,255,255,.92);--snow70:rgba(255,255,255,.7);--snow50:rgba(255,255,255,.5);
+  --snow30:rgba(255,255,255,.3);--snow15:rgba(255,255,255,.15);--snow08:rgba(255,255,255,.08);
+  --rose:#b84a6a;--gold:#a8862e;--teal:#2e8a82;
+  --serif:'Cormorant',Georgia,serif;
+  --sans:'Sora',-apple-system,sans-serif;
 }
-html{scroll-behavior:smooth;scroll-padding-top:72px;}
-body{background:var(--bg);color:var(--t70);font-family:var(--ui);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
-::selection{background:rgba(212,0,90,.2);color:white;}
-::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:transparent;}::-webkit-scrollbar-thumb{background:rgba(212,0,90,.12);border-radius:2px;}
-.ctn{max-width:1200px;margin:0 auto;padding:0 24px;}
-@media(min-width:768px){.ctn{padding:0 40px;}}
+html{scroll-behavior:smooth;}
+body{background:var(--ocean);color:var(--ink60);font-family:var(--sans);font-weight:400;font-size:14px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+body.no-scroll{overflow:hidden;}
+::selection{background:rgba(184,74,106,.18);color:var(--ink);}
+::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:transparent;}::-webkit-scrollbar-thumb{background:rgba(255,255,255,.08);border-radius:2px;}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;height:56px;transition:all .4s;}
-nav.sc{background:rgba(8,8,7,.92);backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);border-bottom:1px solid rgba(212,0,90,.06);}
-.ni{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px;}
-@media(min-width:768px){.ni{padding:0 40px;}}
-.nlogo{font-family:var(--ed);font-size:15px;font-weight:700;color:var(--t50);background:none;border:none;cursor:pointer;transition:color .3s;letter-spacing:.02em;}
-.nlogo:hover{color:var(--mag);}
-.nlogo .kr{font-family:var(--kr);font-size:13px;font-weight:400;color:var(--t25);margin-left:6px;}
-.nlinks{display:none;align-items:center;gap:0;}
-@media(min-width:768px){.nlinks{display:flex;}}
-.nl{padding:8px 14px;font-family:var(--ui);font-size:11px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:var(--t25);background:none;border:none;cursor:pointer;transition:color .3s;position:relative;}
-.nl:hover{color:var(--t60);}
-.nl.ac{color:var(--mag);}
-.nl.ac::after{content:'';position:absolute;bottom:3px;left:14px;right:14px;height:1px;background:var(--mag);opacity:.4;}
-.nex{font-size:11px;color:var(--t25);text-decoration:none;letter-spacing:.08em;margin-left:12px;padding-left:12px;border-left:1px solid var(--brd);transition:color .3s;}
-.nex:hover{color:var(--mag);}
-.hb{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;}
-@media(min-width:768px){.hb{display:none;}}
-.hb span{display:block;width:18px;height:1px;background:var(--t40);transition:all .3s;}
-.hb.op span:first-child{transform:rotate(45deg) translate(2px,2px);}
-.hb.op span:last-child{transform:rotate(-45deg) translate(2px,-2px);}
-.mm{display:none;position:fixed;top:56px;left:0;right:0;background:rgba(8,8,7,.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--brd);padding:0 24px 24px;z-index:99;}
-.mm.op{display:block;}
-.ml{display:block;width:100%;text-align:left;padding:14px 0;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--t35);border:none;border-bottom:1px solid var(--t05);cursor:pointer;background:none;transition:color .3s;}
-.ml:hover{color:var(--mag);}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:56px;transition:background .4s;}
+nav.scrolled{background:rgba(9,13,18,.88);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--snow08);}
+.nav-i{max-width:1200px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:56px;}
+@media(min-width:768px){.nav-i{padding:0 48px;}}
+.nav-logo{font-family:var(--serif);font-size:16px;font-weight:500;color:var(--snow50);background:none;border:none;cursor:pointer;transition:color .3s;}
+.nav-logo:hover{color:var(--snow);}
+.nav-lks{display:none;align-items:center;gap:0;}
+@media(min-width:768px){.nav-lks{display:flex;}}
+.nav-lk{padding:8px 16px;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--snow30);background:none;border:none;cursor:pointer;transition:color .3s;}
+.nav-lk:hover{color:var(--snow70);}
+.nav-ex{font-size:10px;font-weight:500;text-decoration:none;letter-spacing:.06em;color:var(--snow30);margin-left:16px;padding-left:16px;border-left:1px solid var(--snow08);transition:color .3s;}
+.nav-ex:hover{color:var(--rose);}
+.ham{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;}
+@media(min-width:768px){.ham{display:none;}}
+.ham span{display:block;width:20px;height:1.5px;background:var(--snow50);transition:all .3s;border-radius:1px;}
+.ham.open span:first-child{transform:rotate(45deg) translate(2px,2px);}
+.ham.open span:last-child{transform:rotate(-45deg) translate(2px,-2px);}
+.mob{display:none;position:fixed;top:56px;left:0;right:0;background:rgba(9,13,18,.96);backdrop-filter:blur(20px);padding:8px 28px 28px;z-index:199;}
+.mob.open{display:block;}
+.mob-lk{display:block;width:100%;text-align:left;padding:16px 0;font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--snow30);border:none;border-bottom:1px solid var(--snow08);cursor:pointer;background:none;transition:color .3s;}
+.mob-lk:hover{color:var(--snow70);}
 
 /* HERO */
-.hero{position:relative;min-height:100vh;overflow:hidden;}
+.hero{position:relative;height:100vh;min-height:580px;overflow:hidden;}
 .hero canvas{position:absolute;inset:0;width:100%;height:100%;}
-.hcontent{position:relative;z-index:10;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px 60px;}
+.hero-c{position:relative;z-index:10;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 24px;}
+.fluid-wrap{margin-bottom:8px;}
+.fluid-wrap svg{width:min(88vw,720px);height:auto;}
+.fluid-name{font-family:var(--serif);font-size:120px;font-weight:300;fill:rgba(255,255,255,.88);letter-spacing:-2px;}
+@media(max-width:600px){.fluid-name{font-size:80px;}}
+.hero-sub{font-family:var(--sans);font-size:11px;font-weight:400;letter-spacing:.35em;text-transform:uppercase;color:var(--snow30);margin-top:16px;}
+.hero-sub span{margin:0 4px;opacity:.4;}
+.hero-scroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:10;}
+.hero-scroll span{display:block;width:1px;height:36px;background:linear-gradient(180deg,var(--snow15),transparent);animation:pulsed 2s ease infinite;}
+@keyframes pulsed{0%,100%{opacity:.3;}50%{opacity:.8;}}
 
-/* NAME - Editorial Bold */
-.nm-kr{font-family:var(--kr);font-size:clamp(18px,3vw,28px);font-weight:400;color:var(--t15);letter-spacing:.2em;margin-bottom:8px;}
-.nm-en{font-family:var(--ed);font-size:clamp(60px,14vw,160px);font-weight:900;line-height:.88;color:var(--t95);letter-spacing:-.03em;text-shadow:0 0 80px rgba(212,0,90,.15);}
-.nm-sub{font-size:12px;font-weight:400;letter-spacing:.35em;text-transform:uppercase;color:var(--t20);margin:20px 0 48px;}
-.nm-sub span{color:var(--mag);opacity:.5;}
+/* DRIFT — FEATURED */
+.drift{background:var(--ocean);padding:72px 0 100px;position:relative;}
+.drift::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:1px;height:40px;background:linear-gradient(180deg,transparent,var(--snow08));}
+.drift-h{text-align:center;margin-bottom:48px;padding-top:20px;}
+.drift-l{font-size:10px;font-weight:500;letter-spacing:.35em;text-transform:uppercase;color:var(--snow15);margin-bottom:8px;}
+.drift-t{font-family:var(--serif);font-size:clamp(22px,3vw,32px);font-weight:400;color:var(--snow50);}
+.fg{display:grid;grid-template-columns:1fr;gap:16px;max-width:1200px;margin:0 auto;padding:0 28px;}
+@media(min-width:768px){.fg{grid-template-columns:repeat(3,1fr);padding:0 48px;}}
+.fc{position:relative;background:rgba(255,255,255,.02);border:1px solid var(--snow08);overflow:hidden;transition:all .5s cubic-bezier(.23,1,.32,1);}
+.fc:hover{border-color:var(--snow15);transform:translateY(-5px);box-shadow:0 28px 72px rgba(0,0,0,.5);}
+.fc-img{aspect-ratio:16/10;overflow:hidden;background:var(--deep);}
+.fc-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s;opacity:.85;}
+.fc:hover .fc-img img{transform:scale(1.04);opacity:1;}
+.fc-b{padding:18px 20px;}
+.ftags{display:flex;gap:6px;margin-bottom:8px;}
+.ftag{font-size:8px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border:1px solid;}
+.ftag-r{color:var(--rose);border-color:rgba(184,74,106,.25);}
+.ftag-g{color:var(--gold);border-color:rgba(168,134,46,.25);}
+.ftag-t{color:var(--teal);border-color:rgba(46,138,130,.25);}
+.fc h3{font-family:var(--serif);font-size:17px;font-weight:400;color:var(--snow70);margin-bottom:6px;transition:color .3s;}
+.fc:hover h3{color:var(--snow);}
+.fc p{font-size:12px;color:var(--snow30);line-height:1.6;margin-bottom:12px;}
+.fc-lks{display:flex;gap:12px;}
+.lk-s{font-size:11px;font-weight:500;color:var(--snow30);text-decoration:none;border-bottom:1px solid var(--snow08);padding-bottom:1px;transition:all .3s;}
+.lk-s:hover{color:var(--rose);border-color:rgba(184,74,106,.4);}
 
-/* THREE RIVERS NAV CARDS */
-.rivers{display:grid;grid-template-columns:1fr;gap:12px;width:100%;max-width:720px;}
-@media(min-width:600px){.rivers{grid-template-columns:repeat(3,1fr);}}
-.rcard{position:relative;padding:28px 20px;border:1px solid var(--brd);background:rgba(255,255,255,.01);text-decoration:none;text-align:center;transition:all .4s;overflow:hidden;cursor:pointer;}
-.rcard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;opacity:.4;transition:opacity .4s;}
-.rcard:hover{border-color:var(--brdh);transform:translateY(-3px);background:rgba(255,255,255,.02);}
-.rcard:hover::before{opacity:1;}
-.rcard-a::before{background:var(--mag);}
-.rcard-e::before{background:var(--amb);}
-.rcard-r::before{background:var(--sage);}
-.rcard h3{font-family:var(--ed);font-size:18px;font-weight:700;color:var(--t70);margin-bottom:6px;transition:color .3s;}
-.rcard:hover h3{color:var(--t95);}
-.rcard p{font-size:12px;color:var(--t25);line-height:1.5;}
-.rcard .rdot{width:6px;height:6px;border-radius:50%;margin:0 auto 12px;opacity:.6;}
-.rcard-a .rdot{background:var(--mag);}
-.rcard-e .rdot{background:var(--amb);}
-.rcard-r .rdot{background:var(--sage);}
+/* ARCHIPELAGO */
+.arch{position:relative;padding:100px 0 120px;background:var(--sand);overflow:hidden;}
+.arch::before{content:'';position:absolute;top:0;left:0;right:0;height:160px;background:linear-gradient(180deg,var(--ocean),var(--sand));pointer-events:none;z-index:1;}
+.arch-i{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 28px;}
+@media(min-width:768px){.arch-i{padding:0 48px;}}
+.arch-h{text-align:center;margin-bottom:64px;}
+.arch-l{font-size:10px;font-weight:500;letter-spacing:.35em;text-transform:uppercase;color:var(--ink20);margin-bottom:8px;}
+.arch-t{font-family:var(--serif);font-size:clamp(22px,3vw,32px);font-weight:400;color:var(--ink60);}
+.arch-s{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--ink30);margin-top:10px;font-weight:300;}
+.portals{display:grid;grid-template-columns:1fr;gap:20px;}
+@media(min-width:768px){.portals{grid-template-columns:repeat(3,1fr);}}
+.portal{position:relative;cursor:pointer;overflow:hidden;border-radius:6px;transition:all .6s cubic-bezier(.23,1,.32,1);}
+.portal:hover{transform:translateY(-10px) scale(1.015);box-shadow:0 40px 80px rgba(0,0,0,.18);}
+.portal-bg{aspect-ratio:3/4;position:relative;overflow:hidden;}
+@media(min-width:768px){.portal-bg{aspect-ratio:4/5;}}
+.portal-grad{position:absolute;inset:0;z-index:1;transition:opacity .5s;}
+.portal:hover .portal-grad{opacity:.85;}
+.portal-bg>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.45;mix-blend-mode:luminosity;transition:transform .7s,opacity .5s;}
+.portal:hover .portal-bg>img{transform:scale(1.06);opacity:.55;}
+.portal-c{position:absolute;bottom:0;left:0;right:0;z-index:3;padding:32px 26px;}
+.portal-dot{width:8px;height:8px;border-radius:50%;margin-bottom:14px;opacity:.8;}
+.portal-n{font-family:var(--serif);font-size:clamp(28px,4vw,38px);font-weight:400;color:white;margin-bottom:8px;line-height:1.1;}
+.portal-d{font-size:12px;color:rgba(255,255,255,.6);line-height:1.6;max-width:260px;}
+.portal-e{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45);transition:all .3s;}
+.portal:hover .portal-e{color:rgba(255,255,255,.9);gap:10px;}
+.portal-e .arr{transition:transform .3s;font-size:13px;}
+.portal:hover .portal-e .arr{transform:translateX(3px);}
+.portal-artist .portal-grad{background:linear-gradient(180deg,rgba(184,74,106,0) 0%,rgba(130,44,68,.75) 50%,rgba(80,24,42,.95) 100%);}
+.portal-artist .portal-dot{background:var(--rose);}
+.portal-educator .portal-grad{background:linear-gradient(180deg,rgba(168,134,46,0) 0%,rgba(120,96,28,.75) 50%,rgba(70,52,12,.95) 100%);}
+.portal-educator .portal-dot{background:var(--gold);}
+.portal-researcher .portal-grad{background:linear-gradient(180deg,rgba(46,138,130,0) 0%,rgba(28,96,90,.75) 50%,rgba(14,56,52,.95) 100%);}
+.portal-researcher .portal-dot{background:var(--teal);}
 
-/* CONFLUENCE */
-.conf{padding:80px 0 120px;position:relative;}
-.conf::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:1px;height:60px;background:linear-gradient(180deg,rgba(212,0,90,.15),transparent);}
-.conf-h{text-align:center;margin-bottom:64px;padding-top:60px;}
-.conf-l{font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:var(--mag);opacity:.4;margin-bottom:14px;}
-.conf-t{font-family:var(--ed);font-size:clamp(26px,4vw,44px);font-weight:700;color:var(--t80);}
-.conf-s{font-family:var(--ed);font-style:italic;font-size:14px;color:var(--t25);margin-top:14px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7;}
-.pgrid{display:grid;grid-template-columns:1fr;gap:16px;}
-@media(min-width:768px){.pgrid{grid-template-columns:repeat(3,1fr);}}
-.pc{position:relative;background:var(--card);border:1px solid var(--brd);overflow:hidden;transition:all .4s;}
-.pc:hover{border-color:var(--brdh);transform:translateY(-3px);box-shadow:0 20px 60px rgba(0,0,0,.4);}
-.pc-acc{position:absolute;top:0;left:0;right:0;height:2px;opacity:.4;transition:opacity .4s;}
-.pc:hover .pc-acc{opacity:1;}
-.pc .iph{aspect-ratio:16/10;background:linear-gradient(135deg,#0e0e0d,#090908);display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--brd);}
-.phl{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--t10);text-align:center;padding:20px;max-width:160px;line-height:1.5;}
-.phi{width:24px;height:24px;margin:0 auto 8px;border:1px solid var(--t10);border-radius:50%;display:flex;align-items:center;justify-content:center;}
-.phi svg{width:10px;height:10px;stroke:rgba(255,255,255,.08);fill:none;stroke-width:1.5;}
-.pc-b{padding:18px;}
-.ptags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:8px;}
-.ptag{font-size:8px;letter-spacing:.12em;text-transform:uppercase;padding:2px 7px;border:1px solid;opacity:.55;}
-.pta{color:var(--mag);border-color:rgba(212,0,90,.2);}
-.pte{color:var(--amb);border-color:rgba(200,150,64,.2);}
-.ptr{color:var(--sage);border-color:rgba(90,138,106,.2);}
-.pc h3{font-size:14px;font-weight:500;color:var(--t60);margin-bottom:6px;transition:color .3s;}
-.pc:hover h3{color:var(--t90);}
-.pc p{font-family:var(--ed);font-style:italic;font-size:12px;line-height:1.65;color:var(--t25);margin-bottom:12px;}
-.pls{display:flex;flex-wrap:wrap;gap:10px;}
-
-/* BUTTONS & LINKS */
-.bp{display:inline-flex;align-items:center;gap:6px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:11px 22px;background:var(--mag-d);border:1px solid rgba(212,0,90,.2);color:var(--mag);text-decoration:none;transition:all .3s;}
-.bp:hover{border-color:rgba(212,0,90,.5);background:rgba(212,0,90,.15);color:white;}
-.bo{display:inline-flex;align-items:center;gap:6px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:10px 18px;border:1px solid var(--t10);background:transparent;color:var(--t40);text-decoration:none;transition:all .3s;}
-.bo:hover{border-color:var(--t25);color:var(--t80);background:rgba(255,255,255,.02);}
-.el{display:inline-flex;align-items:center;gap:5px;font-size:12px;color:var(--t30);text-decoration:none;border-bottom:1px solid var(--brd);padding-bottom:2px;transition:all .3s;}
-.el:hover{color:var(--mag);border-color:rgba(212,0,90,.25);}
-.el .ar{opacity:0;transform:translateX(-3px);transition:all .3s;font-size:9px;}
-.el:hover .ar{opacity:1;transform:translateX(0);}
-
-/* IMAGE PLACEHOLDER */
-.ig{position:relative;overflow:hidden;border:1px solid var(--brd);background:linear-gradient(135deg,#0e0e0d,#090908);display:flex;align-items:center;justify-content:center;}
-
-/* DIVIDER */
-.dv{display:flex;align-items:center;gap:16px;max-width:1200px;margin:0 auto;padding:8px 24px;}
-@media(min-width:768px){.dv{padding:8px 40px;}}
-.dvl{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--brd),transparent);}
-.dvd{width:3px;height:3px;border-radius:50%;background:rgba(212,0,90,.12);}
-
-/* SECTIONS */
-.sec{padding:100px 0;}
-.sl{font-size:10px;letter-spacing:.25em;text-transform:uppercase;margin-bottom:10px;}
-.st{font-family:var(--ed);font-size:clamp(26px,4vw,44px);font-weight:700;color:rgba(255,255,255,.85);}
-.sh{margin-bottom:64px;}
-.sln{width:28px;height:2px;margin-bottom:18px;}
-.sub{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--t20);margin-bottom:28px;display:flex;align-items:center;gap:8px;}
-.sub-l{width:12px;height:1px;background:var(--t15);}
-
-/* GRIDS */
-.g2{display:grid;grid-template-columns:1fr;gap:24px;}
-@media(min-width:768px){.g2{grid-template-columns:repeat(2,1fr);}}
-.g3{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
-@media(min-width:768px){.g3{grid-template-columns:repeat(3,1fr);}}
-@media(min-width:1024px){.g3{grid-template-columns:repeat(4,1fr);}}
-.g3s{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
-@media(min-width:600px){.g3s{grid-template-columns:repeat(3,1fr);}}
-@media(min-width:900px){.g3s{grid-template-columns:repeat(4,1fr);}}
-
-/* WORK CARDS */
-.wc{transition:transform .3s;}.wc:hover{transform:translateY(-2px);}
-.wt{font-size:14px;font-weight:500;color:var(--t60);transition:color .3s;margin-bottom:3px;}
-.wc:hover .wt{color:var(--t90);}
-.wy{font-size:10px;letter-spacing:.1em;color:var(--t20);margin-bottom:8px;}
-.wd{font-family:var(--ed);font-style:italic;font-size:12px;line-height:1.65;color:var(--t25);margin-bottom:12px;}
-.wm{font-size:11px;color:var(--t20);line-height:1.5;margin-bottom:10px;font-style:italic;}
-
-/* SMALL CARDS */
-.sc{transition:transform .3s;}.sc:hover{transform:translateY(-2px);}
-.sc-t{font-size:12px;color:var(--t40);transition:color .3s;}
-.sc:hover .sc-t{color:var(--t80);}
-.sc-y{font-size:10px;color:var(--t15);margin-bottom:8px;}
-
-/* ACCORDION */
-.acc{border:1px solid var(--brd);margin-bottom:2px;}
-.acc-h{width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--ed);font-size:15px;font-weight:700;color:var(--t50);background:none;border:none;cursor:pointer;transition:color .3s;}
-.acc-h:hover{color:var(--t80);}
-.acc-h .arr{font-size:12px;transition:transform .3s;color:var(--t20);}
-.acc-h.open .arr{transform:rotate(180deg);}
-.acc-body{display:none;padding:0 20px 20px;}
-.acc-body.open{display:block;}
-.acc-item{padding:6px 0;border-bottom:1px solid var(--t05);}
-.acc-item:last-child{border:none;}
-.acc-title{font-size:13px;color:var(--t50);font-weight:500;}
-.acc-meta{font-size:11px;color:var(--t15);margin-top:2px;}
-.acc-link{color:var(--mag);text-decoration:none;font-size:12px;opacity:.6;transition:opacity .3s;}
-.acc-link:hover{opacity:1;}
-
-/* POEM */
-.poem{font-family:var(--ed);font-style:italic;font-size:14px;line-height:2;color:var(--t35);max-width:560px;padding:32px 0 32px 24px;border-left:2px solid rgba(212,0,90,.15);}
-.poem br+br{content:'';display:block;margin-top:8px;}
-
-/* EDUCATOR */
-.egrid{display:grid;grid-template-columns:1fr;gap:48px;}
-@media(min-width:1024px){.egrid{grid-template-columns:2fr 3fr;}}
-@media(min-width:1024px){.esb{position:sticky;top:80px;}}
-.eblk{margin-bottom:32px;}
-.eblk-t{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--t20);margin-bottom:12px;}
-.eblk+.eblk{padding-top:24px;border-top:1px solid var(--brd);}
-.philo{font-family:var(--ed);font-style:italic;font-size:14px;line-height:1.85;color:var(--t35);}
-.philo em{color:var(--mag);opacity:.6;}
-.rt{font-size:13px;color:var(--t50);margin-bottom:3px;}.ro{font-size:12px;color:var(--t25);}
-.rd{font-size:11px;color:var(--t15);margin-top:3px;}
-.spk p{font-size:12px;color:var(--t30);margin-bottom:5px;}
-.wsc{border:1px solid var(--brd);padding:20px;transition:border-color .3s;margin-bottom:12px;}
-.wsc:hover{border-color:rgba(200,150,64,.12);}
-.wsc h3{font-size:13px;font-weight:500;color:var(--t60);margin-bottom:5px;}
-.wsc .wsm{font-size:10px;color:var(--t15);margin-bottom:8px;}
-.wsc p{font-family:var(--ed);font-style:italic;font-size:12px;line-height:1.65;color:var(--t30);margin-bottom:12px;}
-.wsl{display:flex;flex-wrap:wrap;gap:8px;}
-
-/* RESEARCHER */
-.comc{border:1px solid var(--brd);padding:20px;}
-.comc .ct{font-size:13px;color:var(--t50);margin-bottom:3px;}
-.comc .cd{font-size:12px;color:var(--t25);}
-.comc .cl{font-size:11px;color:var(--t15);margin-top:3px;}
-.pn{font-size:10px;color:var(--t15);font-style:italic;margin-bottom:16px;}
-.pi{border-left:2px solid var(--brd);padding:5px 0 5px 18px;margin-bottom:16px;transition:border-color .3s;}
-.pi:hover{border-color:rgba(90,138,106,.2);}
-.pi h4{font-family:var(--ed);font-style:italic;font-size:13px;color:var(--t50);line-height:1.5;margin-bottom:5px;}
-.pi .pv{font-size:10px;color:var(--t15);}
-.tc{border:1px solid var(--brd);padding:20px;transition:border-color .3s;margin-bottom:12px;}
-.tc:hover{border-color:rgba(90,138,106,.1);}
-.tc .tv{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--t15);margin-bottom:5px;}
-.tc h4{font-family:var(--ed);font-style:italic;font-size:13px;color:var(--t50);line-height:1.5;margin-bottom:8px;transition:color .3s;}
-.tc:hover h4{color:var(--t80);}
-
-/* BIO */
-.bio-sec{padding:80px 0;border-top:1px solid var(--brd);}
-.bio-grid{display:grid;grid-template-columns:1fr;gap:40px;}
-@media(min-width:768px){.bio-grid{grid-template-columns:1fr 1fr;}}
-.bio-text{font-family:var(--ed);font-style:italic;font-size:14px;line-height:1.9;color:var(--t30);}
-.bio-text p+p{margin-top:16px;}
-.bio-side{}
-.bio-side-t{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--t15);margin-bottom:12px;}
-.bio-item{padding:8px 0;border-bottom:1px solid var(--t05);}
-.bio-item-t{font-size:12px;color:var(--t40);}
-.bio-item-d{font-size:11px;color:var(--t15);}
+/* SHORE — BIO */
+.shore{background:var(--sand);padding:72px 0;border-top:1px solid var(--ink08);}
+.shore-i{max-width:1200px;margin:0 auto;padding:0 28px;}
+@media(min-width:768px){.shore-i{padding:0 48px;}}
+.shore-g{display:grid;grid-template-columns:1fr;gap:44px;}
+@media(min-width:768px){.shore-g{grid-template-columns:5fr 4fr;}}
+.shore-l{font-size:10px;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--ink20);margin-bottom:8px;}
+.shore-t{font-family:var(--serif);font-size:clamp(24px,3vw,36px);font-weight:400;color:var(--ink);margin-bottom:24px;}
+.bio-t{font-family:var(--serif);font-size:15px;line-height:1.9;color:var(--ink45);font-weight:300;}
+.bio-t p+p{margin-top:14px;}
+.bio-sl{font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink20);margin-bottom:12px;}
+.bio-item{padding:9px 0;border-bottom:1px solid var(--ink05);}
+.bio-item-t{font-size:13px;color:var(--ink60);}
+.bio-item-d{font-size:12px;color:var(--ink30);}
+.bio-lk{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:500;color:var(--ink45);text-decoration:none;border-bottom:1px solid var(--ink12);padding-bottom:1px;transition:all .3s;}
+.bio-lk:hover{color:var(--rose);border-color:rgba(184,74,106,.3);}
+.bio-btn{display:inline-flex;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:12px 24px;background:rgba(184,74,106,.1);border:1px solid rgba(184,74,106,.2);color:var(--rose);text-decoration:none;border-radius:2px;transition:all .3s;}
+.bio-btn:hover{background:rgba(184,74,106,.18);border-color:rgba(184,74,106,.4);}
 
 /* FOOTER */
-.ft{border-top:1px solid var(--brd);margin-top:40px;}
-.ft-in{max-width:1200px;margin:0 auto;padding:48px 24px;}
-@media(min-width:768px){.ft-in{padding:48px 40px;}}
+footer{background:var(--ocean);border-top:1px solid var(--snow08);padding:48px 28px;}
+@media(min-width:768px){footer{padding:48px 48px;}}
+.ft-i{max-width:1200px;margin:0 auto;}
 .ft-g{display:grid;grid-template-columns:1fr;gap:32px;}
 @media(min-width:768px){.ft-g{grid-template-columns:1fr 1fr 1fr;}}
-.ft-n{font-family:var(--ed);font-size:16px;font-weight:700;color:var(--t50);}
-.ft-nk{font-family:var(--kr);font-size:12px;color:var(--t20);margin-top:2px;margin-bottom:6px;}
-.ft-i{font-size:11px;color:var(--t15);line-height:1.7;}
-.ft-ct{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--t15);margin-bottom:12px;}
+.ft-n{font-family:var(--serif);font-size:18px;font-weight:400;color:var(--snow50);}
+.ft-info{font-size:12px;color:var(--snow15);line-height:1.7;margin-top:6px;}
+.ft-label{font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--snow15);margin-bottom:12px;}
 .ft-ls{display:flex;flex-direction:column;gap:7px;}
-.ft-b{margin-top:36px;padding-top:16px;border-top:1px solid var(--brd);}
-.ft-c{font-size:10px;color:var(--t10);}
+.ft-lk{font-size:12px;color:var(--snow30);text-decoration:none;transition:color .3s;}
+.ft-lk:hover{color:var(--rose);}
+.ft-b{margin-top:40px;padding-top:16px;border-top:1px solid var(--snow08);}
+.ft-c{font-size:10px;color:var(--snow08);}
 
-/* ANIM */
-.fi{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease;}
-.fi.v{opacity:1;transform:translateY(0);}
-@media(prefers-reduced-motion:reduce){.fi{opacity:1;transform:none;transition:none;}html{scroll-behavior:auto;}}
+/* ═══ ISLAND OVERLAYS ═══ */
+.island{position:fixed;inset:0;z-index:300;overflow-y:auto;overflow-x:hidden;opacity:0;pointer-events:none;transition:opacity .45s cubic-bezier(.23,1,.32,1);-webkit-overflow-scrolling:touch;}
+.island.open{opacity:1;pointer-events:all;}
+.island::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);}
+.island-close{position:fixed;top:16px;right:20px;z-index:310;width:44px;height:44px;border-radius:50%;background:rgba(0,0,0,.3);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);color:var(--snow70);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;font-family:var(--sans);}
+.island-close:hover{background:rgba(0,0,0,.5);color:white;transform:scale(1.05);}
+.island-hero{padding:110px 28px 56px;text-align:center;}
+@media(min-width:768px){.island-hero{padding:130px 48px 72px;}}
+.island-dot{width:10px;height:10px;border-radius:50%;margin:0 auto 18px;}
+.island-title{font-family:var(--serif);font-size:clamp(36px,7vw,64px);font-weight:300;color:rgba(255,255,255,.9);margin-bottom:14px;}
+.island-poem{font-family:var(--serif);font-style:italic;font-size:clamp(14px,1.8vw,17px);line-height:1.9;color:rgba(255,255,255,.38);max-width:560px;margin:0 auto;font-weight:300;}
+.island-body{background:var(--sand);padding:56px 28px 80px;border-radius:20px 20px 0 0;}
+@media(min-width:768px){.island-body{padding:72px 48px 100px;}}
+.island-ctn{max-width:1060px;margin:0 auto;}
+.isec{margin-bottom:56px;}
+.isec-l{font-size:10px;font-weight:600;letter-spacing:.25em;text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:10px;}
+.isec-l .dot{width:14px;height:1.5px;border-radius:1px;}
+
+/* Thumb grids */
+.tg{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+@media(min-width:600px){.tg{grid-template-columns:repeat(3,1fr);}}
+@media(min-width:900px){.tg{grid-template-columns:repeat(4,1fr);}}
+.th{overflow:hidden;border:1px solid var(--ink08);border-radius:3px;transition:all .4s;background:white;}
+.th:hover{border-color:var(--ink20);transform:translateY(-2px);box-shadow:0 10px 28px rgba(0,0,0,.06);}
+.th-img{aspect-ratio:4/3;overflow:hidden;background:var(--sand2);}
+.th-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
+.th:hover .th-img img{transform:scale(1.04);}
+.th-info{padding:11px 13px;}
+.th-t{font-family:var(--serif);font-size:13px;font-weight:400;color:var(--ink60);line-height:1.3;margin-bottom:3px;}
+.th-y{font-size:10px;font-weight:500;color:var(--ink20);}
+.th-m{font-size:10px;color:var(--ink20);font-style:italic;margin-top:2px;}
+.th-lk{display:inline-block;margin-top:5px;font-size:10px;font-weight:500;color:var(--ink30);text-decoration:none;border-bottom:1px solid var(--ink08);transition:all .3s;}
+.th-lk:hover{color:var(--rose);border-color:rgba(184,74,106,.3);}
+.tg-sm .th-img{aspect-ratio:1/1;}
+
+/* Edu cards */
+.edu-c{background:white;border:1px solid var(--ink08);padding:20px;border-radius:3px;margin-bottom:12px;transition:border-color .3s;}
+.edu-c:hover{border-color:rgba(168,134,46,.2);}
+.edu-c h3{font-family:var(--serif);font-size:16px;font-weight:400;color:var(--ink);margin-bottom:4px;}
+.edu-c .em{font-size:11px;font-weight:500;color:var(--ink20);margin-bottom:6px;}
+.edu-c p{font-size:13px;color:var(--ink45);line-height:1.6;margin-bottom:10px;}
+.edu-lks{display:flex;gap:10px;}
+.res-c{background:white;border:1px solid var(--ink08);padding:20px;border-radius:3px;margin-bottom:12px;transition:border-color .3s;}
+.res-c:hover{border-color:rgba(46,138,130,.2);}
+.res-pub{border-left:2px solid var(--ink12);padding:5px 0 5px 18px;margin-bottom:16px;transition:border-color .3s;}
+.res-pub:hover{border-color:rgba(46,138,130,.35);}
+.res-pub h4{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--ink60);line-height:1.5;font-weight:400;margin-bottom:3px;}
+.res-pub .rv{font-size:12px;color:var(--ink30);}
+.res-btn{display:inline-flex;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:10px 18px;border:1px solid var(--ink12);background:transparent;color:var(--ink45);text-decoration:none;border-radius:2px;transition:all .3s;}
+.res-btn:hover{border-color:var(--ink30);color:var(--ink);}
+
+/* Poem */
+.poem{font-family:var(--serif);font-style:italic;font-size:14px;line-height:2;color:var(--ink45);max-width:520px;padding:24px 0 24px 22px;border-left:2px solid rgba(184,74,106,.2);font-weight:300;}
+
+/* Accordion */
+.acc{border:1px solid var(--ink08);margin-bottom:2px;background:white;border-radius:2px;}
+.acc-h{width:100%;display:flex;align-items:center;justify-content:space-between;padding:14px 18px;font-family:var(--serif);font-size:15px;font-weight:400;color:var(--ink60);background:none;border:none;cursor:pointer;transition:color .3s;}
+.acc-h:hover{color:var(--ink);}
+.acc-arr{font-size:11px;transition:transform .3s;color:var(--ink20);}
+.acc-h.open .acc-arr{transform:rotate(180deg);}
+.acc-bd{display:none;padding:0 18px 16px;}
+.acc-bd.open{display:block;}
+.acc-it{padding:6px 0;border-bottom:1px solid var(--ink05);}
+.acc-it:last-child{border:none;}
+.acc-it-t{font-size:13px;color:var(--ink60);}
+.acc-it-m{font-size:11px;color:var(--ink30);}
+
+/* Reveal */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
+.rv.vis{opacity:1;transform:translateY(0);}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;}}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav id="nav"><div class="ni">
-<button class="nlogo" onclick="go('home')">Bin Youn<span class="kr">윤빈</span></button>
-<div class="nlinks">
-<button class="nl ac" data-s="home" onclick="go('home')">Home</button>
-<button class="nl" data-s="artist" onclick="go('artist')">Artist</button>
-<button class="nl" data-s="educator" onclick="go('educator')">Educator</button>
-<button class="nl" data-s="researcher" onclick="go('researcher')">Researcher</button>
-<a href="https://linktr.ee/binyoun" target="_blank" rel="noopener" class="nex">Links &nearr;</a>
+<nav id="mainNav"><div class="nav-i">
+<button class="nav-logo" onclick="scrollTo('hero')">Bin Youn</button>
+<div class="nav-lks">
+<button class="nav-lk" onclick="openIsland('artist')">Artist</button>
+<button class="nav-lk" onclick="openIsland('educator')">Educator</button>
+<button class="nav-lk" onclick="openIsland('researcher')">Researcher</button>
+<button class="nav-lk" onclick="scrollTo('shore')">Bio</button>
+<a href="https://linktr.ee/binyoun" target="_blank" rel="noopener" class="nav-ex">Links &#x2197;</a>
 </div>
-<button class="hb" id="hb" onclick="tm()"><span></span><span></span></button>
+<button class="ham" id="hamBtn" onclick="toggleMob()"><span></span><span></span></button>
 </div></nav>
-<div class="mm" id="mm">
-<button class="ml" onclick="go('home')">Home</button>
-<button class="ml" onclick="go('artist')">Artist</button>
-<button class="ml" onclick="go('educator')">Educator</button>
-<button class="ml" onclick="go('researcher')">Researcher</button>
-<div style="padding-top:12px;"><a href="https://linktr.ee/binyoun" target="_blank" rel="noopener" class="el">Linktree <span class="ar">&nearr;</span></a></div>
+<div class="mob" id="mobMenu">
+<button class="mob-lk" onclick="openIsland('artist');closeMob()">Artist</button>
+<button class="mob-lk" onclick="openIsland('educator');closeMob()">Educator</button>
+<button class="mob-lk" onclick="openIsland('researcher');closeMob()">Researcher</button>
+<button class="mob-lk" onclick="scrollTo('shore');closeMob()">Bio</button>
 </div>
 
-<!-- ===== HOME ===== -->
-<section id="home">
-<div class="hero">
-<canvas id="cv"></canvas>
-<div class="hcontent">
-<div class="fi"><p class="nm-kr">ㅇㅂ</p><h1 class="nm-en">Bin Youn</h1></div>
-<p class="nm-sub fi">Multimedia Artist <span>/</span> Educator <span>/</span> Poet</p>
-
-<!-- THREE RIVERS NAV -->
-<div class="rivers fi">
-<div class="rcard rcard-a" onclick="go('artist')"><div class="rdot"></div><h3>Artist</h3><p>Installations, lens-based media, sculpture, and poetic spatial encounters</p></div>
-<div class="rcard rcard-e" onclick="go('educator')"><div class="rdot"></div><h3>Educator</h3><p>Photography pedagogy, the r&#x1EC5;-root framework, and collaborative workshops</p></div>
-<div class="rcard rcard-r" onclick="go('researcher')"><div class="rdot"></div><h3>Researcher</h3><p>Academic publications, conference presentations, and committee roles</p></div>
+<!-- HERO -->
+<section class="hero" id="hero">
+<canvas id="wc"></canvas>
+<div class="hero-c">
+<div class="fluid-wrap rv">
+<svg viewBox="0 0 700 110" xmlns="http://www.w3.org/2000/svg">
+<defs><filter id="wf" x="-5%" y="-5%" width="110%" height="110%">
+<feTurbulence type="turbulence" baseFrequency="0.012 0.018" numOctaves="3" seed="3" result="tb">
+<animate attributeName="baseFrequency" values="0.012 0.018;0.018 0.026;0.012 0.018" dur="7s" repeatCount="indefinite"/>
+</feTurbulence>
+<feDisplacementMap in="SourceGraphic" in2="tb" scale="7" xChannelSelector="R" yChannelSelector="G"/>
+</filter></defs>
+<text x="50%" y="55%" text-anchor="middle" dominant-baseline="central" filter="url(#wf)" class="fluid-name">Bin Youn</text>
+</svg>
 </div>
+<p class="hero-sub rv" style="transition-delay:.15s;">Multimedia Artist <span>·</span> Educator <span>·</span> Researcher</p>
 </div>
-</div>
-
-<!-- CONFLUENCE -->
-<div class="conf">
-<div class="ctn">
-<div class="conf-h fi"><p class="conf-l">Featured Projects</p><h2 class="conf-t">...</h2><p class="conf-s">Where artistic practice, pedagogical innovation, and academic inquiry flow together.</p></div>
-<div class="pgrid">
-
-<div class="pc fi">
-  <div class="pc-acc" style="background:linear-gradient(90deg,var(--mag),var(--amb));"></div>
-  <div class="iph" style="overflow:hidden;">
-    <img src="image/mnode.jpg" alt="M-NODE Cross-Cultural Hackathon" style="width: 100%; height: 100%; object-fit: cover;">
-  </div>
-  <div class="pc-b">
-    <div class="ptags"><span class="ptag pta">Artist</span><span class="ptag pte">Educator</span></div>
-    <h3>M-NODE Cross-Cultural Hackathon</h3>
-    <p>Five-day cross-cultural hackathon between Dong-Ah Institute of Media and Arts (Korea) and RMIT Vietnam Digital Media.</p>
-    <div class="pls"><a href="https://binyoun.github.io/mnode/" target="_blank" rel="noopener" class="el">Archive <span class="ar">&nearr;</span></a></div>
-  </div>
-</div>
-
-<div class="pc fi">
-  <div class="pc-acc" style="background:linear-gradient(90deg,var(--mag),var(--amb),var(--sage));"></div>
-  <div class="iph" style="overflow:hidden;">
-    <img src="image/beyond1and0.jpg" alt="Beyond 1 and 0 Exhibition" style="width: 100%; height: 100%; object-fit: cover;">
-  </div>
-  <div class="pc-b">
-    <div class="ptags"><span class="ptag pta">Artist</span><span class="ptag pte">Educator</span><span class="ptag ptr">Researcher</span></div>
-    <h3>Beyond 1&amp;0 Exhibition</h3>
-    <p>RMIT Vietnam's first external showcase - 73 artists, 34 artworks, 14 mediums, 4 performances.</p>
-    <div class="pls"><a href="https://binyoun.github.io/beyond-1-and-0-poem/" target="_blank" rel="noopener" class="el">Poem <span class="ar">&nearr;</span></a><a href="https://youtu.be/URONCeVigPo?si=bPCXDsHJLx6a8VwI" target="_blank" rel="noopener" class="el">Song <span class="ar">&nearr;</span></a></div>
-  </div>
-</div>
-
-<div class="pc fi">
-  <div class="pc-acc" style="background:linear-gradient(90deg,var(--sage),var(--mag));"></div>
-  <div class="iph" style="overflow:hidden;">
-    <img src="image/siggraphacm.jpg" alt="ACM SIGGRAPH DAC SPARKS" style="width: 100%; height: 100%; object-fit: cover;">
-  </div>
-  <div class="pc-b">
-    <div class="ptags"><span class="ptag ptr">Researcher</span><span class="ptag pta">Artist</span></div>
-    <h3>ACM SIGGRAPH DAC SPARKS</h3>
-    <p>Co-moderated "Beyond the Global North" alongside Patrick Hartono.</p>
-    <div class="pls"><a href="https://dac.siggraph.org/sparks/2026-01-23_beyond-the-global-north/" target="_blank" rel="noopener" class="el">Session <span class="ar">&nearr;</span></a></div>
-  </div>
-</div>
-
-</div></div></div>
+<div class="hero-scroll"><span></span></div>
 </section>
 
-<div class="dv"><div class="dvl"></div><div class="dvd"></div><div class="dvl"></div></div>
-
-<!-- ===== ARTIST ===== -->
-<section id="artist" class="sec">
-<div class="ctn">
-<div class="sh fi"><div class="sln" style="background:var(--mag);opacity:.5;"></div><p class="sl" style="color:var(--mag);opacity:.5;">II</p><h2 class="st">Artistic Practice</h2></div>
-
-<!-- Current Works -->
-<div style="margin-bottom:72px;"><div class="sub fi"><span class="sub-l"></span>Current Works (2025 - 2026)</div>
-<div class="g2">
-
-<div class="wc fi">
-  <div class="ig" style="aspect-ratio:4/3;">
-    <img src="image/sacredtree.gif" alt="Sacred Tree Installation" style="width: 100%; height: 100%; object-fit: cover;">
-  </div>
-  <div style="margin-top:16px;">
-    <h3 class="wt">Sacred Tree (&#xC2E0;&#xBAA9;, &#x795E;&#x6728;)</h3>
-    <p class="wy">2025</p>
-    <p class="wd">Interactive installation featured at Hozo City Tet Fest, exhibiting at the CTRL+M multimedia exhibition.</p>
-  </div>
-</div>
-
-<div class="wc fi">
-  <div class="ig" style="aspect-ratio:4/3;">
-    <img src="image/evolvingmatter.gif" alt="Evolving Matter Exhibition" style="width: 100%; height: 100%; object-fit: cover;">
-  </div>
-  <div style="margin-top:16px;">
-    <h3 class="wt">Gelora wihtin Bagua at Evolving Matter</h3>
-    <p class="wy">2025</p>
-    <p class="wd">Exhibited at the E-Gallery, Multimedia University (MMU), Malaysia.</p>
-  </div>
-</div>
-
-<div class="wc fi">
-  <div class="ig" style="aspect-ratio:4/3;">
-    <img src="image/geloraalienation.jpg" alt="Gelora Embodied Alienation" style="width: 100%; height: 100%; object-fit: cover;">
-  </div>
-  <div style="margin-top:16px;">
-    <h3 class="wt">Gelora: Embodied Alienation</h3>
-    <p class="wy">2025</p>
-    <p class="wd">Awarded Silver and Bronze at iNVENTX Creative Exhibition 2025.</p>
-    <a href="https://doi.org/10.6084/m9.figshare.30509957" target="_blank" rel="noopener" class="el">View <span class="ar">&nearr;</span></a>
-  </div>
-</div>
-
-<div class="wc fi">
-  <div class="ig" style="aspect-ratio:4/3;">
-    <img src="image/otherislandinventx.jpg" alt="otherisland at iNVENTX" style="width: 100%; height: 100%; object-fit: cover;">
-  </div>
-  <div style="margin-top:16px;">
-    <h3 class="wt">&#x3141;otherisland at iNVENTX</h3>
-    <p class="wy">2025</p>
-    <p class="wd">Interactive AR installation exploring migration, cultural displacement, and embodied alienation.</p>
-    <a href="https://doi.org/10.6084/m9.figshare.30509915" target="_blank" rel="noopener" class="el">View <span class="ar">&nearr;</span></a>
-  </div>
-</div>
-
-</div></div>
-
-<!-- Installation Archives -->
-<div style="margin-bottom:72px;" id="installations"><div class="sub fi"><span class="sub-l"></span>Installation Archives</div>
-<div class="g2" id="instGrid"></div></div>
-
-<!-- Sculpture Archives -->
-<div style="margin-bottom:72px;"><div class="sub fi"><span class="sub-l"></span>Sculpture Archives</div>
-<div class="g3s" id="sculpGrid"></div></div>
-
-<!-- Lens-based & Video -->
-<div style="margin-bottom:72px;"><div class="sub fi"><span class="sub-l"></span>Lens-based &amp; Video Archives</div>
-<div class="g2" id="lensGrid"></div></div>
-
-<!-- Poetry -->
-<div style="margin-bottom:72px;"><div class="sub fi"><span class="sub-l"></span>Poetry</div>
-<div class="fi"><p class="wy" style="margin-bottom:4px;">Featured in <em>Exchanges: dialogues between poetry and art</em></p><p style="font-size:11px;color:var(--t15);margin-bottom:20px;">The Ruth Foster Gallery, University of Wisconsin - Eau Claire, 2023</p>
-<div class="poem">
-I was found and lightened so as not to be rotten.<br/>
-I need to be exposed to light from nowhere to fold and unfold.<br/>
-The colors and lines from the shiny source surround my eyeballs<br/>
-penetrate my skin like a gas.<br/><br/>
-After cutting up my roots from whoever-whatever,<br/>
-I got stuck by all the burden.<br/>
-Throwing myself away to be fallen and settle down somewhere<br/>
-with nobody is alienating my every part.<br/><br/>
-It needs to be closed to open and open to close.<br/>
-The windowless blinds are for your inside and outside.<br/>
-Intervals between colors and lines overlap with your wrinkles.<br/>
-It is desperate to be exposed and developed.<br/><br/>
-Living out of my motherland, losing my mother tongue<br/>
-having a bite of fatal pomegranate like Proserpine did.<br/>
-It signifies for her captivity and marriage,<br/>
-and the incense-burner, the attribute of goddess.<br/><br/>
-It is a process to detach m from mother to be another.<br/><br/>
-Aging,<br/>
-I am limited,<br/>
-getting closer to the pointy edges reluctantly<br/>
-within a cycle<br/>
-moving<br/><br/>
-My gesture<br/>
-to scan and project<br/>
-resuscitate and embrace lost empty time.<br/>
-a trajectory to navigate spacetime with ambient colors
-</div></div></div>
-
-<!-- Exhibition Archive Accordion -->
-<div><div class="sub fi"><span class="sub-l"></span>Complete Exhibition Archive</div>
-<div id="exhAcc" class="fi"></div></div>
+<!-- DRIFT — FEATURED -->
+<section class="drift">
+<div class="drift-h rv"><p class="drift-l">Featured</p><h2 class="drift-t">Confluence</h2></div>
+<div class="fg">
+<div class="fc rv"><div class="fc-img"><img src="image/mnode.jpg" alt="M-NODE"></div><div class="fc-b"><div class="ftags"><span class="ftag ftag-r">Artist</span><span class="ftag ftag-g">Educator</span></div><h3>M-NODE Cross-Cultural Hackathon</h3><p>Five-day hackathon between Dong-Ah Institute (Korea) and RMIT Vietnam Digital Media.</p><div class="fc-lks"><a href="https://binyoun.github.io/mnode/" target="_blank" rel="noopener" class="lk-s">Archive &#x2197;</a></div></div></div>
+<div class="fc rv" style="transition-delay:.1s;"><div class="fc-img"><img src="image/beyond1and0.jpg" alt="Beyond 1 and 0"></div><div class="fc-b"><div class="ftags"><span class="ftag ftag-r">Artist</span><span class="ftag ftag-g">Educator</span><span class="ftag ftag-t">Researcher</span></div><h3>Beyond 1&amp;0 Exhibition</h3><p>RMIT Vietnam's first external showcase — 73 artists, 34 artworks, 14 mediums.</p><div class="fc-lks"><a href="https://binyoun.github.io/beyond-1-and-0-poem/" target="_blank" rel="noopener" class="lk-s">Poem &#x2197;</a><a href="https://youtu.be/URONCeVigPo?si=bPCXDsHJLx6a8VwI" target="_blank" rel="noopener" class="lk-s">Song &#x2197;</a></div></div></div>
+<div class="fc rv" style="transition-delay:.2s;"><div class="fc-img"><img src="image/siggraphacm.jpg" alt="ACM SIGGRAPH DAC SPARKS"></div><div class="fc-b"><div class="ftags"><span class="ftag ftag-t">Researcher</span><span class="ftag ftag-r">Artist</span></div><h3>ACM SIGGRAPH DAC SPARKS</h3><p>Co-moderated "Beyond the Global North" alongside Patrick Hartono.</p><div class="fc-lks"><a href="https://dac.siggraph.org/sparks/2026-01-23_beyond-the-global-north/" target="_blank" rel="noopener" class="lk-s">Session &#x2197;</a></div></div></div>
 </div>
 </section>
 
-<div class="dv"><div class="dvl"></div><div class="dvd"></div><div class="dvl"></div></div>
-
-<!-- ===== EDUCATOR ===== -->
-<section id="educator" class="sec">
-<div class="ctn">
-<div class="sh fi"><div class="sln" style="background:var(--amb);opacity:.5;"></div><p class="sl" style="color:var(--amb);opacity:.5;">III</p><h2 class="st">Educational Leadership</h2></div>
-<div class="egrid">
-<div><div class="esb">
-<div class="eblk fi"><p class="eblk-t">Philosophy</p><p class="philo">Creator of the <em>r&#x1EC5;-root</em> pedagogical framework - an exhibition-centered approach replacing traditional portfolio assessments with physical exhibitions, fostering collective creative practice.</p></div>
-<div class="eblk fi"><p class="eblk-t">Current Role</p><p class="rt">Course Coordinator &amp; Associate Lecturer</p><p class="ro">RMIT University Vietnam</p><p class="rd">School of Communication and Design</p><p class="rd">July 2025 - Present</p></div>
-<div class="eblk fi"><p class="eblk-t">Guest Speakers</p><div class="spk"><p>Duy-Phuong Le Nguyen</p><p>Tuna Lee</p><p>Stephen Ilam Jang</p></div></div>
+<!-- ARCHIPELAGO -->
+<section class="arch">
+<div class="arch-i">
+<div class="arch-h rv"><p class="arch-l">Explore</p><h2 class="arch-t">Three Islands</h2><p class="arch-s">Each practice is a world — bridging through water and land</p></div>
+<div class="portals">
+<div class="portal portal-artist rv" onclick="openIsland('artist')"><div class="portal-bg"><div class="portal-grad"></div><img src="image/breathscape.gif" alt=""><div class="portal-c"><div class="portal-dot"></div><h3 class="portal-n">Artist</h3><p class="portal-d">Installations, lens-based media, sculpture, and poetic spatial encounters</p><div class="portal-e">Enter island <span class="arr">&#x2192;</span></div></div></div></div>
+<div class="portal portal-educator rv" style="transition-delay:.1s;" onclick="openIsland('educator')"><div class="portal-bg"><div class="portal-grad"></div><img src="image/beyond1and0.jpg" alt=""><div class="portal-c"><div class="portal-dot"></div><h3 class="portal-n">Educator</h3><p class="portal-d">Photography pedagogy, the rễ-root framework, and collaborative workshops</p><div class="portal-e">Enter island <span class="arr">&#x2192;</span></div></div></div></div>
+<div class="portal portal-researcher rv" style="transition-delay:.2s;" onclick="openIsland('researcher')"><div class="portal-bg"><div class="portal-grad"></div><img src="image/siggraphacm.jpg" alt=""><div class="portal-c"><div class="portal-dot"></div><h3 class="portal-n">Researcher</h3><p class="portal-d">Academic publications, conference presentations, and committee service</p><div class="portal-e">Enter island <span class="arr">&#x2192;</span></div></div></div></div>
 </div></div>
-<div>
-<div class="sub fi"><span class="sub-l"></span>Workshops &amp; Initiatives</div>
-<div class="wsc fi"><h3>Creative Photography Workshop</h3><p class="wsm">Semester 3 - 2025</p><p>Intensive student workshops fostering creative exploration through lens-based media.</p><div class="wsl"><a href="https://www.instagram.com/p/DSQ-hOyEmrw/" target="_blank" rel="noopener" class="el">I <span class="ar">&nearr;</span></a><a href="https://www.instagram.com/p/DSZ9xXmEmhr/" target="_blank" rel="noopener" class="el">II <span class="ar">&nearr;</span></a><a href="https://www.instagram.com/p/DS_g_w3kjmW/" target="_blank" rel="noopener" class="el">III <span class="ar">&nearr;</span></a></div></div>
-<div class="wsc fi"><h3>VVIP Photo Gift Project</h3><p>Project lead. Curated student professional photography for distinguished guests.</p><div class="wsl"><a href="https://www.instagram.com/p/DTO9nigEgN-/" target="_blank" rel="noopener" class="el">View <span class="ar">&nearr;</span></a></div></div>
-<div class="wsc fi"><h3>Experience Day 2026</h3><p>"Pocket Studio: Portraits with your phone" - Satisfaction score 9.9/10.</p></div>
-<div class="wsc fi"><h3>Photo 101 - Partnership</h3><p> Lighting Workshops with RICHOH, SONY.</p></div>
-</div></div></div>
 </section>
 
-<div class="dv"><div class="dvl"></div><div class="dvd"></div><div class="dvl"></div></div>
-
-<!-- ===== RESEARCHER ===== -->
-<section id="researcher" class="sec">
-<div class="ctn">
-<div class="sh fi"><div class="sln" style="background:var(--sage);opacity:.5;"></div><p class="sl" style="color:var(--sage);opacity:.5;">IV</p><h2 class="st">Academic Research</h2></div>
-<div style="margin-bottom:48px;" class="fi"><div class="sub"><span class="sub-l"></span>Committee</div><div class="comc"><p class="ct">Technical Program Committee Member</p><p class="cd">ICAIHE 2026</p><p class="cl">Waseda University, Tokyo</p></div></div>
-<div style="margin-bottom:48px;" class="fi"><div class="sub"><span class="sub-l"></span>Publications</div><p class="pn">Co-authored with Suren</p><div class="pi"><h4>A Dialogue-Centered Framework for Reducing Transactional Distance in Online Photography Education</h4><p class="pv">24th Intl Conference on Web-Based Learning, Hong Kong</p></div><div class="pi"><h4>Learning to ASCEND: Immersive Pedagogy for Educational and Societal Transformation</h4><p class="pv">ETLTC 2026, Fukushima (Q1, citation score 8.5)</p></div></div>
-<div style="margin-bottom:48px;"><div class="sub fi"><span class="sub-l"></span>Talks</div>
-<div class="tc fi"><p class="tv">APARN 2025</p><h4>Reimagining Communities: Poetic Spaces of Light, Movement, and Language</h4><a href="https://doi.org/10.62789/APARN2025-paper43" target="_blank" rel="noopener" class="el">Read <span class="ar">&nearr;</span></a></div>
-<div class="tc fi"><p class="tv">Beyond 1&amp;0 Symposium</p><h4>Empathetic Gestures, Entangled Futures: Mobile Cameras as Regenerative Practice</h4><a href="https://doi.org/10.6084/m9.figshare.30507803" target="_blank" rel="noopener" class="el">Read <span class="ar">&nearr;</span></a></div>
-<div class="tc fi"><p class="tv">SCD Research Exchange</p><h4>&#x3141;otherisland and Gelora: Portals of Embodied Alienation</h4><a href="https://doi.org/10.6084/m9.figshare.30507611" target="_blank" rel="noopener" class="el">Read <span class="ar">&nearr;</span></a></div>
-</div>
-<div class="fi"><div class="sub"><span class="sub-l"></span>Decks</div><div style="display:flex;flex-wrap:wrap;gap:10px;"><a href="https://www.canva.com/design/DAG-81OqB6s/vUe0xwUkUI7gqUxmJOsOdA/edit" target="_blank" rel="noopener" class="bo">Deck I</a><a href="https://www.canva.com/design/DAG-jQi_-DE/PeL_cWtPnm_M-iLCWOhLjQ/edit" target="_blank" rel="noopener" class="bo">Deck II</a></div></div>
-</div></section>
-
-<div class="dv"><div class="dvl"></div><div class="dvd"></div><div class="dvl"></div></div>
-
-<!-- ===== BIO ===== -->
-<section class="bio-sec" id="bio">
-<div class="ctn">
-<div class="sh fi"><div class="sln" style="background:var(--t15);"></div><p class="sl" style="color:var(--t25);">About</p><h2 class="st">Biography</h2></div>
-<div class="bio-grid">
-<div class="fi"><div class="bio-text">
-<p>Bin Youn is a Korean multimedia artist and educator based in Vietnam, whose practice bridges lens-based media, poetic spatial installation, and participatory environments. Currently serving as Course Coordinator and Associate Lecturer in Digital Media, School of Communication and Design at RMIT University Vietnam, Youn explores diasporic identity, otherness, and language through her work.</p>
-<p>Her practice examines displacement, alienation, and technological intimacy through ephemeral encounters, investigating how alienation itself can become a generative force that creates new forms of connection across species, technological, and cultural boundaries.</p>
-<p>Working primarily with photography, spatial video installation, light, and sculptural forms, Youn creates sensory-based moving image installations that invite viewers to navigate spacetime. She is dedicated to weaving cultural and material narratives into transformative spatial encounters, where the boundaries between self, space, and time are continually reimagined.</p>
+<!-- SHORE — BIO -->
+<section class="shore" id="shore">
+<div class="shore-i"><div class="rv"><p class="shore-l">About</p><h2 class="shore-t">Biography</h2></div>
+<div class="shore-g">
+<div class="rv"><div class="bio-t">
+<p>Bin Youn is a Korean multimedia artist and educator based in Vietnam, whose practice bridges lens-based media, poetic spatial installation, and participatory environments. Currently serving as Course Coordinator and Associate Lecturer in Digital Media at RMIT University Vietnam.</p>
+<p>Her practice examines displacement, alienation, and technological intimacy through ephemeral encounters, investigating how alienation itself can become a generative force across species, technological, and cultural boundaries.</p>
 </div></div>
-<div class="fi">
-<div style="margin-bottom:28px;"><p class="bio-side-t">Education</p>
-<div class="bio-item"><p class="bio-item-t">MFA, California State University Long Beach</p><p class="bio-item-d">2023</p></div>
-<div class="bio-item"><p class="bio-item-t">B.A. Consumer Family Sciences &amp; B.B.A. Business Administration</p><p class="bio-item-d">Sungkyunkwan University, Seoul, 2013</p></div>
-<div class="bio-item"><p class="bio-item-t">Study Abroad - Paris Graduate School of Management</p><p class="bio-item-d">2011</p></div>
-</div>
-<div style="margin-bottom:28px;"><p class="bio-side-t">News &amp; Press</p>
-<div class="bio-item"><a href="https://boldjourney.com/meet-bin-youn/" target="_blank" rel="noopener" class="el">Bold Journey - Meet Bin Youn <span class="ar">&nearr;</span></a><p class="bio-item-d">July 2024</p></div>
-<div class="bio-item"><a href="https://shoutoutla.com/meet-bin-youn-artist-poet/" target="_blank" rel="noopener" class="el">Shoutout LA <span class="ar">&nearr;</span></a><p class="bio-item-d">April 2024</p></div>
-<div class="bio-item"><a href="https://voyagela.com/interview/meet-bin-youn-of-long-beach-la-county/" target="_blank" rel="noopener" class="el">VoyageLA <span class="ar">&nearr;</span></a><p class="bio-item-d">July 2023</p></div>
-</div>
-<div><p class="bio-side-t">Contact</p>
-<p style="font-size:12px;color:var(--t25);">CV available upon request</p>
-<a href="mailto:sierra.biny@icloud.com" class="el" style="margin-top:6px;display:inline-flex;">sierra.biny@icloud.com <span class="ar">&nearr;</span></a>
-<div style="margin-top:12px;"><a href="https://linktr.ee/binyoun" target="_blank" rel="noopener" class="bp">Linktree</a></div>
-</div>
+<div class="rv">
+<div style="margin-bottom:24px;"><p class="bio-sl">Education</p><div class="bio-item"><p class="bio-item-t">MFA, California State University Long Beach</p><p class="bio-item-d">2023</p></div><div class="bio-item"><p class="bio-item-t">B.A. &amp; B.B.A., Sungkyunkwan University, Seoul</p><p class="bio-item-d">2013</p></div></div>
+<div style="margin-bottom:24px;"><p class="bio-sl">Press</p><div class="bio-item"><a href="https://boldjourney.com/meet-bin-youn/" target="_blank" rel="noopener" class="bio-lk">Bold Journey — 2024</a></div><div class="bio-item"><a href="https://shoutoutla.com/meet-bin-youn-artist-poet/" target="_blank" rel="noopener" class="bio-lk">Shoutout LA — 2024</a></div><div class="bio-item"><a href="https://voyagela.com/interview/meet-bin-youn-of-long-beach-la-county/" target="_blank" rel="noopener" class="bio-lk">VoyageLA — 2023</a></div></div>
+<div><p class="bio-sl">Contact</p><a href="mailto:sierra.biny@icloud.com" class="bio-lk" style="display:inline-flex;margin-bottom:12px;">sierra.biny@icloud.com</a><br/><a href="https://linktr.ee/binyoun" target="_blank" rel="noopener" class="bio-btn">Linktree</a></div>
 </div></div></div>
 </section>
 
 <!-- FOOTER -->
-<footer class="ft"><div class="ft-in"><div class="ft-g">
-<div><p class="ft-n">Bin Youn</p><p class="ft-nk">윤빈</p><p class="ft-i">Multimedia Artist, Educator &amp; Poet<br/>RMIT University Vietnam<br/>School of Communication and Design</p></div>
-<div><p class="ft-ct">Links</p><div class="ft-ls"><a href="https://www.rmit.edu.vn/profiles/y/bin-youn" target="_blank" rel="noopener" class="el">RMIT Profile <span class="ar">&nearr;</span></a><a href="https://binyoun.github.io/info/" target="_blank" rel="noopener" class="el">Recent Works <span class="ar">&nearr;</span></a><a href="https://linktr.ee/binyoun" target="_blank" rel="noopener" class="el">Linktree <span class="ar">&nearr;</span></a><a href="https://binyoun.github.io/mnode/" target="_blank" rel="noopener" class="el">M-NODE <span class="ar">&nearr;</span></a></div></div>
-<div><p class="ft-ct">Projects</p><div class="ft-ls"><a href="https://binyoun.github.io/beyond-1-and-0-poem/" target="_blank" rel="noopener" class="el">Collaborative Poem <span class="ar">&nearr;</span></a><a href="https://youtu.be/URONCeVigPo?si=bPCXDsHJLx6a8VwI" target="_blank" rel="noopener" class="el">Beyond 1&amp;0 Song <span class="ar">&nearr;</span></a><a href="https://dac.siggraph.org/sparks/2026-01-23_beyond-the-global-north/" target="_blank" rel="noopener" class="el">SIGGRAPH <span class="ar">&nearr;</span></a></div></div>
-</div><div class="ft-b"><p class="ft-c">&copy; 2026 Bin Youn 윤빈</p></div></div></footer>
+<footer><div class="ft-i"><div class="ft-g">
+<div><p class="ft-n">Bin Youn</p><p class="ft-info">Multimedia Artist, Educator &amp; Researcher<br/>RMIT University Vietnam</p></div>
+<div><p class="ft-label">Links</p><div class="ft-ls"><a href="https://www.rmit.edu.vn/profiles/y/bin-youn" target="_blank" rel="noopener" class="ft-lk">RMIT Profile</a><a href="https://binyoun.github.io/info/" target="_blank" rel="noopener" class="ft-lk">Recent Works</a><a href="https://linktr.ee/binyoun" target="_blank" rel="noopener" class="ft-lk">Linktree</a></div></div>
+<div><p class="ft-label">Projects</p><div class="ft-ls"><a href="https://binyoun.github.io/mnode/" target="_blank" rel="noopener" class="ft-lk">M-NODE</a><a href="https://binyoun.github.io/beyond-1-and-0-poem/" target="_blank" rel="noopener" class="ft-lk">Collaborative Poem</a><a href="https://dac.siggraph.org/sparks/2026-01-23_beyond-the-global-north/" target="_blank" rel="noopener" class="ft-lk">SIGGRAPH</a></div></div>
+</div><div class="ft-b"><p class="ft-c">&copy; 2026 Bin Youn</p></div></div></footer>
+
+<!-- ═══ ISLAND: ARTIST ═══ -->
+<div class="island" id="island-artist">
+<button class="island-close" onclick="closeIsland('artist')">&times;</button>
+<div style="background:linear-gradient(180deg,#2a0f18 0%,#4a1a2d 30%,#6b2840 55%,var(--sand) 100%);">
+<div class="island-hero"><div class="island-dot" style="background:var(--rose);"></div><h2 class="island-title">Artist</h2><p class="island-poem">Installations, lens-based media, and poetic spatial encounters — where displacement becomes a generative force, and alienation opens new forms of connection across boundaries of species, technology, and culture.</p></div>
+<div class="island-body"><div class="island-ctn">
+<div class="isec"><p class="isec-l" style="color:var(--rose);"><span class="dot" style="background:var(--rose);"></span>Current Works · 2025–2026</p><div class="tg" id="a-current"></div></div>
+<div class="isec"><p class="isec-l" style="color:var(--rose);"><span class="dot" style="background:var(--rose);"></span>Installation Archives</p><div class="tg" id="a-install"></div></div>
+<div class="isec"><p class="isec-l" style="color:var(--rose);"><span class="dot" style="background:var(--rose);"></span>Sculpture Archives</p><div class="tg tg-sm" id="a-sculpt"></div></div>
+<div class="isec"><p class="isec-l" style="color:var(--rose);"><span class="dot" style="background:var(--rose);"></span>Lens-based &amp; Video</p><div class="tg" id="a-lens"></div></div>
+<div class="isec"><p class="isec-l" style="color:var(--rose);"><span class="dot" style="background:var(--rose);"></span>Poetry</p><p style="font-size:12px;color:var(--ink30);margin-bottom:18px;">Featured in <em>Exchanges: dialogues between poetry and art</em> — Ruth Foster Gallery, Wisconsin, 2023</p><div class="poem">I was found and lightened so as not to be rotten.<br/>I need to be exposed to light from nowhere to fold and unfold.<br/>The colors and lines from the shiny source surround my eyeballs<br/>penetrate my skin like a gas.<br/><br/>After cutting up my roots from whoever-whatever,<br/>I got stuck by all the burden.<br/>Throwing myself away to be fallen and settle down somewhere<br/>with nobody is alienating my every part.<br/><br/>It needs to be closed to open and open to close.<br/>The windowless blinds are for your inside and outside.<br/>Intervals between colors and lines overlap with your wrinkles.<br/>It is desperate to be exposed and developed.<br/><br/>Living out of my motherland, losing my mother tongue<br/>having a bite of fatal pomegranate like Proserpine did.<br/>It signifies for her captivity and marriage,<br/>and the incense-burner, the attribute of goddess.<br/><br/>It is a process to detach m from mother to be another.<br/><br/>Aging, I am limited,<br/>getting closer to the pointy edges reluctantly<br/>within a cycle moving<br/><br/>My gesture to scan and project<br/>resuscitate and embrace lost empty time.<br/>a trajectory to navigate spacetime with ambient colors</div></div>
+<div class="isec"><p class="isec-l" style="color:var(--rose);"><span class="dot" style="background:var(--rose);"></span>Exhibition Archive</p><div id="exhAcc"></div></div>
+</div></div></div></div>
+
+<!-- ═══ ISLAND: EDUCATOR ═══ -->
+<div class="island" id="island-educator">
+<button class="island-close" onclick="closeIsland('educator')">&times;</button>
+<div style="background:linear-gradient(180deg,#1a1408 0%,#3a2a10 30%,#5a4218 55%,var(--sand) 100%);">
+<div class="island-hero"><div class="island-dot" style="background:var(--gold);"></div><h2 class="island-title">Educator</h2><p class="island-poem">Creator of the rễ-root pedagogical framework — an exhibition-centered approach replacing traditional portfolio assessments with physical exhibitions, fostering collective creative practice rooted in cultural soil.</p></div>
+<div class="island-body"><div class="island-ctn">
+<div class="isec"><p class="isec-l" style="color:var(--gold);"><span class="dot" style="background:var(--gold);"></span>Current Role</p><p style="font-family:var(--serif);font-size:16px;color:var(--ink);">Course Coordinator &amp; Associate Lecturer</p><p style="font-size:13px;color:var(--ink45);">RMIT University Vietnam</p><p style="font-size:12px;color:var(--ink30);margin-top:3px;">School of Communication and Design · July 2025 — Present</p></div>
+<div class="isec"><p class="isec-l" style="color:var(--gold);"><span class="dot" style="background:var(--gold);"></span>Workshops &amp; Initiatives</p>
+<div class="edu-c"><h3>Creative Photography Workshop</h3><p class="em">Semester 3 · 2025</p><p>Intensive student workshops fostering creative exploration through lens-based media.</p><div class="edu-lks"><a href="https://www.instagram.com/p/DSQ-hOyEmrw/" target="_blank" rel="noopener" class="bio-lk">I &#x2197;</a><a href="https://www.instagram.com/p/DSZ9xXmEmhr/" target="_blank" rel="noopener" class="bio-lk">II &#x2197;</a><a href="https://www.instagram.com/p/DS_g_w3kjmW/" target="_blank" rel="noopener" class="bio-lk">III &#x2197;</a></div></div>
+<div class="edu-c"><h3>VVIP Photo Gift Project</h3><p>Project lead. Curated student professional photography for distinguished guests.</p><div class="edu-lks"><a href="https://www.instagram.com/p/DTO9nigEgN-/" target="_blank" rel="noopener" class="bio-lk">View &#x2197;</a></div></div>
+<div class="edu-c"><h3>Experience Day 2026</h3><p>"Pocket Studio: Portraits with your phone" — Satisfaction score 9.9/10.</p></div>
+<div class="edu-c"><h3>Photo 101 — Partnership</h3><p>Lighting workshops with RICOH, SONY.</p></div>
+</div>
+<div class="isec"><p class="isec-l" style="color:var(--gold);"><span class="dot" style="background:var(--gold);"></span>Guest Speakers</p><p style="font-size:13px;color:var(--ink45);line-height:1.8;">Duy-Phuong Le Nguyen · Tuna Lee · Stephen Ilam Jang</p></div>
+</div></div></div></div>
+
+<!-- ═══ ISLAND: RESEARCHER ═══ -->
+<div class="island" id="island-researcher">
+<button class="island-close" onclick="closeIsland('researcher')">&times;</button>
+<div style="background:linear-gradient(180deg,#081a18 0%,#0e302c 30%,#164a44 55%,var(--sand) 100%);">
+<div class="island-hero"><div class="island-dot" style="background:var(--teal);"></div><h2 class="island-title">Researcher</h2><p class="island-poem">Academic inquiry at the intersection of art, technology, and pedagogy — examining how creative practice transforms educational paradigms and fosters cross-cultural understanding through embodied digital encounters.</p></div>
+<div class="island-body"><div class="island-ctn">
+<div class="isec"><p class="isec-l" style="color:var(--teal);"><span class="dot" style="background:var(--teal);"></span>Committee</p><div class="res-c"><p style="font-family:var(--serif);font-size:15px;color:var(--ink60);">Technical Program Committee Member</p><p style="font-size:13px;color:var(--ink45);">ICAIHE 2026</p><p style="font-size:12px;color:var(--ink30);margin-top:3px;">Waseda University, Tokyo</p></div></div>
+<div class="isec"><p class="isec-l" style="color:var(--teal);"><span class="dot" style="background:var(--teal);"></span>Publications</p><p style="font-size:11px;color:var(--ink30);font-style:italic;margin-bottom:16px;">Co-authored with Suren</p>
+<div class="res-pub"><h4>A Dialogue-Centered Framework for Reducing Transactional Distance in Online Photography Education</h4><p class="rv">24th Intl Conference on Web-Based Learning, Hong Kong</p></div>
+<div class="res-pub"><h4>Learning to ASCEND: Immersive Pedagogy for Educational and Societal Transformation</h4><p class="rv">ETLTC 2026, Fukushima (Q1, citation score 8.5)</p></div></div>
+<div class="isec"><p class="isec-l" style="color:var(--teal);"><span class="dot" style="background:var(--teal);"></span>Talks</p>
+<div class="res-c"><p style="font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);opacity:.6;margin-bottom:5px;">APARN 2025</p><h4 style="font-family:var(--serif);font-style:italic;font-size:15px;color:var(--ink60);line-height:1.5;font-weight:400;margin-bottom:8px;">Reimagining Communities: Poetic Spaces of Light, Movement, and Language</h4><a href="https://doi.org/10.62789/APARN2025-paper43" target="_blank" rel="noopener" class="bio-lk">Read &#x2197;</a></div>
+<div class="res-c"><p style="font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);opacity:.6;margin-bottom:5px;">Beyond 1&amp;0 Symposium</p><h4 style="font-family:var(--serif);font-style:italic;font-size:15px;color:var(--ink60);line-height:1.5;font-weight:400;margin-bottom:8px;">Empathetic Gestures, Entangled Futures: Mobile Cameras as Regenerative Practice</h4><a href="https://doi.org/10.6084/m9.figshare.30507803" target="_blank" rel="noopener" class="bio-lk">Read &#x2197;</a></div>
+<div class="res-c"><p style="font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);opacity:.6;margin-bottom:5px;">SCD Research Exchange</p><h4 style="font-family:var(--serif);font-style:italic;font-size:15px;color:var(--ink60);line-height:1.5;font-weight:400;margin-bottom:8px;">ㅁotherisland and Gelora: Portals of Embodied Alienation</h4><a href="https://doi.org/10.6084/m9.figshare.30507611" target="_blank" rel="noopener" class="bio-lk">Read &#x2197;</a></div></div>
+<div class="isec"><p class="isec-l" style="color:var(--teal);"><span class="dot" style="background:var(--teal);"></span>Decks</p><div style="display:flex;gap:10px;"><a href="https://www.canva.com/design/DAG-81OqB6s/vUe0xwUkUI7gqUxmJOsOdA/edit" target="_blank" rel="noopener" class="res-btn">Deck I</a><a href="https://www.canva.com/design/DAG-jQi_-DE/PeL_cWtPnm_M-iLCWOhLjQ/edit" target="_blank" rel="noopener" class="res-btn">Deck II</a></div></div>
+</div></div></div></div>
 
 <script>
-/* ===== 彬-INSPIRED CANVAS: 彡 (flowing strokes) + 林 (forest light) ===== */
-const cv=document.getElementById('cv'),c=cv.getContext('2d');
-let W,H,t=0;
-function rs(){W=cv.width=innerWidth;H=cv.height=innerHeight;}
-rs();addEventListener('resize',rs);
+/* WATER CANVAS */
+const cv=document.getElementById('wc'),ctx=cv.getContext('2d');let W,H,t=0;
+function rs(){W=cv.width=innerWidth;H=cv.height=innerHeight;}rs();addEventListener('resize',rs);
+function ns(x,y,z){return(Math.sin(x*1.1+z*.6)+Math.sin(y*.9+z*.4)+Math.sin((x+y)*.5+z*.8)+Math.sin(Math.sqrt(x*x+y*y)*.35+z))*.25;}
+class WL{constructor(c){this.c=c;this.s=Math.random()*100;this.y=Math.random();this.a=.015+Math.random()*.03;this.f=.6+Math.random()*1.2;this.sp=.15+Math.random()*.2;this.al=.018+Math.random()*.025;this.w=.4+Math.random()*1;}draw(t){ctx.beginPath();for(let i=0;i<=70;i++){const p=i/70,x=p*W,by=this.y*H,wv=Math.sin(p*Math.PI*this.f+t*this.sp+this.s)*this.a*H,d=ns(p*2,this.s,t*.15)*this.a*H*.4,y=by+wv+d;if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);}const[r,g,b]=this.c;ctx.strokeStyle=`rgba(${r},${g},${b},${this.al})`;ctx.lineWidth=this.w;ctx.stroke();}}
+class LM{constructor(){this.reset();this.age=Math.random()*400;}reset(){this.x=Math.random();this.y=Math.random();this.sz=.8+Math.random()*2;this.al=.04+Math.random()*.1;this.life=400+Math.random()*600;this.age=0;this.dr=Math.random()*Math.PI*2;const r=Math.random();if(r<.3){this.cr=184;this.cg=74;this.cb=106;}else if(r<.5){this.cr=168;this.cg=134;this.cb=46;}else if(r<.7){this.cr=46;this.cg=138;this.cb=130;}else{this.cr=100;this.cg=120;this.cb=160;}}update(t){const n=ns(this.x*3,this.y*3,t*.2);this.x+=Math.cos(n*Math.PI*2+this.dr)*.0004;this.y+=Math.sin(n*Math.PI*2+this.dr)*.0003;this.age++;if(this.age>this.life||this.x<-.05||this.x>1.05||this.y<-.05||this.y>1.05)this.reset();}}
+class DG{constructor(c){this.c=c;this.x=.15+Math.random()*.7;this.y=.15+Math.random()*.7;this.r=.15+Math.random()*.2;this.ph=Math.random()*Math.PI*2;this.fr=.08+Math.random()*.08;}update(t){this.x+=Math.sin(t*this.fr+this.ph)*.0005;this.y+=Math.cos(t*this.fr*.6+this.ph)*.0004;}}
+const wls=[];for(let i=0;i<5;i++)wls.push(new WL([90,110,160]));for(let i=0;i<4;i++)wls.push(new WL([184,74,106]));for(let i=0;i<3;i++)wls.push(new WL([168,134,46]));for(let i=0;i<3;i++)wls.push(new WL([46,138,130]));
+const mts=[];for(let i=0;i<70;i++)mts.push(new LM());
+const dgs=[new DG([70,90,140]),new DG([184,74,106]),new DG([168,134,46]),new DG([46,138,130])];
+function anim(){t+=.004;ctx.globalCompositeOperation='source-over';ctx.fillStyle='rgba(9,13,18,.11)';ctx.fillRect(0,0,W,H);ctx.globalCompositeOperation='lighter';dgs.forEach(g=>{g.update(t);const px=g.x*W,py=g.y*H,r=g.r*Math.max(W,H);const gr=ctx.createRadialGradient(px,py,0,px,py,r);const[cr,cg,cb]=g.c;gr.addColorStop(0,`rgba(${cr},${cg},${cb},.02)`);gr.addColorStop(.5,`rgba(${cr},${cg},${cb},.006)`);gr.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=gr;ctx.fillRect(px-r,py-r,r*2,r*2);});wls.forEach(l=>l.draw(t));mts.forEach(m=>{m.update(t);const px=m.x*W,py=m.y*H;const lf=1-Math.abs(2*m.age/m.life-1);const a=m.al*lf;if(a<.003)return;const g=ctx.createRadialGradient(px,py,0,px,py,m.sz*3);g.addColorStop(0,`rgba(${m.cr},${m.cg},${m.cb},${a*.2})`);g.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g;ctx.fillRect(px-m.sz*3,py-m.sz*3,m.sz*6,m.sz*6);ctx.beginPath();ctx.arc(px,py,m.sz*.35,0,Math.PI*2);ctx.fillStyle=`rgba(${m.cr},${m.cg},${m.cb},${a*.35})`;ctx.fill();});requestAnimationFrame(anim);}
+ctx.fillStyle='#090d12';ctx.fillRect(0,0,W,H);anim();
 
-// Organic noise
-function n(x,y,z){return(Math.sin(x*1.2+z*.7)+Math.sin(y*.8+z*.5)+Math.sin((x+y)*.6+z*.9)+Math.sin(Math.sqrt(x*x+y*y)*.4+z*1.1))*.25;}
+/* POPULATE THUMBNAILS */
+const CW=[{t:"Sacred Tree (신목, 神木)",y:"2025",i:"image/sacredtree.gif"},{t:"Gelora within Bagua at Evolving Matter",y:"2025",i:"image/evolvingmatter.gif"},{t:"Gelora: Embodied Alienation",y:"2025",i:"image/geloraalienation.jpg",l:"https://doi.org/10.6084/m9.figshare.30509957"},{t:"ㅁotherisland at iNVENTX",y:"2025",i:"image/otherislandinventx.jpg",l:"https://doi.org/10.6084/m9.figshare.30509915"}];
+const IN=[{t:"Breathscape",y:"2023",i:"image/breathscape.gif",l:"https://docs.google.com/document/d/1hz12tS2Fyn4knKOzwA945Nmuj4vQI-dqyE6J0NLkKiY/edit?usp=sharing"},{t:"Projective Verse of \u3147",y:"2023",i:"image/projectiveverseofo.gif",l:"https://docs.google.com/document/d/1xpkNZ9d3Jwo-MWpeJJtDrFwpLgRHlewVexs7UBISsLE/edit?usp=sharing"},{t:"Butterflying",y:"2023",i:"image/butterflying.gif",l:"https://docs.google.com/document/d/1BFxZk-7mj3DN3fd9vKTqepVKuhLYsMwFgVZuyvpgcKs/edit?usp=sharing"},{t:"\u3141otherisland",y:"2022",i:"image/otherisland.gif",l:"https://docs.google.com/document/d/1yLXMDvRolVjWO4n_JFbITSM-4gbH5l5Jurt8NBSfLug/edit?usp=sharing"},{t:"Open your Window",y:"2022",i:"image/openyourwindow.gif",l:"https://docs.google.com/document/d/1wcEKxeTcEpZqaj0-uUFFoFMxlp9mh2SjWSqkVl7niqE/edit?usp=sharing"},{t:"Abyss",y:"2022",i:"image/abyss.gif",l:"https://docs.google.com/document/d/1C37LX2IvJ_gX8KwF70SFkTGH8-lKmvPBNhlevn9mkHs/edit?usp=sharing"},{t:"Somatic Blinds",y:"2022",i:"image/somaticblinds.gif",l:"https://docs.google.com/document/d/1IJ1eI86WlP20XIQLvDhUEIs7ID3Pw0WMFCBqs90xRho/edit?usp=sharing"}];
+const SC=[{t:"Stars are brushed by wind again I",y:"2023",m:"Cyanotype on seashell, branch, Sambe",i:"image/stars.jpg"},{t:"Composition of Mother",y:"2023",m:"Wood, light, mixed media",i:"image/composition.jpg"},{t:"Mother, I call a name for each star",y:"2023",m:"Cyanotype on wood, branch, stone",i:"image/mother.jpg"},{t:"I shall love all things that are dying",y:"2023",m:"Cyanotype on Sambe, broken branches",i:"image/ishall.jpg"},{t:"Grown Light",y:"2023",m:"Grow Light, Cuts",i:"image/grownlight.jpg"},{t:"Warmest Night",y:"2022",m:"Gelora on velvet, dried branch",i:"image/warmest.jpg"},{t:"The Lamp",y:"2019",m:"Negatives, red strings, lamp",i:"image/thelamp.jpg"}];
+const LN=[{t:"I am missing their warmth from 5,968 miles away",y:"2023",i:"image/luppe.jpg",l:"https://theluupe.com/blog/visions-of-motherhood-2023"},{t:"I am telling what a I* see is what you see",y:"2022",i:"image/ai.gif",l:"https://www.youtube.com/watch?v=fF2XpP3Gc7w"},{t:"Memories of Seoul",y:"2017",i:"image/memoriesofseoul.gif"},{t:"Be@IT",y:"2017",i:"image/beait.gif"}];
+function rTh(id,arr,sm){const el=document.getElementById(id);arr.forEach(w=>{const d=document.createElement('div');d.className=sm?'th':'th';let lk=w.l?`<a href="${w.l}" target="_blank" rel="noopener" class="th-lk">View &#x2197;</a>`:'';let mt=w.m?`<p class="th-m">${w.m}</p>`:'';d.innerHTML=`<div class="th-img"><img src="${w.i}" alt="${w.t}"></div><div class="th-info"><p class="th-t">${w.t}</p><p class="th-y">${w.y}</p>${mt}${lk}</div>`;el.appendChild(d);});}
+rTh('a-current',CW);rTh('a-install',IN);rTh('a-sculpt',SC,true);rTh('a-lens',LN);
 
-// Flowing strokes (彡) - calligraphic flowing lines
-class Stroke{
-  constructor(col){
-    this.col=col;this.seed=Math.random()*100;
-    this.y=Math.random();this.amp=.02+Math.random()*.04;
-    this.freq=.8+Math.random()*1.5;this.speed=.1+Math.random()*.15;
-    this.alpha=.03+Math.random()*.04;this.width=.5+Math.random()*1.5;
-  }
-  draw(t){
-    c.beginPath();
-    const steps=60;
-    for(let i=0;i<=steps;i++){
-      const p=i/steps;
-      const x=p*W;
-      const baseY=this.y*H;
-      const wave=Math.sin(p*Math.PI*this.freq+t*this.speed+this.seed)*this.amp*H;
-      const drift=n(p*2,this.seed,t*.2)*this.amp*H*.5;
-      const y=baseY+wave+drift;
-      if(i===0)c.moveTo(x,y);else c.lineTo(x,y);
-    }
-    const[r,g,b]=this.col;
-    c.strokeStyle=`rgba(${r},${g},${b},${this.alpha})`;
-    c.lineWidth=this.width;c.stroke();
-  }
-}
+/* EXHIBITION ACCORDION */
+const SE=[["Through Islands","Shakarian Gallery, CA","2023"],["Breathscape","Shakarian Gallery, CA","2023"],["Projective Verse of \u3147","Max L. Getov Galleries, CA","2023"],["Your Leaves Touch My Planes","Shakarian Gallery, CA","2022"],["\u3141otherisland","Max L. Getov East Gallery, CA","2022"],["Somatic Blinds","Werby Gallery, CA","2022"],["W(AV)E","Shakarian Gallery, CA","2021"],["LiSTeN","Shakarian Gallery, CA","2021"],["Super-F-icial S","Shakarian Gallery, CA","2021"],["Natura Naturata","Max L. Getov West Gallery, CA","2021"],["BE@IT","Vision Photography Academy, Seoul","2017"],["Moments in Paris","Hanchae Gallery, Seoul","2017"]];
+const GE=[["Our Common Ground","The Little Gallery, CA","2024"],["Let it Linger","Max L. Gatov Gallery, CA","2024"],["Exchanges: dialogues between poetry and art","Ruth Foster Gallery, WI","2023"],["CSULB President House Selection","Miller House, CA","2023-24"],["Now Trending: 7th Annual AIpay Exhibition","Palos Verdes Art Center, CA","2023"],["Visions of Motherhood","The Luupe, Online","2023"],["Flourish & Flow, AAPI","Atrium Gallery, CA","2023"],["Insights 2023","Max L. Getov East Gallery, CA","2023"],["Butterflying","Dr. Maxine Merlino Gallery, CA","2023"],["Under the Same Sun, AAPI","Max L. Getov East Gallery, CA","2023"],["Here, There, Nowhere","Online, MT","2022"],["Graduate Week of Critique","Max L. Getov Gallery, CA","2022"],["Abyss","Max L. Getov East Gallery, CA","2022"],["Double Exposure","Werby Gallery, CA","2022"],["INSIGHTS 2022","Werby Gallery, CA","2022"],["Weeks of Arts: Fiber show","Dutzi Gallery, CA","2022"],["Recovery","Ryugaheon, Seoul","2022"],["Advancement Show","Max L. Getov West Gallery, CA","2022"],["MFA Graduate Week","Max L. Getov Gallery, CA","2021"],["MFA Graduate Critique Week","Dutzi Gallery, CA","2018"],["WHO ARE WE? II","Ryugaheon, Seoul","2018"],["Student Final Photo Exhibition","Sungkyunkwan University Library","2012"]];
+function mkAcc(title,items){return`<div class="acc"><button class="acc-h" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open');">${title}<span class="acc-arr">&#x25BE;</span></button><div class="acc-bd">${items.map(i=>`<div class="acc-it"><p class="acc-it-t">${i[0]}</p><p class="acc-it-m">${i[1]}, ${i[2]}</p></div>`).join('')}</div></div>`;}
+document.getElementById('exhAcc').innerHTML=mkAcc('Solo Exhibitions (2017 — 2023)',SE)+mkAcc('Group Exhibitions (2012 — 2024)',GE);
 
-// Forest light motes (林)
-class Mote{
-  constructor(){this.reset();this.age=Math.random()*300;}
-  reset(){
-    this.x=Math.random();this.y=Math.random();
-    this.size=1+Math.random()*2.5;
-    this.alpha=.08+Math.random()*.2;
-    this.life=300+Math.random()*500;this.age=0;
-    this.drift=Math.random()*Math.PI*2;
-    const roll=Math.random();
-    if(roll<.45){this.cr=212;this.cg=30;this.cb=90;} // magenta-warm
-    else if(roll<.7){this.cr=200;this.cg=150;this.cb=64;} // amber
-    else if(roll<.88){this.cr=90;this.cg=138;this.cb=106;} // sage
-    else{this.cr=180;this.cg=160;this.cb=140;} // warm white
-  }
-  update(t){
-    const nn=n(this.x*3,this.y*3,t*.25);
-    this.x+=Math.cos(nn*Math.PI*2+this.drift)*.0005;
-    this.y+=Math.sin(nn*Math.PI*2+this.drift)*.0004-.0001;
-    this.age++;
-    if(this.age>this.life||this.x<-.05||this.x>1.05||this.y<-.05||this.y>1.05)this.reset();
-  }
-}
+/* ISLAND SYSTEM */
+function openIsland(n){const o=document.getElementById('island-'+n);o.classList.add('open');o.scrollTop=0;document.body.classList.add('no-scroll');}
+function closeIsland(n){document.getElementById('island-'+n).classList.remove('open');document.body.classList.remove('no-scroll');}
+addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.island.open').forEach(o=>o.classList.remove('open'));document.body.classList.remove('no-scroll');}});
 
-// Soft ambient light blobs
-class Glow{
-  constructor(col){
-    this.col=col;this.x=.1+Math.random()*.8;this.y=.1+Math.random()*.8;
-    this.r=.12+Math.random()*.18;
-    this.vx=(Math.random()-.5)*.0002;this.vy=(Math.random()-.5)*.0002;
-    this.ph=Math.random()*Math.PI*2;this.fr=.1+Math.random()*.1;
-  }
-  update(t){
-    this.x+=this.vx+Math.sin(t*this.fr+this.ph)*.0006;
-    this.y+=this.vy+Math.cos(t*this.fr*.7+this.ph)*.0004;
-    if(this.x<-.2)this.x=1.2;if(this.x>1.2)this.x=-.2;
-    if(this.y<-.2)this.y=1.2;if(this.y>1.2)this.y=-.2;
-  }
-}
+/* NAV */
+function scrollTo(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth'});}
+function toggleMob(){document.getElementById('mobMenu').classList.toggle('open');document.getElementById('hamBtn').classList.toggle('open');}
+function closeMob(){document.getElementById('mobMenu').classList.remove('open');document.getElementById('hamBtn').classList.remove('open');}
+addEventListener('scroll',()=>{document.getElementById('mainNav').classList.toggle('scrolled',scrollY>50);},{passive:true});
 
-// Create entities
-const strokes=[];
-// Magenta strokes
-for(let i=0;i<8;i++)strokes.push(new Stroke([212,30,90]));
-// Amber strokes
-for(let i=0;i<6;i++)strokes.push(new Stroke([200,150,64]));
-// Sage strokes
-for(let i=0;i<5;i++)strokes.push(new Stroke([90,138,106]));
-
-const motes=[];for(let i=0;i<120;i++)motes.push(new Mote());
-
-const glows=[];
-for(let i=0;i<3;i++)glows.push(new Glow([212,30,90]));
-for(let i=0;i<2;i++)glows.push(new Glow([200,150,64]));
-for(let i=0;i<2;i++)glows.push(new Glow([90,138,106]));
-
-function animate(){
-  t+=.005;
-  c.globalCompositeOperation='source-over';
-  c.fillStyle='rgba(8,8,7,.1)';c.fillRect(0,0,W,H);
-
-  // Ambient glows
-  c.globalCompositeOperation='lighter';
-  glows.forEach(g=>{
-    g.update(t);
-    const px=g.x*W,py=g.y*H,rad=g.r*Math.max(W,H);
-    const gr=c.createRadialGradient(px,py,0,px,py,rad);
-    const[r,gg,b]=g.col;
-    gr.addColorStop(0,`rgba(${r},${gg},${b},.035)`);
-    gr.addColorStop(.4,`rgba(${r},${gg},${b},.015)`);
-    gr.addColorStop(1,'rgba(0,0,0,0)');
-    c.fillStyle=gr;c.fillRect(px-rad,py-rad,rad*2,rad*2);
-  });
-
-  // Flowing strokes (彡)
-  c.globalCompositeOperation='lighter';
-  strokes.forEach(s=>s.draw(t));
-
-  // Forest motes (林)
-  c.globalCompositeOperation='lighter';
-  motes.forEach(m=>{
-    m.update(t);
-    const px=m.x*W,py=m.y*H;
-    const lf=1-Math.abs(2*m.age/m.life-1);
-    const a=m.alpha*lf;if(a<.005)return;
-    const g=c.createRadialGradient(px,py,0,px,py,m.size*3);
-    g.addColorStop(0,`rgba(${m.cr},${m.cg},${m.cb},${a*.35})`);
-    g.addColorStop(1,'rgba(0,0,0,0)');
-    c.fillStyle=g;c.fillRect(px-m.size*3,py-m.size*3,m.size*6,m.size*6);
-    c.beginPath();c.arc(px,py,m.size*.4,0,Math.PI*2);
-    c.fillStyle=`rgba(${m.cr},${m.cg},${m.cb},${a*.6})`;c.fill();
-  });
-
-  requestAnimationFrame(animate);
-}
-c.fillStyle='#080807';c.fillRect(0,0,W,H);animate();
-
-/* ===== DYNAMIC CONTENT ===== */
-
-// INSTALLATION ARCHIVES
-const inst=[
-  {t:"Breathscape",y:"2023",d:"Two human-sized spherical light sculptures with dichroic film, revolving at 1 RPM. Shadows and reflections reconstruct geometric forms across the gallery space.",u:"https://docs.google.com/document/d/1hz12tS2Fyn4knKOzwA945Nmuj4vQI-dqyE6J0NLkKiY/edit?usp=sharing", i:"image/breathscape.gif"},
-  {t:"Projective Verse of \u3147",y:"2023",d:"\u3147 is a sound of water. It lives where fluids flow. Korean consonant \u3147 is mute at the beginning of words - it has marginal, empty space to breathe.",u:"https://docs.google.com/document/d/1xpkNZ9d3Jwo-MWpeJJtDrFwpLgRHlewVexs7UBISsLE/edit?usp=sharing", i:"image/projectiveverseofo.gif"},
-  {t:"Butterflying",y:"2023",d:"Six-channel video installation with projectors, inflatable couches, laser cut acrylic, dichroic film. Collaboration with Josh Zubkoff.",u:"https://docs.google.com/document/d/1BFxZk-7mj3DN3fd9vKTqepVKuhLYsMwFgVZuyvpgcKs/edit?usp=sharing", i:"image/butterflying.gif"},
-  {t:"\u3141otherisland",y:"2022",d:"5-channel video installation. Beholders navigate landscapes stepping on shiny foreign ground. \u3141 replaces m to project the stopping moment - mother, other, island, land...",u:"https://docs.google.com/document/d/1yLXMDvRolVjWO4n_JFbITSM-4gbH5l5Jurt8NBSfLug/edit?usp=sharing", i:"image/otherisland.gif"},
-  {t:"Open your Window",y:"2022",d:"4-channel video installation with aircraft wires, vinyl blinds. Gelora images projected through suspended blinds, visitors navigate paths creating shadows.",u:"https://docs.google.com/document/d/1wcEKxeTcEpZqaj0-uUFFoFMxlp9mh2SjWSqkVl7niqE/edit?usp=sharing", i:"image/openyourwindow.gif"},
-  {t:"Abyss",y:"2022",d:"Kaleidoscope large enough for a person to be surrounded by mirrors. Gelora scanned photographs projected from below. Collaboration with Josh Zubkoff.",u:"https://docs.google.com/document/d/1C37LX2IvJ_gX8KwF70SFkTGH8-lKmvPBNhlevn9mkHs/edit?usp=sharing", i:"image/abyss.gif"},
-  {t:"Somatic Blinds",y:"2022",d:"Grow light, vinyl blind, plywood, aircraft wire, box fan, mylar thermal blanket, bird reflective scare tape.",u:"https://docs.google.com/document/d/1IJ1eI86WlP20XIQLvDhUEIs7ID3Pw0WMFCBqs90xRho/edit?usp=sharing", i:"image/somaticblinds.gif"}
-];
-const ig=document.getElementById('instGrid');
-inst.forEach(w=>{
-  const d=document.createElement('div');
-  d.className='wc fi';
-  d.innerHTML=`<div class="ig" style="aspect-ratio:4/3;"><img src="${w.i}" alt="${w.t}" style="width: 100%; height: 100%; object-fit: cover;"></div><div style="margin-top:14px;"><h3 class="wt">${w.t}</h3><p class="wy">${w.y}</p><p class="wd">${w.d}</p><a href="${w.u}" target="_blank" rel="noopener" class="el">Full Statement <span class="ar">&nearr;</span></a></div>`;
-  ig.appendChild(d);
-});
-
-// SCULPTURE ARCHIVES
-const sculp=[
-  {t:"Stars are brushed by wind again I",y:"2023",m:"Cyanotype on seashell, branch, Sambe", i:"image/stars.jpg"},
-  {t:"Composition of Mother with sky, soil, water and human",y:"2023",m:"Wood, light, mixed media", i:"image/composition.jpg"},
-  {t:"Mother, I call a name for each star",y:"2023",m:"Cyanotype on wood, branch, stone", i:"image/mother.jpg"},
-  {t:"I shall love all things that are dying",y:"2023",m:"Cyanotype on Sambe, broken branches", i:"image/ishall.jpg"},
-  {t:"Grown Light",y:"2023",m:"Grow Light, Cuts", i:"image/grownlight.jpg"},
-  {t:"Warmest Night",y:"2022",m:"Printed Gelora on velvet, dried branch, wood frame with glass", i:"image/warmest.jpg"},
-  {t:"The Lamp",y:"2019",m:"Negatives, red strings, lamp", i:"image/thelamp.jpg"}
-];
-const sg=document.getElementById('sculpGrid');
-sculp.forEach(w=>{
-  const d=document.createElement('div');
-  d.className='sc fi';
-  d.innerHTML=`<div class="ig" style="aspect-ratio:1/1;"><img src="${w.i}" alt="${w.t}" style="width: 100%; height: 100%; object-fit: cover;"></div><div style="margin-top:10px;"><p class="sc-t">${w.t}</p><p class="sc-y">${w.y}</p><p class="wm">${w.m}</p></div>`;
-  sg.appendChild(d);
-});
-
-// LENS-BASED & VIDEO
-const lens=[
-  {t:"I am missing their warmth from 5,968 miles away",y:"2023",d:"Featured artist on Visions of Motherhood curated by The Luupe.",l:"https://theluupe.com/blog/visions-of-motherhood-2023", i:"image/luppe.jpg"},
-  {t:"I am telling what a I* see is what you see. You are reading what AI** hear is what you hear",y:"2022",d:"Video work inviting viewers to float in the alienated ocean of an island, with AI-generated captions and Korean narration.",l:"https://www.youtube.com/watch?v=fF2XpP3Gc7w", i:"image/ai.gif"},
-  {t:"Memories of Seoul",y:"2017",d:"Co-produced artwork with travelers creating new images by collecting and connecting memories of places in Seoul.", l:"", i:"image/memoriesofseoul.gif"},
-  
-  {t:"Be@IT",y:"2017",d:"Starting from a personal relationship with a specific food - the traditional Korean rice cake.", l:"", i:"image/beait.gif"}
-];
-const lg=document.getElementById('lensGrid');
-lens.forEach(w=>{
-  const d=document.createElement('div');
-  d.className='wc fi';
-  d.innerHTML=`<div class="ig" style="aspect-ratio:16/10;"><img src="${w.i}" alt="${w.t}" style="width: 100%; height: 100%; object-fit: cover;"></div><div style="margin-top:14px;"><h3 class="wt">${w.t}</h3><p class="wy">${w.y}</p><p class="wd">${w.d}</p>${w.l?`<a href="${w.l}" target="_blank" rel="noopener" class="el">View <span class="ar">&nearr;</span></a>`:''}</div>`;
-  lg.appendChild(d);
-});
-  
-// EXHIBITION ARCHIVE ACCORDION
-const soloExh=[
-  ["Through Islands","Shakarian Gallery, California","2023"],
-  ["Breathscape","Shakarian Gallery, California","2023"],
-  ["Projective Verse of \u3147","Max L. Getov Galleries, California","2023"],
-  ["Your Leaves Touch My Planes","Shakarian Gallery, California","2022"],
-  ["\u3141otherisland","Max L. Getov East Gallery, California","2022"],
-  ["Somatic Blinds","Werby Gallery, California","2022"],
-  ["W(AV)E","Shakarian Gallery, California","2021"],
-  ["LiSTeN","Shakarian Gallery, California","2021"],
-  ["Super-F-icial S","Shakarian Gallery, California","2021"],
-  ["Natura Naturata","Max L. Getov West Gallery, California","2021"],
-  ["BE@IT","Vision Photography Academy, Seoul","2017"],
-  ["Moments in Paris","Hanchae Gallery, Seoul","2017"],
-];
-const groupExh=[
-  ["Our Common Ground","The Little Gallery, California","2024"],
-  ["Let it Linger","Max L. Gatov Gallery, California","2024"],
-  ["Exchanges: dialogues between poetry and art","Ruth Foster Gallery, Wisconsin","2023"],
-  ["CSULB President House Selection","Miller House, California","2023-24"],
-  ["Now Trending: 7th Annual AIpay Exhibition","Palos Verdes Art Center, California","2023"],
-  ["Visions of Motherhood","The Luupe, Online","2023"],
-  ["Flourish & Flow, AAPI Exhibition","Atrium Gallery, Ventura County, California","2023"],
-  ["Insights 2023","Max L. Getov East Gallery, California","2023"],
-  ["Butterflying","Dr. Maxine Merlino Gallery, California","2023"],
-  ["Under the Same Sun, AAPI","Max L. Getov East Gallery, California","2023"],
-  ["Here, There, Nowhere","Online, Montana/Montana State University","2022"],
-  ["Graduate Week of Critique","Max L. Getov Gallery, California","2022"],
-  ["Abyss","Max L. Getov East Gallery, California","2022"],
-  ["Double Exposure","Werby Gallery, California","2022"],
-  ["INSIGHTS 2022","Werby Gallery, California","2022"],
-  ["Weeks of Arts: Fiber show","Dutzi Gallery, California","2022"],
-  ["Recovery","Ryugaheon, Seoul","2022"],
-  ["Advancement Show","Max L. Getov West Gallery, California","2022"],
-  ["MFA Graduate Week","Max L. Getov Gallery, California","2021"],
-  ["MFA Graduate Critique Week","Dutzi Gallery, California","2018"],
-  ["WHO ARE WE? II","Ryugaheon, Seoul","2018"],
-  ["Student Final Photo Exhibition","Sungkyunkwan University Library","2012"],
-];
-function buildAcc(title,items){
-  return`<div class="acc"><button class="acc-h" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open');">${title}<span class="arr">&#x25BE;</span></button><div class="acc-body">${items.map(i=>`<div class="acc-item"><p class="acc-title">${i[0]}</p><p class="acc-meta">${i[1]}, ${i[2]}</p></div>`).join('')}</div></div>`;
-}
-document.getElementById('exhAcc').innerHTML=buildAcc('Solo Exhibitions (2017 - 2023)',soloExh)+buildAcc('Group Exhibitions (2012 - 2024)',groupExh);
-
-/* ===== NAV ===== */
-function go(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'});document.getElementById('mm').classList.remove('op');document.getElementById('hb').classList.remove('op');}
-function tm(){document.getElementById('mm').classList.toggle('op');document.getElementById('hb').classList.toggle('op');}
-const ss=['home','artist','educator','researcher','bio'];
-const nls=document.querySelectorAll('.nl');
-addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('sc',scrollY>40);let cur='home';ss.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<=90)cur=id;});nls.forEach(l=>l.classList.toggle('ac',l.dataset.s===cur));},{passive:true});
-
-/* FADE */
-const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('v');obs.unobserve(e.target);}});},{threshold:.06,rootMargin:'0px 0px -20px 0px'});
-document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
+/* REVEAL */
+const robs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');robs.unobserve(e.target);}});},{threshold:.08,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.rv').forEach(el=>robs.observe(el));
 </script>
 </body>
 </html>
