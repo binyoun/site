@@ -70,10 +70,10 @@ nav.scrolled{background:rgba(6,6,8,.9);backdrop-filter:blur(24px);border-bottom:
 .hud{position:absolute;inset:0;z-index:10;pointer-events:none;}
 .hud-corner{position:absolute;width:80px;height:80px;}
 .hud-corner::before,.hud-corner::after{content:'';position:absolute;background:var(--pink);opacity:.55;}
-.hud-corner.tl{top:20px;left:20px;}.hud-corner.tl::before{top:0;left:0;width:40px;height:2px;}.hud-corner.tl::after{top:0;left:0;width:2px;height:40px;}
-.hud-corner.tr{top:20px;right:20px;}.hud-corner.tr::before{top:0;right:0;width:40px;height:2px;}.hud-corner.tr::after{top:0;right:0;width:2px;height:40px;}
-.hud-corner.bl{bottom:20px;left:20px;}.hud-corner.bl::before{bottom:0;left:0;width:40px;height:2px;}.hud-corner.bl::after{bottom:0;left:0;width:2px;height:40px;}
-.hud-corner.br{bottom:20px;right:20px;}.hud-corner.br::before{bottom:0;right:0;width:40px;height:2px;}.hud-corner.br::after{bottom:0;right:0;width:2px;height:40px;}
+.hud-corner.tl{top:calc(15vh - 20px);left:20px;}.hud-corner.tl::before{top:0;left:0;width:40px;height:2px;}.hud-corner.tl::after{top:0;left:0;width:2px;height:40px;}
+.hud-corner.tr{top:calc(15vh - 20px);right:20px;}.hud-corner.tr::before{top:0;right:0;width:40px;height:2px;}.hud-corner.tr::after{top:0;right:0;width:2px;height:40px;}
+.hud-corner.bl{bottom:calc(15vh - 20px);left:20px;}.hud-corner.bl::before{bottom:0;left:0;width:40px;height:2px;}.hud-corner.bl::after{bottom:0;left:0;width:2px;height:40px;}
+.hud-corner.br{bottom:calc(15vh - 20px);right:20px;}.hud-corner.br::before{bottom:0;right:0;width:40px;height:2px;}.hud-corner.br::after{bottom:0;right:0;width:2px;height:40px;}
 .reticle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:280px;height:280px;}
 .reticle-ring{position:absolute;inset:0;border:2px solid rgba(255,45,155,.22);border-radius:50%;animation:retRot 14s linear infinite;}
 .reticle-ring::before{content:'';position:absolute;top:-4px;left:50%;width:8px;height:8px;margin-left:-4px;border-radius:50%;background:var(--pink);box-shadow:0 0 16px rgba(255,45,155,.8),0 0 40px rgba(255,45,155,.3);}
@@ -87,15 +87,15 @@ nav.scrolled{background:rgba(6,6,8,.9);backdrop-filter:blur(24px);border-bottom:
 .hud-grid{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,45,155,.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,45,155,.015) 1px,transparent 1px);background-size:80px 80px;}
 .hud-vignette{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 30%,rgba(6,6,8,.6) 100%);pointer-events:none;}
 .hud-data{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;line-height:2.2;position:absolute;}
-.hud-tl{top:32px;left:32px;color:var(--pink);opacity:.65;}
+.hud-tl{top:15vh;left:32px;color:var(--pink);opacity:.65;}
 .hud-tl .dim{color:#555;font-size:10px;letter-spacing:2px;}
 .hud-tl .blink{animation:blink 1.2s step-end infinite;}
-.hud-tr{top:32px;right:32px;text-align:right;color:#555;}
+.hud-tr{top:15vh;right:32px;text-align:right;color:#555;}
 .hud-tr .val{color:var(--cyan);opacity:.6;}
-.hud-bl{bottom:32px;left:32px;color:#444;}
+.hud-bl{bottom:15vh;left:32px;color:#444;}
 .hud-bl .accent{color:var(--neon);opacity:.5;}
-.hud-br{bottom:32px;right:32px;text-align:right;color:#333;}
-.hud-id{position:absolute;bottom:100px;left:32px;pointer-events:auto;}
+.hud-br{bottom:15vh;right:32px;text-align:right;color:#333;}
+.hud-id{position:absolute;bottom:calc(15vh + 60px);left:32px;pointer-events:auto;}
 .hud-id-name{font-family:var(--heading);font-size:clamp(28px,4.5vw,48px);font-weight:700;letter-spacing:-1px;color:var(--light);opacity:.9;margin-bottom:6px;}
 .hud-id-sub{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;color:#555;}
 .hud-id-sub em{font-style:normal;color:var(--pink);opacity:.6;}
@@ -124,9 +124,24 @@ nav.scrolled{background:rgba(6,6,8,.9);backdrop-filter:blur(24px);border-bottom:
 .hn-cyan .hn-dot{background:var(--cyan);}.hn-cyan .hn-dot::after{background:var(--cyan);}.hn-cyan .hn-label{color:var(--cyan);}.hn-cyan:hover{border-color:rgba(79,255,223,.2);}
 .hn-neon .hn-dot{background:var(--neon);}.hn-neon .hn-dot::after{background:var(--neon);}.hn-neon .hn-label{color:var(--neon);}.hn-neon:hover{border-color:rgba(57,255,20,.2);}
 .hn-light .hn-dot{background:var(--light);opacity:.5;}.hn-light .hn-dot::after{background:var(--light);}.hn-light .hn-label{color:#777;}.hn-light:hover{border-color:rgba(232,232,236,.1);}
-.hud-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;pointer-events:auto;}
+.hud-scroll{position:absolute;bottom:calc(15vh - 10px);left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;pointer-events:auto;}
 .hud-scroll-text{font-family:var(--mono);font-size:9px;letter-spacing:2px;color:#333;text-transform:uppercase;}
 .hud-scroll-line{width:1px;height:28px;background:linear-gradient(to bottom,rgba(255,45,155,.3),transparent);animation:scrollP 2s ease-in-out infinite;}
+
+/* Model loader */
+.model-loader{position:absolute;inset:0;z-index:5;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--void);transition:opacity .8s;pointer-events:none;}
+.model-loader.hidden{opacity:0;}
+.loader-ring{width:60px;height:60px;border:2px solid var(--snow08);border-top-color:var(--pink);border-radius:50%;animation:loaderSpin 1s linear infinite;}
+.loader-text{font-family:var(--mono);font-size:10px;letter-spacing:3px;color:var(--pink);opacity:.5;margin-top:16px;}
+.loader-pct{font-family:var(--mono);font-size:12px;color:var(--snow30);margin-top:6px;}
+@keyframes loaderSpin{to{transform:rotate(360deg)}}
+
+/* Scroll-down button */
+.scroll-down-btn{display:flex;align-items:center;gap:8px;padding:10px 20px;background:rgba(0,0,0,.4);backdrop-filter:blur(12px);border:1px solid rgba(255,45,155,.12);border-radius:30px;cursor:pointer;transition:all .4s;text-decoration:none;margin:32px auto 0;width:fit-content;}
+.scroll-down-btn:hover{background:rgba(0,0,0,.6);border-color:rgba(255,45,155,.25);transform:translateY(2px);}
+.scroll-down-btn span{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--snow30);}
+.scroll-down-btn .arr{color:var(--pink);font-size:14px;animation:bobDown 2s ease-in-out infinite;}
+@keyframes bobDown{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
 
 /* ═══ MARQUEE ═══ */
 .marquee{overflow:hidden;padding:18px 0;border-top:1px solid var(--snow08);border-bottom:1px solid var(--snow08);}
@@ -194,20 +209,20 @@ nav.scrolled{background:rgba(6,6,8,.9);backdrop-filter:blur(24px);border-bottom:
 .portal-researcher .portal-dot{background:var(--neon);}
 
 /* ═══ BIO / SHORE ═══ */
-.shore{background:var(--sand);padding:72px 0;border-top:1px solid var(--ink08);}
+.shore{background:var(--void);padding:72px 0;border-top:1px solid var(--snow08);}
 .shore-i{max-width:1200px;margin:0 auto;padding:0 28px;}
 @media(min-width:768px){.shore-i{padding:0 48px;}}
 .shore-g{display:grid;grid-template-columns:1fr;gap:44px;}
 @media(min-width:768px){.shore-g{grid-template-columns:5fr 4fr;}}
-.shore-l{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--ink20);margin-bottom:8px;}
-.shore-t{font-family:var(--heading);font-size:clamp(24px,3vw,36px);font-weight:600;color:var(--ink);margin-bottom:24px;letter-spacing:-.5px;}
-.bio-t{font-family:var(--body);font-size:15px;line-height:1.9;color:var(--ink45);font-weight:300;}
+.shore-l{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--snow15);margin-bottom:8px;}
+.shore-t{font-family:var(--heading);font-size:clamp(24px,3vw,36px);font-weight:600;color:var(--light);margin-bottom:24px;letter-spacing:-.5px;}
+.bio-t{font-family:var(--body);font-size:15px;line-height:1.9;color:var(--snow30);font-weight:300;}
 .bio-t p+p{margin-top:14px;}
-.bio-sl{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink20);margin-bottom:12px;}
-.bio-item{padding:9px 0;border-bottom:1px solid var(--ink05);}
-.bio-item-t{font-size:13px;color:var(--ink60);}
-.bio-item-d{font-size:12px;color:var(--ink30);}
-.bio-lk{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:500;color:var(--ink45);text-decoration:none;border-bottom:1px solid var(--ink12);padding-bottom:1px;transition:all .3s;}
+.bio-sl{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--snow15);margin-bottom:12px;}
+.bio-item{padding:9px 0;border-bottom:1px solid var(--snow08);}
+.bio-item-t{font-size:13px;color:var(--snow50);}
+.bio-item-d{font-size:12px;color:var(--snow30);}
+.bio-lk{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:500;color:var(--snow30);text-decoration:none;border-bottom:1px solid var(--snow08);padding-bottom:1px;transition:all .3s;}
 .bio-lk:hover{color:var(--pink);border-color:rgba(255,45,155,.3);}
 .bio-btn{display:inline-flex;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:12px 24px;background:rgba(255,45,155,.08);border:1px solid rgba(255,45,155,.15);color:var(--pink);text-decoration:none;border-radius:2px;transition:all .3s;}
 .bio-btn:hover{background:rgba(255,45,155,.15);border-color:rgba(255,45,155,.3);}
@@ -305,8 +320,10 @@ footer{background:var(--void);border-top:1px solid var(--snow08);padding:48px 28
 @keyframes cardRipple{0%{transform:scale(0);opacity:.12}100%{transform:scale(4);opacity:0}}
 
 @media(max-width:900px){
-  .hud-nav{right:16px;gap:8px}.hud-nav-btn{padding:8px 12px 8px 10px}
-  .hud-id{bottom:80px;left:20px}.hud-tl,.hud-tr{display:none}
+  .hud-nav{right:16px;gap:8px;top:auto;bottom:calc(15vh + 10px);transform:none;flex-direction:row;flex-wrap:wrap;justify-content:flex-end;}
+  .hud-nav-btn{padding:8px 12px 8px 10px}
+  .hud-id{bottom:calc(15vh + 60px);left:20px}
+  .hud-tl,.hud-tr,.hud-bl,.hud-br{display:none}
   .reticle{width:160px;height:160px}
   .sp-label{display:none}
 }
@@ -316,13 +333,13 @@ footer{background:var(--void);border-top:1px solid var(--snow08);padding:48px 28
 
 <!-- NAV -->
 <nav id="mainNav"><div class="nav-i">
-<button class="nav-logo" onclick="scrollTo('hero')">Bin Youn</button>
+<button class="nav-logo" onclick="goTo('hero')">Bin Youn</button>
 <div class="nav-lks">
 <button class="nav-lk" onclick="openIsland('artist')">Artist</button>
 <button class="nav-lk" onclick="openIsland('educator')">Educator</button>
 <button class="nav-lk" onclick="openIsland('researcher')">Researcher</button>
-<button class="nav-lk" onclick="scrollTo('shore')">Bio</button>
-<a href="https://linktr.ee/binyoun" target="_blank" rel="noopener" class="nav-ex">Links &#x2197;</a>
+<button class="nav-lk" onclick="goTo('shore')">Bio</button>
+<a href="https://www.rmit.edu.vn/profiles/y/bin-youn" target="_blank" rel="noopener" class="nav-ex">RMIT &#x2197;</a>
 <span class="nav-clock" id="navClock"></span>
 </div>
 <button class="ham" id="hamBtn" onclick="toggleMob()"><span></span><span></span></button>
@@ -331,22 +348,27 @@ footer{background:var(--void);border-top:1px solid var(--snow08);padding:48px 28
 <button class="mob-lk" onclick="openIsland('artist');closeMob()">Artist</button>
 <button class="mob-lk" onclick="openIsland('educator');closeMob()">Educator</button>
 <button class="mob-lk" onclick="openIsland('researcher');closeMob()">Researcher</button>
-<button class="mob-lk" onclick="scrollTo('shore');closeMob()">Bio</button>
+<button class="mob-lk" onclick="goTo('shore');closeMob()">Bio</button>
 </div>
 
 <!-- ═══ HERO — DETECTION LENS ═══ -->
 <section class="hero" id="hero">
-  <model-viewer id="gelora" src="model7.glb" auto-rotate auto-rotate-delay="0" rotation-per-second="6deg" camera-controls min-camera-orbit="auto auto 20%" max-camera-orbit="auto auto 150%" interaction-prompt="none" environment-image="neutral" shadow-intensity="0" exposure="1.1" camera-orbit="20deg 72deg 60%" style="background:transparent;"></model-viewer>
+  <model-viewer id="gelora" src="model7.glb" auto-rotate auto-rotate-delay="0" rotation-per-second="6deg" camera-controls min-camera-orbit="auto auto 20%" max-camera-orbit="auto auto 150%" interaction-prompt="none" environment-image="neutral" shadow-intensity="0" exposure="1.1" camera-orbit="20deg 72deg 60%" loading="eager" reveal="auto" style="background:transparent;"></model-viewer>
+  <div class="model-loader" id="modelLoader">
+    <div class="loader-ring"></div>
+    <div class="loader-text">SCANNING</div>
+    <div class="loader-pct" id="loaderPct">0%</div>
+  </div>
   <div class="hud">
     <div class="hud-vignette"></div><div class="hud-grid"></div>
     <div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
     <div class="reticle"><div class="reticle-ring"></div><div class="reticle-ring-2"></div><div class="reticle-ring-3"></div><div class="reticle-cross-h"></div><div class="reticle-cross-v"></div></div>
     <div class="scan-line"></div><div class="scan-line-2"></div>
 
-    <a class="signal-ping sp-pink" style="top:18%;left:22%;" onclick="openIsland('artist')"><div class="sp-core"></div><div class="sp-wave"></div><div class="sp-wave w2"></div><div class="sp-wave w3"></div><div class="sp-label">Artist</div></a>
-    <a class="signal-ping sp-cyan" style="top:25%;right:18%;" onclick="openIsland('educator')"><div class="sp-core"></div><div class="sp-wave"></div><div class="sp-wave w2"></div><div class="sp-wave w3"></div><div class="sp-label">Educator</div></a>
-    <a class="signal-ping sp-neon" style="bottom:28%;right:24%;" onclick="openIsland('researcher')"><div class="sp-core"></div><div class="sp-wave"></div><div class="sp-wave w2"></div><div class="sp-wave w3"></div><div class="sp-label">Researcher</div></a>
-    <a class="signal-ping sp-light" style="bottom:22%;left:18%;" onclick="scrollTo('shore')"><div class="sp-core"></div><div class="sp-wave"></div><div class="sp-wave w2"></div><div class="sp-wave w3"></div><div class="sp-label">About</div></a>
+    <a class="signal-ping sp-pink" style="top:22%;left:22%;" onclick="openIsland('artist')"><div class="sp-core"></div><div class="sp-wave"></div><div class="sp-wave w2"></div><div class="sp-wave w3"></div><div class="sp-label">Artist</div></a>
+    <a class="signal-ping sp-cyan" style="top:28%;right:18%;" onclick="openIsland('educator')"><div class="sp-core"></div><div class="sp-wave"></div><div class="sp-wave w2"></div><div class="sp-wave w3"></div><div class="sp-label">Educator</div></a>
+    <a class="signal-ping sp-neon" style="bottom:25%;right:24%;" onclick="openIsland('researcher')"><div class="sp-core"></div><div class="sp-wave"></div><div class="sp-wave w2"></div><div class="sp-wave w3"></div><div class="sp-label">Researcher</div></a>
+    <a class="signal-ping sp-light" style="bottom:30%;left:18%;" onclick="goTo('shore')"><div class="sp-core"></div><div class="sp-wave"></div><div class="sp-wave w2"></div><div class="sp-wave w3"></div><div class="sp-label">About</div></a>
 
     <div class="hud-data hud-tl"><div class="dim">SPECIMEN DETECTED</div><div>ID: <span style="color:var(--cyan)">GELORA-07</span></div><div>STATUS: <span class="blink">● SCANNING</span></div></div>
     <div class="hud-data hud-tr"><div><span class="val" id="c-sel"></span> SEL</div><div><span class="val" id="c-hcm"></span> HCM</div><div><span class="val" id="c-la"></span> LA</div></div>
@@ -357,11 +379,16 @@ footer{background:var(--void);border-top:1px solid var(--snow08);padding:48px 28
       <a class="hud-nav-btn hn-pink" onclick="openIsland('artist')"><span class="hn-dot"></span><span class="hn-label">Works</span></a>
       <a class="hud-nav-btn hn-cyan" onclick="openIsland('educator')"><span class="hn-dot"></span><span class="hn-label">Educator</span></a>
       <a class="hud-nav-btn hn-neon" onclick="openIsland('researcher')"><span class="hn-dot"></span><span class="hn-label">Research</span></a>
-      <a class="hud-nav-btn hn-light" onclick="scrollTo('shore')"><span class="hn-dot"></span><span class="hn-label">Bio</span></a>
+      <a class="hud-nav-btn hn-light" onclick="goTo('shore')"><span class="hn-dot"></span><span class="hn-label">Bio</span></a>
     </div>
     <div class="hud-scroll"><div class="hud-scroll-line"></div><div class="hud-scroll-text">Enter</div></div>
   </div>
 </section>
+
+<!-- SCROLL DOWN -->
+<div style="background:var(--void);padding:16px 0 0;">
+  <a class="scroll-down-btn" onclick="goTo('drift')"><span>Explore</span><span class="arr">↓</span></a>
+</div>
 
 <!-- MARQUEE -->
 <div class="marquee"><div class="marquee-track">
@@ -380,7 +407,7 @@ footer{background:var(--void);border-top:1px solid var(--snow08);padding:48px 28
 </div></div>
 
 <!-- FEATURED -->
-<section class="drift">
+<section class="drift" id="drift">
 <div class="drift-h rv"><p class="drift-l">Featured</p><h2 class="drift-t">Confluence</h2></div>
 <div class="fg">
 <div class="fc rv ripple-card"><div class="fc-img"><img src="image/mnode.jpg" alt="M-NODE"></div><div class="fc-b"><div class="ftags"><span class="ftag ftag-r">Artist</span><span class="ftag ftag-g">Educator</span></div><h3>M-NODE Cross-Cultural Hackathon</h3><p>Five-day hackathon between Dong-Ah Institute (Korea) and RMIT Vietnam Digital Media.</p><div class="fc-lks"><a href="https://binyoun.github.io/mnode/" target="_blank" rel="noopener" class="lk-s">Archive &#x2197;</a></div></div></div>
@@ -409,13 +436,13 @@ footer{background:var(--void);border-top:1px solid var(--snow08);padding:48px 28
 <div class="rv">
 <div style="margin-bottom:24px;"><p class="bio-sl">Education</p><div class="bio-item"><p class="bio-item-t">MFA, California State University Long Beach</p><p class="bio-item-d">2023</p></div><div class="bio-item"><p class="bio-item-t">B.A. &amp; B.B.A., Sungkyunkwan University, Seoul</p><p class="bio-item-d">2013</p></div></div>
 <div style="margin-bottom:24px;"><p class="bio-sl">Press</p><div class="bio-item"><a href="https://boldjourney.com/meet-bin-youn/" target="_blank" rel="noopener" class="bio-lk">Bold Journey — 2024</a></div><div class="bio-item"><a href="https://shoutoutla.com/meet-bin-youn-artist-poet/" target="_blank" rel="noopener" class="bio-lk">Shoutout LA — 2024</a></div><div class="bio-item"><a href="https://voyagela.com/interview/meet-bin-youn-of-long-beach-la-county/" target="_blank" rel="noopener" class="bio-lk">VoyageLA — 2023</a></div></div>
-<div><p class="bio-sl">Contact</p><a href="mailto:sierra.biny@icloud.com" class="bio-lk" style="display:inline-flex;margin-bottom:12px;">sierra.biny@icloud.com</a><br/><a href="https://linktr.ee/binyoun" target="_blank" rel="noopener" class="bio-btn">Linktree</a></div>
+<div><p class="bio-sl">Contact</p><a href="mailto:sierra.biny@icloud.com" class="bio-lk" style="display:inline-flex;margin-bottom:12px;">sierra.biny@icloud.com</a><br/><a href="https://www.rmit.edu.vn/profiles/y/bin-youn" target="_blank" rel="noopener" class="bio-btn">RMIT Profile</a></div>
 </div></div></div></section>
 
 <!-- FOOTER -->
 <footer><div class="ft-i"><div class="ft-g">
 <div><p class="ft-n">Bin Youn</p><p class="ft-info">Multimedia Artist, Educator &amp; Researcher<br/>RMIT University Vietnam</p></div>
-<div><p class="ft-label">Links</p><div class="ft-ls"><a href="https://www.rmit.edu.vn/profiles/y/bin-youn" target="_blank" rel="noopener" class="ft-lk">RMIT Profile</a><a href="https://binyoun.github.io/info/" target="_blank" rel="noopener" class="ft-lk">Recent Works</a><a href="https://linktr.ee/binyoun" target="_blank" rel="noopener" class="ft-lk">Linktree</a></div></div>
+<div><p class="ft-label">Links</p><div class="ft-ls"><a href="https://www.rmit.edu.vn/profiles/y/bin-youn" target="_blank" rel="noopener" class="ft-lk">RMIT Profile</a><a href="https://binyoun.github.io/info/" target="_blank" rel="noopener" class="ft-lk">Recent Works</a><a href="mailto:sierra.biny@icloud.com" class="ft-lk">Contact</a></div></div>
 <div><p class="ft-label">Projects</p><div class="ft-ls"><a href="https://binyoun.github.io/mnode/" target="_blank" rel="noopener" class="ft-lk">M-NODE</a><a href="https://binyoun.github.io/beyond-1-and-0-poem/" target="_blank" rel="noopener" class="ft-lk">Collaborative Poem</a><a href="https://dac.siggraph.org/sparks/2026-01-23_beyond-the-global-north/" target="_blank" rel="noopener" class="ft-lk">SIGGRAPH</a></div></div>
 </div><div class="ft-b"><p class="ft-c">&copy; 2026 Bin Youn</p></div></div></footer>
 
@@ -481,6 +508,19 @@ let lt=performance.now(),fr=0;const fe=document.getElementById('fpsCount');
 function cf(){fr++;const n=performance.now();if(n-lt>=1000){fe.textContent=fr;fr=0;lt=n;}requestAnimationFrame(cf);}
 requestAnimationFrame(cf);
 
+/* MODEL LOADING */
+var mv=document.getElementById('gelora');
+var ml=document.getElementById('modelLoader');
+var mp=document.getElementById('loaderPct');
+mv.addEventListener('progress',function(e){
+  var p=Math.round(e.detail.totalProgress*100);
+  mp.textContent=p+'%';
+});
+mv.addEventListener('load',function(){
+  ml.classList.add('hidden');
+  setTimeout(function(){ml.style.display='none';},800);
+});
+
 /* ═══ POPULATE THUMBNAILS ═══ */
 const CW=[{t:"Sacred Tree (\uc2e0\ubaa9, \u795e\u6728)",y:"2025",i:"image/sacredtree.gif"},{t:"Gelora within Bagua at Evolving Matter",y:"2025",i:"image/evolvingmatter.gif"},{t:"Gelora: Embodied Alienation",y:"2025",i:"image/geloraalienation.jpg",l:"https://doi.org/10.6084/m9.figshare.30509957"},{t:"\u3141otherisland at iNVENTX",y:"2025",i:"image/otherislandinventx.jpg",l:"https://doi.org/10.6084/m9.figshare.30509915"}];
 const IN=[{t:"Breathscape",y:"2023",i:"image/breathscape.gif",l:"https://docs.google.com/document/d/1hz12tS2Fyn4knKOzwA945Nmuj4vQI-dqyE6J0NLkKiY/edit?usp=sharing"},{t:"Projective Verse of \u3147",y:"2023",i:"image/projectiveverseofo.gif",l:"https://docs.google.com/document/d/1xpkNZ9d3Jwo-MWpeJJtDrFwpLgRHlewVexs7UBISsLE/edit?usp=sharing"},{t:"Butterflying",y:"2023",i:"image/butterflying.gif",l:"https://docs.google.com/document/d/1BFxZk-7mj3DN3fd9vKTqepVKuhLYsMwFgVZuyvpgcKs/edit?usp=sharing"},{t:"\u3141otherisland",y:"2022",i:"image/otherisland.gif",l:"https://docs.google.com/document/d/1yLXMDvRolVjWO4n_JFbITSM-4gbH5l5Jurt8NBSfLug/edit?usp=sharing"},{t:"Open your Window",y:"2022",i:"image/openyourwindow.gif",l:"https://docs.google.com/document/d/1wcEKxeTcEpZqaj0-uUFFoFMxlp9mh2SjWSqkVl7niqE/edit?usp=sharing"},{t:"Abyss",y:"2022",i:"image/abyss.gif",l:"https://docs.google.com/document/d/1C37LX2IvJ_gX8KwF70SFkTGH8-lKmvPBNhlevn9mkHs/edit?usp=sharing"},{t:"Somatic Blinds",y:"2022",i:"image/somaticblinds.gif",l:"https://docs.google.com/document/d/1IJ1eI86WlP20XIQLvDhUEIs7ID3Pw0WMFCBqs90xRho/edit?usp=sharing"}];
@@ -501,7 +541,7 @@ function closeIsland(n){document.getElementById('island-'+n).classList.remove('o
 addEventListener('keydown',function(e){if(e.key==='Escape'){document.querySelectorAll('.island.open').forEach(function(o){o.classList.remove('open');});document.body.classList.remove('no-scroll');}});
 
 /* NAV */
-function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'});}
+function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'});}
 function toggleMob(){document.getElementById('mobMenu').classList.toggle('open');document.getElementById('hamBtn').classList.toggle('open');}
 function closeMob(){document.getElementById('mobMenu').classList.remove('open');document.getElementById('hamBtn').classList.remove('open');}
 addEventListener('scroll',function(){document.getElementById('mainNav').classList.toggle('scrolled',scrollY>50);},{passive:true});
