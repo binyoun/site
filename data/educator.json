@@ -1,0 +1,46 @@
+{
+  "_note": "Edit this file in Obsidian to update the Educator island.",
+
+  "role": {
+    "title": "Course Coordinator & Associate Lecturer",
+    "institution": "RMIT University Vietnam",
+    "department": "School of Communication and Design",
+    "period": "July 2025 — Present"
+  },
+
+  "workshops": [
+    {
+      "title": "Creative Photography Workshop",
+      "subtitle": "Semester 3 · 2025",
+      "description": "Intensive student workshops fostering creative exploration through lens-based media.",
+      "links": [
+        { "label": "I",   "url": "https://www.instagram.com/p/DSQ-hOyEmrw/" },
+        { "label": "II",  "url": "https://www.instagram.com/p/DSZ9xXmEmhr/" },
+        { "label": "III", "url": "https://www.instagram.com/p/DS_g_w3kjmW/" }
+      ]
+    },
+    {
+      "title": "VVIP Photo Gift Project",
+      "description": "Project lead. Curated student professional photography for distinguished guests.",
+      "links": [
+        { "label": "View", "url": "https://www.instagram.com/p/DTO9nigEgN-/" }
+      ]
+    },
+    {
+      "title": "Experience Day 2026",
+      "description": "\"Pocket Studio: Portraits with your phone\" — Satisfaction score 9.9/10.",
+      "links": []
+    },
+    {
+      "title": "Photo 101 — Partnership",
+      "description": "Lighting workshops with RICOH, SONY.",
+      "links": []
+    }
+  ],
+
+  "guests": [
+    "Duy-Phuong Le Nguyen",
+    "Tuna Lee",
+    "Stephen Ilam Jang"
+  ]
+}

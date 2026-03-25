@@ -1,0 +1,31 @@
+{
+  "_note": "Edit this file in Obsidian to update the Bio / Shore section.",
+
+  "paragraphs": [
+    "Bin Youn is an artist, researcher, and educator whose work explores AI and interactive media as poetic environments connecting cultural memory, ecological relations, and creative learning. Her practice combines installation, XR, and participatory media, alongside research into creative technology education and international collaboration.",
+    "Her practice examines displacement, alienation, and technological intimacy through ephemeral encounters, investigating how alienation itself can become a generative force across species, technological, and cultural boundaries.",
+    "Bin Youn's research focuses on interactive media environments that investigate relationships between technology, cultural memory, and ecological systems. Her practice combines installation, XR, and AI-driven media with research into creative technology education and participatory learning."
+  ],
+
+  "education": "Youn holds an MFA from California State University, Long Beach (2023), and dual degrees in Consumer Family Sciences (B.A.) and Business Administration (B.B.A.) from Sungkyunkwan University in Seoul, South Korea (2013). She was recognized on the Dean's List from 2009 to 2011 and studied abroad at Paris Graduate School of Management in 2011.",
+
+  "honors": [
+    { "title": "Distinguished Achievement in Creative Activity",        "institution": "California State University Long Beach",             "year": "May 2023" },
+    { "title": "Second Place, \"Here, There, and Nowhere\" Exhibition", "institution": "University of Montana & Montana State University",    "year": "November 2022" },
+    { "title": "USU Art Purchase: Warmest Night",                       "institution": "University Student Union, CSULB",                    "year": "May 2022" },
+    { "title": "Joy of Life Scholarship 2022–2023",                    "institution": "California State University Long Beach",             "year": "May 2022" },
+    { "title": "RSCA Award",                                            "institution": "California State University Long Beach",             "year": "December 2021" },
+    { "title": "Top Performer: Language, Volunteering & IT",           "institution": "Sungkyunkwan University",                           "year": "February 2013" }
+  ],
+
+  "press": [
+    { "label": "Bold Journey — 2024",   "url": "https://boldjourney.com/meet-bin-youn/" },
+    { "label": "Shoutout LA — 2024",    "url": "https://shoutoutla.com/meet-bin-youn-artist-poet/" },
+    { "label": "VoyageLA — 2023",       "url": "https://voyagela.com/interview/meet-bin-youn-of-long-beach-la-county/" }
+  ],
+
+  "contact": {
+    "email": "sierra.biny@icloud.com",
+    "rmit":  "https://www.rmit.edu.vn/profiles/y/bin-youn"
+  }
+}

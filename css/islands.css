@@ -1,0 +1,74 @@
+/* islands.css — slide-in island overlays and their inner components */
+
+/* ── Island overlay ── */
+.island { position: fixed; inset: 0; z-index: 300; overflow-y: auto; overflow-x: hidden; opacity: 0; pointer-events: none; transition: opacity .45s cubic-bezier(.23,1,.32,1); -webkit-overflow-scrolling: touch; }
+.island.open { opacity: 1; pointer-events: all; }
+
+.island-close { position: fixed; top: 16px; right: 20px; z-index: 310; width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,.3); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,.1); color: var(--snow70); font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all .3s; font-family: var(--body); }
+.island-close:hover { background: rgba(0,0,0,.5); color: white; transform: scale(1.05); }
+
+.island-hero { padding: 110px 28px 56px; text-align: center; }
+@media (min-width: 768px) { .island-hero { padding: 130px 48px 72px; } }
+.island-dot   { width: 10px; height: 10px; border-radius: 50%; margin: 0 auto 18px; box-shadow: 0 0 12px var(--pink); }
+.island-title { font-family: var(--heading); font-size: clamp(36px,7vw,64px); font-weight: 600; color: rgba(255,255,255,.9); margin-bottom: 14px; letter-spacing: -1px; }
+.island-poem  { font-family: var(--body); font-style: italic; font-size: clamp(13px,1.6vw,16px); line-height: 1.9; color: rgba(255,255,255,.35); max-width: 560px; margin: 0 auto; font-weight: 300; }
+
+.island-body { background: var(--sand); padding: 56px 28px 80px; border-radius: 20px 20px 0 0; }
+@media (min-width: 768px) { .island-body { padding: 72px 48px 100px; } }
+.island-ctn  { max-width: 1060px; margin: 0 auto; }
+
+.isec   { margin-bottom: 56px; }
+.isec-l { font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: .25em; text-transform: uppercase; margin-bottom: 18px; display: flex; align-items: center; gap: 10px; }
+.isec-l .dot { width: 14px; height: 1.5px; border-radius: 1px; }
+
+/* Thumbnail grid */
+.tg { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; }
+@media (min-width: 600px) { .tg { grid-template-columns: repeat(3,1fr); } }
+@media (min-width: 900px) { .tg { grid-template-columns: repeat(4,1fr); } }
+.tg-sm .th-img { aspect-ratio: 1/1; }
+
+.th { overflow: hidden; border: 1px solid var(--ink08); border-radius: 3px; transition: all .4s; background: white; }
+.th:hover { border-color: var(--ink20); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,.06); }
+.th-img     { aspect-ratio: 4/3; overflow: hidden; background: var(--sand2); }
+.th-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+.th:hover .th-img img { transform: scale(1.04); }
+.th-info    { padding: 11px 13px; }
+.th-t       { font-family: var(--heading); font-size: 13px; font-weight: 400; color: var(--ink60); line-height: 1.3; margin-bottom: 3px; }
+.th-y       { font-family: var(--mono); font-size: 10px; font-weight: 500; color: var(--ink20); }
+.th-m       { font-size: 10px; color: var(--ink20); font-style: italic; margin-top: 2px; }
+.th-lk      { display: inline-block; margin-top: 5px; font-family: var(--mono); font-size: 10px; font-weight: 500; color: var(--ink30); text-decoration: none; border-bottom: 1px solid var(--ink08); transition: all .3s; }
+.th-lk:hover { color: var(--pink); border-color: rgba(255,45,155,.3); }
+
+/* Educator cards */
+.edu-c { background: white; border: 1px solid var(--ink08); padding: 20px; border-radius: 3px; margin-bottom: 12px; transition: border-color .3s; }
+.edu-c:hover { border-color: rgba(79,255,223,.2); }
+.edu-c h3   { font-family: var(--heading); font-size: 16px; font-weight: 500; color: var(--ink); margin-bottom: 4px; }
+.edu-c .em  { font-family: var(--mono); font-size: 11px; font-weight: 500; color: var(--ink20); margin-bottom: 6px; }
+.edu-c p    { font-size: 13px; color: var(--ink45); line-height: 1.6; margin-bottom: 10px; }
+.edu-lks    { display: flex; gap: 10px; }
+
+/* Researcher cards */
+.res-c { background: white; border: 1px solid var(--ink08); padding: 20px; border-radius: 3px; margin-bottom: 12px; transition: border-color .3s; }
+.res-c:hover { border-color: rgba(57,255,20,.2); }
+.res-pub { border-left: 2px solid var(--ink12); padding: 5px 0 5px 18px; margin-bottom: 16px; transition: border-color .3s; }
+.res-pub:hover { border-color: rgba(57,255,20,.35); }
+.res-pub h4 { font-family: var(--body); font-style: italic; font-size: 15px; color: var(--ink60); line-height: 1.5; font-weight: 400; margin-bottom: 3px; }
+.res-pub .rv { font-size: 12px; color: var(--ink30); }
+.res-btn { display: inline-flex; font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; padding: 10px 18px; border: 1px solid var(--ink12); background: transparent; color: var(--ink45); text-decoration: none; border-radius: 2px; transition: all .3s; }
+.res-btn:hover { border-color: var(--ink30); color: var(--ink); }
+
+/* Poem block */
+.poem { font-family: var(--body); font-style: italic; font-size: 14px; line-height: 2; color: var(--ink45); max-width: 520px; padding: 24px 0 24px 22px; border-left: 2px solid rgba(255,45,155,.2); font-weight: 300; white-space: pre-line; }
+
+/* Accordion */
+.acc    { border: 1px solid var(--ink08); margin-bottom: 2px; background: white; border-radius: 2px; }
+.acc-h  { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; font-family: var(--heading); font-size: 15px; font-weight: 400; color: var(--ink60); background: none; border: none; cursor: pointer; transition: color .3s; }
+.acc-h:hover { color: var(--ink); }
+.acc-arr { font-size: 11px; transition: transform .3s; color: var(--ink20); }
+.acc-h.open .acc-arr { transform: rotate(180deg); }
+.acc-bd         { display: none; padding: 0 18px 16px; }
+.acc-bd.open    { display: block; }
+.acc-it         { padding: 6px 0; border-bottom: 1px solid var(--ink05); }
+.acc-it:last-child { border: none; }
+.acc-it-t       { font-size: 13px; color: var(--ink60); }
+.acc-it-m       { font-size: 11px; color: var(--ink30); }

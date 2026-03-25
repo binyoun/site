@@ -1,0 +1,60 @@
+/* base.css — variables, reset, typography, animations */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&family=Outfit:wght@200;300;400;500;600&display=swap');
+
+:root {
+  --pink: #FF2D9B; --cyan: #4FFFDF; --neon: #39FF14;
+  --light: #E8E8EC;
+  --snow70: rgba(232,232,236,.7); --snow50: rgba(232,232,236,.5);
+  --snow30: rgba(232,232,236,.3); --snow15: rgba(232,232,236,.15);
+  --snow08: rgba(232,232,236,.08);
+  --surface: #111114; --void: #060608;
+  --sand: #f4f0e8; --sand2: #ece7dd;
+  --ink: #1a1a18;
+  --ink80: rgba(26,26,24,.8); --ink60: rgba(26,26,24,.6);
+  --ink45: rgba(26,26,24,.45); --ink30: rgba(26,26,24,.3);
+  --ink20: rgba(26,26,24,.2);  --ink12: rgba(26,26,24,.12);
+  --ink08: rgba(26,26,24,.08); --ink05: rgba(26,26,24,.05);
+  --heading: 'Space Grotesk', sans-serif;
+  --mono:    'JetBrains Mono', monospace;
+  --body:    'Outfit', sans-serif;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--void); color: var(--light);
+  font-family: var(--body); font-size: 14px; line-height: 1.65;
+  -webkit-font-smoothing: antialiased; overflow-x: hidden;
+}
+body.no-scroll { overflow: hidden; }
+
+::selection { background: rgba(255,45,155,.18); color: white; }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,45,155,.15); border-radius: 2px; }
+
+/* Reveal on scroll */
+.rv { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease; }
+.rv.vis { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) { .rv { opacity: 1; transform: none; } }
+
+/* Ripple */
+.ripple-card { position: relative; overflow: hidden; }
+.ripple-card .ripple-wave {
+  position: absolute; border-radius: 50%;
+  transform: scale(0); pointer-events: none; opacity: .12;
+}
+.ripple-card .ripple-wave.animate { animation: cardRipple .8s cubic-bezier(0,.5,.3,1) forwards; }
+
+/* Animations */
+@keyframes retRot    { from { transform: rotate(0) }    to { transform: rotate(360deg) } }
+@keyframes scanSweep { 0% { top: -2px } 50% { top: 100% } 50.01% { top: -2px; opacity: 0 } 60% { opacity: .6 } 100% { top: -2px } }
+@keyframes blink     { 0%,49% { opacity: 1 } 50%,100% { opacity: 0 } }
+@keyframes pingW     { 0% { transform: scale(0); opacity: .5 } 100% { transform: scale(1); opacity: 0 } }
+@keyframes scrollP   { 0%,100% { opacity: .3; height: 28px } 50% { opacity: .8; height: 44px } }
+@keyframes mqScroll  { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+@keyframes cardRipple{ 0% { transform: scale(0); opacity: .12 } 100% { transform: scale(4); opacity: 0 } }
+@keyframes loaderSpin{ to { transform: rotate(360deg) } }
+@keyframes bobDown   { 0%,100% { transform: translateY(0) } 50% { transform: translateY(4px) } }

@@ -1,0 +1,47 @@
+{
+  "_note": "Edit this file in Obsidian to update the Researcher island.",
+
+  "committee": [
+    {
+      "role": "Technical Program Committee Member",
+      "event": "ICAIHE 2026",
+      "location": "Waseda University, Tokyo"
+    }
+  ],
+
+  "publications": [
+    {
+      "title": "A Dialogue-Centered Framework for Reducing Transactional Distance in Online Photography Education",
+      "venue": "24th Intl Conference on Web-Based Learning, Hong Kong",
+      "coauthors": "Co-authored with Suren"
+    },
+    {
+      "title": "Learning to ASCEND: Immersive Pedagogy for Educational and Societal Transformation",
+      "venue": "ETLTC 2026, Fukushima (Q1, citation score 8.5)",
+      "coauthors": "Co-authored with Suren"
+    }
+  ],
+
+  "talks": [
+    {
+      "venue": "APARN 2025",
+      "title": "Reimagining Communities: Poetic Spaces of Light, Movement, and Language",
+      "link": "https://doi.org/10.62789/APARN2025-paper43"
+    },
+    {
+      "venue": "Beyond 1&0 Symposium",
+      "title": "Empathetic Gestures, Entangled Futures: Mobile Cameras as Regenerative Practice",
+      "link": "https://doi.org/10.6084/m9.figshare.30507803"
+    },
+    {
+      "venue": "SCD Research Exchange",
+      "title": "ㅁotherisland and Gelora: Portals of Embodied Alienation",
+      "link": "https://doi.org/10.6084/m9.figshare.30507611"
+    }
+  ],
+
+  "decks": [
+    { "label": "Deck I",  "url": "https://www.canva.com/design/DAG-81OqB6s/vUe0xwUkUI7gqUxmJOsOdA/edit" },
+    { "label": "Deck II", "url": "https://www.canva.com/design/DAG-jQi_-DE/PeL_cWtPnm_M-iLCWOhLjQ/edit" }
+  ]
+}
