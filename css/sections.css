@@ -75,7 +75,7 @@
 .shore-t { font-family: var(--heading); font-size: clamp(24px,3vw,36px); font-weight: 600; color: rgba(232,232,236,.85); margin-bottom: 24px; letter-spacing: -.5px; }
 .bio-t   { font-family: var(--body); font-size: 15px; line-height: 1.9; color: rgba(232,232,236,.55); font-weight: 300; }
 .bio-t p + p { margin-top: 14px; }
-.bio-sl  { font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--snow30); margin-bottom: 12px; }
+.bio-sl  { font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--pink); margin-bottom: 12px; }
 .bio-item   { padding: 9px 0; border-bottom: 1px solid var(--snow08); }
 .bio-item-t { font-size: 13px; color: rgba(232,232,236,.6); }
 .bio-item-d { font-size: 12px; color: rgba(232,232,236,.3); }
