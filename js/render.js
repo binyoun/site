@@ -70,20 +70,57 @@ async function renderEducator() {
 
   const roleEl = document.getElementById('edu-role');
   if (roleEl) roleEl.innerHTML = `
-    <p style="font-family:var(--heading);font-size:16px;color:var(--ink);">${data.role.title}</p>
-    <p style="font-size:13px;color:var(--ink45);">${data.role.institution}</p>
-    <p style="font-size:12px;color:var(--ink30);margin-top:3px;">${data.role.department} · ${data.role.period}</p>`;
+    <div class="edu-c">
+      <p class="res-c-title">${data.role.title}</p>
+      <p class="res-c-body">${data.role.institution}</p>
+      <p class="res-c-meta">${data.role.department} · ${data.role.period}</p>
+      <div style="margin-top:12px;display:flex;gap:24px;flex-wrap:wrap;">
+        <div>
+          <p class="res-c-meta" style="margin-bottom:6px;">Coordinating</p>
+          ${data.role.coordinating.map(c => `<p class="res-c-body" style="margin-bottom:3px;">${c}</p>`).join('')}
+        </div>
+        <div>
+          <p class="res-c-meta" style="margin-bottom:6px;">Teaching</p>
+          ${data.role.teaching.map(c => `<p class="res-c-body" style="margin-bottom:3px;">${c}</p>`).join('')}
+        </div>
+      </div>
+    </div>`;
+
+  const fwEl = document.getElementById('edu-framework');
+  if (fwEl) fwEl.innerHTML = `
+    <div class="edu-c">
+      <p class="res-c-title">${data.framework.title}</p>
+      <p class="res-c-body" style="margin-top:5px;">${data.framework.description}</p>
+      ${data.framework.links.length ? `<div class="edu-lks" style="margin-top:10px;">${data.framework.links.map(l =>
+        `<a href="${l.url}" target="_blank" rel="noopener" class="res-lk">${l.label} &#x2197;</a>`
+      ).join('')}</div>` : ''}
+    </div>`;
 
   const workshopEl = document.getElementById('edu-workshops');
   if (workshopEl) workshopEl.innerHTML = data.workshops.map(w => `
     <div class="edu-c">
-      <h3>${w.title}</h3>
-      ${w.subtitle ? `<p class="em">${w.subtitle}</p>` : ''}
-      <p>${w.description}</p>
-      ${w.links.length ? `<div class="edu-lks">${w.links.map(l =>
-        `<a href="${l.url}" target="_blank" rel="noopener" class="bio-lk">${l.label} &#x2197;</a>`
+      <p class="res-c-title">${w.title}</p>
+      ${w.subtitle ? `<p class="res-c-meta">${w.subtitle}</p>` : ''}
+      <p class="res-c-body" style="margin-top:5px;">${w.description}</p>
+      ${w.links.length ? `<div class="edu-lks" style="margin-top:10px;">${w.links.map(l =>
+        `<a href="${l.url}" target="_blank" rel="noopener" class="res-lk">${l.label} &#x2197;</a>`
       ).join('')}</div>` : ''}
     </div>`).join('');
+
+  const ifftiEl = document.getElementById('edu-iffti');
+  if (ifftiEl) ifftiEl.innerHTML = `
+    <div class="edu-c">
+      <p class="res-c-meta">${data.iffti.event}</p>
+      <p class="res-c-body" style="margin-top:5px;margin-bottom:14px;">${data.iffti.description}</p>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;">
+        ${data.iffti.students.map((s, i) => `
+          <div style="background:#f4f0e8;border:1px solid rgba(10,110,96,.15);padding:14px;border-radius:2px;">
+            <p class="res-c-meta" style="margin-bottom:4px;">Student ${i + 1}</p>
+            <p class="res-c-body">${s.name}</p>
+            <p class="res-c-meta" style="margin-top:4px;">${s.work}</p>
+          </div>`).join('')}
+      </div>
+    </div>`;
 
   const guestEl = document.getElementById('edu-guests');
   if (guestEl) guestEl.textContent = data.guests.join(' · ');

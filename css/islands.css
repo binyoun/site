@@ -41,7 +41,7 @@
 
 /* Educator cards */
 .edu-c { background: white; border: 1px solid var(--ink08); padding: 20px; border-radius: 3px; margin-bottom: 12px; transition: border-color .3s; }
-.edu-c:hover { border-color: rgba(79,255,223,.2); }
+.edu-c:hover { border-color: rgba(10,110,96,.25); }
 .edu-c h3   { font-family: var(--heading); font-size: 16px; font-weight: 500; color: var(--ink); margin-bottom: 4px; }
 .edu-c .em  { font-family: var(--mono); font-size: 11px; font-weight: 500; color: var(--ink20); margin-bottom: 6px; }
 .edu-c p    { font-size: 13px; color: var(--ink45); line-height: 1.6; margin-bottom: 10px; }
@@ -49,7 +49,7 @@
 
 /* Researcher cards */
 .res-c { background: white; border: 1px solid var(--ink08); padding: 20px; border-radius: 3px; margin-bottom: 12px; transition: border-color .3s; }
-.res-c:hover { border-color: rgba(57,255,20,.2); }
+.res-c:hover { border-color: rgba(42,122,26,.2); }
 .res-c-title { font-family: var(--heading); font-size: 16px; font-weight: 500; color: #1a1a18; line-height: 1.4; margin-bottom: 5px; }
 .res-c-body  { font-size: 15px; color: #3a3a38; line-height: 1.6; margin-bottom: 5px; }
 .res-c-meta  { font-family: var(--mono); font-size: 12px; letter-spacing: .06em; color: #686866; margin-bottom: 6px; }

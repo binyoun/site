@@ -1,13 +1,21 @@
 {
   "_note": "Edit this file in Obsidian to update the Educator island.",
-
   "role": {
     "title": "Course Coordinator & Associate Lecturer",
     "institution": "RMIT University Vietnam",
     "department": "School of Communication and Design",
-    "period": "July 2025 — Present"
+    "period": "March 2025 — Present",
+    "coordinating": ["Photography 101", "Creative Photography", "Commercial Photography"],
+    "teaching": ["Photography 101", "Creative Photography", "Commercial Photography", "Professional Practice"]
   },
-
+  "framework": {
+    "title": "rễ-root",
+    "description": "Exhibition-centered pedagogical framework replacing traditional portfolio assessment with physical group exhibitions. Students develop, curate, install, and present work to live audiences — building professional practice through collective creative experience.",
+    "links": [
+      { "label": "Framework", "url": "https://binyoun.github.io/reroot/" },
+      { "label": "Workshops", "url": "https://binyoun.github.io/reroot/workshops/" }
+    ]
+  },
   "workshops": [
     {
       "title": "Creative Photography Workshop",
@@ -21,9 +29,10 @@
     },
     {
       "title": "VVIP Photo Gift Project",
-      "description": "Project lead. Curated student professional photography for distinguished guests.",
+      "description": "Project lead. Curated student professional photography for distinguished guests. Developing a cross-cultural visual archive platform.",
       "links": [
-        { "label": "View", "url": "https://www.instagram.com/p/DTO9nigEgN-/" }
+        { "label": "Archive", "url": "https://binyoun.github.io/cultural-visions/" },
+        { "label": "View",    "url": "https://www.instagram.com/p/DTO9nigEgN-/" }
       ]
     },
     {
@@ -32,12 +41,21 @@
       "links": []
     },
     {
-      "title": "Photo 101 — Partnership",
-      "description": "Lighting workshops with RICOH, SONY.",
+      "title": "Photo 101 — Industry Partnership",
+      "description": "Lighting workshops with RICOH and SONY.",
       "links": []
     }
   ],
-
+  "iffti": {
+    "event": "28th IFFTI 2026 · RMIT University Vietnam · April 2026",
+    "description": "4 Creative Photography students' works selected for exhibition. rễ-root framework and student practice introduced to international guests and RMIT leadership.",
+    "students": [
+      { "name": "—", "work": "—" },
+      { "name": "—", "work": "—" },
+      { "name": "—", "work": "—" },
+      { "name": "—", "work": "—" }
+    ]
+  },
   "guests": [
     "Duy-Phuong Le Nguyen",
     "Tuna Lee",
