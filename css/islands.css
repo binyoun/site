@@ -50,12 +50,25 @@
 /* Researcher cards */
 .res-c { background: white; border: 1px solid var(--ink08); padding: 20px; border-radius: 3px; margin-bottom: 12px; transition: border-color .3s; }
 .res-c:hover { border-color: rgba(57,255,20,.2); }
-.res-pub { border-left: 2px solid var(--ink12); padding: 5px 0 5px 18px; margin-bottom: 16px; transition: border-color .3s; }
-.res-pub:hover { border-color: rgba(57,255,20,.35); }
-.res-pub h4 { font-family: var(--body); font-style: italic; font-size: 15px; color: var(--ink60); line-height: 1.5; font-weight: 400; margin-bottom: 3px; }
-.res-pub .rv { font-size: 12px; color: var(--ink30); }
-.res-btn { display: inline-flex; font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; padding: 10px 18px; border: 1px solid var(--ink12); background: transparent; color: var(--ink45); text-decoration: none; border-radius: 2px; transition: all .3s; }
-.res-btn:hover { border-color: var(--ink30); color: var(--ink); }
+.res-c-title { font-family: var(--heading); font-size: 16px; font-weight: 500; color: #1a1a18; line-height: 1.4; margin-bottom: 5px; }
+.res-c-body  { font-size: 15px; color: #3a3a38; line-height: 1.6; margin-bottom: 5px; }
+.res-c-meta  { font-family: var(--mono); font-size: 12px; letter-spacing: .06em; color: #686866; margin-bottom: 6px; }
+
+/* Publications — year groups */
+.res-year   { margin-bottom: 28px; }
+.res-year-h { font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: .28em; text-transform: uppercase; color: #2a7a1a; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid rgba(57,255,20,.2); }
+.res-pub { border-left: 2px solid #d0d0cc; padding: 4px 0 4px 18px; margin-bottom: 18px; transition: border-color .3s; }
+.res-pub:hover { border-color: #2a7a1a; }
+.res-pub h4 { font-family: var(--body); font-style: italic; font-size: 16px; color: #1a1a18; line-height: 1.55; font-weight: 400; margin-bottom: 5px; }
+.res-venue  { font-size: 14px; color: #525250; line-height: 1.5; margin-bottom: 3px; }
+.res-coauth { font-size: 13px; color: #686866; font-style: italic; }
+
+/* Links */
+.res-lk { display: inline-block; font-family: var(--mono); font-size: 12px; font-weight: 500; color: #1a5c14; text-decoration: none; border-bottom: 1px solid rgba(26,92,20,.3); padding-bottom: 1px; margin-top: 7px; transition: all .2s; }
+.res-lk:hover { color: #0f3a0c; border-color: rgba(15,58,12,.6); }
+
+.res-btn { display: inline-flex; font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; padding: 10px 18px; border: 1px solid var(--ink12); background: transparent; color: #525250; text-decoration: none; border-radius: 2px; transition: all .3s; }
+.res-btn:hover { border-color: #686866; color: #1a1a18; }
 
 /* Poem block */
 .poem { font-family: var(--body); font-style: italic; font-size: 14px; line-height: 2; color: var(--ink45); max-width: 520px; padding: 24px 0 24px 22px; border-left: 2px solid rgba(255,45,155,.2); font-weight: 300; white-space: pre-line; }

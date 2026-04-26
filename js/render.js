@@ -94,29 +94,46 @@ async function renderEducator() {
 async function renderResearcher() {
   const data = await fetch('data/researcher.json').then(r => r.json());
 
+  const initEl = document.getElementById('res-initiatives');
+  if (initEl) initEl.innerHTML = data.initiatives.map(i => `
+    <div class="res-c">
+      <p class="res-c-title">${i.title}</p>
+      <p class="res-c-body">${i.description}</p>
+      <p class="res-c-meta">${i.location}</p>
+      ${i.link ? `<a href="${i.link}" target="_blank" rel="noopener" class="res-lk">Visit &#x2197;</a>` : ''}
+    </div>`).join('');
+
   const commEl = document.getElementById('res-committee');
   if (commEl) commEl.innerHTML = data.committee.map(c => `
     <div class="res-c">
-      <p style="font-family:var(--heading);font-size:15px;color:var(--ink60);">${c.role}</p>
-      <p style="font-size:13px;color:var(--ink45);">${c.event}</p>
-      <p style="font-size:12px;color:var(--ink30);margin-top:3px;">${c.location}</p>
+      <p class="res-c-title">${c.role}</p>
+      <p class="res-c-body">${c.event}</p>
+      <p class="res-c-meta">${c.location}</p>
+      ${c.link ? `<a href="${c.link}" target="_blank" rel="noopener" class="res-lk">Visit &#x2197;</a>` : ''}
     </div>`).join('');
 
   const pubEl = document.getElementById('res-publications');
-  if (pubEl) pubEl.innerHTML = `
-    <p style="font-size:11px;color:var(--ink30);font-style:italic;margin-bottom:16px;">${data.publications[0]?.coauthors || ''}</p>
-    ${data.publications.map(p => `
-      <div class="res-pub">
-        <h4>${p.title}</h4>
-        <p class="rv">${p.venue}</p>
-      </div>`).join('')}`;
+  if (pubEl) {
+    const years = [...new Set(data.publications.map(p => p.year))].sort((a, b) => b - a);
+    pubEl.innerHTML = years.map(year => `
+      <div class="res-year">
+        <div class="res-year-h">${year}</div>
+        ${data.publications.filter(p => p.year === year).map(p => `
+          <div class="res-pub">
+            <h4>${p.title}</h4>
+            <p class="res-venue">${p.venue}</p>
+            ${p.coauthors ? `<p class="res-coauth">${p.coauthors}</p>` : ''}
+            ${p.link ? `<a href="${p.link}" target="_blank" rel="noopener" class="res-lk">View &#x2197;</a>` : ''}
+          </div>`).join('')}
+      </div>`).join('');
+  }
 
   const talkEl = document.getElementById('res-talks');
   if (talkEl) talkEl.innerHTML = data.talks.map(t => `
     <div class="res-c">
-      <p style="font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--neon);opacity:.6;margin-bottom:5px;">${t.venue}</p>
-      <h4 style="font-family:var(--body);font-style:italic;font-size:15px;color:var(--ink60);line-height:1.5;font-weight:400;margin-bottom:8px;">${t.title}</h4>
-      ${t.link ? `<a href="${t.link}" target="_blank" rel="noopener" class="bio-lk">Read &#x2197;</a>` : ''}
+      <p class="res-c-meta">${t.venue}</p>
+      <p class="res-c-title" style="font-style:italic;">${t.title}</p>
+      ${t.link ? `<a href="${t.link}" target="_blank" rel="noopener" class="res-lk">Read &#x2197;</a>` : ''}
     </div>`).join('');
 
   const deckEl = document.getElementById('res-decks');
