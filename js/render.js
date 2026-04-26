@@ -190,9 +190,9 @@ async function renderBio() {
   const eduEl = document.getElementById('bio-education');
   if (eduEl) eduEl.innerHTML = data.education.map(e => `
     <div style="margin-bottom:14px;">
-      <p style="font-size:14px;color:rgba(232,232,236,.8);font-weight:500;margin-bottom:2px;">${e.degree}</p>
-      <p style="font-size:13px;color:rgba(232,232,236,.45);">${e.institution} · ${e.year}</p>
-      ${e.note ? `<p style="font-size:12px;color:rgba(232,232,236,.3);margin-top:2px;">${e.note}</p>` : ''}
+      <p style="font-size:16px;color:rgba(232,232,236,.9);font-weight:500;margin-bottom:2px;">${e.degree}</p>
+      <p style="font-size:15px;color:rgba(232,232,236,.65);">${e.institution} · ${e.year}</p>
+      ${e.note ? `<p style="font-size:13px;color:rgba(232,232,236,.5);margin-top:2px;">${e.note}</p>` : ''}
     </div>`).join('');
 
   const honorsEl = document.getElementById('bio-honors');
