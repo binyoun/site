@@ -18,21 +18,55 @@ function set(id, html) {
   if (target) target.innerHTML = html;
 }
 
+// Root-absolute paths so pages at any depth (/, /artist/, /educator/...)
+// resolve the same data/image files on this root-domain deploy.
+function abs(path) {
+  return /^(https?:)?\//.test(path) ? path : '/' + path;
+}
+
 // ── Artist ───────────────────────────────────────────────────────────────────
 
 function buildThumbs(works, squareImg = false) {
-  return works.map(w => `
-    <div class="th">
+  return works.map(w => {
+    const isInternal = w.link && w.link.startsWith('/');
+    const tag = w.link ? 'a' : 'div';
+    const openAttrs = w.link
+      ? isInternal ? `href="${w.link}"` : `href="${w.link}" target="_blank" rel="noopener"`
+      : '';
+    const linkLabel = w.link
+      ? isInternal
+        ? `<span class="th-lk">View work &#x2192;</span>`
+        : `<span class="th-lk">View &#x2197;</span>`
+      : '';
+    const still = w.still || w.image;
+    const imgTag = w.image
+      ? `<img src="${abs(w.image)}" alt="${w.title}" loading="lazy">`
+      : `<div class="th-img-ph"><p>Image pending</p></div>`;
+    const popImgTag = still
+      ? `<img src="${abs(still)}" alt="" loading="lazy">`
+      : `<div class="th-img-ph"><p>Image pending</p></div>`;
+    return `
+    <${tag} class="th" ${openAttrs}>
       <div class="th-img${squareImg ? ' th-img-sq' : ''}">
-        <img src="${w.image}" alt="${w.title}" loading="lazy">
+        ${imgTag}
+        <div class="th-grad"></div>
+        <div class="th-info">
+          <p class="th-t">${w.title}</p>
+          <p class="th-y">${w.year}</p>
+        </div>
       </div>
-      <div class="th-info">
-        <p class="th-t">${w.title}</p>
-        <p class="th-y">${w.year}</p>
-        ${w.medium ? `<p class="th-m">${w.medium}</p>` : ''}
-        ${w.link   ? `<a href="${w.link}" target="_blank" rel="noopener" class="th-lk">View &#x2197;</a>` : ''}
+      <div class="th-pop">
+        <button class="th-pop-close" aria-label="Close preview" onclick="dismissPop(this, event)">&times;</button>
+        <div class="th-pop-img">${popImgTag}</div>
+        <div class="th-pop-panel">
+          <p class="th-pop-t">${w.title}</p>
+          <p class="th-pop-y">${w.year}</p>
+          ${w.medium ? `<p class="th-pop-m">${w.medium}</p>` : ''}
+          ${w.link ? `<span class="th-pop-lk">${isInternal ? 'View work &#x2192;' : 'View &#x2197;'}</span>` : ''}
+        </div>
       </div>
-    </div>`).join('');
+    </${tag}>`;
+  }).join('');
 }
 
 function buildAccordion(title, items) {
@@ -47,7 +81,7 @@ function buildAccordion(title, items) {
 }
 
 async function renderArtist() {
-  const data = await fetch('data/artist.json').then(r => r.json());
+  const data = await fetch('/data/artist.json').then(r => r.json());
 
   set('a-current', buildThumbs(data.current));
   set('a-install', buildThumbs(data.installations));
@@ -59,14 +93,14 @@ async function renderArtist() {
 
   const exhEl = document.getElementById('exhAcc');
   if (exhEl) exhEl.innerHTML =
-    buildAccordion('Solo Exhibitions (2017 — 2023)', data.exhibitions.solo) +
-    buildAccordion('Group Exhibitions (2012 — 2024)', data.exhibitions.group);
+    buildAccordion('Solo Exhibitions (2017–2023)', data.exhibitions.solo) +
+    buildAccordion('Group Exhibitions (2012–2024)', data.exhibitions.group);
 }
 
 // ── Educator ─────────────────────────────────────────────────────────────────
 
 async function renderEducator() {
-  const data = await fetch('data/educator.json').then(r => r.json());
+  const data = await fetch('/data/educator.json').then(r => r.json());
 
   const roleEl = document.getElementById('edu-role');
   if (roleEl) roleEl.innerHTML = `
@@ -102,6 +136,13 @@ async function renderEducator() {
       <p class="res-c-title">${w.title}</p>
       ${w.subtitle ? `<p class="res-c-meta">${w.subtitle}</p>` : ''}
       <p class="res-c-body" style="margin-top:5px;">${w.description}</p>
+      ${w.sessions ? `<div class="card-poster-grid">${w.sessions.map(s => `
+        <div>
+          ${s.poster
+            ? `<img class="card-poster" src="${abs(s.poster)}" alt="Poster for ${s.label}" loading="lazy">`
+            : `<div class="card-poster-ph"><p>Poster pending</p></div>`}
+          <p class="res-c-meta">${s.label}</p>
+        </div>`).join('')}</div>` : ''}
       ${w.links.length ? `<div class="edu-lks" style="margin-top:10px;">${w.links.map(l =>
         `<a href="${l.url}" target="_blank" rel="noopener" class="res-lk">${l.label} &#x2197;</a>`
       ).join('')}</div>` : ''}
@@ -129,11 +170,12 @@ async function renderEducator() {
 // ── Researcher ───────────────────────────────────────────────────────────────
 
 async function renderResearcher() {
-  const data = await fetch('data/researcher.json').then(r => r.json());
+  const data = await fetch('/data/researcher.json').then(r => r.json());
 
   const initEl = document.getElementById('res-initiatives');
   if (initEl) initEl.innerHTML = data.initiatives.map(i => `
     <div class="res-c">
+      ${i.image ? `<img class="card-poster" src="${abs(i.image)}" alt="Poster for ${i.title}" loading="lazy">` : ''}
       <p class="res-c-title">${i.title}</p>
       <p class="res-c-body">${i.description}</p>
       <p class="res-c-meta">${i.location}</p>
@@ -168,6 +210,7 @@ async function renderResearcher() {
   const talkEl = document.getElementById('res-talks');
   if (talkEl) talkEl.innerHTML = data.talks.map(t => `
     <div class="res-c">
+      ${t.image ? `<img class="card-poster" src="${abs(t.image)}" alt="Poster for ${t.title}" loading="lazy">` : ''}
       <p class="res-c-meta">${t.venue}</p>
       <p class="res-c-title" style="font-style:italic;">${t.title}</p>
       ${t.link ? `<a href="${t.link}" target="_blank" rel="noopener" class="res-lk">Read &#x2197;</a>` : ''}
@@ -182,7 +225,7 @@ async function renderResearcher() {
 // ── Bio ───────────────────────────────────────────────────────────────────────
 
 async function renderBio() {
-  const data = await fetch('data/bio.json').then(r => r.json());
+  const data = await fetch('/data/bio.json').then(r => r.json());
 
   const bioTextEl = document.getElementById('bio-text');
   if (bioTextEl) bioTextEl.innerHTML = data.paragraphs.map(p => `<p>${p}</p>`).join('');

@@ -1,30 +1,6 @@
-/* ui.js — island open/close, scroll reveal, card ripple */
-
-export function openIsland(name) {
-  const el = document.getElementById('island-' + name);
-  if (!el) return;
-  el.classList.add('open');
-  el.scrollTop = 0;
-  document.body.classList.add('no-scroll');
-}
-
-export function closeIsland(name) {
-  document.getElementById('island-' + name)?.classList.remove('open');
-  document.body.classList.remove('no-scroll');
-}
+/* ui.js — scroll reveal, card ripple */
 
 export function initUI() {
-  // Expose island controls globally for inline onclick handlers
-  window.openIsland  = openIsland;
-  window.closeIsland = closeIsland;
-
-  // ESC closes any open island
-  window.addEventListener('keydown', (e) => {
-    if (e.key !== 'Escape') return;
-    document.querySelectorAll('.island.open').forEach(el => el.classList.remove('open'));
-    document.body.classList.remove('no-scroll');
-  });
-
   // Scroll reveal
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -56,4 +32,17 @@ export function initUI() {
 window.toggleAcc = function(btn) {
   btn.classList.toggle('open');
   btn.nextElementSibling.classList.toggle('open');
+};
+
+// Dismiss a thumbnail's gallery pop-out without navigating — called from render.js-generated HTML
+window.dismissPop = function(btn, e) {
+  e.preventDefault();
+  e.stopPropagation();
+  const card = btn.closest('.th');
+  if (!card) return;
+  card.classList.add('th-dismissed');
+  card.addEventListener('mouseleave', function reset() {
+    card.classList.remove('th-dismissed');
+    card.removeEventListener('mouseleave', reset);
+  });
 };

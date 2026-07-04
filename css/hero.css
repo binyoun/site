@@ -52,9 +52,29 @@
 .sp-neon .sp-core  { background: var(--neon); } .sp-neon .sp-core::after { background: var(--neon); } .sp-neon .sp-wave { border-color: var(--neon); } .sp-neon .sp-label { color: var(--neon); }
 .sp-light .sp-core { background: var(--light); opacity: .5; } .sp-light .sp-core::after { background: var(--light); } .sp-light .sp-wave { border-color: var(--light); } .sp-light .sp-label { color: #999; }
 
-.hud-scroll { position: absolute; bottom: 44px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; pointer-events: auto; }
-.hud-scroll-text { font-family: var(--mono); font-size: 9px; letter-spacing: 2px; color: #333; text-transform: uppercase; }
-.hud-scroll-line { width: 1px; height: 28px; background: linear-gradient(to bottom, rgba(255,45,155,.3), transparent); animation: scrollP 2s ease-in-out infinite; }
+.hud-scroll {
+  position: absolute; bottom: 44px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  pointer-events: auto; cursor: pointer;
+  background: none; border: none; font: inherit;
+  padding: 24px 40px; margin: -24px -40px;
+  transition: opacity .3s;
+}
+.hud-scroll:hover { opacity: .7; }
+.hud-scroll-text { font-family: var(--mono); font-size: 9px; letter-spacing: 2px; color: #333; text-transform: uppercase; transition: color .3s; }
+.hud-scroll:hover .hud-scroll-text { color: var(--pink); }
+.hud-scroll-line { display: flex; flex-direction: column-reverse; align-items: center; gap: 3px; height: 28px; }
+.hud-scroll-line span {
+  width: 8px; height: 2px; background: var(--pink); border: none;
+  opacity: .25;
+  animation: retroBar 1.6s ease-in-out infinite;
+}
+.hud-scroll-line span:nth-child(1) { animation-delay: 0s; }
+.hud-scroll-line span:nth-child(2) { animation-delay: .12s; }
+.hud-scroll-line span:nth-child(3) { animation-delay: .24s; }
+.hud-scroll-line span:nth-child(4) { animation-delay: .36s; }
+.hud-scroll-line span:nth-child(5) { animation-delay: .48s; }
+@keyframes retroBar { 0%, 100% { opacity: .2; } 50% { opacity: .3; } }
 
 /* ── Model loader ── */
 .model-loader { position: absolute; inset: 0; z-index: 5; display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--void); transition: opacity .8s; pointer-events: none; }

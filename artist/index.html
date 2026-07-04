@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Artist · Bin Youn</title>
+  <meta name="description" content="Bin Youn's artist practice: installations, lens-based media, sculpture, and poetic spatial encounters, including the Gelora series and Sacred Tree."/>
+  <meta property="og:title"       content="Artist · Bin Youn"/>
+  <meta property="og:description" content="Installations, lens-based media, sculpture, and poetic spatial encounters, where displacement becomes a generative force."/>
+  <meta property="og:image"       content="https://binyoun.com/image/geloraalienation.jpg"/>
+  <meta property="og:url"         content="https://binyoun.com/artist/"/>
+  <meta property="og:type"        content="website"/>
+  <meta name="twitter:card"        content="summary_large_image"/>
+  <meta name="twitter:title"       content="Artist · Bin Youn"/>
+  <meta name="twitter:description" content="Installations, lens-based media, sculpture, and poetic spatial encounters."/>
+  <meta name="twitter:image"       content="https://binyoun.com/image/geloraalienation.jpg"/>
+  <link rel="canonical" href="https://binyoun.com/artist/"/>
+
+  <link rel="stylesheet" href="/css/base.css"/>
+  <link rel="stylesheet" href="/css/nav.css"/>
+  <link rel="stylesheet" href="/css/islands.css"/>
+  <link rel="stylesheet" href="/css/sections.css"/>
+
+  <script type="module" src="/js/main.js"></script>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<!-- NAV -->
+<nav id="mainNav"><div class="nav-i">
+  <a class="nav-logo" href="/"><span class="n-bin">Bin</span> <span class="n-youn">Youn</span></a>
+  <div class="nav-lks">
+    <a class="nav-lk" href="/artist/" aria-current="page">Artist</a>
+    <a class="nav-lk" href="/educator/">Educator</a>
+    <a class="nav-lk" href="/researcher/">Researcher</a>
+    <a class="nav-lk" href="/#shore">Bio</a>
+    <a href="https://www.rmit.edu.vn/profiles/y/bin-youn" target="_blank" rel="noopener" class="nav-ex">RMIT &#x2197;</a>
+    <span class="nav-clock" id="navClock"></span>
+  </div>
+  <button class="ham" id="hamBtn" onclick="toggleMob()"><span></span><span></span></button>
+</div></nav>
+<div class="mob" id="mobMenu">
+  <a class="mob-lk" href="/artist/" aria-current="page">Artist</a>
+  <a class="mob-lk" href="/educator/">Educator</a>
+  <a class="mob-lk" href="/researcher/">Researcher</a>
+  <a class="mob-lk" href="/#shore">Bio</a>
+</div>
+
+<main id="main">
+  <div style="background:linear-gradient(180deg,#2a0f18 0%,#4a1a2d 30%,#6b2840 55%,var(--sand) 100%);padding-top:56px;">
+    <div class="island-hero"><div class="island-glow" style="background:var(--pink);"></div><h1 class="island-title">Artist</h1><p class="island-poem">Installations, lens-based media, and poetic spatial encounters, where displacement becomes a generative force.</p></div>
+    <div class="island-body"><div class="island-ctn">
+      <div class="isec"><p class="isec-l" style="color:var(--pink);"><span class="dot" style="background:var(--pink);"></span>Current Works &middot; 2025&ndash;2026</p><div class="tg" id="a-current"></div></div>
+      <div class="isec"><p class="isec-l" style="color:var(--pink);"><span class="dot" style="background:var(--pink);"></span>Installation Archives</p><div class="tg" id="a-install"></div></div>
+      <div class="isec"><p class="isec-l" style="color:var(--pink);"><span class="dot" style="background:var(--pink);"></span>Sculpture Archives</p><div class="tg tg-sm" id="a-sculpt"></div></div>
+      <div class="isec"><p class="isec-l" style="color:var(--pink);"><span class="dot" style="background:var(--pink);"></span>Lens-based &amp; Video</p><div class="tg" id="a-lens"></div></div>
+      <div class="isec"><p class="isec-l" style="color:var(--pink);"><span class="dot" style="background:var(--pink);"></span>Poetry</p><p style="font-size:12px;color:var(--ink30);margin-bottom:18px;">Featured in <em>Exchanges: dialogues between poetry and art</em>, Ruth Foster Gallery, Wisconsin, 2023</p>
+        <button class="poem-card" onclick="toggleAcc(this)">
+          <div class="poem-card-img"><img src="/image/somaticblinds.gif" alt="" loading="lazy"></div>
+          <div class="poem-card-panel">
+            <p class="poem-card-t">Somatic Blinds</p>
+            <span class="poem-card-cta">Read poem <span class="acc-arr">&#x25BE;</span></span>
+          </div>
+        </button>
+        <div class="poem poem-body" id="a-poem"></div>
+      </div>
+      <div class="isec"><p class="isec-l" style="color:var(--pink);"><span class="dot" style="background:var(--pink);"></span>Exhibition Archive</p><div id="exhAcc"></div></div>
+    </div></div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer><div class="ft-i"><div class="ft-g">
+  <div><p class="ft-n">Bin Youn</p><p class="ft-info">Multimedia Artist, Educator &amp; Researcher<br/>RMIT University Vietnam</p></div>
+  <div><p class="ft-label">Links</p><div class="ft-ls"><a href="https://www.rmit.edu.vn/profiles/y/bin-youn" target="_blank" rel="noopener" class="ft-lk">RMIT Profile</a><a href="https://binyoun.github.io/info/" target="_blank" rel="noopener" class="ft-lk">Recent Works</a><a href="mailto:sierra.biny@icloud.com" class="ft-lk">Contact</a></div></div>
+  <div><p class="ft-label">Islands</p><div class="ft-ls"><a href="/educator/" class="ft-lk">Educator</a><a href="/researcher/" class="ft-lk">Researcher</a><a href="/#shore" class="ft-lk">Bio</a></div></div>
+</div><div class="ft-b"><p class="ft-c">&copy; 2026 Bin Youn</p></div></div></footer>
+
+</body>
+</html>

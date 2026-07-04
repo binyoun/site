@@ -1,7 +1,8 @@
 /* nav.js — navigation, scroll behaviour, mobile menu */
 
 export function goTo(id) {
-  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.getElementById(id)?.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' });
 }
 
 export function toggleMob() {

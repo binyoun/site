@@ -1,0 +1,49 @@
+/* work.css — individual work-detail pages (e.g. /artist/sacred-tree/) */
+
+.work-main { padding-top: 56px; background: var(--void); }
+
+.work-crumb {
+  max-width: 1060px; margin: 0 auto; padding: 28px 28px 0;
+  font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--snow30);
+}
+@media (min-width: 768px) { .work-crumb { padding: 32px 48px 0; } }
+.work-crumb a { color: var(--snow30); text-decoration: none; transition: color .3s; }
+.work-crumb a:hover { color: var(--pink); }
+
+.work-hero { max-width: 1060px; margin: 20px auto 0; padding: 0 28px; }
+@media (min-width: 768px) { .work-hero { padding: 0 48px; } }
+.work-hero img { width: 100%; max-height: 70vh; object-fit: cover; border-radius: 4px; display: block; }
+.work-hero-ph {
+  aspect-ratio: 16/9; border-radius: 4px; border: 1px dashed var(--snow15);
+  display: flex; align-items: center; justify-content: center;
+}
+.work-hero-ph p { font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--snow30); }
+
+.dim-note { font-family: var(--mono); font-size: 12px; letter-spacing: .04em; color: var(--snow30); }
+
+.work-head { max-width: 1060px; margin: 0 auto; padding: 28px 28px 0; }
+@media (min-width: 768px) { .work-head { padding: 36px 48px 0; } }
+.work-title { font-family: var(--heading); font-size: clamp(24px,3.4vw,36px); font-weight: 600; color: rgba(255,255,255,.94); letter-spacing: -.4px; margin-bottom: 8px; }
+.work-meta  { font-family: var(--mono); font-size: 11px; letter-spacing: .06em; color: var(--snow30); text-transform: uppercase; }
+
+.work-grid { max-width: 1060px; margin: 0 auto; padding: 32px 28px 80px; display: grid; gap: 40px; }
+@media (min-width: 768px) { .work-grid { padding: 40px 48px 100px; grid-template-columns: 1fr 260px; align-items: start; } }
+
+.work-body p { font-size: 15px; line-height: 1.85; color: var(--snow70); margin-bottom: 1em; }
+.work-body h2 { font-family: var(--heading); font-size: 18px; font-weight: 600; color: rgba(255,255,255,.9); margin: 40px 0 16px; }
+
+.work-facts { font-family: var(--mono); font-size: 12px; }
+@media (min-width: 768px) { .work-facts { position: sticky; top: 76px; } }
+.work-facts dt { color: var(--snow30); text-transform: uppercase; letter-spacing: .06em; font-size: 10px; margin-top: 18px; }
+.work-facts dt:first-child { margin-top: 0; }
+.work-facts dd { color: var(--snow70); margin-top: 4px; line-height: 1.6; }
+.work-facts a { color: var(--pink); text-decoration: none; border-bottom: 1px solid rgba(255,45,155,.3); }
+.work-facts a:hover { border-color: var(--pink); }
+.work-links { margin-top: 24px; display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+
+.table-scroll { overflow-x: auto; }
+.work-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.work-table th { text-align: left; font-family: var(--mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--snow30); padding: 8px 12px 8px 0; border-bottom: 1px solid var(--snow08); }
+.work-table td { padding: 12px 12px 12px 0; border-bottom: 1px solid var(--snow08); color: var(--snow70); vertical-align: top; }
+.work-table td.dim { color: var(--snow30); font-family: var(--mono); font-size: 11px; }

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Bin Youn — Multimedia Artist, Educator, Researcher</title>
   <meta name="description" content="Bin Youn - Korean multimedia artist, educator, and researcher."/>
   <meta property="og:title"       content="Bin Youn — Multimedia Artist, Educator, Researcher"/>
@@ -21,18 +21,32 @@
   <link rel="stylesheet" href="css/sections.css"/>
   <link rel="stylesheet" href="css/islands.css"/>
 
-  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+  <script>
+    function loadModelViewer() {
+      var s = document.createElement('script');
+      s.type = 'module';
+      s.src = 'https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js';
+      document.head.appendChild(s);
+    }
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(loadModelViewer, { timeout: 2000 });
+    } else {
+      window.addEventListener('load', loadModelViewer);
+    }
+  </script>
   <script type="module" src="js/main.js"></script>
 </head>
 <body>
+
+<a href="#hero" class="skip-link">Skip to content</a>
 
 <!-- NAV -->
 <nav id="mainNav"><div class="nav-i">
   <button class="nav-logo" onclick="goTo('hero')"><span class="n-bin">Bin</span> <span class="n-youn">Youn</span></button>
   <div class="nav-lks">
-    <button class="nav-lk" onclick="openIsland('artist')">Artist</button>
-    <button class="nav-lk" onclick="openIsland('educator')">Educator</button>
-    <button class="nav-lk" onclick="openIsland('researcher')">Researcher</button>
+    <a class="nav-lk" href="/artist/">Artist</a>
+    <a class="nav-lk" href="/educator/">Educator</a>
+    <a class="nav-lk" href="/researcher/">Researcher</a>
     <button class="nav-lk" onclick="goTo('shore')">Bio</button>
     <a href="https://www.rmit.edu.vn/profiles/y/bin-youn" target="_blank" rel="noopener" class="nav-ex">RMIT &#x2197;</a>
     <span class="nav-clock" id="navClock"></span>
@@ -40,9 +54,9 @@
   <button class="ham" id="hamBtn" onclick="toggleMob()"><span></span><span></span></button>
 </div></nav>
 <div class="mob" id="mobMenu">
-  <button class="mob-lk" onclick="openIsland('artist');closeMob()">Artist</button>
-  <button class="mob-lk" onclick="openIsland('educator');closeMob()">Educator</button>
-  <button class="mob-lk" onclick="openIsland('researcher');closeMob()">Researcher</button>
+  <a class="mob-lk" href="/artist/">Artist</a>
+  <a class="mob-lk" href="/educator/">Educator</a>
+  <a class="mob-lk" href="/researcher/">Researcher</a>
   <button class="mob-lk" onclick="goTo('shore');closeMob()">Bio</button>
 </div>
 
@@ -68,15 +82,18 @@
       <div class="reticle-cross-h"></div><div class="reticle-cross-v"></div>
     </div>
     <div class="scan-line"></div><div class="scan-line-2"></div>
-    <a class="signal-ping sp-pink"  style="top:22%;left:22%;"    onclick="openIsland('artist')">    <div class="sp-core"></div><div class="sp-wave"></div><div class="sp-wave w2"></div><div class="sp-wave w3"></div><div class="sp-label">Artist</div></a>
-    <a class="signal-ping sp-cyan"  style="top:28%;right:18%;"   onclick="openIsland('educator')">  <div class="sp-core"></div><div class="sp-wave"></div><div class="sp-wave w2"></div><div class="sp-wave w3"></div><div class="sp-label">Educator</div></a>
-    <a class="signal-ping sp-neon"  style="bottom:25%;right:24%;" onclick="openIsland('researcher')"><div class="sp-core"></div><div class="sp-wave"></div><div class="sp-wave w2"></div><div class="sp-wave w3"></div><div class="sp-label">Researcher</div></a>
+    <a class="signal-ping sp-pink"  style="top:22%;left:22%;"    href="/artist/">     <div class="sp-core"></div><div class="sp-wave"></div><div class="sp-wave w2"></div><div class="sp-wave w3"></div><div class="sp-label">Artist</div></a>
+    <a class="signal-ping sp-cyan"  style="top:28%;right:18%;"   href="/educator/">   <div class="sp-core"></div><div class="sp-wave"></div><div class="sp-wave w2"></div><div class="sp-wave w3"></div><div class="sp-label">Educator</div></a>
+    <a class="signal-ping sp-neon"  style="bottom:25%;right:24%;" href="/researcher/"><div class="sp-core"></div><div class="sp-wave"></div><div class="sp-wave w2"></div><div class="sp-wave w3"></div><div class="sp-label">Researcher</div></a>
     <a class="signal-ping sp-light" style="bottom:30%;left:18%;"  onclick="goTo('shore')">          <div class="sp-core"></div><div class="sp-wave"></div><div class="sp-wave w2"></div><div class="sp-wave w3"></div><div class="sp-label">About</div></a>
     <div class="hud-data hud-tl"><div class="dim">SPECIMEN DETECTED</div><div>ID: <span style="color:var(--cyan)">GELORA-07</span></div><div>STATUS: <span class="blink">SCANNING</span></div></div>
     <div class="hud-data hud-tr"><div><span class="val" id="c-sel"></span> SEL</div><div><span class="val" id="c-hcm"></span> HCM</div><div><span class="val" id="c-la"></span> LA</div></div>
     <div class="hud-data hud-bl"><div>CLASS: <span class="accent">HYBRID ORGANISM</span></div><div>ORIGIN: <span class="accent">3RD ISLAND</span></div><div>FREQ: 432.00 Hz</div></div>
     <div class="hud-data hud-br"><div>LENS: EMPATHETIC</div><div>MODE: REGENERATIVE</div><div>FPS: <span id="fpsCount">60</span></div></div>
-    <div class="hud-scroll"><div class="hud-scroll-line"></div><div class="hud-scroll-text">Enter</div></div>
+    <button class="hud-scroll" onclick="goTo('drift')" aria-label="Enter site">
+      <div class="hud-scroll-line"><span></span><span></span><span></span><span></span><span></span></div>
+      <div class="hud-scroll-text">Enter</div>
+    </button>
   </div>
 </section>
 
@@ -113,9 +130,9 @@
   <div class="arch-i">
     <div class="arch-h rv"><p class="arch-l">Explore</p><h2 class="arch-t">Three Islands</h2><p class="arch-s">Each practice is a world — bridging through water and land</p></div>
     <div class="portals">
-      <div class="portal portal-artist rv ripple-card" onclick="openIsland('artist')"><div class="portal-bg"><div class="portal-grad"></div><img src="image/breathscape.gif" alt=""><div class="portal-c"><div class="portal-dot"></div><h3 class="portal-n">Artist</h3><p class="portal-d">Installations, lens-based media, sculpture, and poetic spatial encounters</p><div class="portal-e">Enter island <span class="arr">&#x2192;</span></div></div></div></div>
-      <div class="portal portal-educator rv ripple-card" style="transition-delay:.1s;" onclick="openIsland('educator')"><div class="portal-bg"><div class="portal-grad"></div><img src="image/beyond1and0.jpg" alt=""><div class="portal-c"><div class="portal-dot"></div><h3 class="portal-n">Educator</h3><p class="portal-d">Photography pedagogy, the r&#x1ec5;-root framework, and collaborative workshops</p><div class="portal-e">Enter island <span class="arr">&#x2192;</span></div></div></div></div>
-      <div class="portal portal-researcher rv ripple-card" style="transition-delay:.2s;" onclick="openIsland('researcher')"><div class="portal-bg"><div class="portal-grad"></div><img src="image/siggraphacm.jpg" alt=""><div class="portal-c"><div class="portal-dot"></div><h3 class="portal-n">Researcher</h3><p class="portal-d">Academic publications, conference presentations, and committee service</p><div class="portal-e">Enter island <span class="arr">&#x2192;</span></div></div></div></div>
+      <a class="portal portal-artist rv ripple-card" href="/artist/"><div class="portal-bg"><div class="portal-grad"></div><img src="image/breathscape.gif" alt=""><div class="portal-c"><div class="portal-dot"></div><h3 class="portal-n">Artist</h3><p class="portal-d">Installations, lens-based media, sculpture, and poetic spatial encounters</p><div class="portal-e">Enter island <span class="arr">&#x2192;</span></div></div></div></a>
+      <a class="portal portal-educator rv ripple-card" style="transition-delay:.1s;" href="/educator/"><div class="portal-bg"><div class="portal-grad"></div><img src="image/beyond1and0.jpg" alt=""><div class="portal-c"><div class="portal-dot"></div><h3 class="portal-n">Educator</h3><p class="portal-d">Photography pedagogy, the r&#x1ec5;-root framework, and collaborative workshops</p><div class="portal-e">Enter island <span class="arr">&#x2192;</span></div></div></div></a>
+      <a class="portal portal-researcher rv ripple-card" style="transition-delay:.2s;" href="/researcher/"><div class="portal-bg"><div class="portal-grad"></div><img src="image/siggraphacm.jpg" alt=""><div class="portal-c"><div class="portal-dot"></div><h3 class="portal-n">Researcher</h3><p class="portal-d">Academic publications, conference presentations, and committee service</p><div class="portal-e">Enter island <span class="arr">&#x2192;</span></div></div></div></a>
     </div>
   </div>
 </section>
@@ -143,52 +160,6 @@
   <div><p class="ft-label">Links</p><div class="ft-ls"><a href="https://www.rmit.edu.vn/profiles/y/bin-youn" target="_blank" rel="noopener" class="ft-lk">RMIT Profile</a><a href="https://binyoun.github.io/info/" target="_blank" rel="noopener" class="ft-lk">Recent Works</a><a href="mailto:sierra.biny@icloud.com" class="ft-lk">Contact</a></div></div>
   <div><p class="ft-label">Projects</p><div class="ft-ls"><a href="https://binyoun.github.io/mnode/" target="_blank" rel="noopener" class="ft-lk">M-NODE</a><a href="https://binyoun.github.io/beyond-1-and-0-poem/" target="_blank" rel="noopener" class="ft-lk">Collaborative Poem</a><a href="https://dac.siggraph.org/sparks/2026-01-23_beyond-the-global-north/" target="_blank" rel="noopener" class="ft-lk">SIGGRAPH</a></div></div>
 </div><div class="ft-b"><p class="ft-c">&copy; 2026 Bin Youn</p></div></div></footer>
-
-<!-- ISLAND: ARTIST -->
-<div class="island" id="island-artist">
-  <button class="island-close" onclick="closeIsland('artist')">&times;</button>
-  <div style="background:linear-gradient(180deg,#2a0f18 0%,#4a1a2d 30%,#6b2840 55%,var(--sand) 100%);">
-    <div class="island-hero"><div class="island-dot" style="background:var(--pink);"></div><h2 class="island-title">Artist</h2><p class="island-poem">Installations, lens-based media, and poetic spatial encounters — where displacement becomes a generative force, and alienation opens new forms of connection across boundaries of species, technology, and culture.</p></div>
-    <div class="island-body"><div class="island-ctn">
-      <div class="isec"><p class="isec-l" style="color:var(--pink);"><span class="dot" style="background:var(--pink);"></span>Current Works &middot; 2025&ndash;2026</p><div class="tg" id="a-current"></div></div>
-      <div class="isec"><p class="isec-l" style="color:var(--pink);"><span class="dot" style="background:var(--pink);"></span>Installation Archives</p><div class="tg" id="a-install"></div></div>
-      <div class="isec"><p class="isec-l" style="color:var(--pink);"><span class="dot" style="background:var(--pink);"></span>Sculpture Archives</p><div class="tg tg-sm" id="a-sculpt"></div></div>
-      <div class="isec"><p class="isec-l" style="color:var(--pink);"><span class="dot" style="background:var(--pink);"></span>Lens-based &amp; Video</p><div class="tg" id="a-lens"></div></div>
-      <div class="isec"><p class="isec-l" style="color:var(--pink);"><span class="dot" style="background:var(--pink);"></span>Poetry</p><p style="font-size:12px;color:var(--ink30);margin-bottom:18px;">Featured in <em>Exchanges: dialogues between poetry and art</em> &mdash; Ruth Foster Gallery, Wisconsin, 2023</p><div class="poem" id="a-poem"></div></div>
-      <div class="isec"><p class="isec-l" style="color:var(--pink);"><span class="dot" style="background:var(--pink);"></span>Exhibition Archive</p><div id="exhAcc"></div></div>
-    </div></div>
-  </div>
-</div>
-
-<!-- ISLAND: EDUCATOR -->
-<div class="island" id="island-educator">
-  <button class="island-close" onclick="closeIsland('educator')">&times;</button>
-  <div style="background:linear-gradient(180deg,#081a18 0%,#0e302c 30%,#164a44 55%,var(--sand) 100%);">
-    <div class="island-hero"><div class="island-dot" style="background:var(--cyan);"></div><h2 class="island-title">Educator</h2><p class="island-poem">Creator of the r&#x1ec5;-root pedagogical framework &mdash; an exhibition-centered approach replacing traditional portfolio assessments with physical exhibitions, fostering collective creative practice rooted in cultural soil.</p></div>
-    <div class="island-body"><div class="island-ctn">
-      <div class="isec"><p class="isec-l" style="color:#0a6e60;"><span class="dot" style="background:#0a6e60;"></span>Current Role</p><div id="edu-role"></div></div>
-      <div class="isec"><p class="isec-l" style="color:#0a6e60;"><span class="dot" style="background:#0a6e60;"></span>rễ-root Framework</p><div id="edu-framework"></div></div>
-      <div class="isec"><p class="isec-l" style="color:#0a6e60;"><span class="dot" style="background:#0a6e60;"></span>Workshops &amp; Initiatives</p><div id="edu-workshops"></div></div>
-      <div class="isec"><p class="isec-l" style="color:#0a6e60;"><span class="dot" style="background:#0a6e60;"></span>IFFTI 2026 — Student Exhibition</p><div id="edu-iffti"></div></div>
-      <div class="isec"><p class="isec-l" style="color:#0a6e60;"><span class="dot" style="background:#0a6e60;"></span>Guest Speakers</p><p style="font-size:14px;color:#3a3a38;line-height:1.8;" id="edu-guests"></p></div>
-    </div></div>
-  </div>
-</div>
-
-<!-- ISLAND: RESEARCHER -->
-<div class="island" id="island-researcher">
-  <button class="island-close" onclick="closeIsland('researcher')">&times;</button>
-  <div style="background:linear-gradient(180deg,#081a08 0%,#0e300e 30%,#165016 55%,var(--sand) 100%);">
-    <div class="island-hero"><div class="island-dot" style="background:var(--neon);"></div><h2 class="island-title">Researcher</h2><p class="island-poem">Academic inquiry at the intersection of art, technology, and pedagogy &mdash; examining how creative practice transforms educational paradigms and fosters cross-cultural understanding through embodied digital encounters.</p></div>
-    <div class="island-body"><div class="island-ctn">
-      <div class="isec"><p class="isec-l" style="color:#2a7a1a;"><span class="dot" style="background:#2a7a1a;"></span>Initiatives</p><div id="res-initiatives"></div></div>
-      <div class="isec"><p class="isec-l" style="color:#2a7a1a;"><span class="dot" style="background:#2a7a1a;"></span>Committee</p><div id="res-committee"></div></div>
-      <div class="isec"><p class="isec-l" style="color:#2a7a1a;"><span class="dot" style="background:#2a7a1a;"></span>Publications</p><div id="res-publications"></div></div>
-      <div class="isec"><p class="isec-l" style="color:#2a7a1a;"><span class="dot" style="background:#2a7a1a;"></span>Talks</p><div id="res-talks"></div></div>
-      <div class="isec"><p class="isec-l" style="color:#2a7a1a;"><span class="dot" style="background:#2a7a1a;"></span>Decks</p><div id="res-decks"></div></div>
-    </div></div>
-  </div>
-</div>
 
 </body>
 </html>
