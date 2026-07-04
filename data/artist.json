@@ -93,43 +93,50 @@
       "title": "Stars are brushed by wind again I",
       "year": "2023",
       "medium": "Cyanotype on seashell, branch, Sambe",
-      "image": "image/stars.jpg"
+      "image": "image/stars.jpg",
+      "link": "/artist/stars-are-brushed-by-wind-again-i/"
     },
     {
-      "title": "Composition of Mother",
+      "title": "Composition of Mother with sky, soil, water and human",
       "year": "2023",
       "medium": "Wood, light, mixed media",
-      "image": "image/composition.jpg"
+      "image": "image/composition.jpg",
+      "link": "/artist/composition-of-mother/"
     },
     {
       "title": "Mother, I call a name for each star",
       "year": "2023",
-      "medium": "Cyanotype on wood, branch, stone",
-      "image": "image/mother.jpg"
+      "medium": "Cyanotype on wood, branch from California State University Long Beach, stone from Baekdam Temple Valley, South Korea",
+      "image": "image/mother.jpg",
+      "link": "/artist/mother-i-call-a-name-for-each-star/"
     },
     {
       "title": "I shall love all things that are dying",
       "year": "2023",
       "medium": "Cyanotype on Sambe, broken branches",
-      "image": "image/ishall.jpg"
+      "image": "image/ishall.jpg",
+      "link": "/artist/i-shall-love-all-things-that-are-dying/"
     },
     {
       "title": "Grown Light",
       "year": "2023",
       "medium": "Grow Light, Cuts",
-      "image": "image/grownlight.jpg"
+      "image": "image/grownlight.jpg",
+      "link": "/artist/grown-light/"
     },
     {
       "title": "Warmest Night",
       "year": "2022",
       "medium": "Gelora on velvet, dried branch",
-      "image": "image/warmest.jpg"
+      "image": "image/warmest.jpg",
+      "link": "/artist/warmest-night/"
     },
     {
       "title": "The Lamp",
       "year": "2019",
       "medium": "Negatives, red strings, lamp",
-      "image": "image/thelamp.jpg"
+      "image": "image/thelamp.jpg",
+      "link": "/artist/the-lamp/"
     }
   ],
   "lens": [
@@ -137,25 +144,27 @@
       "title": "I am missing their warmth from 5,968 miles away",
       "year": "2023",
       "image": "image/luppe.jpg",
-      "link": "https://theluupe.com/blog/visions-of-motherhood-2023"
+      "link": "/artist/missing-their-warmth/"
     },
     {
       "title": "I am telling what a I* see is what you see",
       "year": "2022",
       "image": "image/ai.gif",
-      "link": "https://www.youtube.com/watch?v=fF2XpP3Gc7w",
+      "link": "/artist/ai-see-what-you-see/",
       "still": "image/stills/ai.jpg"
     },
     {
       "title": "Memories of Seoul",
       "year": "2017",
       "image": "image/memoriesofseoul.gif",
+      "link": "/artist/memories-of-seoul/",
       "still": "image/stills/memoriesofseoul.jpg"
     },
     {
       "title": "Be@IT",
       "year": "2017",
       "image": "image/beait.gif",
+      "link": "/artist/beait/",
       "still": "image/stills/beait.jpg"
     }
   ],
