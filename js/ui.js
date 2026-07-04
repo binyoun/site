@@ -1,4 +1,52 @@
-/* ui.js — scroll reveal, card ripple */
+/* ui.js — scroll reveal, card ripple, artist filter toggles */
+
+// Filter the Artist works grid by category, keeping state shareable via URL hash.
+// Called from render.js once the work cards exist in the DOM.
+export function initArtistFilters() {
+  const bar = document.getElementById('filterBar');
+  if (!bar) return;
+
+  const applyFilter = (filter) => {
+    document.querySelectorAll('.th').forEach(card => {
+      const cats = (card.dataset.cat || '').split(' ');
+      if (filter === 'all' || cats.includes(filter)) card.removeAttribute('data-filter-hide');
+      else card.setAttribute('data-filter-hide', '');
+    });
+
+    document.querySelectorAll('[data-filter-sec]').forEach(sec => {
+      const onlyFilter = sec.dataset.filterOnly;
+      if (onlyFilter) {
+        if (filter === 'all' || filter === onlyFilter) sec.removeAttribute('data-filter-hide');
+        else sec.setAttribute('data-filter-hide', '');
+        return;
+      }
+      const visibleCards = sec.querySelectorAll('.th:not([data-filter-hide])');
+      if (filter === 'all' || visibleCards.length > 0) sec.removeAttribute('data-filter-hide');
+      else sec.setAttribute('data-filter-hide', '');
+    });
+
+    bar.querySelectorAll('.filter-tog').forEach(btn => {
+      btn.classList.toggle('is-active', btn.dataset.filter === filter);
+    });
+  };
+
+  bar.querySelectorAll('.filter-tog').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
+      const newHash = filter === 'all' ? '' : `#filter=${filter}`;
+      history.replaceState(null, '', location.pathname + newHash);
+      applyFilter(filter);
+    });
+  });
+
+  window.addEventListener('hashchange', () => {
+    const m = location.hash.match(/filter=([\w-]+)/);
+    applyFilter(m ? m[1] : 'all');
+  });
+
+  const initialMatch = location.hash.match(/filter=([\w-]+)/);
+  applyFilter(initialMatch ? initialMatch[1] : 'all');
+}
 
 export function initUI() {
   // Scroll reveal
@@ -44,5 +92,29 @@ window.dismissPop = function(btn, e) {
   card.addEventListener('mouseleave', function reset() {
     card.classList.remove('th-dismissed');
     card.removeEventListener('mouseleave', reset);
+  });
+};
+
+// Copy a bio block's text to the clipboard — used on /bio/
+window.copyBio = function(btn, id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  navigator.clipboard.writeText(el.textContent.trim()).then(() => {
+    const original = btn.textContent;
+    btn.textContent = 'Copied';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1600);
+  });
+};
+
+// Copy a rendered publication citation to the clipboard — used on /researcher/
+window.copyCite = function(btn) {
+  const text = btn.dataset.cite;
+  if (!text) return;
+  navigator.clipboard.writeText(text).then(() => {
+    const original = btn.textContent;
+    btn.textContent = 'Copied';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1600);
   });
 };

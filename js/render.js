@@ -4,6 +4,8 @@
  * then push to GitHub. No HTML or JS changes needed.
  */
 
+import { initArtistFilters } from './ui.js';
+
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
 function el(tag, cls, html = '') {
@@ -46,7 +48,7 @@ function buildThumbs(works, squareImg = false) {
       ? `<img src="${abs(still)}" alt="" loading="lazy">`
       : `<div class="th-img-ph"><p>Image pending</p></div>`;
     return `
-    <${tag} class="th" ${openAttrs}>
+    <${tag} class="th" ${openAttrs} data-cat="${w.cat || ''}">
       <div class="th-img${squareImg ? ' th-img-sq' : ''}">
         ${imgTag}
         <div class="th-grad"></div>
@@ -95,6 +97,8 @@ async function renderArtist() {
   if (exhEl) exhEl.innerHTML =
     buildAccordion('Solo Exhibitions (2017–2023)', data.exhibitions.solo) +
     buildAccordion('Group Exhibitions (2012–2024)', data.exhibitions.group);
+
+  initArtistFilters();
 }
 
 // ── Educator ─────────────────────────────────────────────────────────────────
@@ -194,6 +198,10 @@ async function renderResearcher() {
   const pubEl = document.getElementById('res-publications');
   if (pubEl) {
     const years = [...new Set(data.publications.map(p => p.year))].sort((a, b) => b - a);
+    const citeOf = p => {
+      const who = p.coauthors ? `Youn, B. ${p.coauthors}` : 'Youn, B.';
+      return `${who} (${p.year}) ${p.title}. ${p.venue}.`.replace(/"/g, '&quot;');
+    };
     pubEl.innerHTML = years.map(year => `
       <div class="res-year">
         <div class="res-year-h">${year}</div>
@@ -202,9 +210,26 @@ async function renderResearcher() {
             <h4>${p.title}</h4>
             <p class="res-venue">${p.venue}</p>
             ${p.coauthors ? `<p class="res-coauth">${p.coauthors}</p>` : ''}
+            <button class="copy-cite" data-cite="${citeOf(p)}" onclick="copyCite(this)">Copy citation</button>
             ${p.link ? `<a href="${p.link}" target="_blank" rel="noopener" class="res-lk">View &#x2197;</a>` : ''}
           </div>`).join('')}
       </div>`).join('');
+
+    const ld = {
+      "@context": "https://schema.org",
+      "@graph": data.publications.map(p => ({
+        "@type": "ScholarlyArticle",
+        "headline": p.title,
+        "author": { "@type": "Person", "name": "Bin Youn" },
+        "datePublished": p.year,
+        "isPartOf": p.venue,
+        ...(p.link ? { "url": p.link } : {})
+      }))
+    };
+    const ldEl = document.createElement('script');
+    ldEl.type = 'application/ld+json';
+    ldEl.textContent = JSON.stringify(ld);
+    document.head.appendChild(ldEl);
   }
 
   const talkEl = document.getElementById('res-talks');
@@ -252,6 +277,44 @@ async function renderBio() {
   if (contactEl) contactEl.innerHTML = `
     <a href="mailto:${data.contact.email}" class="bio-lk" style="display:inline-flex;margin-bottom:12px;">${data.contact.email}</a><br>
     <a href="${data.contact.rmit}" target="_blank" rel="noopener" class="bio-btn">RMIT Profile</a>`;
+
+  // ── /bio/ page (light background variants) ──────────────────────────────
+  const oneLinerEl = document.getElementById('bio-oneliner');
+  if (oneLinerEl) oneLinerEl.textContent = data.lengths.oneLiner;
+
+  const shortEl = document.getElementById('bio-short');
+  if (shortEl) shortEl.textContent = data.lengths.short;
+
+  const shortCopyEl = document.getElementById('bio-short-copy');
+  if (shortCopyEl) shortCopyEl.textContent = data.lengths.short;
+
+  const fullEl = document.getElementById('bio-full');
+  if (fullEl) fullEl.innerHTML = data.lengths.full.split('\n\n').map(p => `<p>${p}</p>`).join('');
+
+  const cvEduEl = document.getElementById('cv-education');
+  if (cvEduEl) cvEduEl.innerHTML = data.education.map(e => `
+    <div class="edu-c">
+      <p class="res-c-title">${e.degree}</p>
+      <p class="res-c-body">${e.institution} &middot; ${e.year}</p>
+      ${e.note ? `<p class="res-c-meta">${e.note}</p>` : ''}
+    </div>`).join('');
+
+  const cvHonorsEl = document.getElementById('cv-honors');
+  if (cvHonorsEl) cvHonorsEl.innerHTML = data.honors.map(h => `
+    <div class="edu-c">
+      <p class="res-c-title">${h.title}</p>
+      <p class="res-c-body">${h.institution}, ${h.year}</p>
+    </div>`).join('');
+
+  const cvPressEl = document.getElementById('cv-press');
+  if (cvPressEl) cvPressEl.innerHTML = data.press.map(p =>
+    `<div class="edu-c"><a href="${p.url}" target="_blank" rel="noopener" class="res-lk">${p.label} &#x2197;</a></div>`
+  ).join('');
+
+  const contactCardEl = document.getElementById('bio-contact-card');
+  if (contactCardEl) contactCardEl.innerHTML = `
+    <a href="mailto:${data.contact.email}?subject=Hello%20Bin" class="res-lk" style="font-size:15px;">${data.contact.email}</a><br><br>
+    <a href="${data.contact.rmit}" target="_blank" rel="noopener" class="res-lk">RMIT Profile &#x2197;</a>`;
 }
 
 // ── Init ─────────────────────────────────────────────────────────────────────

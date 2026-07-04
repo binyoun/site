@@ -34,7 +34,7 @@
     <a class="nav-lk" href="/artist/" aria-current="page">Artist</a>
     <a class="nav-lk" href="/educator/">Educator</a>
     <a class="nav-lk" href="/researcher/">Researcher</a>
-    <a class="nav-lk" href="/#shore">Bio</a>
+    <a class="nav-lk" href="/bio/">Bio</a>
     <a href="https://www.rmit.edu.vn/profiles/y/bin-youn" target="_blank" rel="noopener" class="nav-ex">RMIT &#x2197;</a>
     <span class="nav-clock" id="navClock"></span>
   </div>
@@ -44,18 +44,36 @@
   <a class="mob-lk" href="/artist/" aria-current="page">Artist</a>
   <a class="mob-lk" href="/educator/">Educator</a>
   <a class="mob-lk" href="/researcher/">Researcher</a>
-  <a class="mob-lk" href="/#shore">Bio</a>
+  <a class="mob-lk" href="/bio/">Bio</a>
 </div>
 
 <main id="main">
   <div style="background:linear-gradient(180deg,#2a0f18 0%,#4a1a2d 30%,#6b2840 55%,var(--sand) 100%);padding-top:56px;">
     <div class="island-hero"><div class="island-glow" style="background:var(--pink);"></div><h1 class="island-title">Artist</h1><p class="island-poem">Installations, lens-based media, and poetic spatial encounters, where displacement becomes a generative force.</p></div>
     <div class="island-body"><div class="island-ctn">
-      <div class="isec"><p class="isec-l" style="color:var(--pink);"><span class="dot" style="background:var(--pink);"></span>Current Works &middot; 2025&ndash;2026</p><div class="tg" id="a-current"></div></div>
-      <div class="isec"><p class="isec-l" style="color:var(--pink);"><span class="dot" style="background:var(--pink);"></span>Installation Archives</p><div class="tg" id="a-install"></div></div>
-      <div class="isec"><p class="isec-l" style="color:var(--pink);"><span class="dot" style="background:var(--pink);"></span>Sculpture Archives</p><div class="tg tg-sm" id="a-sculpt"></div></div>
-      <div class="isec"><p class="isec-l" style="color:var(--pink);"><span class="dot" style="background:var(--pink);"></span>Lens-based &amp; Video</p><div class="tg" id="a-lens"></div></div>
-      <div class="isec"><p class="isec-l" style="color:var(--pink);"><span class="dot" style="background:var(--pink);"></span>Poetry</p><p style="font-size:12px;color:var(--ink30);margin-bottom:18px;">Featured in <em>Exchanges: dialogues between poetry and art</em>, Ruth Foster Gallery, Wisconsin, 2023</p>
+      <div class="now-band">
+        <p class="now-band-l">Now showing &amp; upcoming</p>
+        <div class="now-item">
+          <span class="now-date">Sep 2026</span>
+          <span class="now-title">Circulation: Cupping, Colour, and Collective Sensing</span>
+          <span class="now-venue">VFCD 2026, Ho Chi Minh City</span>
+        </div>
+      </div>
+      <div class="filter-bar" id="filterBar" role="group" aria-label="Filter works">
+        <button class="filter-tog is-active" data-filter="all">All</button>
+        <button class="filter-tog" data-filter="ar-xr">AR/XR</button>
+        <button class="filter-tog" data-filter="installation">Installation</button>
+        <button class="filter-tog" data-filter="sculpture">Sculpture</button>
+        <button class="filter-tog" data-filter="lens">Lens-based</button>
+        <button class="filter-tog" data-filter="participatory">Participatory</button>
+        <button class="filter-tog" data-filter="poetry">Poetry</button>
+        <button class="filter-tog" data-filter="gelora">Gelora Series</button>
+      </div>
+      <div class="isec" data-filter-sec><p class="isec-l" style="color:var(--pink);"><span class="dot" style="background:var(--pink);"></span>Current Works &middot; 2025&ndash;2026</p><div class="tg" id="a-current"></div></div>
+      <div class="isec" data-filter-sec><p class="isec-l" style="color:var(--pink);"><span class="dot" style="background:var(--pink);"></span>Installation Archives</p><div class="tg" id="a-install"></div></div>
+      <div class="isec" data-filter-sec><p class="isec-l" style="color:var(--pink);"><span class="dot" style="background:var(--pink);"></span>Sculpture Archives</p><div class="tg tg-sm" id="a-sculpt"></div></div>
+      <div class="isec" data-filter-sec><p class="isec-l" style="color:var(--pink);"><span class="dot" style="background:var(--pink);"></span>Lens-based &amp; Video</p><div class="tg" id="a-lens"></div></div>
+      <div class="isec" data-filter-sec data-filter-only="poetry"><p class="isec-l" style="color:var(--pink);"><span class="dot" style="background:var(--pink);"></span>Poetry</p><p style="font-size:12px;color:var(--ink30);margin-bottom:18px;">Featured in <em>Exchanges: dialogues between poetry and art</em>, Ruth Foster Gallery, Wisconsin, 2023</p>
         <button class="poem-card" onclick="toggleAcc(this)">
           <div class="poem-card-img"><img src="/image/somaticblinds.gif" alt="" loading="lazy"></div>
           <div class="poem-card-panel">
@@ -74,7 +92,7 @@
 <footer><div class="ft-i"><div class="ft-g">
   <div><p class="ft-n">Bin Youn</p><p class="ft-info">Multimedia Artist, Educator &amp; Researcher<br/>RMIT University Vietnam</p></div>
   <div><p class="ft-label">Links</p><div class="ft-ls"><a href="https://www.rmit.edu.vn/profiles/y/bin-youn" target="_blank" rel="noopener" class="ft-lk">RMIT Profile</a><a href="https://binyoun.github.io/info/" target="_blank" rel="noopener" class="ft-lk">Recent Works</a><a href="mailto:sierra.biny@icloud.com" class="ft-lk">Contact</a></div></div>
-  <div><p class="ft-label">Islands</p><div class="ft-ls"><a href="/educator/" class="ft-lk">Educator</a><a href="/researcher/" class="ft-lk">Researcher</a><a href="/#shore" class="ft-lk">Bio</a></div></div>
+  <div><p class="ft-label">Islands</p><div class="ft-ls"><a href="/educator/" class="ft-lk">Educator</a><a href="/researcher/" class="ft-lk">Researcher</a><a href="/bio/" class="ft-lk">Bio</a></div></div>
 </div><div class="ft-b"><p class="ft-c">&copy; 2026 Bin Youn</p></div></div></footer>
 
 </body>

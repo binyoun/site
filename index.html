@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bin Youn — Multimedia Artist, Educator, Researcher</title>
+  <title>Bin Youn: Multimedia Artist, Educator, Researcher</title>
   <meta name="description" content="Bin Youn - Korean multimedia artist, educator, and researcher."/>
-  <meta property="og:title"       content="Bin Youn — Multimedia Artist, Educator, Researcher"/>
+  <meta property="og:title"       content="Bin Youn: Multimedia Artist, Educator, Researcher"/>
   <meta property="og:description" content="Korean multimedia artist whose practice bridges lens-based media, poetic spatial installation, and participatory environments."/>
   <meta property="og:image"       content="https://binyoun.com/image/og-image.jpg"/>
   <meta property="og:url"         content="https://binyoun.com/"/>
   <meta property="og:type"        content="website"/>
   <meta name="twitter:card"        content="summary_large_image"/>
-  <meta name="twitter:title"       content="Bin Youn — Multimedia Artist, Educator, Researcher"/>
+  <meta name="twitter:title"       content="Bin Youn: Multimedia Artist, Educator, Researcher"/>
   <meta name="twitter:description" content="Installations, lens-based media, sculpture, and poetic spatial encounters."/>
   <meta name="twitter:image"       content="https://binyoun.com/image/og-image.jpg"/>
 
@@ -47,7 +47,7 @@
     <a class="nav-lk" href="/artist/">Artist</a>
     <a class="nav-lk" href="/educator/">Educator</a>
     <a class="nav-lk" href="/researcher/">Researcher</a>
-    <button class="nav-lk" onclick="goTo('shore')">Bio</button>
+    <a class="nav-lk" href="/bio/">Bio</a>
     <a href="https://www.rmit.edu.vn/profiles/y/bin-youn" target="_blank" rel="noopener" class="nav-ex">RMIT &#x2197;</a>
     <span class="nav-clock" id="navClock"></span>
   </div>
@@ -57,7 +57,7 @@
   <a class="mob-lk" href="/artist/">Artist</a>
   <a class="mob-lk" href="/educator/">Educator</a>
   <a class="mob-lk" href="/researcher/">Researcher</a>
-  <button class="mob-lk" onclick="goTo('shore');closeMob()">Bio</button>
+  <a class="mob-lk" href="/bio/">Bio</a>
 </div>
 
 <!-- HERO -->
@@ -85,7 +85,7 @@
     <a class="signal-ping sp-pink"  style="top:22%;left:22%;"    href="/artist/">     <div class="sp-core"></div><div class="sp-wave"></div><div class="sp-wave w2"></div><div class="sp-wave w3"></div><div class="sp-label">Artist</div></a>
     <a class="signal-ping sp-cyan"  style="top:28%;right:18%;"   href="/educator/">   <div class="sp-core"></div><div class="sp-wave"></div><div class="sp-wave w2"></div><div class="sp-wave w3"></div><div class="sp-label">Educator</div></a>
     <a class="signal-ping sp-neon"  style="bottom:25%;right:24%;" href="/researcher/"><div class="sp-core"></div><div class="sp-wave"></div><div class="sp-wave w2"></div><div class="sp-wave w3"></div><div class="sp-label">Researcher</div></a>
-    <a class="signal-ping sp-light" style="bottom:30%;left:18%;"  onclick="goTo('shore')">          <div class="sp-core"></div><div class="sp-wave"></div><div class="sp-wave w2"></div><div class="sp-wave w3"></div><div class="sp-label">About</div></a>
+    <a class="signal-ping sp-light" style="bottom:30%;left:18%;"  href="/bio/">          <div class="sp-core"></div><div class="sp-wave"></div><div class="sp-wave w2"></div><div class="sp-wave w3"></div><div class="sp-label">About</div></a>
     <div class="hud-data hud-tl"><div class="dim">SPECIMEN DETECTED</div><div>ID: <span style="color:var(--cyan)">GELORA-07</span></div><div>STATUS: <span class="blink">SCANNING</span></div></div>
     <div class="hud-data hud-tr"><div><span class="val" id="c-sel"></span> SEL</div><div><span class="val" id="c-hcm"></span> HCM</div><div><span class="val" id="c-la"></span> LA</div></div>
     <div class="hud-data hud-bl"><div>CLASS: <span class="accent">HYBRID ORGANISM</span></div><div>ORIGIN: <span class="accent">3RD ISLAND</span></div><div>FREQ: 432.00 Hz</div></div>
@@ -101,18 +101,18 @@
 
 <!-- MARQUEE -->
 <div class="marquee"><div class="marquee-track">
-  <span class="marquee-item">Sacred Tree</span><span class="mq-dot" style="background:var(--pink)"></span>
-  <span class="marquee-item">Beyond 1&amp;0</span><span class="mq-dot" style="background:var(--cyan)"></span>
-  <span class="marquee-item">Gelora</span><span class="mq-dot" style="background:var(--neon)"></span>
-  <span class="marquee-item">&#x3141;otherisland</span><span class="mq-dot" style="background:var(--pink)"></span>
-  <span class="marquee-item">SIGGRAPH</span><span class="mq-dot" style="background:var(--cyan)"></span>
-  <span class="marquee-item">M-NODE</span><span class="mq-dot" style="background:var(--neon)"></span>
-  <span class="marquee-item">Breathscape</span><span class="mq-dot" style="background:var(--pink)"></span>
-  <span class="marquee-item">Sacred Tree</span><span class="mq-dot" style="background:var(--cyan)"></span>
-  <span class="marquee-item">Beyond 1&amp;0</span><span class="mq-dot" style="background:var(--neon)"></span>
-  <span class="marquee-item">Gelora</span><span class="mq-dot" style="background:var(--pink)"></span>
-  <span class="marquee-item">&#x3141;otherisland</span><span class="mq-dot" style="background:var(--cyan)"></span>
-  <span class="marquee-item">SIGGRAPH</span><span class="mq-dot" style="background:var(--neon)"></span>
+  <a class="marquee-item" href="/artist/sacred-tree/">Sacred Tree</a><span class="mq-dot" style="background:var(--pink)"></span>
+  <a class="marquee-item" href="https://binyoun.github.io/beyond-1-and-0-poem/" target="_blank" rel="noopener">Beyond 1&amp;0</a><span class="mq-dot" style="background:var(--cyan)"></span>
+  <a class="marquee-item" href="/artist/gelora/">Gelora</a><span class="mq-dot" style="background:var(--neon)"></span>
+  <a class="marquee-item" href="/artist/motherisland/">&#x3141;otherisland</a><span class="mq-dot" style="background:var(--pink)"></span>
+  <a class="marquee-item" href="https://dac.siggraph.org/sparks/2026-01-23_beyond-the-global-north/" target="_blank" rel="noopener">SIGGRAPH</a><span class="mq-dot" style="background:var(--cyan)"></span>
+  <a class="marquee-item" href="https://binyoun.github.io/mnode/" target="_blank" rel="noopener">M-NODE</a><span class="mq-dot" style="background:var(--neon)"></span>
+  <a class="marquee-item" href="/artist/breathscape/">Breathscape</a><span class="mq-dot" style="background:var(--pink)"></span>
+  <a class="marquee-item" href="/artist/sacred-tree/">Sacred Tree</a><span class="mq-dot" style="background:var(--cyan)"></span>
+  <a class="marquee-item" href="https://binyoun.github.io/beyond-1-and-0-poem/" target="_blank" rel="noopener">Beyond 1&amp;0</a><span class="mq-dot" style="background:var(--neon)"></span>
+  <a class="marquee-item" href="/artist/gelora/">Gelora</a><span class="mq-dot" style="background:var(--pink)"></span>
+  <a class="marquee-item" href="/artist/motherisland/">&#x3141;otherisland</a><span class="mq-dot" style="background:var(--cyan)"></span>
+  <a class="marquee-item" href="https://dac.siggraph.org/sparks/2026-01-23_beyond-the-global-north/" target="_blank" rel="noopener">SIGGRAPH</a><span class="mq-dot" style="background:var(--neon)"></span>
 </div></div>
 
 <!-- FEATURED -->
@@ -120,7 +120,7 @@
   <div class="drift-h rv"><p class="drift-l">Featured</p><h2 class="drift-t">Confluence</h2></div>
   <div class="fg">
     <div class="fc rv ripple-card"><div class="fc-img"><img src="image/mnode.jpg" alt="M-NODE"></div><div class="fc-b"><div class="ftags"><span class="ftag ftag-r">Artist</span><span class="ftag ftag-g">Educator</span></div><h3>M-NODE Cross-Cultural Hackathon</h3><p>Five-day hackathon between Dong-Ah Institute (Korea) and RMIT Vietnam Digital Media.</p><div class="fc-lks"><a href="https://binyoun.github.io/mnode/" target="_blank" rel="noopener" class="lk-s">Archive &#x2197;</a></div></div></div>
-    <div class="fc rv ripple-card" style="transition-delay:.1s;"><div class="fc-img"><img src="image/beyond1and0.jpg" alt="Beyond 1 and 0"></div><div class="fc-b"><div class="ftags"><span class="ftag ftag-r">Artist</span><span class="ftag ftag-g">Educator</span><span class="ftag ftag-t">Researcher</span></div><h3>Beyond 1&amp;0 Exhibition</h3><p>RMIT Vietnam's first external showcase — 73 artists, 34 artworks, 14 mediums.</p><div class="fc-lks"><a href="https://binyoun.github.io/beyond-1-and-0-poem/" target="_blank" rel="noopener" class="lk-s">Poem &#x2197;</a><a href="https://youtu.be/URONCeVigPo?si=bPCXDsHJLx6a8VwI" target="_blank" rel="noopener" class="lk-s">Song &#x2197;</a></div></div></div>
+    <div class="fc rv ripple-card" style="transition-delay:.1s;"><div class="fc-img"><img src="image/beyond1and0.jpg" alt="Beyond 1 and 0"></div><div class="fc-b"><div class="ftags"><span class="ftag ftag-r">Artist</span><span class="ftag ftag-g">Educator</span><span class="ftag ftag-t">Researcher</span></div><h3>Beyond 1&amp;0 Exhibition</h3><p>RMIT Vietnam's first external showcase, 73 artists, 34 artworks, 14 mediums.</p><div class="fc-lks"><a href="https://binyoun.github.io/beyond-1-and-0-poem/" target="_blank" rel="noopener" class="lk-s">Poem &#x2197;</a><a href="https://youtu.be/URONCeVigPo?si=bPCXDsHJLx6a8VwI" target="_blank" rel="noopener" class="lk-s">Song &#x2197;</a></div></div></div>
     <div class="fc rv ripple-card" style="transition-delay:.2s;"><div class="fc-img"><img src="image/siggraphacm.jpg" alt="ACM SIGGRAPH"></div><div class="fc-b"><div class="ftags"><span class="ftag ftag-t">Researcher</span><span class="ftag ftag-r">Artist</span></div><h3>ACM SIGGRAPH DAC SPARKS</h3><p>Co-moderated "Beyond the Global North" alongside Patrick Hartono.</p><div class="fc-lks"><a href="https://dac.siggraph.org/sparks/2026-01-23_beyond-the-global-north/" target="_blank" rel="noopener" class="lk-s">Session &#x2197;</a></div></div></div>
   </div>
 </section>
@@ -128,7 +128,7 @@
 <!-- THREE ISLANDS -->
 <section class="arch">
   <div class="arch-i">
-    <div class="arch-h rv"><p class="arch-l">Explore</p><h2 class="arch-t">Three Islands</h2><p class="arch-s">Each practice is a world — bridging through water and land</p></div>
+    <div class="arch-h rv"><p class="arch-l">Explore</p><h2 class="arch-t">Three Islands</h2><p class="arch-s">Each practice is a world, bridging through water and land</p></div>
     <div class="portals">
       <a class="portal portal-artist rv ripple-card" href="/artist/"><div class="portal-bg"><div class="portal-grad"></div><img src="image/breathscape.gif" alt=""><div class="portal-c"><div class="portal-dot"></div><h3 class="portal-n">Artist</h3><p class="portal-d">Installations, lens-based media, sculpture, and poetic spatial encounters</p><div class="portal-e">Enter island <span class="arr">&#x2192;</span></div></div></div></a>
       <a class="portal portal-educator rv ripple-card" style="transition-delay:.1s;" href="/educator/"><div class="portal-bg"><div class="portal-grad"></div><img src="image/beyond1and0.jpg" alt=""><div class="portal-c"><div class="portal-dot"></div><h3 class="portal-n">Educator</h3><p class="portal-d">Photography pedagogy, the r&#x1ec5;-root framework, and collaborative workshops</p><div class="portal-e">Enter island <span class="arr">&#x2192;</span></div></div></div></a>
