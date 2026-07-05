@@ -74,6 +74,17 @@ export function initUI() {
       wave.addEventListener('animationend', () => wave.remove());
     });
   });
+
+  // Fade out the floating work-detail back button once the footer scrolls
+  // into view, so it doesn't sit on top of the footer text.
+  const backBtn = document.querySelector('.work-back');
+  const footerEl = document.querySelector('footer');
+  if (backBtn && footerEl) {
+    const footerObs = new IntersectionObserver(([entry]) => {
+      backBtn.classList.toggle('work-back-hide', entry.isIntersecting);
+    }, { rootMargin: '0px 0px -10% 0px' });
+    footerObs.observe(footerEl);
+  }
 }
 
 // Accordion toggle — called from render.js-generated HTML
