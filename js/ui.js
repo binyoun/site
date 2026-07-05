@@ -1,30 +1,54 @@
-/* ui.js — island open/close, scroll reveal, card ripple */
+/* ui.js — scroll reveal, card ripple, artist filter toggles */
 
-export function openIsland(name) {
-  const el = document.getElementById('island-' + name);
-  if (!el) return;
-  el.classList.add('open');
-  el.scrollTop = 0;
-  document.body.classList.add('no-scroll');
-}
+// Filter the Artist works grid by category, keeping state shareable via URL hash.
+// Called from render.js once the work cards exist in the DOM.
+export function initArtistFilters() {
+  const bar = document.getElementById('filterBar');
+  if (!bar) return;
 
-export function closeIsland(name) {
-  document.getElementById('island-' + name)?.classList.remove('open');
-  document.body.classList.remove('no-scroll');
+  const applyFilter = (filter) => {
+    document.querySelectorAll('.th').forEach(card => {
+      const cats = (card.dataset.cat || '').split(' ');
+      if (filter === 'all' || cats.includes(filter)) card.removeAttribute('data-filter-hide');
+      else card.setAttribute('data-filter-hide', '');
+    });
+
+    document.querySelectorAll('[data-filter-sec]').forEach(sec => {
+      const onlyFilter = sec.dataset.filterOnly;
+      if (onlyFilter) {
+        if (filter === 'all' || filter === onlyFilter) sec.removeAttribute('data-filter-hide');
+        else sec.setAttribute('data-filter-hide', '');
+        return;
+      }
+      const visibleCards = sec.querySelectorAll('.th:not([data-filter-hide])');
+      if (filter === 'all' || visibleCards.length > 0) sec.removeAttribute('data-filter-hide');
+      else sec.setAttribute('data-filter-hide', '');
+    });
+
+    bar.querySelectorAll('.filter-tog').forEach(btn => {
+      btn.classList.toggle('is-active', btn.dataset.filter === filter);
+    });
+  };
+
+  bar.querySelectorAll('.filter-tog').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
+      const newHash = filter === 'all' ? '' : `#filter=${filter}`;
+      history.replaceState(null, '', location.pathname + newHash);
+      applyFilter(filter);
+    });
+  });
+
+  window.addEventListener('hashchange', () => {
+    const m = location.hash.match(/filter=([\w-]+)/);
+    applyFilter(m ? m[1] : 'all');
+  });
+
+  const initialMatch = location.hash.match(/filter=([\w-]+)/);
+  applyFilter(initialMatch ? initialMatch[1] : 'all');
 }
 
 export function initUI() {
-  // Expose island controls globally for inline onclick handlers
-  window.openIsland  = openIsland;
-  window.closeIsland = closeIsland;
-
-  // ESC closes any open island
-  window.addEventListener('keydown', (e) => {
-    if (e.key !== 'Escape') return;
-    document.querySelectorAll('.island.open').forEach(el => el.classList.remove('open'));
-    document.body.classList.remove('no-scroll');
-  });
-
   // Scroll reveal
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -50,10 +74,58 @@ export function initUI() {
       wave.addEventListener('animationend', () => wave.remove());
     });
   });
+
+  // Fade out the floating work-detail back button once the footer scrolls
+  // into view, so it doesn't sit on top of the footer text.
+  const backBtn = document.querySelector('.work-back');
+  const footerEl = document.querySelector('footer');
+  if (backBtn && footerEl) {
+    const footerObs = new IntersectionObserver(([entry]) => {
+      backBtn.classList.toggle('work-back-hide', entry.isIntersecting);
+    }, { rootMargin: '0px 0px -10% 0px' });
+    footerObs.observe(footerEl);
+  }
 }
 
 // Accordion toggle — called from render.js-generated HTML
 window.toggleAcc = function(btn) {
   btn.classList.toggle('open');
   btn.nextElementSibling.classList.toggle('open');
+};
+
+// Dismiss a thumbnail's gallery pop-out without navigating — called from render.js-generated HTML
+window.dismissPop = function(btn, e) {
+  e.preventDefault();
+  e.stopPropagation();
+  const card = btn.closest('.th');
+  if (!card) return;
+  card.classList.add('th-dismissed');
+  card.addEventListener('mouseleave', function reset() {
+    card.classList.remove('th-dismissed');
+    card.removeEventListener('mouseleave', reset);
+  });
+};
+
+// Copy a bio block's text to the clipboard — used on /bio/
+window.copyBio = function(btn, id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  navigator.clipboard.writeText(el.textContent.trim()).then(() => {
+    const original = btn.textContent;
+    btn.textContent = 'Copied';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1600);
+  });
+};
+
+// Copy a rendered publication citation to the clipboard — used on /researcher/
+window.copyCite = function(btn) {
+  const text = btn.dataset.cite;
+  if (!text) return;
+  navigator.clipboard.writeText(text).then(() => {
+    const original = btn.textContent;
+    btn.textContent = 'Copied';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1600);
+  });
 };

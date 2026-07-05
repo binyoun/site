@@ -9,15 +9,32 @@
     },
     {
       "title": "ISEA 2026 Workshop",
-      "description": "Counting Cultural Stars — Cultural Texts as Volumetric Constellations. Accepted workshop at the International Symposium on Electronic Art.",
-      "location": "ISEA 2026 · Dubai"
+      "description": "Counting Cultural Stars: Transforming Cultural Texts into Volumetric Constellations. Accepted workshop at the International Symposium on Electronic Art, co-organized with Patrick Hartono.",
+      "location": "ISEA 2026 · UAE"
+    },
+    {
+      "title": "Touch of Water: Memory-Mapping with AR and Sound Journal",
+      "description": "Half-day research workshop at the 5th FCM 2026 Postgraduate Students Re-Ignite conference, with Sigisora (Van Luber Parensen and Dyah Nindyasari, sound journal) and Prof. Suk-Jun Kim (University of Aberdeen, workshop coordinator). Extends the British Academy-funded project \"Futures of Listening: Water Knowledge from Two Cities\" (PI Prof. Suk-Jun Kim) into Southeast Asia, with RMIT Vietnam, Multimedia University, and Forum Lenteng Jakarta. Draws on the Lọc WebAR installation as its AR component.",
+      "location": "Faculty of Creative Multimedia, Multimedia University, Cyberjaya, Malaysia · June 24, 2026",
+      "image": "image/press/touch-of-water-workshop-mmu-2026.jpg",
+      "link": "https://github.com/binyoun/touch-of-water"
+    },
+    {
+      "title": "Circulation: Cupping, Colour, and Collective Sensing",
+      "description": "SCD School Research Seed Funding (VND 90,000,000), accepted and ongoing. Project lead. Three handheld cupping-form devices with pressure and pulse (PPG) sensors, mapping bodily state to the Five Elements (오행) colour framework, with Patrick Hartono and Renusha Athugala, mentored by Dr. Hellmut Monz.",
+      "location": "RMIT University Vietnam, presenting at VFCD 2026 · September 2026"
+    },
+    {
+      "title": "AI-Assisted Photographic Assessment: A Discipline-Informed Feedback Tool",
+      "description": "GAILE-Sponsored Seed Grant collaboration developing a rubric-encoded AI feedback tool, trialled across Art & Photography (RMIT Melbourne) and Photography 101 (RMIT Vietnam). Applicant: Assoc. Prof. Shane Hulbert, with Dr Rebecca Najdowski and Dr Arlo Mountford, RMIT Melbourne School of Art. RMIT Vietnam design and development partnership.",
+      "location": "Student trial in Semester 1, 2027"
     }
   ],
 
   "committee": [
     {
-      "role": "Workshop Chair — AICA 2026",
-      "event": "AI-Enhanced Pedagogy for Creative Arts and Media Education",
+      "role": "Workshop Chair, AICA 2026",
+      "event": "AI-Enhanced Pedagogy for Creative Arts and Media Education, with Co-Chair Dr. Patrick Hartono",
       "location": "ICAIHE 2026, Waseda University, Tokyo · July 2026",
       "link": "https://aica.website/"
     },
@@ -27,9 +44,14 @@
       "location": "Waseda University, Tokyo"
     },
     {
-      "role": "Reviewer",
-      "event": "ICCM 2026 @ DIFCON 2026",
-      "location": "Multimedia University, Malaysia — May 2026"
+      "role": "ICCM2026 TPC Reviewer",
+      "event": "International Conference on Creative Multimedia 2026 (ICCM2026)",
+      "location": "Multimedia University, Malaysia, May 2026"
+    },
+    {
+      "role": "Curator",
+      "event": "rễRoute: RMIT Photography from Australia & Vietnam, 2026 Pingyao International Festival of Photography (PIPF), China",
+      "location": "With Assoc. Prof. Shane Hulbert (Melbourne) and Christian Berg (Vietnam) · September 2026"
     }
   ],
   "publications": [
@@ -38,17 +60,17 @@
       "title": "Interdisciplinary Weavings: Co-Creating Heritage Narratives at the Tẻ Canal",
       "venue": "28th IFFTI 2026 · RMIT University Vietnam · April 16, 2026 · Non-Traditional Research Output (NTRO)",
       "coauthors": "With Dr Andrew Stiff · Thierry Bernard · Dr Rachel Jahja",
-      "link": "https://binyoun.github.io/loc"
+      "link": "https://rivercities.world/blogs/interdisciplinary-weavings"
     },
     {
       "year": "2026",
       "title": "rễ-root: Exhibition-Centered Blended Learning as Sustainable Creative Pedagogy in Vietnamese Higher Education",
-      "venue": "ICCM 2026 @ DIFCON 2026, Multimedia University, Malaysia — May 2026"
+      "venue": "International Conference on Creative Multimedia (ICCM 2026) @ DIFCON 2026, Multimedia University, Cyberjaya, Malaysia, May 5–7 2026"
     },
     {
       "year": "2026",
       "title": "Gelora Mycelium Network: An Augmented Reality Installation for Conscientious Engagement Through East Asian Cosmology and Actor-Network Theory",
-      "venue": "ICCM 2026 @ DIFCON 2026, Multimedia University, Malaysia — May 2026"
+      "venue": "International Conference on Creative Multimedia (ICCM 2026) @ DIFCON 2026, Multimedia University, Cyberjaya, Malaysia, May 5–7 2026"
     },
     {
       "year": "2026",
@@ -60,7 +82,7 @@
     {
       "year": "2026",
       "title": "Sacred Tree: Summoning Gelora (신목, 神木)",
-      "venue": "TellMe 2026 — Research artefact presentation",
+      "venue": "TellMe 2026: Research artefact presentation",
       "link": "https://gelora-xr.xyz"
     },
     {
@@ -77,11 +99,16 @@
     {
       "year": "2025",
       "title": "A Dialogue-Centered Framework for Reducing Transactional Distance in Online Photography Education",
-      "venue": "ICWL 2025 — 24th International Conference on Web-Based Learning, Hong Kong",
+      "venue": "ICWL 2025: 24th International Conference on Web-Based Learning, Hong Kong",
       "coauthors": "Co-authored with Suren"
     }
   ],
   "talks": [
+    {
+      "venue": "Artist Talk, 5th FCM 2026 Postgraduate Students Re-Ignite, Faculty of Creative Multimedia, Multimedia University, Cyberjaya, Malaysia",
+      "title": "Cosmological Apparatus",
+      "image": "image/press/cosmological-apparatus-2026.jpg"
+    },
     {
       "venue": "Beyond 1&0 Symposium, RMIT University Vietnam",
       "title": "Empathetic Gestures, Entangled Futures: Mobile Cameras as Regenerative Practice",

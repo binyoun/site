@@ -30,6 +30,17 @@ body {
 }
 body.no-scroll { overflow: hidden; }
 
+:focus-visible { outline: 2px solid var(--pink); outline-offset: 2px; }
+
+.skip-link {
+  position: absolute; top: -100px; left: 12px; z-index: 1000;
+  background: var(--void); color: var(--light);
+  font-family: var(--mono); font-size: 12px; letter-spacing: .06em;
+  padding: 10px 16px; border: 1px solid var(--pink); border-radius: 3px;
+  text-decoration: none; transition: top .2s;
+}
+.skip-link:focus { top: 12px; }
+
 ::selection { background: rgba(255,45,155,.18); color: white; }
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
@@ -38,7 +49,19 @@ body.no-scroll { overflow: hidden; }
 /* Reveal on scroll */
 .rv { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease; }
 .rv.vis { opacity: 1; transform: translateY(0); }
-@media (prefers-reduced-motion: reduce) { .rv { opacity: 1; transform: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .rv { opacity: 1; transform: none; }
+  .reticle-ring, .reticle-ring-2, .reticle-ring-3,
+  .scan-line, .scan-line-2,
+  .hud-tl .blink,
+  .signal-ping .sp-wave,
+  .hud-scroll-line span,
+  .marquee-track,
+  .loader-ring,
+  .scroll-down-btn .arr { animation: none; }
+}
 
 /* Ripple */
 .ripple-card { position: relative; overflow: hidden; }

@@ -1,80 +1,374 @@
 {
   "_note": "Edit this file in Obsidian to update the Artist island. Images go in /image/",
-
   "current": [
-    { "title": "Sacred Tree (신목, 神木)",             "year": "2025", "image": "image/sacredtree.gif" },
-    { "title": "Gelora within Bagua at Evolving Matter", "year": "2025", "image": "image/evolvingmatter.gif" },
-    { "title": "Gelora: Embodied Alienation",          "year": "2025", "image": "image/geloraalienation.jpg", "link": "https://doi.org/10.6084/m9.figshare.30509957" },
-    { "title": "ㅁotherisland at iNVENTX",             "year": "2025", "image": "image/otherislandinventx.jpg", "link": "https://doi.org/10.6084/m9.figshare.30509915" }
+    {
+      "title": "Sacred Tree: Summoning Gelora (신목, 神木)",
+      "year": "2026",
+      "image": "image/sacredtree.gif",
+      "link": "/artist/sacred-tree/",
+      "still": "image/stills/sacredtree.jpg",
+      "cat": "ar-xr participatory gelora"
+    },
+    {
+      "title": "su, where the moon rests",
+      "year": "2026",
+      "image": "image/sacredtree.gif",
+      "link": "/artist/sacred-tree/",
+      "still": "image/stills/sacredtree.jpg",
+      "cat": "ar-xr participatory installation gelora"
+    },
+    {
+      "title": "Gelora Series",
+      "year": "2025",
+      "image": "image/geloraalienation.jpg",
+      "link": "/artist/gelora/",
+      "cat": "ar-xr participatory gelora"
+    },
+    {
+      "title": "Lọc (Filter · Strain · Purify)",
+      "year": "2026",
+      "image": "image/loc.jpg",
+      "link": "/artist/loc/",
+      "still": "image/stills/loc.jpg",
+      "cat": "ar-xr participatory"
+    }
   ],
-
   "installations": [
-    { "title": "Breathscape",           "year": "2023", "image": "image/breathscape.gif",        "link": "https://docs.google.com/document/d/1hz12tS2Fyn4knKOzwA945Nmuj4vQI-dqyE6J0NLkKiY/edit?usp=sharing" },
-    { "title": "Projective Verse of ㅇ", "year": "2023", "image": "image/projectiveverseofo.gif", "link": "https://docs.google.com/document/d/1xpkNZ9d3Jwo-MWpeJJtDrFwpLgRHlewVexs7UBISsLE/edit?usp=sharing" },
-    { "title": "Butterflying",           "year": "2023", "image": "image/butterflying.gif",       "link": "https://docs.google.com/document/d/1BFxZk-7mj3DN3fd9vKTqepVKuhLYsMwFgVZuyvpgcKs/edit?usp=sharing" },
-    { "title": "ㅁotherisland",          "year": "2022", "image": "image/otherisland.gif",        "link": "https://docs.google.com/document/d/1yLXMDvRolVjWO4n_JFbITSM-4gbH5l5Jurt8NBSfLug/edit?usp=sharing" },
-    { "title": "Open your Window",       "year": "2022", "image": "image/openyourwindow.gif",     "link": "https://docs.google.com/document/d/1wcEKxeTcEpZqaj0-uUFFoFMxlp9mh2SjWSqkVl7niqE/edit?usp=sharing" },
-    { "title": "Abyss",                  "year": "2022", "image": "image/abyss.gif",              "link": "https://docs.google.com/document/d/1C37LX2IvJ_gX8KwF70SFkTGH8-lKmvPBNhlevn9mkHs/edit?usp=sharing" },
-    { "title": "Somatic Blinds",         "year": "2022", "image": "image/somaticblinds.gif",      "link": "https://docs.google.com/document/d/1IJ1eI86WlP20XIQLvDhUEIs7ID3Pw0WMFCBqs90xRho/edit?usp=sharing" }
+    {
+      "title": "Breathscape",
+      "year": "2023",
+      "image": "image/breathscape.gif",
+      "link": "/artist/breathscape/",
+      "still": "image/stills/breathscape.jpg",
+      "cat": "installation"
+    },
+    {
+      "title": "Butterflying",
+      "year": "2023",
+      "image": "image/butterflying.gif",
+      "link": "/artist/butterflying/",
+      "still": "image/stills/butterflying.jpg",
+      "cat": "installation"
+    },
+    {
+      "title": "Projective Verse of ㅇ",
+      "year": "2023",
+      "image": "image/projectiveverseofo.gif",
+      "link": "/artist/projective-verse-of-o/",
+      "still": "image/stills/projectiveverseofo.jpg",
+      "cat": "installation poetry"
+    },
+    {
+      "title": "Through Islands",
+      "year": "2023",
+      "link": "/artist/through-islands/",
+      "cat": "installation"
+    },
+    {
+      "title": "Abyss",
+      "year": "2022",
+      "image": "image/abyss.gif",
+      "link": "/artist/abyss/",
+      "still": "image/stills/abyss.jpg",
+      "cat": "installation"
+    },
+    {
+      "title": "Open your Window",
+      "year": "2022",
+      "image": "image/openyourwindow.gif",
+      "link": "/artist/open-your-window/",
+      "still": "image/stills/openyourwindow.jpg",
+      "cat": "installation"
+    },
+    {
+      "title": "Somatic Blinds",
+      "year": "2022",
+      "image": "image/somaticblinds.gif",
+      "link": "/artist/somatic-blinds/",
+      "still": "image/stills/somaticblinds.jpg",
+      "cat": "installation"
+    },
+    {
+      "title": "YOUR LEAVES TOUCH MY PLANES",
+      "year": "2022",
+      "link": "/artist/your-leaves-touch-my-planes/",
+      "cat": "installation"
+    },
+    {
+      "title": "ㅁotherisland",
+      "year": "2022",
+      "image": "image/otherisland.gif",
+      "link": "/artist/motherisland/",
+      "still": "image/stills/otherisland.jpg",
+      "cat": "installation"
+    }
   ],
-
   "sculptures": [
-    { "title": "Stars are brushed by wind again I", "year": "2023", "medium": "Cyanotype on seashell, branch, Sambe",  "image": "image/stars.jpg" },
-    { "title": "Composition of Mother",              "year": "2023", "medium": "Wood, light, mixed media",              "image": "image/composition.jpg" },
-    { "title": "Mother, I call a name for each star","year": "2023", "medium": "Cyanotype on wood, branch, stone",     "image": "image/mother.jpg" },
-    { "title": "I shall love all things that are dying","year": "2023","medium": "Cyanotype on Sambe, broken branches", "image": "image/ishall.jpg" },
-    { "title": "Grown Light",                        "year": "2023", "medium": "Grow Light, Cuts",                     "image": "image/grownlight.jpg" },
-    { "title": "Warmest Night",                      "year": "2022", "medium": "Gelora on velvet, dried branch",       "image": "image/warmest.jpg" },
-    { "title": "The Lamp",                           "year": "2019", "medium": "Negatives, red strings, lamp",         "image": "image/thelamp.jpg" }
+    {
+      "title": "Stars are brushed by wind again I",
+      "year": "2023",
+      "medium": "Cyanotype on seashell, branch, Sambe",
+      "image": "image/stars.jpg",
+      "link": "/artist/stars-are-brushed-by-wind-again-i/",
+      "cat": "sculpture"
+    },
+    {
+      "title": "Composition of Mother with sky, soil, water and human",
+      "year": "2023",
+      "medium": "Wood, light, mixed media",
+      "image": "image/composition.jpg",
+      "link": "/artist/composition-of-mother/",
+      "cat": "sculpture"
+    },
+    {
+      "title": "Mother, I call a name for each star",
+      "year": "2023",
+      "medium": "Cyanotype on wood, branch from California State University Long Beach, stone from Baekdam Temple Valley, South Korea",
+      "image": "image/mother.jpg",
+      "link": "/artist/mother-i-call-a-name-for-each-star/",
+      "cat": "sculpture"
+    },
+    {
+      "title": "I shall love all things that are dying",
+      "year": "2023",
+      "medium": "Cyanotype on Sambe, broken branches",
+      "image": "image/ishall.jpg",
+      "link": "/artist/i-shall-love-all-things-that-are-dying/",
+      "cat": "sculpture"
+    },
+    {
+      "title": "Grown Light",
+      "year": "2023",
+      "medium": "Grow Light, Cuts",
+      "image": "image/grownlight.jpg",
+      "link": "/artist/grown-light/",
+      "cat": "sculpture"
+    },
+    {
+      "title": "Warmest Night",
+      "year": "2022",
+      "medium": "Gelora on velvet, dried branch",
+      "image": "image/warmest.jpg",
+      "link": "/artist/warmest-night/",
+      "cat": "sculpture"
+    },
+    {
+      "title": "The Lamp",
+      "year": "2019",
+      "medium": "Negatives, red strings, lamp",
+      "image": "image/thelamp.jpg",
+      "link": "/artist/the-lamp/",
+      "cat": "sculpture"
+    }
   ],
-
   "lens": [
-    { "title": "I am missing their warmth from 5,968 miles away", "year": "2023", "image": "image/luppe.jpg",           "link": "https://theluupe.com/blog/visions-of-motherhood-2023" },
-    { "title": "I am telling what a I* see is what you see",      "year": "2022", "image": "image/ai.gif",              "link": "https://www.youtube.com/watch?v=fF2XpP3Gc7w" },
-    { "title": "Memories of Seoul",                               "year": "2017", "image": "image/memoriesofseoul.gif" },
-    { "title": "Be@IT",                                           "year": "2017", "image": "image/beait.gif" }
+    {
+      "title": "I am missing their warmth from 5,968 miles away",
+      "year": "2023",
+      "image": "image/luppe.jpg",
+      "link": "/artist/missing-their-warmth/",
+      "cat": "lens"
+    },
+    {
+      "title": "I am telling what a I* see is what you see",
+      "year": "2022",
+      "image": "image/ai.gif",
+      "link": "/artist/ai-see-what-you-see/",
+      "still": "image/stills/ai.jpg",
+      "cat": "lens"
+    },
+    {
+      "title": "Memories of Seoul",
+      "year": "2017",
+      "image": "image/memoriesofseoul.gif",
+      "link": "/artist/memories-of-seoul/",
+      "still": "image/stills/memoriesofseoul.jpg",
+      "cat": "lens"
+    },
+    {
+      "title": "Be@IT",
+      "year": "2017",
+      "image": "image/beait.gif",
+      "link": "/artist/beait/",
+      "still": "image/stills/beait.jpg",
+      "cat": "lens"
+    }
   ],
-
   "poem": "I was found and lightened so as not to be rotten.\nI need to be exposed to light from nowhere to fold and unfold.\nThe colors and lines from the shiny source surround my eyeballs\npenetrate my skin like a gas.\n\nAfter cutting up my roots from whoever-whatever,\nI got stuck by all the burden.\nThrowing myself away to be fallen and settle down somewhere\nwith nobody is alienating my every part.\n\nIt needs to be closed to open and open to close.\nThe windowless blinds are for your inside and outside.\nIntervals between colors and lines overlap with your wrinkles.\nIt is desperate to be exposed and developed.\n\nLiving out of my motherland, losing my mother tongue\nhaving a bite of fatal pomegranate like Proserpine did.\nIt signifies for her captivity and marriage,\nand the incense-burner, the attribute of goddess.\n\nIt is a process to detach m from mother to be another.\n\nAging, I am limited,\ngetting closer to the pointy edges reluctantly\nwithin a cycle moving\n\nMy gesture to scan and project\nresuscitate and embrace lost empty time.\na trajectory to navigate spacetime with ambient colors",
-
   "exhibitions": {
     "solo": [
-      { "title": "Through Islands",          "venue": "Shakarian Gallery, CA",       "year": "2023" },
-      { "title": "Breathscape",              "venue": "Shakarian Gallery, CA",       "year": "2023" },
-      { "title": "Projective Verse of ㅇ",   "venue": "Max L. Getov Galleries, CA",  "year": "2023" },
-      { "title": "Your Leaves Touch My Planes","venue": "Shakarian Gallery, CA",     "year": "2022" },
-      { "title": "ㅁotherisland",            "venue": "Max L. Getov East Gallery, CA","year": "2022" },
-      { "title": "Somatic Blinds",           "venue": "Werby Gallery, CA",           "year": "2022" },
-      { "title": "W(AV)E",                   "venue": "Shakarian Gallery, CA",       "year": "2021" },
-      { "title": "LiSTeN",                   "venue": "Shakarian Gallery, CA",       "year": "2021" },
-      { "title": "Super-F-icial S",          "venue": "Shakarian Gallery, CA",       "year": "2021" },
-      { "title": "Natura Naturata",          "venue": "Max L. Getov West Gallery, CA","year": "2021" },
-      { "title": "BE@IT",                    "venue": "Vision Photography Academy, Seoul","year": "2017" },
-      { "title": "Moments in Paris",         "venue": "Hanchae Gallery, Seoul",      "year": "2017" }
+      {
+        "title": "Through Islands",
+        "venue": "Shakarian Gallery, CA",
+        "year": "2023"
+      },
+      {
+        "title": "Breathscape",
+        "venue": "Shakarian Gallery, CA",
+        "year": "2023"
+      },
+      {
+        "title": "Projective Verse of ㅇ",
+        "venue": "Max L. Getov Galleries, CA",
+        "year": "2023"
+      },
+      {
+        "title": "Your Leaves Touch My Planes",
+        "venue": "Shakarian Gallery, CA",
+        "year": "2022"
+      },
+      {
+        "title": "ㅁotherisland",
+        "venue": "Max L. Getov East Gallery, CA",
+        "year": "2022"
+      },
+      {
+        "title": "Somatic Blinds",
+        "venue": "Werby Gallery, CA",
+        "year": "2022"
+      },
+      {
+        "title": "W(AV)E",
+        "venue": "Shakarian Gallery, CA",
+        "year": "2021"
+      },
+      {
+        "title": "LiSTeN",
+        "venue": "Shakarian Gallery, CA",
+        "year": "2021"
+      },
+      {
+        "title": "Super-F-icial S",
+        "venue": "Shakarian Gallery, CA",
+        "year": "2021"
+      },
+      {
+        "title": "Natura Naturata",
+        "venue": "Max L. Getov West Gallery, CA",
+        "year": "2021"
+      },
+      {
+        "title": "BE@IT",
+        "venue": "Vision Photography Academy, Seoul",
+        "year": "2017"
+      },
+      {
+        "title": "Moments in Paris",
+        "venue": "Hanchae Gallery, Seoul",
+        "year": "2017"
+      }
     ],
     "group": [
-      { "title": "Our Common Ground",                         "venue": "The Little Gallery, CA",           "year": "2024" },
-      { "title": "Let it Linger",                             "venue": "Max L. Gatov Gallery, CA",         "year": "2024" },
-      { "title": "Exchanges: dialogues between poetry and art","venue": "Ruth Foster Gallery, WI",          "year": "2023" },
-      { "title": "CSULB President House Selection",           "venue": "Miller House, CA",                 "year": "2023–24" },
-      { "title": "Now Trending: 7th Annual AIpay Exhibition", "venue": "Palos Verdes Art Center, CA",      "year": "2023" },
-      { "title": "Visions of Motherhood",                     "venue": "The Luupe, Online",                "year": "2023" },
-      { "title": "Flourish & Flow, AAPI",                     "venue": "Atrium Gallery, CA",               "year": "2023" },
-      { "title": "Insights 2023",                             "venue": "Max L. Getov East Gallery, CA",    "year": "2023" },
-      { "title": "Butterflying",                              "venue": "Dr. Maxine Merlino Gallery, CA",   "year": "2023" },
-      { "title": "Under the Same Sun, AAPI",                  "venue": "Max L. Getov East Gallery, CA",    "year": "2023" },
-      { "title": "Here, There, Nowhere",                      "venue": "Online, MT",                       "year": "2022" },
-      { "title": "Graduate Week of Critique",                 "venue": "Max L. Getov Gallery, CA",         "year": "2022" },
-      { "title": "Abyss",                                     "venue": "Max L. Getov East Gallery, CA",    "year": "2022" },
-      { "title": "Double Exposure",                           "venue": "Werby Gallery, CA",                "year": "2022" },
-      { "title": "INSIGHTS 2022",                             "venue": "Werby Gallery, CA",                "year": "2022" },
-      { "title": "Weeks of Arts: Fiber show",                 "venue": "Dutzi Gallery, CA",                "year": "2022" },
-      { "title": "Recovery",                                  "venue": "Ryugaheon, Seoul",                 "year": "2022" },
-      { "title": "Advancement Show",                         "venue": "Max L. Getov West Gallery, CA",    "year": "2022" },
-      { "title": "MFA Graduate Week",                        "venue": "Max L. Getov Gallery, CA",         "year": "2021" },
-      { "title": "MFA Graduate Critique Week",               "venue": "Dutzi Gallery, CA",                "year": "2018" },
-      { "title": "WHO ARE WE? II",                            "venue": "Ryugaheon, Seoul",                 "year": "2018" },
-      { "title": "Student Final Photo Exhibition",            "venue": "Sungkyunkwan University Library",  "year": "2012" }
+      {
+        "title": "Our Common Ground",
+        "venue": "The Little Gallery, CA",
+        "year": "2024"
+      },
+      {
+        "title": "Let it Linger",
+        "venue": "Max L. Gatov Gallery, CA",
+        "year": "2024"
+      },
+      {
+        "title": "Exchanges: dialogues between poetry and art",
+        "venue": "Ruth Foster Gallery, WI",
+        "year": "2023"
+      },
+      {
+        "title": "CSULB President House Selection",
+        "venue": "Miller House, CA",
+        "year": "2023–24"
+      },
+      {
+        "title": "Now Trending: 7th Annual AIpay Exhibition",
+        "venue": "Palos Verdes Art Center, CA",
+        "year": "2023"
+      },
+      {
+        "title": "Visions of Motherhood",
+        "venue": "The Luupe, Online",
+        "year": "2023"
+      },
+      {
+        "title": "Flourish & Flow, AAPI",
+        "venue": "Atrium Gallery, CA",
+        "year": "2023"
+      },
+      {
+        "title": "Insights 2023",
+        "venue": "Max L. Getov East Gallery, CA",
+        "year": "2023"
+      },
+      {
+        "title": "Butterflying",
+        "venue": "Dr. Maxine Merlino Gallery, CA",
+        "year": "2023"
+      },
+      {
+        "title": "Under the Same Sun, AAPI",
+        "venue": "Max L. Getov East Gallery, CA",
+        "year": "2023"
+      },
+      {
+        "title": "Here, There, Nowhere",
+        "venue": "Online, MT",
+        "year": "2022"
+      },
+      {
+        "title": "Graduate Week of Critique",
+        "venue": "Max L. Getov Gallery, CA",
+        "year": "2022"
+      },
+      {
+        "title": "Abyss",
+        "venue": "Max L. Getov East Gallery, CA",
+        "year": "2022"
+      },
+      {
+        "title": "Double Exposure",
+        "venue": "Werby Gallery, CA",
+        "year": "2022"
+      },
+      {
+        "title": "INSIGHTS 2022",
+        "venue": "Werby Gallery, CA",
+        "year": "2022"
+      },
+      {
+        "title": "Weeks of Arts: Fiber show",
+        "venue": "Dutzi Gallery, CA",
+        "year": "2022"
+      },
+      {
+        "title": "Recovery",
+        "venue": "Ryugaheon, Seoul",
+        "year": "2022"
+      },
+      {
+        "title": "Advancement Show",
+        "venue": "Max L. Getov West Gallery, CA",
+        "year": "2022"
+      },
+      {
+        "title": "MFA Graduate Week",
+        "venue": "Max L. Getov Gallery, CA",
+        "year": "2021"
+      },
+      {
+        "title": "MFA Graduate Critique Week",
+        "venue": "Dutzi Gallery, CA",
+        "year": "2018"
+      },
+      {
+        "title": "WHO ARE WE? II",
+        "venue": "Ryugaheon, Seoul",
+        "year": "2018"
+      },
+      {
+        "title": "Student Final Photo Exhibition",
+        "venue": "Sungkyunkwan University Library",
+        "year": "2012"
+      }
     ]
   }
 }

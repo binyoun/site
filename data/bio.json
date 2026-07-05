@@ -1,5 +1,10 @@
 {
   "_note": "Edit this file in Obsidian to update the Bio / Shore section.",
+  "lengths": {
+    "oneLiner": "Bin Youn is a Korean multimedia artist, educator, and researcher based in Ho Chi Minh City, working across installation, XR, and participatory media.",
+    "short": "Bin Youn is a Korean multimedia artist, researcher, and educator based in Ho Chi Minh City, Vietnam, where she is an Associate Lecturer at RMIT University Vietnam. Her practice explores AI and interactive media as poetic environments connecting cultural memory, ecological relations, and creative learning, most visibly through the ongoing Gelora series of AR installations. She holds an MFA in Studio Arts from California State University Long Beach and created the exhibition-centered rễ-root teaching framework.",
+    "full": "Bin Youn is a Korean multimedia artist, researcher, and educator whose practice moves between Seoul, Long Beach, and Ho Chi Minh City, three cities she calls her three waters. She is an Associate Lecturer and Course Coordinator in the School of Communication and Design at RMIT University Vietnam, where she also created rễ-root, an exhibition-centered pedagogical framework replacing traditional portfolio assessment with physical group exhibitions.\n\nHer artistic practice examines displacement, alienation, and technological intimacy through installation, augmented and extended reality, and participatory media. Since 2021 she has developed the Gelora series, in which fallen flowers, preserved with silica gel and scanned, return as hybrid digital creatures activated through touch and East Asian cosmology. Recent iterations include Sacred Tree: Summoning Gelora, a web XR installation structured around the Bagua and Five Directional Colours, and ㅁotherisland, a 5-channel video installation on diasporic identity. Her work has been shown in Vietnam, Malaysia, and the United States, including a Silver and Bronze Award at iNVENTX 2025.\n\nHer research sits at the intersection of East Asian cosmology, cosmotechnics, and diasporic identity, with recent presentations at APARN, ICWL, and TellMe, and forthcoming work at ISEA and ICCM. She holds an MFA in Studio Arts and Photography from California State University Long Beach (2023).\n\nBin Youn's practice treats displacement as a generative force: alienation opens new forms of connection across boundaries of species, technology, and culture."
+  },
   "paragraphs": [
     "Bin Youn is an artist, researcher, and educator whose work explores AI and interactive media as poetic environments connecting cultural memory, ecological relations, and creative learning. Her practice combines installation, XR, and participatory media, alongside research into creative technology education and international collaboration.",
     "Her practice examines displacement, alienation, and technological intimacy through ephemeral encounters, investigating how alienation itself can become a generative force across species, technological, and cultural boundaries.",
@@ -62,15 +67,15 @@
   ],
   "press": [
     {
-      "label": "Bold Journey — 2024",
+      "label": "Bold Journey, 2024",
       "url": "https://boldjourney.com/meet-bin-youn/"
     },
     {
-      "label": "Shoutout LA — 2024",
+      "label": "Shoutout LA, 2024",
       "url": "https://shoutoutla.com/meet-bin-youn-artist-poet/"
     },
     {
-      "label": "VoyageLA — 2023",
+      "label": "VoyageLA, 2023",
       "url": "https://voyagela.com/interview/meet-bin-youn-of-long-beach-la-county/"
     }
   ],
