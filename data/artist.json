@@ -2,6 +2,13 @@
   "_note": "Edit this file in Obsidian to update the Artist island. Images go in /image/",
   "current": [
     {
+      "title": "Uncanny Garden",
+      "year": "2026",
+      "cat": "ar-xr participatory",
+      "image": "image/uncannygarden.jpg",
+      "link": "https://uncanny.live"
+    },
+    {
       "title": "Sacred Tree: Summoning Gelora (신목, 神木)",
       "year": "2026",
       "image": "image/sacredtree.gif",
@@ -31,13 +38,6 @@
       "link": "/artist/loc/",
       "still": "image/stills/loc.jpg",
       "cat": "ar-xr participatory"
-    },
-    {
-      "title": "Uncanny Garden",
-      "year": "2026",
-      "cat": "ar-xr participatory",
-      "image": "image/uncannygarden.jpg",
-      "link": "https://uncanny.live"
     }
   ],
   "installations": [
