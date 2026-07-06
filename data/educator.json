@@ -6,11 +6,16 @@
     "department": "School of Communication and Design",
     "period": "March 2025–Present",
     "coordinating": ["Photography 101", "Creative Photography", "Commercial Photography"],
-    "teaching": ["Photography 101", "Creative Photography", "Commercial Photography", "Professional Practice"]
+    "teaching": ["Photography 101", "Creative Photography", "Commercial Photography", "Professional Practice", "Major Project"]
   },
   "framework": {
     "title": "rễ-root",
     "description": "Exhibition-centered pedagogical framework replacing traditional portfolio assessment with physical group exhibitions. Students develop, curate, install, and present work to live audiences, building professional practice through collective creative experience.",
+    "series": {
+      "title": "rễ · root Artist Talk",
+      "subtitle": "Started Semester 1, 2026 · Creative Photography",
+      "description": "The framework's live thread: each session invites alumni from previous cohorts to return and share their creative journeys and ongoing practice. Creative practice grows as a connected, entangled network rooted in rhizomic thinking."
+    },
     "links": [
       { "label": "Framework", "url": "https://binyoun.github.io/reroot/" },
       { "label": "Workshops", "url": "https://binyoun.github.io/reroot/workshops/" }
@@ -45,17 +50,23 @@
       "title": "Photo 101: Industry Partnership",
       "description": "Lighting workshops with RICOH and SONY.",
       "links": []
+    }
+  ],
+  "sites": [
+    {
+      "title": "Elemental WebAR",
+      "description": "Config-driven WebAR teaching kit: students turn a photograph into a browser-based AR marker experience, no app required.",
+      "url": "https://binyoun.github.io/webar/"
     },
     {
-      "title": "rễ · root Artist Talk",
-      "subtitle": "Started Semester 1, 2026 · Creative Photography",
-      "description": "Creative practice grows as a connected, entangled, and growing network rooted in rhizomic thinking. Each session invites alumni from previous cohorts to return and share their creative journeys and ongoing practice, within Creative Photography.",
-      "sessions": [
-        { "label": "Semester 1, 2026", "poster": null }
-      ],
-      "links": [
-        { "label": "Framework", "url": "https://binyoun.github.io/reroot/" }
-      ]
+      "title": "Photography 101",
+      "description": "Course companion site for Photography 101 at RMIT Vietnam.",
+      "url": "https://binyoun.github.io/photo101/"
+    },
+    {
+      "title": "Cultural Visions",
+      "description": "Cross-cultural visual archive of student professional photography from the VVIP Photo Gift Project.",
+      "url": "https://binyoun.github.io/cultural-visions/"
     }
   ],
   "iffti": {
@@ -67,10 +78,5 @@
       { "name": "[Confirm]", "work": "[Confirm]" },
       { "name": "[Confirm]", "work": "[Confirm]" }
     ]
-  },
-  "guests": [
-    "Duy-Phuong Le Nguyen",
-    "Tuna Lee",
-    "Stephen Ilam Jang"
-  ]
+  }
 }

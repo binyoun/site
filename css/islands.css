@@ -108,10 +108,17 @@
 .mod-grid > .edu-c > .edu-lks { margin-top: auto; padding-top: 12px; }
 
 /* Horizontal media card: small poster thumbnail beside the text */
-.mod-media { flex-direction: row; padding: 0; overflow: hidden; }
+.mod-media { display: flex; flex-direction: row; padding: 0; overflow: hidden; }
 .mod-thumb { width: 96px; flex-shrink: 0; background: #f4f0e8; }
 .mod-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .mod-media-bd { flex: 1; min-width: 0; padding: 18px 20px; display: flex; flex-direction: column; }
+
+/* Icon tile variant: the site mark on void black, contained not cropped */
+.mod-thumb-icon { background: #060608; }
+.mod-thumb-icon img { object-fit: contain; padding: 16px; }
+
+/* Sub-block inside a feature card (e.g. Artist Talk series inside rễ-root) */
+.edu-series { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--ink08); }
 
 /* Compact mini cards (committee roles and other one-liners) */
 .mini-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; }
