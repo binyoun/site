@@ -197,23 +197,20 @@ async function renderEducator() {
 async function renderResearcher() {
   const data = await fetch('/data/researcher.json').then(r => r.json());
 
-  // Card with an optional small poster thumb beside the text (mod-media),
-  // plain card otherwise. `body` is the inner HTML after the thumb.
-  const modCard = (image, alt, body) => image ? `
-    <div class="res-c mod-media">
-      <div class="mod-thumb"><img src="${abs(image)}" alt="${alt}" loading="lazy"></div>
-      <div class="mod-media-bd">${body}</div>
-    </div>` : `
-    <div class="res-c">${body}</div>`;
+  // Optional small poster thumb inline with the title, so a card with an
+  // image keeps the same layout as its text-only neighbours.
+  const thumbTitle = (image, title, italic = false) => `
+    <p class="res-c-title title-row"${italic ? ' style="font-style:italic;"' : ''}>${
+      image ? `<img class="t-thumb" src="${abs(image)}" alt="" loading="lazy">` : ''}${title}</p>`;
 
   const initEl = document.getElementById('res-initiatives');
-  if (initEl) initEl.innerHTML = `<div class="mod-grid">${data.initiatives.map(i =>
-    modCard(i.image, `Poster for ${i.title}`, `
-      <p class="res-c-title">${i.title}</p>
+  if (initEl) initEl.innerHTML = `<div class="mod-grid">${data.initiatives.map(i => `
+    <div class="res-c">
+      ${thumbTitle(i.image, i.title)}
       <p class="res-c-body">${i.description}</p>
       <p class="res-c-meta">${i.location}</p>
-      ${i.link ? `<a href="${i.link}" target="_blank" rel="noopener" class="res-lk">Visit &#x2197;</a>` : ''}`)
-  ).join('')}</div>`;
+      ${i.link ? `<a href="${i.link}" target="_blank" rel="noopener" class="res-lk">Visit &#x2197;</a>` : ''}
+    </div>`).join('')}</div>`;
 
   const commEl = document.getElementById('res-committee');
   if (commEl) commEl.innerHTML = `<div class="mini-grid">${data.committee.map(c => `
@@ -266,12 +263,12 @@ async function renderResearcher() {
   }
 
   const talkEl = document.getElementById('res-talks');
-  if (talkEl) talkEl.innerHTML = `<div class="mod-grid">${data.talks.map(t =>
-    modCard(t.image, `Poster for ${t.title}`, `
+  if (talkEl) talkEl.innerHTML = `<div class="mod-grid">${data.talks.map(t => `
+    <div class="res-c">
       <p class="res-c-meta">${t.venue}</p>
-      <p class="res-c-title" style="font-style:italic;">${t.title}</p>
-      ${t.link ? `<a href="${t.link}" target="_blank" rel="noopener" class="res-lk">Read &#x2197;</a>` : ''}`)
-  ).join('')}</div>`;
+      ${thumbTitle(t.image, t.title, true)}
+      ${t.link ? `<a href="${t.link}" target="_blank" rel="noopener" class="res-lk">Read &#x2197;</a>` : ''}
+    </div>`).join('')}</div>`;
 
   const deckEl = document.getElementById('res-decks');
   if (deckEl) deckEl.innerHTML = `<div class="edu-lks">${
