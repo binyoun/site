@@ -145,7 +145,10 @@ def build_artist():
         if cat not in buckets:
             continue
 
-        entry = {"title": fm_str(fm, "title"), "year": fm_str(fm, "year"), "cat": cat}
+        # a note can declare its own filter tags (e.g. "ar-xr participatory")
+        # via `cat:` frontmatter; the folder category is the fallback
+        entry = {"title": fm_str(fm, "title"), "year": fm_str(fm, "year"),
+                 "cat": fm_str(fm, "cat") or cat}
         for f in ("image", "link"):
             if fm.get(f):
                 entry[f] = fm_str(fm, f)

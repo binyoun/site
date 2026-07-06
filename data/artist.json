@@ -31,6 +31,13 @@
       "link": "/artist/loc/",
       "still": "image/stills/loc.jpg",
       "cat": "ar-xr participatory"
+    },
+    {
+      "title": "Uncanny Garden",
+      "year": "2026",
+      "cat": "ar-xr participatory",
+      "image": "image/uncannygarden.jpg",
+      "link": "https://uncanny.live"
     }
   ],
   "installations": [
