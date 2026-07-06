@@ -2,15 +2,9 @@
   "_note": "Edit this file in Obsidian to update the Researcher island.",
   "initiatives": [
     {
-      "title": "M-NODE: DIMA Korea × RMIT Vietnam Cross-Cultural Hackathon",
-      "description": "Five-day intensive cross-cultural hackathon between Dong-Ah Institute of Media and Arts (New Media Contents) and RMIT University Vietnam (Digital Media). 6 mixed teams. Organizer & Moderator.",
-      "location": "January 2026",
-      "link": "https://www.mnode.onl"
-    },
-    {
-      "title": "ISEA 2026 Workshop",
-      "description": "Counting Cultural Stars: Transforming Cultural Texts into Volumetric Constellations. Accepted workshop at the International Symposium on Electronic Art, co-organized with Patrick Hartono.",
-      "location": "ISEA 2026 · UAE"
+      "title": "Circulation: Cupping, Colour, and Collective Sensing",
+      "description": "SCD School Research Seed Funding (VND 90,000,000), accepted and ongoing. Project lead. Three handheld cupping-form devices with pressure and pulse (PPG) sensors, mapping bodily state to the Five Elements (오행) colour framework, with Patrick Hartono and Renusha Athugala, mentored by Dr. Hellmut Monz.",
+      "location": "RMIT University Vietnam · SCD School Research Seed Funding, internal"
     },
     {
       "title": "Touch of Water: Memory-Mapping with AR and Sound Journal",
@@ -20,9 +14,15 @@
       "link": "https://github.com/binyoun/touch-of-water"
     },
     {
-      "title": "Circulation: Cupping, Colour, and Collective Sensing",
-      "description": "SCD School Research Seed Funding (VND 90,000,000), accepted and ongoing. Project lead. Three handheld cupping-form devices with pressure and pulse (PPG) sensors, mapping bodily state to the Five Elements (오행) colour framework, with Patrick Hartono and Renusha Athugala, mentored by Dr. Hellmut Monz.",
-      "location": "RMIT University Vietnam · SCD School Research Seed Funding, internal"
+      "title": "M-NODE: DIMA Korea × RMIT Vietnam Cross-Cultural Hackathon",
+      "description": "Five-day intensive cross-cultural hackathon between Dong-Ah Institute of Media and Arts (New Media Contents) and RMIT University Vietnam (Digital Media). 6 mixed teams. Organizer & Moderator.",
+      "location": "January 2026",
+      "link": "https://www.mnode.onl"
+    },
+    {
+      "title": "ISEA 2026 Workshop",
+      "description": "Counting Cultural Stars: Transforming Cultural Texts into Volumetric Constellations. Accepted workshop at the International Symposium on Electronic Art, co-organized with Patrick Hartono.",
+      "location": "ISEA 2026 · UAE"
     },
     {
       "title": "AI-Assisted Photographic Assessment: A Discipline-Informed Feedback Tool",
