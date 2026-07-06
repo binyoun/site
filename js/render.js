@@ -106,20 +106,22 @@ async function renderArtist() {
 async function renderEducator() {
   const data = await fetch('/data/educator.json').then(r => r.json());
 
+  const chips = list => `<div class="chip-row">${list.map(c => `<span class="chip">${c}</span>`).join('')}</div>`;
+
   const roleEl = document.getElementById('edu-role');
   if (roleEl) roleEl.innerHTML = `
     <div class="edu-c">
       <p class="res-c-title">${data.role.title}</p>
       <p class="res-c-body">${data.role.institution}</p>
       <p class="res-c-meta">${data.role.department} · ${data.role.period}</p>
-      <div style="margin-top:12px;display:flex;gap:24px;flex-wrap:wrap;">
+      <div class="edu-role-cols">
         <div>
-          <p class="res-c-meta" style="margin-bottom:6px;">Coordinating</p>
-          ${data.role.coordinating.map(c => `<p class="res-c-body" style="margin-bottom:3px;">${c}</p>`).join('')}
+          <p class="res-c-meta">Coordinating</p>
+          ${chips(data.role.coordinating)}
         </div>
         <div>
-          <p class="res-c-meta" style="margin-bottom:6px;">Teaching</p>
-          ${data.role.teaching.map(c => `<p class="res-c-body" style="margin-bottom:3px;">${c}</p>`).join('')}
+          <p class="res-c-meta">Teaching</p>
+          ${chips(data.role.teaching)}
         </div>
       </div>
     </div>`;
@@ -129,13 +131,13 @@ async function renderEducator() {
     <div class="edu-c">
       <p class="res-c-title">${data.framework.title}</p>
       <p class="res-c-body" style="margin-top:5px;">${data.framework.description}</p>
-      ${data.framework.links.length ? `<div class="edu-lks" style="margin-top:10px;">${data.framework.links.map(l =>
+      ${data.framework.links.length ? `<div class="edu-lks">${data.framework.links.map(l =>
         `<a href="${l.url}" target="_blank" rel="noopener" class="res-lk">${l.label} &#x2197;</a>`
       ).join('')}</div>` : ''}
     </div>`;
 
   const workshopEl = document.getElementById('edu-workshops');
-  if (workshopEl) workshopEl.innerHTML = data.workshops.map(w => `
+  if (workshopEl) workshopEl.innerHTML = `<div class="mod-grid">${data.workshops.map(w => `
     <div class="edu-c">
       <p class="res-c-title">${w.title}</p>
       ${w.subtitle ? `<p class="res-c-meta">${w.subtitle}</p>` : ''}
@@ -147,25 +149,29 @@ async function renderEducator() {
             : `<div class="card-poster-ph"><p>Poster pending</p></div>`}
           <p class="res-c-meta">${s.label}</p>
         </div>`).join('')}</div>` : ''}
-      ${w.links.length ? `<div class="edu-lks" style="margin-top:10px;">${w.links.map(l =>
+      ${w.links.length ? `<div class="edu-lks">${w.links.map(l =>
         `<a href="${l.url}" target="_blank" rel="noopener" class="res-lk">${l.label} &#x2197;</a>`
       ).join('')}</div>` : ''}
-    </div>`).join('');
+    </div>`).join('')}</div>`;
 
   const ifftiEl = document.getElementById('edu-iffti');
-  if (ifftiEl) ifftiEl.innerHTML = `
+  if (ifftiEl) {
+    const pending = data.iffti.students.every(s => s.name === '[Confirm]');
+    ifftiEl.innerHTML = `
     <div class="edu-c">
       <p class="res-c-meta">${data.iffti.event}</p>
       <p class="res-c-body" style="margin-top:5px;margin-bottom:14px;">${data.iffti.description}</p>
-      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;">
-        ${data.iffti.students.map((s, i) => `
-          <div style="background:#f4f0e8;border:1px solid rgba(10,110,96,.15);padding:14px;border-radius:2px;">
-            <p class="res-c-meta" style="margin-bottom:4px;">Student ${i + 1}</p>
+      ${pending
+        ? `<p class="res-c-meta">${data.iffti.students.length} student works &middot; roster to be announced</p>`
+        : `<div class="iffti-grid">
+        ${data.iffti.students.map(s => `
+          <div class="iffti-card">
             <p class="res-c-body">${s.name}</p>
             <p class="res-c-meta" style="margin-top:4px;">${s.work}</p>
           </div>`).join('')}
-      </div>
+      </div>`}
     </div>`;
+  }
 
   const guestEl = document.getElementById('edu-guests');
   if (guestEl) guestEl.textContent = data.guests.join(' · ');
@@ -176,24 +182,32 @@ async function renderEducator() {
 async function renderResearcher() {
   const data = await fetch('/data/researcher.json').then(r => r.json());
 
+  // Card with an optional small poster thumb beside the text (mod-media),
+  // plain card otherwise. `body` is the inner HTML after the thumb.
+  const modCard = (image, alt, body) => image ? `
+    <div class="res-c mod-media">
+      <div class="mod-thumb"><img src="${abs(image)}" alt="${alt}" loading="lazy"></div>
+      <div class="mod-media-bd">${body}</div>
+    </div>` : `
+    <div class="res-c">${body}</div>`;
+
   const initEl = document.getElementById('res-initiatives');
-  if (initEl) initEl.innerHTML = data.initiatives.map(i => `
-    <div class="res-c">
-      ${i.image ? `<img class="card-poster" src="${abs(i.image)}" alt="Poster for ${i.title}" loading="lazy">` : ''}
+  if (initEl) initEl.innerHTML = `<div class="mod-grid">${data.initiatives.map(i =>
+    modCard(i.image, `Poster for ${i.title}`, `
       <p class="res-c-title">${i.title}</p>
       <p class="res-c-body">${i.description}</p>
       <p class="res-c-meta">${i.location}</p>
-      ${i.link ? `<a href="${i.link}" target="_blank" rel="noopener" class="res-lk">Visit &#x2197;</a>` : ''}
-    </div>`).join('');
+      ${i.link ? `<a href="${i.link}" target="_blank" rel="noopener" class="res-lk">Visit &#x2197;</a>` : ''}`)
+  ).join('')}</div>`;
 
   const commEl = document.getElementById('res-committee');
-  if (commEl) commEl.innerHTML = data.committee.map(c => `
-    <div class="res-c">
-      <p class="res-c-title">${c.role}</p>
-      <p class="res-c-body">${c.event}</p>
-      <p class="res-c-meta">${c.location}</p>
+  if (commEl) commEl.innerHTML = `<div class="mini-grid">${data.committee.map(c => `
+    <div class="res-mini">
+      <p class="res-mini-t">${c.role}</p>
+      <p class="res-mini-b">${c.event}</p>
+      <p class="res-mini-m">${c.location}</p>
       ${c.link ? `<a href="${c.link}" target="_blank" rel="noopener" class="res-lk">Visit &#x2197;</a>` : ''}
-    </div>`).join('');
+    </div>`).join('')}</div>`;
 
   const pubEl = document.getElementById('res-publications');
   if (pubEl) {
@@ -205,14 +219,18 @@ async function renderResearcher() {
     pubEl.innerHTML = years.map(year => `
       <div class="res-year">
         <div class="res-year-h">${year}</div>
+        <div class="res-year-bd">
         ${data.publications.filter(p => p.year === year).map(p => `
           <div class="res-pub">
             <h4>${p.title}</h4>
             <p class="res-venue">${p.venue}</p>
             ${p.coauthors ? `<p class="res-coauth">${p.coauthors}</p>` : ''}
-            <button class="copy-cite" data-cite="${citeOf(p)}" onclick="copyCite(this)">Copy citation</button>
-            ${p.link ? `<a href="${p.link}" target="_blank" rel="noopener" class="res-lk">View &#x2197;</a>` : ''}
+            <div class="res-pub-actions">
+              <button class="copy-cite" data-cite="${citeOf(p)}" onclick="copyCite(this)">Copy citation</button>
+              ${p.link ? `<a href="${p.link}" target="_blank" rel="noopener" class="res-lk">View &#x2197;</a>` : ''}
+            </div>
           </div>`).join('')}
+        </div>
       </div>`).join('');
 
     const ld = {
@@ -233,16 +251,15 @@ async function renderResearcher() {
   }
 
   const talkEl = document.getElementById('res-talks');
-  if (talkEl) talkEl.innerHTML = data.talks.map(t => `
-    <div class="res-c">
-      ${t.image ? `<img class="card-poster" src="${abs(t.image)}" alt="Poster for ${t.title}" loading="lazy">` : ''}
+  if (talkEl) talkEl.innerHTML = `<div class="mod-grid">${data.talks.map(t =>
+    modCard(t.image, `Poster for ${t.title}`, `
       <p class="res-c-meta">${t.venue}</p>
       <p class="res-c-title" style="font-style:italic;">${t.title}</p>
-      ${t.link ? `<a href="${t.link}" target="_blank" rel="noopener" class="res-lk">Read &#x2197;</a>` : ''}
-    </div>`).join('');
+      ${t.link ? `<a href="${t.link}" target="_blank" rel="noopener" class="res-lk">Read &#x2197;</a>` : ''}`)
+  ).join('')}</div>`;
 
   const deckEl = document.getElementById('res-decks');
-  if (deckEl) deckEl.innerHTML = `<div style="display:flex;gap:10px;">${
+  if (deckEl) deckEl.innerHTML = `<div class="edu-lks">${
     data.decks.map(d => `<a href="${d.url}" target="_blank" rel="noopener" class="res-btn">${d.label}</a>`).join('')
   }</div>`;
 }

@@ -96,7 +96,41 @@
 .edu-c h3   { font-family: var(--heading); font-size: 16px; font-weight: 500; color: var(--ink); margin-bottom: 4px; }
 .edu-c .em  { font-family: var(--mono); font-size: 11px; font-weight: 500; color: var(--ink20); margin-bottom: 6px; }
 .edu-c p    { font-size: 13px; color: var(--ink45); line-height: 1.6; margin-bottom: 10px; }
-.edu-lks    { display: flex; gap: 10px; }
+.edu-lks    { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+
+/* ── Modular grid system (Researcher + Educator) ─────────────────────────── */
+/* Repeating collections sit in a responsive grid of equal-height cards;
+   the footer link pins to the card bottom so rows align. */
+.mod-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px; }
+.mod-grid > .res-c, .mod-grid > .edu-c { margin-bottom: 0; display: flex; flex-direction: column; }
+.mod-grid .res-c-title { font-size: 16px; }
+.mod-grid > .res-c > .res-lk, .mod-grid .mod-media-bd > .res-lk { margin-top: auto; padding-top: 10px; align-self: flex-start; }
+.mod-grid > .edu-c > .edu-lks { margin-top: auto; padding-top: 12px; }
+
+/* Horizontal media card: small poster thumbnail beside the text */
+.mod-media { flex-direction: row; padding: 0; overflow: hidden; }
+.mod-thumb { width: 96px; flex-shrink: 0; background: #f4f0e8; }
+.mod-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.mod-media-bd { flex: 1; min-width: 0; padding: 18px 20px; display: flex; flex-direction: column; }
+
+/* Compact mini cards (committee roles and other one-liners) */
+.mini-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; }
+.res-mini { background: white; border: 1px solid var(--ink08); border-radius: 3px; padding: 14px 16px; transition: border-color .3s; display: flex; flex-direction: column; }
+.res-mini:hover { border-color: rgba(42,122,26,.2); }
+.res-mini-t { font-family: var(--heading); font-size: 14px; font-weight: 600; color: #0f0f0d; line-height: 1.35; margin-bottom: 3px; }
+.res-mini-b { font-size: 12.5px; color: #55554f; line-height: 1.5; }
+.res-mini-m { font-family: var(--mono); font-size: 11px; letter-spacing: .04em; color: #78786f; margin-top: 4px; }
+.res-mini > .res-lk { font-size: 11px; margin-top: auto; padding-top: 8px; align-self: flex-start; }
+
+/* Course chips (Educator role card) */
+.chip-row { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-family: var(--mono); font-size: 11px; letter-spacing: .03em; padding: 5px 12px; border: 1px solid var(--ink12); border-radius: 20px; color: #45453f; background: #f4f0e8; }
+.edu-role-cols { display: flex; gap: 32px; flex-wrap: wrap; margin-top: 14px; }
+.edu-role-cols .res-c-meta { margin-bottom: 8px; }
+
+/* IFFTI student tiles */
+.iffti-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+.iffti-card { background: #f4f0e8; border: 1px solid rgba(10,110,96,.15); padding: 14px; border-radius: 2px; }
 
 /* Poster images / placeholders, used inside edu-c and res-c cards */
 .card-poster    { display: block; width: 100%; max-width: 220px; border-radius: 3px; margin-bottom: 12px; }
@@ -114,9 +148,16 @@
 .res-c-body  { font-size: 14px; color: #55554f; line-height: 1.6; margin-bottom: 5px; }
 .res-c-meta  { font-family: var(--mono); font-size: 12px; letter-spacing: .06em; color: #78786f; margin-bottom: 6px; }
 
-/* Publications — year groups */
-.res-year   { margin-bottom: 28px; }
-.res-year-h { font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: .28em; text-transform: uppercase; color: #2a7a1a; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid rgba(57,255,20,.2); }
+/* Publications — year rail + entries */
+.res-year   { display: grid; grid-template-columns: 64px 1fr; gap: 0 22px; margin-bottom: 26px; }
+.res-year-h { font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: .28em; text-transform: uppercase; color: #2a7a1a; padding-top: 6px; }
+.res-year-bd .res-pub:last-child { margin-bottom: 0; }
+@media (max-width: 620px) {
+  .res-year   { grid-template-columns: 1fr; }
+  .res-year-h { border-bottom: 1px solid rgba(57,255,20,.2); padding-bottom: 8px; margin-bottom: 14px; }
+}
+.res-pub-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; margin-top: 9px; }
+.res-pub-actions .copy-cite, .res-pub-actions .res-lk { margin-top: 0; }
 .res-pub { border-left: 3px solid #d0d0cc; padding: 4px 0 4px 18px; margin-bottom: 18px; transition: border-color .3s; }
 .res-pub:hover { border-color: #2a7a1a; }
 .res-pub h4 { font-family: var(--heading); font-style: italic; font-size: 18px; color: #0f0f0d; letter-spacing: -.2px; line-height: 1.4; font-weight: 600; margin-bottom: 6px; }
