@@ -5,8 +5,9 @@
       "title": "Uncanny Garden",
       "year": "2026",
       "cat": "ar-xr participatory",
-      "image": "image/uncannygarden.jpg",
-      "link": "/artist/uncanny-garden/"
+      "image": "image/uncannygarden.gif",
+      "link": "/artist/uncanny-garden/",
+      "still": "image/uncannygarden.jpg"
     },
     {
       "title": "Sacred Tree: Summoning Gelora (신목, 神木)",
