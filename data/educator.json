@@ -88,12 +88,14 @@
     {
       "title": "Elemental WebAR",
       "description": "Config-driven WebAR teaching kit: students turn a photograph into a browser-based AR marker experience, no app required.",
-      "url": "https://binyoun.github.io/webar/"
+      "url": "https://binyoun.github.io/webar/",
+      "icon": "https://binyoun.github.io/webar/favicon.png"
     },
     {
       "title": "Photography 101",
       "description": "Course companion site for Photography 101 at RMIT Vietnam.",
-      "url": "https://binyoun.github.io/photo101/"
+      "url": "https://binyoun.github.io/photo101/",
+      "icon": "https://binyoun.github.io/photo101/favicon.png"
     },
     {
       "title": "Cultural Visions",

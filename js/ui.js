@@ -93,6 +93,12 @@ window.toggleAcc = function(btn) {
   btn.nextElementSibling.classList.toggle('open');
 };
 
+// Poster thumb toggle on researcher cards — called from render.js-generated HTML
+window.togglePoster = function(btn) {
+  const card = btn.closest('.res-c');
+  if (card) card.classList.toggle('poster-open');
+};
+
 // Dismiss a thumbnail's gallery pop-out without navigating — called from render.js-generated HTML
 window.dismissPop = function(btn, e) {
   e.preventDefault();

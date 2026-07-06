@@ -107,10 +107,19 @@
 .mod-grid > .res-c > .res-lk { margin-top: auto; padding-top: 10px; align-self: flex-start; }
 .mod-grid > .edu-c > .edu-lks { margin-top: auto; padding-top: 12px; }
 
-/* Small icon or poster thumb inline with a card title */
+/* Small icon inline with a card title */
 .title-row { display: flex; align-items: center; gap: 9px; }
-.t-fav   { width: 18px; height: 18px; border-radius: 4px; object-fit: cover; flex-shrink: 0; }
-.t-thumb { width: 26px; height: 26px; border-radius: 4px; object-fit: cover; object-position: top; flex-shrink: 0; border: 1px solid var(--ink08); }
+.t-fav { width: 18px; height: 18px; border-radius: 4px; object-fit: cover; flex-shrink: 0; }
+
+/* Poster docked right of the card text; click toggles the large view */
+.res-c-row  { display: flex; gap: 14px; align-items: flex-start; }
+.res-c-main { flex: 1; min-width: 0; }
+.poster-side { width: 60px; flex-shrink: 0; padding: 0; border: 1px solid var(--ink08); border-radius: 4px; background: none; cursor: zoom-in; overflow: hidden; transition: border-color .2s, box-shadow .2s; }
+.poster-side:hover { border-color: rgba(42,122,26,.35); box-shadow: 0 6px 16px rgba(0,0,0,.12); }
+.poster-side img { display: block; width: 100%; height: auto; }
+.poster-full { display: none; width: 100%; max-width: 340px; border: 1px solid var(--ink08); border-radius: 4px; margin-top: 12px; }
+.res-c.poster-open .poster-full { display: block; }
+.res-c.poster-open .poster-side { cursor: zoom-out; }
 
 /* Sub-block inside a feature card (e.g. Artist Talk series inside rễ-root) */
 .edu-series { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--ink08); }
