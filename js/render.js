@@ -126,23 +126,24 @@ async function renderEducator() {
       </div>
     </div>`;
 
+  // Small favicon of the site a card refers to, shown beside its title
+  const favTitle = (icon, title) => `
+    <p class="res-c-title title-row">${icon ? `<img class="t-fav" src="${icon}" alt="" loading="lazy">` : ''}${title}</p>`;
+
   const fwEl = document.getElementById('edu-framework');
   if (fwEl) fwEl.innerHTML = `
-    <div class="edu-c mod-media">
-      <div class="mod-thumb mod-thumb-icon"><img src="/favicon.svg" alt="" loading="lazy"></div>
-      <div class="mod-media-bd">
-        <p class="res-c-title">${data.framework.title}</p>
-        <p class="res-c-body" style="margin-top:5px;">${data.framework.description}</p>
-        ${data.framework.series ? `
-        <div class="edu-series">
-          <p class="res-c-title" style="font-size:15px;">${data.framework.series.title}</p>
-          <p class="res-c-meta">${data.framework.series.subtitle}</p>
-          <p class="res-c-body" style="margin-top:5px;">${data.framework.series.description}</p>
-        </div>` : ''}
-        ${data.framework.links.length ? `<div class="edu-lks">${data.framework.links.map(l =>
-          `<a href="${l.url}" target="_blank" rel="noopener" class="res-lk">${l.label} &#x2197;</a>`
-        ).join('')}</div>` : ''}
-      </div>
+    <div class="edu-c">
+      ${favTitle(data.framework.icon, data.framework.title)}
+      <p class="res-c-body" style="margin-top:5px;">${data.framework.description}</p>
+      ${data.framework.series ? `
+      <div class="edu-series">
+        <p class="res-c-title" style="font-size:15px;">${data.framework.series.title}</p>
+        <p class="res-c-meta">${data.framework.series.subtitle}</p>
+        <p class="res-c-body" style="margin-top:5px;">${data.framework.series.description}</p>
+      </div>` : ''}
+      ${data.framework.links.length ? `<div class="edu-lks">${data.framework.links.map(l =>
+        `<a href="${l.url}" target="_blank" rel="noopener" class="res-lk">${l.label} &#x2197;</a>`
+      ).join('')}</div>` : ''}
     </div>`;
 
   const workshopEl = document.getElementById('edu-workshops');
@@ -184,13 +185,10 @@ async function renderEducator() {
 
   const sitesEl = document.getElementById('edu-sites');
   if (sitesEl && data.sites) sitesEl.innerHTML = `<div class="mod-grid">${data.sites.map(s => `
-    <div class="edu-c mod-media">
-      <div class="mod-thumb mod-thumb-icon"><img src="/favicon.svg" alt="" loading="lazy"></div>
-      <div class="mod-media-bd">
-        <p class="res-c-title">${s.title}</p>
-        <p class="res-c-body">${s.description}</p>
-        <a href="${s.url}" target="_blank" rel="noopener" class="res-lk">Visit &#x2197;</a>
-      </div>
+    <div class="edu-c">
+      ${favTitle(s.icon, s.title)}
+      <p class="res-c-body">${s.description}</p>
+      <a href="${s.url}" target="_blank" rel="noopener" class="res-lk">Visit &#x2197;</a>
     </div>`).join('')}</div>`;
 }
 

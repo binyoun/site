@@ -5,8 +5,18 @@
     "institution": "RMIT University Vietnam",
     "department": "School of Communication and Design",
     "period": "March 2025–Present",
-    "coordinating": ["Photography 101", "Creative Photography", "Commercial Photography"],
-    "teaching": ["Photography 101", "Creative Photography", "Commercial Photography", "Professional Practice", "Major Project"]
+    "coordinating": [
+      "Photography 101",
+      "Creative Photography",
+      "Commercial Photography"
+    ],
+    "teaching": [
+      "Photography 101",
+      "Creative Photography",
+      "Commercial Photography",
+      "Professional Practice",
+      "Major Project"
+    ]
   },
   "framework": {
     "title": "rễ-root",
@@ -17,9 +27,16 @@
       "description": "The framework's live thread: each session invites alumni from previous cohorts to return and share their creative journeys and ongoing practice. Creative practice grows as a connected, entangled network rooted in rhizomic thinking."
     },
     "links": [
-      { "label": "Framework", "url": "https://binyoun.github.io/reroot/" },
-      { "label": "Workshops", "url": "https://binyoun.github.io/reroot/workshops/" }
-    ]
+      {
+        "label": "Framework",
+        "url": "https://binyoun.github.io/reroot/"
+      },
+      {
+        "label": "Workshops",
+        "url": "https://binyoun.github.io/reroot/workshops/"
+      }
+    ],
+    "icon": "https://binyoun.github.io/reroot/image/favicon.png"
   },
   "workshops": [
     {
@@ -27,17 +44,32 @@
       "subtitle": "Semester 3 · 2025",
       "description": "Intensive student workshops fostering creative exploration through lens-based media.",
       "links": [
-        { "label": "I",   "url": "https://www.instagram.com/p/DSQ-hOyEmrw/" },
-        { "label": "II",  "url": "https://www.instagram.com/p/DSZ9xXmEmhr/" },
-        { "label": "III", "url": "https://www.instagram.com/p/DS_g_w3kjmW/" }
+        {
+          "label": "I",
+          "url": "https://www.instagram.com/p/DSQ-hOyEmrw/"
+        },
+        {
+          "label": "II",
+          "url": "https://www.instagram.com/p/DSZ9xXmEmhr/"
+        },
+        {
+          "label": "III",
+          "url": "https://www.instagram.com/p/DS_g_w3kjmW/"
+        }
       ]
     },
     {
       "title": "VVIP Photo Gift Project",
       "description": "Project lead. Curated student professional photography for distinguished guests. Developing a cross-cultural visual archive platform.",
       "links": [
-        { "label": "Archive", "url": "https://binyoun.github.io/cultural-visions/" },
-        { "label": "View",    "url": "https://www.instagram.com/p/DTO9nigEgN-/" }
+        {
+          "label": "Archive",
+          "url": "https://binyoun.github.io/cultural-visions/"
+        },
+        {
+          "label": "View",
+          "url": "https://www.instagram.com/p/DTO9nigEgN-/"
+        }
       ]
     },
     {
@@ -66,17 +98,30 @@
     {
       "title": "Cultural Visions",
       "description": "Cross-cultural visual archive of student professional photography from the VVIP Photo Gift Project.",
-      "url": "https://binyoun.github.io/cultural-visions/"
+      "url": "https://binyoun.github.io/cultural-visions/",
+      "icon": "https://binyoun.github.io/cultural-visions/favicon.ico"
     }
   ],
   "iffti": {
     "event": "28th IFFTI 2026 · RMIT University Vietnam · April 2026",
     "description": "4 Creative Photography students' works selected for exhibition. rễ-root framework and student practice introduced to international guests and RMIT leadership.",
     "students": [
-      { "name": "[Confirm]", "work": "[Confirm]" },
-      { "name": "[Confirm]", "work": "[Confirm]" },
-      { "name": "[Confirm]", "work": "[Confirm]" },
-      { "name": "[Confirm]", "work": "[Confirm]" }
+      {
+        "name": "[Confirm]",
+        "work": "[Confirm]"
+      },
+      {
+        "name": "[Confirm]",
+        "work": "[Confirm]"
+      },
+      {
+        "name": "[Confirm]",
+        "work": "[Confirm]"
+      },
+      {
+        "name": "[Confirm]",
+        "work": "[Confirm]"
+      }
     ]
   }
 }
