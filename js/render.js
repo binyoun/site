@@ -289,7 +289,10 @@ async function renderResearcher() {
           <img class="card-poster" src="${abs(p.image)}" alt="${p.label}" loading="lazy">
           <p class="res-c-meta">${p.label}</p>
         </div>`).join('')}</div>` : ''}`,
-      t.link ? `<a href="${t.link}" target="_blank" rel="noopener" class="res-lk">Read &#x2197;</a>` : '')
+      t.links ? `<div class="edu-lks">${t.links.map(l =>
+        `<a href="${l.url}" target="_blank" rel="noopener" class="res-lk">${l.label} &#x2197;</a>`
+      ).join('')}</div>`
+      : t.link ? `<a href="${t.link}" target="_blank" rel="noopener" class="res-lk">Read &#x2197;</a>` : '')
   ).join('')}</div>`;
 
   const deckEl = document.getElementById('res-decks');
