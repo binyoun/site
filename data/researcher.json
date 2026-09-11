@@ -26,11 +26,10 @@
         { "image": "image/press/mnode-presentations-2026.jpg", "label": "Hackathon Presentations" }
       ],
       "links": [
-        { "label": "Judges Tool", "url": "https://www.mnode.onl" },
         { "label": "Framework", "url": "https://binyoun.github.io/mnode/#framework" },
-        { "label": "Workshop Opening Slide", "url": "https://canva.link/p37iqutozy89zsu" },
-        { "label": "Hackathon Themes", "url": "https://canva.link/smn8wyk968eiuv0" },
-        { "label": "Final Presentation", "url": "https://canva.link/l986gra67nq5j65" }
+        { "label": "Judges Tool", "url": "https://www.mnode.onl" },
+        { "label": "Workshop Opening Slide", "url": "https://canva.link/zhszlujw17qpe5g" },
+        { "label": "Final Presentation", "url": "https://canva.link/2pnt78lh4qi5eez" }
       ]
     },
     {
@@ -176,7 +175,7 @@
         { "image": "image/press/cosmological-apparatus-2026.jpg", "label": "Artist Talk Poster" }
       ],
       "links": [
-        { "label": "Slides", "url": "https://canva.link/8ak6fcdgsruv05n" }
+        { "label": "Slides", "url": "https://canva.link/52pl5drwg1jekaw" }
       ]
     },
     {
