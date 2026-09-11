@@ -102,6 +102,11 @@
       "description": "Cross-cultural visual archive of student professional photography from the VVIP Photo Gift Project.",
       "url": "https://binyoun.github.io/cultural-visions/",
       "icon": "https://binyoun.github.io/cultural-visions/favicon.ico"
+    },
+    {
+      "title": "Alternative Process Lab",
+      "description": "Browser darkroom for Creative Photography: students walk a photo through nine 19th-century alternative processes step by step, fully client-side.",
+      "url": "https://binyoun.github.io/alt-lab/"
     }
   ],
   "iffti": {

@@ -217,8 +217,16 @@ async function renderResearcher() {
     posterCard(i.image, `Poster for ${i.title}`, `
       <p class="res-c-title">${i.title}</p>
       <p class="res-c-body">${i.description}</p>
-      <p class="res-c-meta">${i.location}</p>`,
-      i.link ? `<a href="${i.link}" target="_blank" rel="noopener" class="res-lk">Visit &#x2197;</a>` : '')
+      <p class="res-c-meta">${i.location}</p>
+      ${i.images ? `<div class="card-poster-grid">${i.images.map(p => `
+        <div>
+          <img class="card-poster" src="${abs(p.image)}" alt="${p.label}" loading="lazy">
+          <p class="res-c-meta">${p.label}</p>
+        </div>`).join('')}</div>` : ''}`,
+      i.links ? `<div class="edu-lks">${i.links.map(l =>
+        `<a href="${l.url}" target="_blank" rel="noopener" class="res-lk">${l.label} &#x2197;</a>`
+      ).join('')}</div>`
+      : i.link ? `<a href="${i.link}" target="_blank" rel="noopener" class="res-lk">Visit &#x2197;</a>` : '')
   ).join('')}</div>`;
 
   const commEl = document.getElementById('res-committee');
@@ -275,7 +283,12 @@ async function renderResearcher() {
   if (talkEl) talkEl.innerHTML = `<div class="mod-grid">${data.talks.map(t =>
     posterCard(t.image, `Poster for ${t.title}`, `
       <p class="res-c-meta">${t.venue}</p>
-      <p class="res-c-title" style="font-style:italic;">${t.title}</p>`,
+      <p class="res-c-title" style="font-style:italic;">${t.title}</p>
+      ${t.images ? `<div class="card-poster-grid">${t.images.map(p => `
+        <div>
+          <img class="card-poster" src="${abs(p.image)}" alt="${p.label}" loading="lazy">
+          <p class="res-c-meta">${p.label}</p>
+        </div>`).join('')}</div>` : ''}`,
       t.link ? `<a href="${t.link}" target="_blank" rel="noopener" class="res-lk">Read &#x2197;</a>` : '')
   ).join('')}</div>`;
 
