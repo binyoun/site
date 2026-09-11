@@ -13,7 +13,9 @@
       "images": [
         { "image": "image/press/touch-of-water-workshop-mmu-2026.jpg", "label": "Workshop Poster" }
       ],
-      "link": "https://github.com/binyoun/touch-of-water"
+      "links": [
+        { "label": "GitHub", "url": "https://github.com/binyoun/touch-of-water" }
+      ]
     },
     {
       "title": "M-NODE: DIMA Korea × RMIT Vietnam Cross-Cultural Hackathon",
@@ -24,7 +26,8 @@
         { "image": "image/press/mnode-presentations-2026.jpg", "label": "Hackathon Presentations" }
       ],
       "links": [
-        { "label": "Judges Tool", "url": "https://binyoun.github.io/mnode/#framework" },
+        { "label": "Judges Tool", "url": "https://www.mnode.onl" },
+        { "label": "Framework", "url": "https://binyoun.github.io/mnode/#framework" },
         { "label": "Workshop Opening Slide", "url": "https://canva.link/p37iqutozy89zsu" },
         { "label": "Hackathon Themes", "url": "https://canva.link/smn8wyk968eiuv0" },
         { "label": "Final Presentation", "url": "https://canva.link/l986gra67nq5j65" }
@@ -44,31 +47,41 @@
       "title": "Maek (맥): Acupoint and Meridian Mapping as Somatic Interface",
       "description": "Hand-tracking prototype overlaying acupuncture points and meridian channels live, solved per-person from cun-proportional (골도분촌) rules against MediaPipe hand landmarks. Phase 1 built.",
       "location": "Prototype, not yet publicly shown",
-      "link": "https://binyoun.github.io/maek/"
+      "links": [
+        { "label": "Live Demo", "url": "https://binyoun.github.io/maek/" }
+      ]
     },
     {
       "title": "Bagua Theremin",
       "description": "Browser theremin split across the eight I-Ching trigrams: hand position sets pitch and colour, height sets volume. Built as a WebAR 3D bagua mirror scene.",
       "location": "Prototype, not yet publicly shown",
-      "link": "https://binyoun.github.io/bagua-theremin/"
+      "links": [
+        { "label": "Live Demo", "url": "https://binyoun.github.io/bagua-theremin/" }
+      ]
     },
     {
       "title": "Perforated Atlas",
       "description": "Museum browser artwork translating a typed memory of Ho Chi Minh City's vanishing water into a perforated music-box strip; the words are destroyed, only the pattern survives. A physical ESP32 machine apparatus is in development alongside the web version.",
       "location": "Prototype, not yet publicly shown",
-      "link": "https://binyoun.github.io/perforated-atlas/"
+      "links": [
+        { "label": "Live Demo", "url": "https://binyoun.github.io/perforated-atlas/" }
+      ]
     },
     {
       "title": "vanitas (gelora-soil)",
       "description": "Front-camera WebAR piece in the Gelora lineage: a photographed flower and an offered palm grow a mutating 3D bloom seeded from the flower's own colour, which wilts and pours away.",
       "location": "Prototype, not yet publicly shown",
-      "link": "https://binyoun.github.io/gelora-soil/"
+      "links": [
+        { "label": "Live Demo", "url": "https://binyoun.github.io/gelora-soil/" }
+      ]
     },
     {
       "title": "Tứ Bình",
       "description": "Catch-and-harmonize colour piece: closing a hand catches a colour, which follows the hand and harmonizes with a second catch.",
       "location": "Prototype, not yet publicly shown",
-      "link": "https://binyoun.github.io/tu-binh/"
+      "links": [
+        { "label": "Live Demo", "url": "https://binyoun.github.io/tu-binh/" }
+      ]
     }
   ],
 
