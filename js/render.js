@@ -183,6 +183,21 @@ async function renderEducator() {
     </div>`;
   }
 
+  const pingyaoEl = document.getElementById('edu-pingyao');
+  if (pingyaoEl && data.pingyao) pingyaoEl.innerHTML = `
+    <div class="edu-c">
+      <p class="res-c-meta">${data.pingyao.event}</p>
+      <p class="res-c-body" style="margin-top:5px;margin-bottom:14px;">${data.pingyao.description}</p>
+      <div class="iffti-grid">
+        ${data.pingyao.students.map(s => `
+          <div class="iffti-card">
+            <p class="res-c-body">${s.name}</p>
+            <p class="res-c-meta" style="margin-top:4px;">${s.work}</p>
+          </div>`).join('')}
+      </div>
+      ${data.pingyao.link ? `<a href="${data.pingyao.link}" target="_blank" rel="noopener" class="res-lk" style="margin-top:14px;display:inline-block;">Visit &#x2197;</a>` : ''}
+    </div>`;
+
   const sitesEl = document.getElementById('edu-sites');
   if (sitesEl && data.sites) sitesEl.innerHTML = `<div class="mod-grid">${data.sites.map(s => `
     <div class="edu-c">

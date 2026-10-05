@@ -130,5 +130,20 @@
         "work": "[Confirm]"
       }
     ]
+  },
+  "pingyao": {
+    "event": "rễRoute: RMIT Photography from Australia & Vietnam · 2026 Pingyao International Festival of Photography (PIPF), China · September 2026",
+    "description": "Co-curated with Assoc. Prof. Shane Hulbert (RMIT Melbourne) and Christian Berg (RMIT Vietnam). 8 students from Photography 101, Creative Photography, and Digital Media classes confirmed in the exhibition.",
+    "students": [
+      { "name": "Chau Ngo Bao (Ngo Bao Chau)", "work": "Photography 101" },
+      { "name": "Cuc Ca Thi (Ca Thi Cuc)", "work": "Photography 101" },
+      { "name": "Diem Nguyen Vo Hong (Nguyen Vo Hong Diem)", "work": "Photography 101" },
+      { "name": "Hao Tran Quoc (Tran Quoc Hao)", "work": "Creative Photography · Digital Media" },
+      { "name": "Nga Le Thi Tuyet (Le Thi Tuyet Nga)", "work": "Creative Photography · Digital Media" },
+      { "name": "Ton Nguyen (Nguyen Thanh Van)", "work": "Creative Photography, Photography 101 · Digital Media" },
+      { "name": "Anh Tran Dang Minh (Tran Dang Minh Anh)", "work": "Creative Photography · Digital Media" },
+      { "name": "Trang Pham Ha Hoang (Pham Ha Hoang Trang)", "work": "Digital Media" }
+    ],
+    "link": "https://sites.rmit.edu.au/photography/2026-pingyao-international-photography-festival/"
   }
 }
