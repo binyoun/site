@@ -22,11 +22,26 @@
 .copy-btn:hover { border-color: #686866; color: #1a1a18; }
 .copy-btn.copied { border-color: rgba(10,110,96,.4); color: #0a6e60; }
 
-.timeline-v { position: relative; padding-left: 24px; margin-top: 8px; }
-.timeline-v::before { content: ''; position: absolute; left: 4px; top: 6px; bottom: 6px; width: 1px; background: var(--ink12); }
-.timeline-i { position: relative; margin-bottom: 24px; }
-.timeline-i::before { content: ''; position: absolute; left: -24px; top: 5px; width: 9px; height: 9px; border-radius: 50%; background: var(--pink); }
-.timeline-i:last-child { margin-bottom: 0; }
-.timeline-place { font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--pink); margin-bottom: 4px; }
-.timeline-detail { font-size: 15px; color: #3a3a38; line-height: 1.5; }
+/* Timeline: horizontal axis scaled by year, so spacing reflects real gaps. Points, not spans, so no duration is implied. */
+.timeline-h { list-style: none; position: relative; height: 150px; margin: 8px 12px 0; padding: 0; }
+.timeline-h::before { content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: var(--ink12); }
+.timeline-h-i { position: absolute; left: var(--x); top: 50%; transform: translateX(-50%); }
+.timeline-h-i::before { content: ''; position: absolute; left: 50%; top: -4px; width: 9px; height: 9px; margin-left: -4px; border-radius: 50%; background: var(--pink); }
+.timeline-h-i .timeline-place, .timeline-h-i .timeline-year { position: absolute; left: 50%; transform: translateX(-50%); white-space: nowrap; text-align: center; margin: 0; }
+.timeline-h-i.up .timeline-place { bottom: 30px; }
+.timeline-h-i.up .timeline-year { bottom: 14px; }
+.timeline-h-i.down .timeline-place { top: 30px; }
+.timeline-h-i.down .timeline-year { top: 46px; }
+.timeline-h-i.end .timeline-place, .timeline-h-i.end .timeline-year { left: auto; right: -6px; transform: none; text-align: right; }
+.timeline-place { font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--pink); }
 .timeline-year { font-family: var(--mono); font-size: 12px; color: var(--ink30); }
+@media (max-width: 560px) {
+  .timeline-h { height: 215px; }
+  .timeline-place { font-size: 9px; letter-spacing: .06em; white-space: normal !important; max-width: 110px; }
+  .timeline-h-i.up .timeline-place { bottom: 36px; }
+  .timeline-h-i.up .timeline-year { bottom: 14px; }
+  .timeline-h-i.down .timeline-year { top: 24px; }
+  .timeline-h-i.down .timeline-place { top: 44px; }
+  .timeline-h-i.start .timeline-place, .timeline-h-i.start .timeline-year { left: -6px; transform: none; text-align: left; }
+  .timeline-h-i.end .timeline-place { text-align: right; margin-left: auto; }
+}
