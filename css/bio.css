@@ -45,3 +45,6 @@
   .timeline-h-i.start .timeline-place, .timeline-h-i.start .timeline-year { left: -6px; transform: none; text-align: left; }
   .timeline-h-i.end .timeline-place { text-align: right; margin-left: auto; }
 }
+
+/* CV cards on /bio/: education and award titles use the page accent */
+#cv-education .res-c-title, #cv-honors .res-c-title { color: var(--pink); }
