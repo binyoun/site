@@ -82,6 +82,18 @@
       "title": "Photo 101: Industry Partnership",
       "description": "Lighting workshops with RICOH and SONY.",
       "links": []
+    },
+    {
+      "title": "Commercial Photography: Industry Sessions",
+      "subtitle": "Semester 2 · 2026",
+      "description": "Three in-person guest sessions with project-based feedback: Ricoh GR Vietnam with photographer Linh Tang (a fashion photography talk and workshop opened to the wider school), PORTFO and Revons Studio.",
+      "links": []
+    },
+    {
+      "title": "Photography 101: Drop-in Support and Critique",
+      "subtitle": "Semester 2 · 2026",
+      "description": "The course's first in-person drop-in support session, with Hanoi students joining online, and a critique session added to the course introduction.",
+      "links": []
     }
   ],
   "sites": [
@@ -133,7 +145,7 @@
   },
   "pingyao": {
     "event": "rễRoute: RMIT Photography from Australia & Vietnam · 2026 Pingyao International Festival of Photography (PIPF), China · September 2026",
-    "description": "Co-curated with Assoc. Prof. Shane Hulbert (RMIT Melbourne) and Christian Berg (RMIT Vietnam). 8 students from Photography 101, Creative Photography, and Digital Media classes confirmed in the exhibition.",
+    "description": "Co-curated with Assoc. Prof. Shane Hulbert (RMIT Melbourne) and Christian Berg (RMIT Vietnam). 8 students from Photography 101, Creative Photography, and Digital Media classes confirmed in the exhibition. 31 artists from RMIT Melbourne and RMIT Vietnam were exhibited in total.",
     "students": [
       { "name": "Chau Ngo Bao (Ngo Bao Chau)", "work": "Photography 101" },
       { "name": "Cuc Ca Thi (Ca Thi Cuc)", "work": "Photography 101" },
