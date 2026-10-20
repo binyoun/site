@@ -164,6 +164,13 @@
   ],
   "talks": [
     {
+      "venue": "GD-MC Webinar, FPT University and RMIT University Vietnam (Digital Art & Design), online via Microsoft Teams · October 21, 2026",
+      "title": "From Here to Anywhere: A creative practice in AR, interactive media, and collaboration",
+      "images": [
+        { "image": "image/press/from-here-to-anywhere-2026.jpg", "label": "Webinar Poster" }
+      ]
+    },
+    {
       "venue": "Sparks: New Media Techspressionists Architectures panel, ACM SIGGRAPH Digital Arts Community (DAC), with Randi Matushevitz and Gustavo Guzmán · September 25, 2026",
       "title": "Uncanny Garden",
       "link": "https://dac.siggraph.org/sparks/2026-09-25_new-media-techspressionists-architectures/"
