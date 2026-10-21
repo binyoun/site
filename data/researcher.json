@@ -168,6 +168,9 @@
       "title": "From Here to Anywhere: A creative practice in AR, interactive media, and collaboration",
       "images": [
         { "image": "image/press/from-here-to-anywhere-2026.jpg", "label": "Webinar Poster" }
+      ],
+      "links": [
+        { "label": "Talk material", "url": "/talks/from-here-to-anywhere/" }
       ]
     },
     {

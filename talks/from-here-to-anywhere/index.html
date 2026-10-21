@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Start From Here · Talk material · Bin Youn</title>
+<meta name="description" content="Talk material for From Here to Anywhere (FPT University, 21 October 2026): a checklist, a first AR recipe, where to aim, tools, links and the 2027 workshop.">
+<meta property="og:title" content="Start From Here · Bin Youn">
+<meta property="og:description" content="Talk material for From Here to Anywhere: what to do next, where to aim, and the tools and links from the slides.">
+<meta property="og:image" content="https://binyoun.com/image/press/from-here-to-anywhere-2026.jpg">
+<meta property="og:url" content="https://binyoun.com/talks/from-here-to-anywhere/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://binyoun.com/talks/from-here-to-anywhere/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#111114">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap">
+<style>
+/* Layout: one dark column of numbered moves, a ring-and-dot motif carried from the talk; single dark world by choice (the talk's own palette). */
+:root {
+  color-scheme: dark;
+  --night: #111114;
+  --void: #060608;
+  --panel: #19191E;
+  --panel-2: #222229;
+  --ink: #E8E8EC;
+  --dim: #A8A8B0;
+  --faint: #6E6E78;
+  --line: rgba(232, 232, 236, 0.12);
+  --pink: #FF2D9B;
+  --cyan: #4FFFDF;
+  --display: "Manrope", "Helvetica Neue", Arial, sans-serif;
+  --body: "DM Sans", "Helvetica Neue", Arial, sans-serif;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--night); color: var(--ink);
+  font-family: var(--body); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--pink); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; border-radius: 6px; }
+.wrap {
+  max-width: 1080px; margin: 0 auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; }
+h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; }
+h3 { font-size: 1.15rem; font-weight: 700; line-height: 1.25; }
+p { margin: 0; }
+.label { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--pink); }
+.muted { color: var(--dim); }
+
+/* hero */
+.hero {
+  position: relative; overflow: hidden; background:
+    radial-gradient(circle at 82% 40%, rgba(255, 45, 155, 0.22), transparent 42%), var(--void);
+}
+.hero .wrap { position: relative; padding-block: clamp(56px, 9vw, 104px) clamp(48px, 7vw, 80px); }
+.hero h1 { font-size: clamp(3rem, 9vw, 6.4rem); font-weight: 800; letter-spacing: -0.045em; line-height: 0.95; margin: 18px 0 20px; max-width: 9ch; }
+.hero h1 span { color: var(--pink); text-shadow: 0 0 34px rgba(255, 45, 155, 0.5); }
+.hero .lede { font-size: clamp(1.1rem, 2vw, 1.35rem); color: var(--dim); max-width: 34ch; }
+.hero nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 30px; }
+.hero nav a {
+  font-size: 0.88rem; font-weight: 600; color: var(--ink); text-decoration: none;
+  padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line); background: rgba(232, 232, 236, 0.04);
+}
+.hero nav a:hover { border-color: var(--pink); }
+.rings { position: absolute; right: -120px; top: 50%; width: 560px; height: 560px; transform: translateY(-50%); pointer-events: none; }
+.spin { transform-origin: 280px 280px; animation: spin 120s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (max-width: 760px) { .rings { opacity: 0.35; right: -260px; } }
+@media (prefers-reduced-motion: reduce) { .spin { animation: none; } }
+
+/* sections */
+section.block { padding-block: clamp(56px, 8vw, 96px) 0; }
+.head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px 40px; align-items: end; margin-bottom: 28px; }
+.head .label { grid-column: 1 / -1; }
+.head p { color: var(--dim); max-width: 46ch; }
+@media (max-width: 760px) { .head { grid-template-columns: 1fr; } }
+
+/* this week: checklist */
+.tasks { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.task {
+  display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: start;
+  padding: 18px 20px; background: var(--panel); border: 1px solid var(--line); border-radius: 16px;
+  transition: border-color 0.3s, background 0.3s;
+}
+.task input[type="checkbox"] {
+  appearance: none; width: 26px; height: 26px; margin: 2px 0 0; border-radius: 50%;
+  border: 2px solid var(--faint); background: transparent; cursor: pointer; display: grid; place-items: center;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+.task input[type="checkbox"]:checked { border-color: var(--pink); background: var(--pink); box-shadow: 0 0 16px rgba(255, 45, 155, 0.55); }
+.task input[type="checkbox"]:checked::after { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--void); }
+.task:has(input:checked) { border-color: rgba(255, 45, 155, 0.45); background: #1E1520; }
+.task:has(input:checked) h3 { color: var(--dim); }
+.task p { color: var(--dim); font-size: 0.95rem; margin-top: 4px; }
+.task .when { display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cyan); margin-bottom: 4px; }
+.progress { display: flex; align-items: center; gap: 14px; margin: 0 0 16px; font-size: 0.9rem; color: var(--dim); }
+.bar { flex: 1; max-width: 240px; height: 6px; border-radius: 99px; background: var(--panel-2); overflow: hidden; }
+.bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--pink), var(--cyan)); transition: width 0.4s var(--ease); }
+
+/* the sentence */
+.sentence {
+  margin-top: 28px; padding: clamp(24px, 4vw, 40px); border-radius: 22px;
+  background: var(--pink); color: var(--void);
+}
+.sentence label { display: block; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 12px; }
+.sentence .line { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px; font-family: var(--display); font-weight: 800; font-size: clamp(1.6rem, 4.4vw, 2.8rem); letter-spacing: -0.03em; line-height: 1.15; }
+.sentence input {
+  flex: 1 1 260px; min-width: 0; font: inherit; color: var(--void); background: transparent; border: 0;
+  border-bottom: 3px solid var(--void); padding: 0 4px 2px; outline: none;
+}
+.sentence input::placeholder { color: rgba(6, 6, 8, 0.45); }
+.sentence p { margin-top: 14px; font-weight: 500; }
+
+/* recipe: first AR in an afternoon */
+.recipe { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; counter-reset: r; }
+.recipe li { counter-increment: r; position: relative; padding: 22px 18px 20px; background: var(--panel); border: 1px solid var(--line); border-radius: 16px; display: flex; flex-direction: column; gap: 6px; }
+.recipe li::before { content: counter(r); font-family: var(--display); font-weight: 800; font-size: 2rem; line-height: 1; color: var(--pink); }
+.recipe p { color: var(--dim); font-size: 0.92rem; }
+.recipe a { font-size: 0.88rem; font-weight: 600; margin-top: auto; padding-top: 6px; }
+@media (max-width: 960px) { .recipe { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .recipe { grid-template-columns: 1fr; } }
+
+/* venues */
+.venues { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.venue { display: grid; grid-template-columns: 1fr auto; gap: 6px 16px; padding: 22px 22px 20px; background: var(--panel); border: 1px solid var(--line); border-radius: 16px; }
+.venue.hot { background: #24121D; border-color: rgba(255, 45, 155, 0.55); }
+.venue .date { grid-column: 2; grid-row: 1; font-size: 0.82rem; font-weight: 700; color: var(--cyan); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.venue p { grid-column: 1 / -1; color: var(--dim); font-size: 0.93rem; }
+.venue .links { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 0.9rem; font-weight: 600; margin-top: 6px; }
+.venue .ig { color: var(--ink); }
+@media (max-width: 760px) { .venues { grid-template-columns: 1fr; } }
+.tip { margin-top: 14px; color: var(--dim); font-size: 0.95rem; }
+.tip b { color: var(--ink); }
+
+/* kit checklist + tools */
+.two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; }
+@media (max-width: 760px) { .two { grid-template-columns: 1fr; } }
+.box { padding: 26px; background: var(--panel); border: 1px solid var(--line); border-radius: 18px; }
+.box h3 { margin-bottom: 14px; }
+.ticks { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.ticks li { position: relative; padding-left: 26px; color: var(--dim); font-size: 0.95rem; }
+.ticks li b { color: var(--ink); }
+.ticks li::before { content: ""; position: absolute; left: 0; top: 7px; width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--pink); }
+
+.links-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.links-table td { padding: 10px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+.links-table tr:last-child td { border-bottom: 0; }
+.links-table td:first-child { color: var(--ink); font-weight: 600; padding-right: 16px; white-space: nowrap; }
+.links-table td:last-child { color: var(--dim); }
+.links-table a { font-weight: 600; }
+
+/* workshop + close */
+.workshop {
+  position: relative; overflow: hidden; display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 24px; align-items: center;
+  padding: clamp(28px, 5vw, 48px); border-radius: 24px; background: radial-gradient(circle at 90% 20%, rgba(79, 255, 223, 0.16), transparent 50%), var(--panel);
+  border: 1px solid var(--line);
+}
+.workshop h2 { margin: 10px 0 12px; }
+.workshop .ticks li { color: var(--ink); }
+@media (max-width: 760px) { .workshop { grid-template-columns: 1fr; } }
+
+footer { margin-top: clamp(64px, 9vw, 104px); background: var(--void); }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 14px 28px; justify-content: space-between; align-items: center; padding-block: 36px 44px; color: var(--dim); font-size: 0.92rem; }
+footer .who { display: flex; align-items: center; gap: 12px; color: var(--ink); font-family: var(--display); font-weight: 800; font-size: 1.1rem; }
+footer .who::before { content: ""; width: 12px; height: 12px; border-radius: 50%; background: var(--pink); box-shadow: 0 0 0 4px rgba(255, 45, 155, 0.25), 0 0 14px var(--pink); }
+footer .row { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+footer a { color: var(--ink); }
+.back { position: absolute; top: calc(env(safe-area-inset-top, 0px) + 18px); left: 20px; z-index: 5; color: var(--dim); font-size: 0.9rem; text-decoration: none; }
+.back:hover { color: var(--ink); }
+</style>
+
+</head>
+<body>
+<a class="back" href="/researcher/">&larr; binyoun.com</a>
+<header class="hero">
+  <svg class="rings" viewBox="0 0 560 560" fill="none" aria-hidden="true">
+    <defs><filter id="g" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+    <g class="spin"><circle cx="280" cy="280" r="270" stroke="#E8E8EC" stroke-opacity="0.2" stroke-width="1.5" stroke-dasharray="3 12"/></g>
+    <circle cx="280" cy="280" r="215" stroke="#FF2D9B" stroke-width="3" filter="url(#g)"/>
+    <circle cx="280" cy="280" r="165" stroke="#4FFFDF" stroke-opacity="0.55" stroke-width="2" stroke-dasharray="44 14"/>
+    <circle cx="280" cy="280" r="9" fill="#FF2D9B" filter="url(#g)"/>
+  </svg>
+  <div class="wrap">
+    <p class="label">After “From Here to Anywhere” · Bin Youn · FPT University · 21 October 2026</p>
+    <h1>Start from <span>here.</span></h1>
+    <p class="lede">The talk is over. Here is what to do next, where to aim, and the tools and links from the slides.</p>
+    <nav aria-label="On this page">
+      <a href="#this-week">This week</a>
+      <a href="#first-ar">Your first AR</a>
+      <a href="#aim">Where to aim</a>
+      <a href="#apply">Apply and build</a>
+      <a href="#workshop">2027 workshop</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="block" id="this-week">
+    <div class="wrap">
+      <div class="head">
+        <p class="label">This week</p>
+        <h2>Six small moves.</h2>
+        <p>Tick them off as you go. Your ticks and your sentence stay on this device only.</p>
+      </div>
+      <div class="progress"><span id="count">0 of 6 done</span><span class="bar"><i id="bar"></i></span></div>
+      <ul class="tasks">
+        <li class="task"><input type="checkbox" id="t1" aria-labelledby="t1h"><div><span class="when">Today</span><h3 id="t1h">Follow one artist you saw today, and send them one message</h3><p>Ask one real question about their work. Every door in my story opened with a person.</p></div></li>
+        <li class="task"><input type="checkbox" id="t2" aria-labelledby="t2h"><div><span class="when">Today</span><h3 id="t2h">Follow the five accounts where open calls appear</h3><p>@arselectronica · @acmsiggraph · @siggraph_digitalarts · @siggraphasia · @iseainternational. Turn on notifications for one of them.</p></div></li>
+        <li class="task"><input type="checkbox" id="t3" aria-labelledby="t3h"><div><span class="when">This week</span><h3 id="t3h">Post one work in progress on Instagram</h3><p>A sketch, a test, a failed render. Your feed becomes your archive, so when a call asks for documentation, it is already there.</p></div></li>
+        <li class="task"><input type="checkbox" id="t4" aria-labelledby="t4h"><div><span class="when">This week</span><h3 id="t4h">Make one photograph open in AR</h3><p>Follow the five steps below with the Elemental WebAR kit. One afternoon, no app, free.</p></div></li>
+        <li class="task"><input type="checkbox" id="t5" aria-labelledby="t5h"><div><span class="when">This week</span><h3 id="t5h">Go to a place you care about. Photograph one object, record one sound</h3><p>Keep both. You will need them for the 2027 workshop.</p></div></li>
+        <li class="task"><input type="checkbox" id="t6" aria-labelledby="t6h"><div><span class="when">This month</span><h3 id="t6h">Read one open call to the end</h3><p>Pick SIGGRAPH Asia, ISEA or a DAC call. Note what it asks for: format, words, documentation, deadline.</p></div></li>
+      </ul>
+
+      <div class="sentence">
+        <label for="goal">Finish the sentence from the end of the talk</label>
+        <div class="line"><span>Next year, I’ll be part of</span><input id="goal" type="text" placeholder="an exhibition…" autocomplete="off"></div>
+        <p>I wrote this sentence in Seoul in May 2025. Write yours, then tell one person.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="first-ar">
+    <div class="wrap">
+      <div class="head">
+        <p class="label">Your first AR, in one afternoon</p>
+        <h2>A photograph that opens when you look at it.</h2>
+        <p>This is the same A-Frame + MindAR route I used to start. Everything runs in a phone browser and hosts for free.</p>
+      </div>
+      <ol class="recipe">
+        <li><h3>Choose a photograph</h3><p>High contrast and lots of detail track best. Avoid plain skies and repeating patterns.</p><a href="https://binyoun.github.io/webar/">See example works</a></li>
+        <li><h3>Make the target</h3><p>Upload your image to the MindAR compiler and download the .mind file.</p><a href="https://hiukim.github.io/mind-ar-js-doc/tools/compile">MindAR image compiler</a></li>
+        <li><h3>Add your work</h3><p>Copy the kit, add one entry in config.json, and drop in your target and overlay (video, image or 3D model).</p><a href="https://github.com/binyoun/webar/blob/main/GUIDE.md">Kit guide</a></li>
+        <li><h3>Put it online</h3><p>Turn on GitHub Pages for your copy. Your work now has a URL.</p><a href="https://pages.github.com/">GitHub Pages</a></li>
+        <li><h3>Print the label</h3><p>Use the kit’s “qr label” button, print it beside the photograph, and test on two phones.</p><a href="https://binyoun.github.io/webar/#works">QR labels</a></li>
+      </ol>
+      <p class="tip"><b>Stuck on which tool to use?</b> The <a href="https://binyoun.github.io/ar-build-atlas/">AR Build Atlas</a> compares every way to build AR: WebAR, no-code platforms, engines, tracking and hardware. <b>Venue tip:</b> self-host your library files, because gallery wifi often blocks CDNs.</p>
+    </div>
+  </section>
+
+  <section class="block" id="aim">
+    <div class="wrap">
+      <div class="head">
+        <p class="label">Where to aim</p>
+        <h2>The big three, and easy ways in.</h2>
+        <p>Go first, even as an observer. Then set the goal to be part of it the next year.</p>
+      </div>
+      <div class="venues">
+        <article class="venue hot">
+          <h3>SIGGRAPH Asia 2026 · Kuala Lumpur</h3><span class="date">1–4 Dec 2026</span>
+          <p>The Asian edition of SIGGRAPH, at the Kuala Lumpur Convention Centre: the first in Malaysia and the closest to us. Art Gallery, Art Papers, Emerging Technologies and student volunteering.</p>
+          <div class="links"><a href="https://asia.siggraph.org/2026/">asia.siggraph.org</a><span class="ig">@siggraphasia</span></div>
+        </article>
+        <article class="venue">
+          <h3>ISEA 2026 · Dubai</h3><span class="date">6–15 Nov 2026</span>
+          <p>The International Symposium on Electronic Art, in a new city every year, with an online component this year. Artworks, papers, panels, artist talks and workshops.</p>
+          <div class="links"><a href="https://isea-international.org/">isea-international.org</a><span class="ig">@iseainternational</span></div>
+        </article>
+        <article class="venue">
+          <h3>SIGGRAPH · North America</h3><span class="date">Every summer</span>
+          <p>The big computer graphics and interactive techniques conference, with an Art Gallery and Art Papers. 2026 was in Los Angeles, 19–23 July.</p>
+          <div class="links"><a href="https://www.siggraph.org/">siggraph.org</a><span class="ig">@acmsiggraph</span></div>
+        </article>
+        <article class="venue">
+          <h3>SIGGRAPH Digital Arts Community</h3><span class="date">All year, online</span>
+          <p>Online exhibitions, open calls and Sparks talks. The easiest first step: no travel needed. This is how I got into SIGGRAPH.</p>
+          <div class="links"><a href="https://dac.siggraph.org/">dac.siggraph.org</a><span class="ig">@siggraph_digitalarts</span></div>
+        </article>
+        <article class="venue">
+          <h3>Ars Electronica · Linz, Austria</h3><span class="date">Every September</span>
+          <p>A festival since 1979, the Prix Ars Electronica, and the Ars Electronica Center. 2026 ran 9–13 September across Linz.</p>
+          <div class="links"><a href="https://ars.electronica.art/">ars.electronica.art</a><span class="ig">@arselectronica</span></div>
+        </article>
+        <article class="venue">
+          <h3>Archives to study</h3><span class="date">Free</span>
+          <p>See what got accepted before you apply: past artworks, papers and talks from ISEA and SIGGRAPH.</p>
+          <div class="links"><a href="https://isea-archives.siggraph.org/">ISEA archives</a><a href="https://history.siggraph.org/">SIGGRAPH history</a></div>
+        </article>
+      </div>
+      <p class="tip"><b>Always check the call itself.</b> Categories, fees and deadlines change every year. Look for student volunteer programmes and student rates.</p>
+    </div>
+  </section>
+
+  <section class="block" id="apply">
+    <div class="wrap">
+      <div class="head">
+        <p class="label">Apply and build</p>
+        <h2>What a jury needs, and the tools I use.</h2>
+        <p>Build your portfolio as you go, so applying is mostly collecting what you already have.</p>
+      </div>
+      <div class="two">
+        <div class="box">
+          <h3>An AR application kit</h3>
+          <ul class="ticks">
+            <li><b>A live link.</b> It runs in the browser with no app, so a juror can try it in seconds.</li>
+            <li><b>A short documentation video.</b> Real people using the work in a real space, under two minutes.</li>
+            <li><b>Code and a citable record.</b> Your repository on GitHub, and a DOI from a service like figshare or Zenodo.</li>
+            <li><b>The words.</b> A short statement, a bio, and what the work needs to run (space, devices, wifi, sound).</li>
+            <li><b>Your archive.</b> Process posts on Instagram, so you never start from zero.</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h3>Tools from the talk</h3>
+          <table class="links-table">
+            <tr><td><a href="https://aframe.io/docs/">A-Frame</a></td><td>3D and AR scenes written like HTML</td></tr>
+            <tr><td><a href="https://hiukim.github.io/mind-ar-js-doc/">MindAR</a></td><td>Image and face tracking in the browser</td></tr>
+            <tr><td><a href="https://threejs.org/">Three.js</a></td><td>The 3D library under most WebAR</td></tr>
+            <tr><td><a href="https://ai.google.dev/edge/mediapipe/solutions/vision/hand_landmarker">MediaPipe Hands</a></td><td>Hand tracking, as in Uncanny Garden and Glitch Mori</td></tr>
+            <tr><td><a href="https://tonejs.github.io/">Tone.js</a></td><td>Sound and music in the browser, as in Sacred Tree</td></tr>
+            <tr><td><a href="https://lumalabs.ai/">Luma AI</a> · <a href="https://www.meshy.ai/">Meshy</a></td><td>Turn photos of an object into a 3D model</td></tr>
+            <tr><td><a href="https://modelviewer.dev/">model-viewer</a></td><td>Show a 3D model in AR with one HTML tag</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="head">
+        <p class="label">Try the works from the talk</p>
+        <h2>Open these on your phone.</h2>
+        <p>Use a phone with a camera, and allow camera access when the page asks.</p>
+      </div>
+      <div class="two">
+        <div class="box">
+          <table class="links-table">
+            <tr><td><a href="https://gelora.lovable.app/">Gelora series</a></td><td>The hub for Gelora, Sacred Tree and the rest of the series</td></tr>
+            <tr><td><a href="https://gelora-xr.xyz/">gelora-xr.xyz</a></td><td>Gelora and Sacred Tree in WebAR</td></tr>
+            <tr><td><a href="https://uncanny.live/">Uncanny Garden</a></td><td>Summon five Flowergirls with hand gestures</td></tr>
+            <tr><td><a href="https://binyoun.github.io/glitch-mori/">Glitch Mori</a></td><td>Offer your open palm, and a vanished flower grows</td></tr>
+          </table>
+        </div>
+        <div class="box">
+          <table class="links-table">
+            <tr><td><a href="https://binyoun.github.io/ar-build-atlas/">AR Build Atlas</a></td><td>Every way to build AR, compared</td></tr>
+            <tr><td><a href="https://binyoun.github.io/webar/">Elemental WebAR</a></td><td>Photographs that open in AR, plus six experiments</td></tr>
+            <tr><td><a href="https://binyoun.github.io/mnode/">M-NODE archive</a></td><td>The student hackathon projects</td></tr>
+            <tr><td><a href="https://github.com/binyoun">github.com/binyoun</a></td><td>The code behind all of it, open to read</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="workshop">
+    <div class="wrap">
+      <div class="workshop">
+        <div>
+          <p class="label">Next year · a field workshop with you</p>
+          <h2>Embodied Alienation</h2>
+          <p class="muted">Bring one image and one sound from a place that holds you. Through AR, they become a creature that is both from there and strange to it. No coding needed. Sign-up opens in 2027; follow @o.binyoun.o so you don’t miss it.</p>
+        </div>
+        <ul class="ticks">
+          <li>Notice places that matter to you</li>
+          <li>Record sounds on your phone, 30 seconds each</li>
+          <li>Photograph small objects from every side</li>
+          <li>Bring a phone, a laptop and headphones</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="who">Bin Youn</span>
+    <span class="row"><a href="https://binyoun.com">binyoun.com</a><span>@o.binyoun.o</span><span>sierra.biny@icloud.com</span></span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('.task input[type="checkbox"]'));
+  var goal = document.getElementById('goal');
+  var KEY = 'start-from-here-v1';
+  var state = {};
+  try { state = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { state = {}; }
+
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+  function update() {
+    var done = boxes.filter(function (b) { return b.checked; }).length;
+    document.getElementById('count').textContent = done + ' of ' + boxes.length + ' done';
+    document.getElementById('bar').style.width = (done / boxes.length * 100) + '%';
+  }
+  boxes.forEach(function (b) {
+    b.checked = !!(state.tasks && state.tasks[b.id]);
+    b.addEventListener('change', function () {
+      state.tasks = state.tasks || {};
+      state.tasks[b.id] = b.checked;
+      save(); update();
+    });
+  });
+  if (state.goal) goal.value = state.goal;
+  goal.addEventListener('input', function () { state.goal = goal.value; save(); });
+  update();
+})();
+</script>
+</body>
+</html>
