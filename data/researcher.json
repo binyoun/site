@@ -177,15 +177,32 @@
     {
       "venue": "Sparks: New Media Techspressionists Architectures panel, ACM SIGGRAPH Digital Arts Community (DAC), with Randi Matushevitz and Gustavo Guzmán · September 25, 2026",
       "title": "Uncanny Garden",
-      "link": "https://dac.siggraph.org/sparks/2026-09-25_new-media-techspressionists-architectures/"
+      "images": [
+        { "image": "image/press/sparks-techspressionists-2026-1.jpg", "label": "Session banner" },
+        { "image": "image/press/sparks-techspressionists-2026-2.jpg", "label": "Presenting Uncanny Garden" }
+      ],
+      "links": [
+        { "label": "Read", "url": "https://dac.siggraph.org/sparks/2026-09-25_new-media-techspressionists-architectures/" },
+        { "label": "Recording", "url": "https://www.youtube.com/watch?v=ZIdfwOz7bIE&t=2246s" }
+      ]
     },
     {
       "venue": "New Media Village Talk, ACM SIGGRAPH 2026, Room 404 AB, Los Angeles Convention Center, with Randi Matushevitz and Gustavo Guzmán · July 22, 2026",
-      "title": "Uncanny Garden"
+      "title": "Uncanny Garden",
+      "images": [
+        { "image": "image/press/village-talk-siggraph-2026-1.jpg", "label": "Presenting the team" },
+        { "image": "image/press/village-talk-siggraph-2026-2.jpg", "label": "With Randi and Gustavo" },
+        { "image": "image/press/village-talk-siggraph-2026-3.jpg", "label": "New Media Techspressionists" }
+      ]
     },
     {
       "venue": "DAC: SPARKS in Review (Digital Art and SE Asia), ACM SIGGRAPH 2026 official session, Room 404 AB, Los Angeles Convention Center · July 20, 2026",
       "title": "Beyond the Global North: Southeast Asia's New Wave of Generative and Interactive Innovation",
+      "images": [
+        { "image": "image/press/sparks-in-review-siggraph-2026-1.jpg", "label": "Presenting" },
+        { "image": "image/press/sparks-in-review-siggraph-2026-2.jpg", "label": "The panel" },
+        { "image": "image/press/sparks-in-review-siggraph-2026-3.jpg", "label": "Room 404 AB" }
+      ],
       "link": "https://s2026.conference-schedule.org/presentation/?id=thea_108&sess=sess278"
     },
     {
@@ -201,11 +218,21 @@
     {
       "venue": "Beyond 1&0 Symposium, RMIT University Vietnam",
       "title": "Empathetic Gestures, Entangled Futures: Mobile Cameras as Regenerative Practice",
+      "images": [
+        { "image": "image/press/beyond-1and0-symposium-2025-1.jpg", "label": "Presenting" },
+        { "image": "image/press/beyond-1and0-symposium-2025-2.jpg", "label": "Symposium panel" },
+        { "image": "image/press/beyond-1and0-symposium-2025-3.jpg", "label": "Audience" }
+      ],
       "link": "https://doi.org/10.6084/m9.figshare.30507803"
     },
     {
       "venue": "#25 SCD Research Exchange, RMIT University Vietnam",
       "title": "ㅁotherisland and Gelora: Portals of Embodied Alienation",
+      "images": [
+        { "image": "image/press/scd-research-exchange-2025-1.jpg", "label": "Title slide" },
+        { "image": "image/press/scd-research-exchange-2025-2.jpg", "label": "ㅁotherisland" },
+        { "image": "image/press/scd-research-exchange-2025-3.jpg", "label": "Gelora in AR" }
+      ],
       "link": "https://doi.org/10.6084/m9.figshare.30507611"
     }
   ],
