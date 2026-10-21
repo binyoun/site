@@ -166,6 +166,7 @@
     {
       "venue": "GD-MC Webinar, FPT University and RMIT University Vietnam (Digital Art & Design), online via Microsoft Teams · October 21, 2026",
       "title": "From Here to Anywhere: A creative practice in AR, interactive media, and collaboration",
+      "image": "image/press/from-here-to-anywhere-2026.jpg",
       "images": [
         { "image": "image/press/from-here-to-anywhere-2026.jpg", "label": "Webinar Poster" }
       ],
@@ -177,6 +178,7 @@
     {
       "venue": "Sparks: New Media Techspressionists Architectures panel, ACM SIGGRAPH Digital Arts Community (DAC), with Randi Matushevitz and Gustavo Guzmán · September 25, 2026",
       "title": "Uncanny Garden",
+      "image": "image/press/sparks-techspressionists-2026-1.jpg",
       "images": [
         { "image": "image/press/sparks-techspressionists-2026-1.jpg", "label": "Session banner" },
         { "image": "image/press/sparks-techspressionists-2026-2.jpg", "label": "Presenting Uncanny Garden" }
@@ -189,6 +191,7 @@
     {
       "venue": "New Media Village Talk, ACM SIGGRAPH 2026, Room 404 AB, Los Angeles Convention Center, with Randi Matushevitz and Gustavo Guzmán · July 22, 2026",
       "title": "Uncanny Garden",
+      "image": "image/press/village-talk-siggraph-2026-2.jpg",
       "images": [
         { "image": "image/press/village-talk-siggraph-2026-1.jpg", "label": "Presenting the team" },
         { "image": "image/press/village-talk-siggraph-2026-2.jpg", "label": "With Randi and Gustavo" },
@@ -198,6 +201,7 @@
     {
       "venue": "DAC: SPARKS in Review (Digital Art and SE Asia), ACM SIGGRAPH 2026 official session, Room 404 AB, Los Angeles Convention Center · July 20, 2026",
       "title": "Beyond the Global North: Southeast Asia's New Wave of Generative and Interactive Innovation",
+      "image": "image/press/sparks-in-review-siggraph-2026-1.jpg",
       "images": [
         { "image": "image/press/sparks-in-review-siggraph-2026-1.jpg", "label": "Presenting" },
         { "image": "image/press/sparks-in-review-siggraph-2026-2.jpg", "label": "The panel" },
@@ -208,6 +212,7 @@
     {
       "venue": "Artist Talk, 5th FCM 2026 Postgraduate Students Re-Ignite, Faculty of Creative Multimedia, Multimedia University, Cyberjaya, Malaysia",
       "title": "Cosmological Apparatus",
+      "image": "image/press/cosmological-apparatus-2026.jpg",
       "images": [
         { "image": "image/press/cosmological-apparatus-2026.jpg", "label": "Artist Talk Poster" }
       ],
@@ -218,6 +223,7 @@
     {
       "venue": "Beyond 1&0 Symposium, RMIT University Vietnam",
       "title": "Empathetic Gestures, Entangled Futures: Mobile Cameras as Regenerative Practice",
+      "image": "image/press/beyond-1and0-symposium-2025-1.jpg",
       "images": [
         { "image": "image/press/beyond-1and0-symposium-2025-1.jpg", "label": "Presenting" },
         { "image": "image/press/beyond-1and0-symposium-2025-2.jpg", "label": "Symposium panel" },
@@ -228,6 +234,7 @@
     {
       "venue": "#25 SCD Research Exchange, RMIT University Vietnam",
       "title": "ㅁotherisland and Gelora: Portals of Embodied Alienation",
+      "image": "image/press/scd-research-exchange-2025-1.jpg",
       "images": [
         { "image": "image/press/scd-research-exchange-2025-1.jpg", "label": "Title slide" },
         { "image": "image/press/scd-research-exchange-2025-2.jpg", "label": "ㅁotherisland" },

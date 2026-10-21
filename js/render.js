@@ -298,16 +298,17 @@ async function renderResearcher() {
   if (talkEl) talkEl.innerHTML = `<div class="mod-grid">${data.talks.map(t =>
     posterCard(t.image, `Poster for ${t.title}`, `
       <p class="res-c-meta">${t.venue}</p>
-      <p class="res-c-title" style="font-style:italic;">${t.title}</p>
-      ${t.images ? `<div class="card-poster-grid">${t.images.map(p => `
+      <p class="res-c-title" style="font-style:italic;">${t.title}</p>`,
+      // Thumbnail opens the gallery; without a thumbnail the gallery shows inline
+      (t.images ? `<div class="card-poster-grid${t.image ? ' talk-gallery' : ''}">${t.images.map(p => `
         <div>
           <img class="card-poster" src="${abs(p.image)}" alt="${p.label}" loading="lazy">
           <p class="res-c-meta">${p.label}</p>
-        </div>`).join('')}</div>` : ''}`,
-      t.links ? `<div class="edu-lks">${t.links.map(l =>
+        </div>`).join('')}</div>` : '') +
+      (t.links ? `<div class="edu-lks">${t.links.map(l =>
         `<a href="${l.url}" target="_blank" rel="noopener" class="res-lk">${l.label} &#x2197;</a>`
       ).join('')}</div>`
-      : t.link ? `<a href="${t.link}" target="_blank" rel="noopener" class="res-lk">Read &#x2197;</a>` : '')
+      : t.link ? `<a href="${t.link}" target="_blank" rel="noopener" class="res-lk">Read &#x2197;</a>` : ''))
   ).join('')}</div>`;
 
   const deckEl = document.getElementById('res-decks');

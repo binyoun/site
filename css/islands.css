@@ -120,6 +120,11 @@
 .poster-full { display: none; width: 100%; max-width: 340px; border: 1px solid var(--ink08); border-radius: 4px; margin-top: 12px; }
 .res-c.poster-open .poster-full { display: block; }
 .res-c.poster-open .poster-side { cursor: zoom-out; }
+.card-poster-grid.talk-gallery { display: none; }
+.res-c.poster-open .card-poster-grid.talk-gallery { display: grid; }
+.res-c:has(.talk-gallery) .poster-full { display: none; }
+#res-talks .poster-side { width: 72px; }
+#res-talks .poster-side img { aspect-ratio: 1; object-fit: cover; }
 
 /* Sub-block inside a feature card (e.g. Artist Talk series inside rễ-root) */
 .edu-series { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--ink08); }
