@@ -170,6 +170,7 @@
         { "image": "image/press/from-here-to-anywhere-2026.jpg", "label": "Webinar Poster" }
       ],
       "links": [
+        { "label": "Slides", "url": "/talks/from-here-to-anywhere/slides/" },
         { "label": "Talk material", "url": "/talks/from-here-to-anywhere/" }
       ]
     },
