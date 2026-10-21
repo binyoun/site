@@ -41,46 +41,6 @@
       "title": "AI-Assisted Photographic Assessment: A Discipline-Informed Feedback Tool",
       "description": "GAILE-Sponsored Seed Grant collaboration developing a rubric-encoded AI feedback tool, trialled across Art & Photography (RMIT Melbourne) and Photography 101 (RMIT Vietnam). Applicant: Assoc. Prof. Shane Hulbert, with Dr Rebecca Najdowski and Dr Arlo Mountford, RMIT Melbourne School of Art. RMIT Vietnam design and development partnership.",
       "location": "Student trial in Semester 1, 2027"
-    },
-    {
-      "title": "Maek (맥): Acupoint and Meridian Mapping as Somatic Interface",
-      "description": "Hand-tracking prototype overlaying acupuncture points and meridian channels live, solved per-person from cun-proportional (골도분촌) rules against MediaPipe hand landmarks. Phase 1 built.",
-      "location": "Prototype, not yet publicly shown",
-      "links": [
-        { "label": "Live Demo", "url": "https://binyoun.github.io/maek/" }
-      ]
-    },
-    {
-      "title": "Bagua Theremin",
-      "description": "Browser theremin split across the eight I-Ching trigrams: hand position sets pitch and colour, height sets volume. Built as a WebAR 3D bagua mirror scene.",
-      "location": "Prototype, not yet publicly shown",
-      "links": [
-        { "label": "Live Demo", "url": "https://binyoun.github.io/bagua-theremin/" }
-      ]
-    },
-    {
-      "title": "Perforated Atlas",
-      "description": "Museum browser artwork translating a typed memory of Ho Chi Minh City's vanishing water into a perforated music-box strip; the words are destroyed, only the pattern survives. A physical ESP32 machine apparatus is in development alongside the web version.",
-      "location": "Prototype, not yet publicly shown",
-      "links": [
-        { "label": "Live Demo", "url": "https://binyoun.github.io/perforated-atlas/" }
-      ]
-    },
-    {
-      "title": "vanitas (gelora-soil)",
-      "description": "Front-camera WebAR piece in the Gelora lineage: a photographed flower and an offered palm grow a mutating 3D bloom seeded from the flower's own colour, which wilts and pours away.",
-      "location": "Prototype, not yet publicly shown",
-      "links": [
-        { "label": "Live Demo", "url": "https://binyoun.github.io/gelora-soil/" }
-      ]
-    },
-    {
-      "title": "Tứ Bình",
-      "description": "Catch-and-harmonize colour piece: closing a hand catches a colour, which follows the hand and harmonizes with a second catch.",
-      "location": "Prototype, not yet publicly shown",
-      "links": [
-        { "label": "Live Demo", "url": "https://binyoun.github.io/tu-binh/" }
-      ]
     }
   ],
 

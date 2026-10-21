@@ -41,6 +41,48 @@
       "cat": "ar-xr participatory"
     }
   ],
+  "studio": [
+    {
+      "title": "Maek (맥): Acupoint and Meridian Mapping as Somatic Interface",
+      "year": "2026",
+      "cat": "ar-xr",
+      "description": "Hand-tracking prototype overlaying acupuncture points and meridian channels live, solved per-person from cun-proportional (골도분촌) rules against MediaPipe hand landmarks. Phase 1 built.",
+      "status": "Prototype",
+      "link": "https://binyoun.github.io/maek/"
+    },
+    {
+      "title": "Bagua Theremin",
+      "year": "2026",
+      "cat": "ar-xr participatory",
+      "description": "Browser theremin split across the eight I-Ching trigrams: hand position sets pitch and colour, height sets volume. Built as a WebAR 3D bagua mirror scene.",
+      "status": "Prototype",
+      "link": "https://binyoun.github.io/bagua-theremin/"
+    },
+    {
+      "title": "Perforated Atlas",
+      "year": "2026",
+      "cat": "installation participatory",
+      "description": "Museum browser artwork translating a typed memory of Ho Chi Minh City's vanishing water into a perforated music-box strip; the words are destroyed, only the pattern survives. A physical ESP32 machine apparatus is in development alongside the web version.",
+      "status": "Prototype",
+      "link": "https://binyoun.github.io/perforated-atlas/"
+    },
+    {
+      "title": "vanitas (gelora-soil)",
+      "year": "2026",
+      "cat": "ar-xr gelora",
+      "description": "Front-camera WebAR piece in the Gelora lineage: a photographed flower and an offered palm grow a mutating 3D bloom seeded from the flower's own colour, which wilts and pours away.",
+      "status": "Prototype",
+      "link": "https://binyoun.github.io/gelora-soil/"
+    },
+    {
+      "title": "Tứ Bình",
+      "year": "2026",
+      "cat": "ar-xr participatory",
+      "description": "Catch-and-harmonize colour piece: closing a hand catches a colour, which follows the hand and harmonizes with a second catch.",
+      "status": "Prototype",
+      "link": "https://binyoun.github.io/tu-binh/"
+    }
+  ],
   "installations": [
     {
       "title": "Breathscape",

@@ -28,6 +28,17 @@ function abs(path) {
 
 // ── Artist ───────────────────────────────────────────────────────────────────
 
+// Works in progress: text cards (no image yet) that still respond to the filter bar
+function buildStudio(works) {
+  return works.map(w => `
+    <a class="th wip-c" href="${w.link}" target="_blank" rel="noopener" data-cat="${w.cat || ''}">
+      <p class="wip-y">${w.year} · ${w.status}</p>
+      <p class="wip-t">${w.title}</p>
+      <p class="wip-d">${w.description}</p>
+      <span class="th-lk">Live demo &#x2197;</span>
+    </a>`).join('');
+}
+
 function buildThumbs(works, squareImg = false) {
   return works.map(w => {
     const isInternal = w.link && w.link.startsWith('/');
@@ -86,6 +97,7 @@ async function renderArtist() {
   const data = await fetch('/data/artist.json').then(r => r.json());
 
   set('a-current', buildThumbs(data.current));
+  set('a-studio',  buildStudio(data.studio || []));
   set('a-install', buildThumbs(data.installations));
   set('a-sculpt',  buildThumbs(data.sculptures, true));
   set('a-lens',    buildThumbs(data.lens));
