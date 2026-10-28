@@ -192,6 +192,7 @@ async function renderEducator() {
             <p class="res-c-meta" style="margin-top:4px;">${s.work}</p>
           </div>`).join('')}
       </div>`}
+      ${data.iffti.link ? `<a href="${data.iffti.link}" target="_blank" rel="noopener" class="res-lk" style="margin-top:14px;display:inline-block;">Visit &#x2197;</a>` : ''}
     </div>`;
   }
 

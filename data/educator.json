@@ -122,26 +122,15 @@
     }
   ],
   "iffti": {
-    "event": "28th IFFTI 2026 · RMIT University Vietnam · April 2026",
+    "event": "28th IFFTI 2026 · Lygon Gallery, RMIT University Vietnam · April 2026",
     "description": "4 Creative Photography students' works selected for exhibition. rễ-root framework and student practice introduced to international guests and RMIT leadership.",
     "students": [
-      {
-        "name": "[Confirm]",
-        "work": "[Confirm]"
-      },
-      {
-        "name": "[Confirm]",
-        "work": "[Confirm]"
-      },
-      {
-        "name": "[Confirm]",
-        "work": "[Confirm]"
-      },
-      {
-        "name": "[Confirm]",
-        "work": "[Confirm]"
-      }
-    ]
+      { "name": "Hao Tran Quoc (Tran Quoc Hao)", "work": "Red Horn · Creative Photography" },
+      { "name": "Nghi Tran Khiet (Tran Khiet Nghi)", "work": "Liminal Self · Creative Photography" },
+      { "name": "Ton Nguyen (Nguyen Thanh Van)", "work": "There Is a Place I Can't Enter · Creative Photography" },
+      { "name": "Florin Schroth", "work": "Layers of Life · Creative Photography" }
+    ],
+    "link": "https://www.rmit.edu.vn/about-us/schools-and-centres/school-communication-design/iffti-2026"
   },
   "pingyao": {
     "event": "rễRoute: RMIT Photography from Australia & Vietnam · 2026 Pingyao International Festival of Photography (PIPF), China · September 2026",
