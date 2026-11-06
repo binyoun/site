@@ -33,7 +33,7 @@ import re
 
 DRY_RUN = "--dry-run" in sys.argv
 
-VAULT = Path.home() / "Documents" / "Obsidian Vault"
+VAULT = Path.home() / "Obsidian Vault"
 DATA  = Path(__file__).parent / "data"
 
 REPORT = []   # human-readable notes about what happened / needs attention
