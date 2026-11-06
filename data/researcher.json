@@ -34,8 +34,16 @@
     },
     {
       "title": "ISEA 2026 Workshop",
-      "description": "Counting Cultural Stars: Transforming Cultural Texts into Volumetric Constellations. Under review at the International Symposium on Electronic Art, co-organized with Ng Yi Kee.",
-      "location": "ISEA 2026 · Dubai, UAE · November 2026"
+      "description": "Counting Cultural Stars: Transforming Cultural Texts into Volumetric Constellations. Accepted to the ISEA 2026 Online Academic Programme (Code, AI and Cultural Experience Workshops), co-organized with Ng Yi Kee of Multimedia University. Participants write a cultural word in their own script, then turn it into a volumetric constellation in TouchDesigner, gathered into one shared galaxy.",
+      "location": "ISEA 2026: ELYAH · Dubai, UAE · Online Stream 4 · November 9, 2026",
+      "images": [
+        { "image": "image/press/isea-2026-counting-cultural-stars.jpg", "label": "Session Poster" },
+        { "image": "image/press/isea-2026-online-academic-programme.jpg", "label": "Online Academic Programme" }
+      ],
+      "links": [
+        { "label": "Workshop Page", "url": "https://binyoun.github.io/counting-cultural-star/" },
+        { "label": "ISEA 2026", "url": "https://isea-international.org/" }
+      ]
     },
     {
       "title": "AI-Assisted Photographic Assessment: A Discipline-Informed Feedback Tool",
