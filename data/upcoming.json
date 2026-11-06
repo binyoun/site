@@ -1,0 +1,33 @@
+{
+  "_note": "Items on the Artist page 'Now showing & upcoming' band. Each item hides itself automatically after its 'end' date (YYYY-MM-DD, inclusive). 'date' is the label shown. Keep items in date order.",
+  "items": [
+    {
+      "date": "Nov 9, 2026",
+      "end": "2026-11-09",
+      "title": "Counting Cultural Stars",
+      "venue": "ISEA 2026 Online Academic Programme workshop, with Ng Yi Kee (Multimedia University)",
+      "href": "/artist/counting-cultural-stars/"
+    },
+    {
+      "date": "Nov 27, 2026",
+      "end": "2026-11-27",
+      "title": "Circulation: Holding Together",
+      "venue": "Co-design workshop, RMIT University Vietnam, Saigon South",
+      "href": "/artist/circulation/"
+    },
+    {
+      "date": "Dec 15–17, 2026",
+      "end": "2026-12-17",
+      "title": "Alien Signal: Saigon Murmuration",
+      "venue": "NTNU x RMIT speculative design workshop, RMIT University Vietnam, Saigon South",
+      "href": "/artist/alien-signal-saigon-murmuration/"
+    },
+    {
+      "date": "Dec 28, 2026",
+      "end": "2027-01-31",
+      "title": "Petua Air",
+      "venue": "E-Gallery, Faculty of Creative Multimedia, Multimedia University, Malaysia. Touch of Water and Circulation: Air Kuala",
+      "href": "/artist/petua-air/"
+    }
+  ]
+}

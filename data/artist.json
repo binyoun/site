@@ -5,14 +5,14 @@
       "title": "Uncanny Garden",
       "year": "2026",
       "cat": "ar-xr participatory",
-      "image": "image/uncannygarden.gif",
+      "image": "image/uncannygarden.webp",
       "link": "/artist/uncanny-garden/",
       "still": "image/uncannygarden.jpg"
     },
     {
       "title": "Sacred Tree: Summoning Gelora (신목, 神木)",
       "year": "2026",
-      "image": "image/sacredtree.gif",
+      "image": "image/sacredtree.webp",
       "link": "/artist/sacred-tree/",
       "still": "image/stills/sacredtree.jpg",
       "cat": "ar-xr participatory gelora"
@@ -20,7 +20,7 @@
     {
       "title": "su, where the moon rests",
       "year": "2026",
-      "image": "image/su.gif",
+      "image": "image/su.webp",
       "link": "/artist/su-where-the-moon-rests/",
       "still": "image/stills/su.jpg",
       "cat": "ar-xr participatory installation gelora"
@@ -87,7 +87,7 @@
     {
       "title": "Breathscape",
       "year": "2023",
-      "image": "image/breathscape.gif",
+      "image": "image/breathscape.webp",
       "link": "/artist/breathscape/",
       "still": "image/stills/breathscape.jpg",
       "cat": "installation"
@@ -95,7 +95,7 @@
     {
       "title": "Butterflying",
       "year": "2023",
-      "image": "image/butterflying.gif",
+      "image": "image/butterflying.webp",
       "link": "/artist/butterflying/",
       "still": "image/stills/butterflying.jpg",
       "cat": "installation"
@@ -103,7 +103,7 @@
     {
       "title": "Projective Verse of ㅇ",
       "year": "2023",
-      "image": "image/projectiveverseofo.gif",
+      "image": "image/projectiveverseofo.webp",
       "link": "/artist/projective-verse-of-o/",
       "still": "image/stills/projectiveverseofo.jpg",
       "cat": "installation poetry"
@@ -117,7 +117,7 @@
     {
       "title": "Abyss",
       "year": "2022",
-      "image": "image/abyss.gif",
+      "image": "image/abyss.webp",
       "link": "/artist/abyss/",
       "still": "image/stills/abyss.jpg",
       "cat": "installation"
@@ -125,7 +125,7 @@
     {
       "title": "Open your Window",
       "year": "2022",
-      "image": "image/openyourwindow.gif",
+      "image": "image/openyourwindow.webp",
       "link": "/artist/open-your-window/",
       "still": "image/stills/openyourwindow.jpg",
       "cat": "installation"
@@ -133,7 +133,7 @@
     {
       "title": "Somatic Blinds",
       "year": "2022",
-      "image": "image/somaticblinds.gif",
+      "image": "image/somaticblinds.webp",
       "link": "/artist/somatic-blinds/",
       "still": "image/stills/somaticblinds.jpg",
       "cat": "installation"
@@ -149,7 +149,7 @@
     {
       "title": "ㅁotherisland",
       "year": "2022",
-      "image": "image/otherisland.gif",
+      "image": "image/otherisland.webp",
       "link": "/artist/motherisland/",
       "still": "image/stills/otherisland.jpg",
       "cat": "installation"
@@ -224,7 +224,7 @@
     {
       "title": "I am telling what a I* see is what you see",
       "year": "2022",
-      "image": "image/ai.gif",
+      "image": "image/ai.webp",
       "link": "/artist/ai-see-what-you-see/",
       "still": "image/stills/ai.jpg",
       "cat": "lens"
@@ -232,7 +232,7 @@
     {
       "title": "Memories of Seoul",
       "year": "2017",
-      "image": "image/memoriesofseoul.gif",
+      "image": "image/memoriesofseoul.webp",
       "link": "/artist/memories-of-seoul/",
       "still": "image/stills/memoriesofseoul.jpg",
       "cat": "lens"
@@ -240,7 +240,7 @@
     {
       "title": "Be@IT",
       "year": "2017",
-      "image": "image/beait.gif",
+      "image": "image/beait.webp",
       "link": "/artist/beait/",
       "still": "image/stills/beait.jpg",
       "cat": "lens"

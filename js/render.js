@@ -113,6 +113,23 @@ async function renderArtist() {
   initArtistFilters();
 }
 
+// "Now showing & upcoming" band: items hide themselves after their end date
+async function renderNowBand() {
+  const band = document.getElementById('now-band');
+  if (!band) return;
+  const data = await fetch('/data/upcoming.json').then(r => r.json());
+  const today = new Date().toISOString().slice(0, 10);
+  const items = data.items.filter(i => (i.end || '9999-12-31') >= today);
+  if (!items.length) return;
+  const esc = t => String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;');
+  band.innerHTML = '<p class="now-band-l">Now showing &amp; upcoming</p>' + items.map(i =>
+    `<a class="now-item" href="${i.href}" style="text-decoration:none;">` +
+    `<span class="now-date">${esc(i.date)}</span>` +
+    `<span class="now-title">${esc(i.title)}</span>` +
+    `<span class="now-venue">${esc(i.venue)}</span></a>`).join('');
+  band.hidden = false;
+}
+
 // ── Educator ─────────────────────────────────────────────────────────────────
 
 async function renderEducator() {
@@ -403,5 +420,5 @@ async function renderBio() {
 // ── Init ─────────────────────────────────────────────────────────────────────
 
 export async function initRender() {
-  await Promise.all([renderArtist(), renderEducator(), renderResearcher(), renderBio()]);
+  await Promise.all([renderArtist(), renderNowBand(), renderEducator(), renderResearcher(), renderBio()]);
 }
