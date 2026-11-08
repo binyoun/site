@@ -4,14 +4,17 @@
 :root {
   --pink: #FF2D9B; --cyan: #4FFFDF; --neon: #39FF14;
   --light: #E8E8EC;
-  --snow70: rgba(232,232,236,.7); --snow50: rgba(232,232,236,.5);
-  --snow30: rgba(232,232,236,.3); --snow15: rgba(232,232,236,.15);
+  /* Text tokens are tuned to WCAG AA (4.5:1) on --void/--surface and --sand/--sand2.
+     snow30/ink30 etc. keep their names for the hierarchy but are not as faint as the names say. */
+  --snow70: rgba(232,232,236,.7); --snow50: rgba(232,232,236,.6);
+  --snow30: rgba(232,232,236,.52); --snow15: rgba(232,232,236,.15);
   --snow08: rgba(232,232,236,.08);
   --surface: #111114; --void: #060608;
   --sand: #f4f0e8; --sand2: #ece7dd;
   --ink: #1a1a18;
-  --ink80: rgba(26,26,24,.8); --ink60: rgba(26,26,24,.6);
-  --ink45: rgba(26,26,24,.45); --ink30: rgba(26,26,24,.3);
+  --ink80: rgba(26,26,24,.8); --ink60: rgba(26,26,24,.7);
+  --ink45: rgba(26,26,24,.68); --ink30: rgba(26,26,24,.64);
+  --pink-ink: #b80d66; /* pink for small text on sand (5.2:1) */
   --ink20: rgba(26,26,24,.2);  --ink12: rgba(26,26,24,.12);
   --ink08: rgba(26,26,24,.08); --ink05: rgba(26,26,24,.05);
   --heading: 'Space Grotesk', sans-serif;

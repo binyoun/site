@@ -61,3 +61,6 @@
 .work-table th { text-align: left; font-family: var(--mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--snow30); padding: 8px 12px 8px 0; border-bottom: 1px solid var(--snow08); }
 .work-table td { padding: 12px 12px 12px 0; border-bottom: 1px solid var(--snow08); color: var(--snow70); vertical-align: top; }
 .work-table td.dim { color: var(--snow30); font-family: var(--mono); font-size: 11px; }
+
+/* Portrait or poster heroes: show the whole image instead of cropping */
+.work-hero.is-contain img { object-fit: contain; max-height: 80vh; }
